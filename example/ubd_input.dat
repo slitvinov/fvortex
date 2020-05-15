@@ -1,0 +1,30 @@
+dt,Nsteps
+0.001,10000
+gamma_0,time_0,gnu
+1.,0.0,1.E-02
+s2,ovrlp
+1.e-04,0.9
+Limpar,vortlim
+30,1.e-03
+Nrem,visc_rmax
+5,100.
+Rmax,slip_frac,ell_x,ell_y
+1.1,0.5,6.0,1.0
+istepping(1=Euler/AB2, 2=RK2/AB2)
+1
+Nvort,Nvel
+50,100000
+i_time_avg(1=do averaging),n_avg_start,n_avg_times,n_avg_interval
+0,5,3,5
+Nx,Ny,Xmin,Xmax,Ymin,Ymax (vorticity)
+100,100,-1.5,1.5,-1.5,1.5
+vel_rmax,vel_points (velocity)
+1.,200
+ipathlines(0=take them)
+1
+idiags(1=take them)
+1
+ntree
+10
+icase(0=Continue),Nrestart
+1,100000
