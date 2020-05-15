@@ -1,156 +1,142 @@
-c~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        PROGRAM  GO
+      PROGRAM  GO
+      implicit none
 
-C       VORTICITY IN UNBOUNDED DOMAIN
-C  This program solves the 2D incompressible viscous vorticity equations
-C  using Lagrangian vortex particles
+      include 'main_dim.h'
+      include 'part.h'
 
-        implicit none
+      integer np
+      real s2,ovrlp,gnu
+      COMMON/PART/Np,s2,ovrlp,gnu
 
-        include 'main_dim.h'
-        include 'part.h'
+      integer n
+      real time,dt,slip_frac
+      COMMON/PARAMS/n,Time,dt,slip_frac
 
-        integer np
-        real s2,ovrlp,gnu
-        COMMON/PART/Np,s2,ovrlp,gnu
+      real vortlim, t1,t2
+      COMMON/REMS/vortlim
 
-        integer n
-        real time,dt,slip_frac
-        COMMON/PARAMS/n,Time,dt,slip_frac
-
-        real vortlim, t1,t2
-        COMMON/REMS/vortlim
-
-        integer irk,npath,i,ivalue,istepping
-        integer icase,ipath,idiags
-                integer Nsteps,Nrem,Nfilter,Nrestart
-        integer Nvf,Nvel,Ntree
-        integer i_time_avg,n_avg_start,n_avg_times,n_avg_interval
-        real Rmax,gamma_0,ell_x,ell_y,time_0,visc_rmax
-        LOGICAL  LREMESH
+      integer irk,npath,i,ivalue,istepping
+      integer icase,ipath,idiags
+      integer Nsteps,Nrem,Nfilter,Nrestart
+      integer Nvf,Nvel,Ntree
+      integer i_time_avg,n_avg_start,n_avg_times,n_avg_interval
+      real Rmax,gamma_0,ell_x,ell_y,time_0,visc_rmax
+      LOGICAL  LREMESH
 
 c---------------------------------------------------------------------------
 
-        irk=0
-        npath = -1
-        LREMESH = .FALSE.
+      irk=0
+      npath = -1
+      LREMESH = .FALSE.
 
-c--- get computational parameters
 
-        CALL INPUT(icase,ipath,idiags,istepping,
+
+      CALL INPUT(icase,ipath,idiags,istepping,
      &     Nsteps,Nrem,Nrestart,
      &     Nvf,Nvel,Ntree,
      &     Rmax,gamma_0,ell_x,ell_y,time_0,visc_rmax,
      &     i_time_avg,n_avg_start,n_avg_times,n_avg_interval)
 
-c--- tabulate the gaussian for use as diffusion kernel
+c---  tabulate the gaussian for use as diffusion kernel
 
-        CALL GAUSSIAN
+      CALL GAUSSIAN
 
-c--- old data for continuation run
-        IF(icase.EQ.0)THEN
-           CALL READ_RESTART(time,np,s2,ovrlp,nvort,xp,yp,gp)
+c---  old data for continuation run
+      IF(icase.EQ.0)THEN
+         CALL READ_RESTART(time,np,s2,ovrlp,nvort,xp,yp,gp)
 
-c -- NEW run
-        ELSE
-           CALL INITIAL(Rmax,gamma_0,ell_x,ell_y,time_0)
-           Time = time_0
-           irk = 0
-           CALL DIAGNOS         ! get initial impulse and circulation
-        ENDIF
-        ivalue = 0
-            call VORT_FIELD(ivalue)
+c     -- NEW run
+      ELSE
+         CALL INITIAL(Rmax,gamma_0,ell_x,ell_y,time_0)
+         Time = time_0
+         irk = 0
+         CALL DIAGNOS           ! get initial impulse and circulation
+      ENDIF
+      ivalue = 0
+      call VORT_FIELD(ivalue)
 
-            CALL CONDIFF(Np,0,9999.,0)  ! rebuild the interaction tree
+      CALL CONDIFF(Np,0,9999.,0) ! rebuild the interaction tree
 
-C   call vel_error  ! absolute error in a vel. profile relative to exact
+C     call vel_error  ! absolute error in a vel. profile relative to exact
 
-c***************************************************************************
-c                       MAIN LOOP
-c***************************************************************************
+      DO 1 n=1,Nsteps
 
-        DO 1 n=1,Nsteps
+c--   compute vortex interactions with the FAST MULTIPOLE METHOD
+         CALL CPU_TIME(t1)
 
-c-- compute vortex interactions with the FAST MULTIPOLE METHOD
-                  CALL CPU_TIME(t1)
-
-          IF (MOD(n,Ntree).EQ.0) THEN
+         IF (MOD(n,Ntree).EQ.0) THEN
             CALL CONDIFF(Np,1,visc_rmax,1)
-          else
+         else
             call condiff(np,1,visc_rmax,0)
-          endif
+         endif
 
-              CALL CPU_TIME(t2)
-                  WRITE(*,103)Np,t2-t1
-          CALL VEL_EXT(time)     ! Add irrotational velocities
+         CALL CPU_TIME(t2)
+         WRITE(*,103)Np,t2-t1
+         CALL VEL_EXT(time)     ! Add irrotational velocities
 
-c--     do pathlines if desired
+c--   do pathlines if desired
 
-          if(ipath.eq.0)then
+         if(ipath.eq.0)then
             npath = npath + 1
             call pathlines(npath)
-          endif
+         endif
 
-c--- Move the particles
+c---  Move the particles
 
-          IF((n.EQ.1).OR.(LREMESH))THEN    ! first step or first after remesh
+         IF((n.EQ.1).OR.(LREMESH))THEN ! first step or first after remesh
             LREMESH = .FALSE.
             if(istepping.eq.2) then
-              CALL MV_RK(visc_rmax)
-              irk=1
+               CALL MV_RK(visc_rmax)
+               irk=1
             else
-              call mv_eul
-              irk=0
+               call mv_eul
+               irk=0
             endif
-          ELSE
+         ELSE
             CALL MV_AB(irk)
             irk=0
-          ENDIF
+         ENDIF
 
 
-          Time=Time+dt
-          WRITE(*,102)n,Time
-c-- remesh every few steps to regularize particle locations
+         Time=Time+dt
+         WRITE(*,102)n,Time
+c--   remesh every few steps to regularize particle locations
 
-          IF (MOD(n,Nrem).EQ.0) THEN
+         IF (MOD(n,Nrem).EQ.0) THEN
             CALL REMESH
             LREMESH = .TRUE.
          ENDIF
 
-          if (idiags.EQ.1) then
-             CALL DIAGNOS               ! flow momentum and circulation
-          endif
+         if (idiags.EQ.1) then
+            CALL DIAGNOS        ! flow momentum and circulation
+         endif
 
-c-- save data for restart, if desired
+c--   save data for restart, if desired
 
-          if(mod(n,Nrestart).eq.0) then
-             ivalue=n/Nrestart
-             call write_restart(ivalue,time,np,s2,ovrlp,nvort,xp,yp,gp)
-          endif
+         if(mod(n,Nrestart).eq.0) then
+            ivalue=n/Nrestart
+            call write_restart(ivalue,time,np,s2,ovrlp,nvort,xp,yp,gp)
+         endif
 
-c-- take measurements if desired
+c--   take measurements if desired
 
-          CALL CONDIFF(Np,0,9999.,0)  ! rebuild the interaction tree
+         CALL CONDIFF(Np,0,9999.,0) ! rebuild the interaction tree
 
-c          call vel_error  ! absolute error in a vel. profile relative to exact
+c     call vel_error  ! absolute error in a vel. profile relative to exact
 
-          if(mod(n,Nvf).eq.0) then
-             ivalue=n/Nvf
-             call VORT_FIELD(ivalue)
-          endif
+         if(mod(n,Nvf).eq.0) then
+            ivalue=n/Nvf
+            call VORT_FIELD(ivalue)
+         endif
 
-c-- end of loop
+c--   end of loop
 
-1        CONTINUE
+ 1    CONTINUE
 
-c***************************************************************************
-c                        END OF LOOP
-c***************************************************************************
-
-101     FORMAT(f8.4,5(2x,f8.4))
-102     FORMAT(1H+,10x,' Time Step :',I5,6x,'Time :',F8.4)
-103     FORMAT(1H+,10x,' Particles :',I5,6x,'Time :',F8.4)
+ 101  FORMAT(f8.4,5(2x,f8.4))
+ 102  FORMAT(10x,' Time Step :',I5,6x,'Time :',F8.4)
+ 103  FORMAT(10x,' Particles :',I5,6x,'Time :',F8.4)
 
 
-        STOP
-        END
+      STOP
+      END
