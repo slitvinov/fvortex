@@ -65,7 +65,7 @@ c-- If any free motion, need to update now
         if ((xfree.eq.1).OR.(yfree.eq.1).OR.(wfree.eq.1)) then
 c-- Rebuild the tree
            CALL CONDIFF(Np,0,9999.,0)
-		   call update_position(0.5*dt)
+                   call update_position(0.5*dt)
         endif
 
 c--- 2nd Substep, corrector step, uses dt/2 values to get to dt
@@ -76,7 +76,7 @@ c-- Need to rebuild the interaction tree
         CALL VEL_EXT(time + 0.5*dt)
         DO 2 i =1,Np
           xp(i) = XN(i) + dt * (UU(i) - 0.5*Uold(i))
-		  yp(i) = YN(i) + dt * (VV(i) - 0.5*Vold(i))
+                  yp(i) = YN(i) + dt * (VV(i) - 0.5*Vold(i))
 
           gp(i) = gn(i) + dt * const * (gdiff(i) - 0.5*gdold(i)) 
 2       CONTINUE

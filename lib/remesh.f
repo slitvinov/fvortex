@@ -6,9 +6,9 @@ c   grid.
 
         implicit none
 
-	    include 'remesh_cartesian.h'
-	    include 'main_dim.h'
-	    include 'part.h'
+            include 'remesh_cartesian.h'
+            include 'main_dim.h'
+            include 'part.h'
 
         integer np
         real s2,ovrlp,gnu
@@ -16,7 +16,7 @@ c   grid.
 
         integer n
         real time,dt,slip_frac
-	    COMMON/PARAMS/n,Time,dt,slip_frac
+            COMMON/PARAMS/n,Time,dt,slip_frac
 
         real vortlim
         COMMON/REMS/vortlim
@@ -56,22 +56,22 @@ c--- Find the edge of the grid of particles
         WRITE(*,*)'Nx_l,Nx_r', Nx_l,Nx_r
         write(*,*)'Ny_t,Ny_b',ny_t,ny_b
         IF(Nx_r.GT.NX_max) THEN
-		  write(*,*) 'PROBLEM :Nx_right =',Nx_r, ' Nx_max = ', Nx_max
-		END IF 
+           write(*,*) 'PROBLEM :Nx_right =',Nx_r, ' Nx_max = ', Nx_max
+        END IF
         IF(Nx_l.LT.NX_min) THEN
-		   write(*,*) 'PROBLEM :Nx_left =', Nx_l,' Nx_min=',Nx_min
-		END IF
+           write(*,*) 'PROBLEM :Nx_left =', Nx_l,' Nx_min=',Nx_min
+        END IF
         IF(Ny_t.GT.Ny_max)THEN
-		   write(*,*)'PROBLEM :Ny_top =',Ny_t, 'Ny_max=',Ny_max
-		END IF
+                   write(*,*)'PROBLEM :Ny_top =',Ny_t, 'Ny_max=',Ny_max
+                END IF
         IF(Ny_b.lT.Ny_min)THEN
-		   write(*,*)'PROBLEM :Ny_bottom =', Ny_b, 'Ny_min=',Ny_min
-		END IF
+           write(*,*)'PROBLEM :Ny_bottom =', Ny_b, 'Ny_min=',Ny_min
+        END IF
 
-        IF((Nx_r.GT.NX_max).OR.(Nx_l.LT.NX_min).OR. 
+        IF((Nx_r.GT.NX_max).OR.(Nx_l.LT.NX_min).OR.
      &     (Ny_t.GT.Ny_max).OR.(Ny_b.lT.Ny_min)) THEN
-	      STOP
-	    END IF
+              STOP
+            END IF
 
 c--- Establish the new grid for the remeshed field
 
@@ -102,8 +102,8 @@ c--- check diagnostics, pre-remesh - they should be conserved through remesh
         cold = 0.0
         cx = 0.0
         DO 71 i =1,Np
-         cold = cold + GP(i)		! total circulation
-         cx  = cx + GP(i)*YP(i)	! x-impulse
+         cold = cold + GP(i)                ! total circulation
+         cx  = cx + GP(i)*YP(i)        ! x-impulse
 71      CONTINUE
         WRITE(*,*)'pre-remesh, circulation:',cold,'  x-impulse: ',cx
 
@@ -144,7 +144,7 @@ c----------------------------------------------------------------
            in = in + 1
            ig = INDX(ix,iy)
            GG(ig) = GG(ig) + g  ! NGP   Interpolation
-         
+
          ELSE
 c----------------------------------------------------------------
 c- Category 0_1 : ALL other PARTICLES in the domain
@@ -203,11 +203,11 @@ c-- only cutoff if below threshold AND away from domain center
 
 c---  check diagnostics
 
-	    Np = iback
+            Np = iback
         cnew = 0.0
         cx = 0.0
         DO 72 i = 1,Np
-	     circ = gp(i)
+             circ = gp(i)
          cnew = cnew + circ
          cx  = cx + circ*YP(i)
 72      CONTINUE
@@ -219,6 +219,3 @@ c---  check diagnostics
 
         RETURN
         END
-
-
-

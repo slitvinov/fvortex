@@ -32,15 +32,15 @@ c------------------------------------------------------------------------------
         dshaf = 0.5001*ds
         kfar = 0
         kclose = 0
-	radius = 1.                ! assumed Rcyl=1. here
-	radius_ds = radius + dshaf
+        radius = 1.                ! assumed Rcyl=1. here
+        radius_ds = radius + dshaf
 
         DO 2 k = 1,kexam
            ks = Listexam(k)
            ib = IC(ks)
            jb = JC(ks)
            ax = Xst + ib*ds
-	   ay = yst + jb*ds
+           ay = yst + jb*ds
            IF ( (IABS(ib-lx).LE.1)
      &       .AND.(IABS(jb-ly).LE.1) )THEN
              kclose = kclose + 1

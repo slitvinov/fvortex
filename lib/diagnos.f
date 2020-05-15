@@ -35,15 +35,15 @@ C-----------------------------------------------------
 	    xmom = xmom - g*y
 	    ymom = ymom + g*x
 	    ang = ang + 0.5*(x*x+y*y+s2)*g
-        write(21,*)x,y
+	write(21,*)x,y
 2     CONTINUE
        CLOSE(21)
 
 	   WRITE(10,100)Time,xmom
 	   WRITE(11,100)Time,ymom
 	   WRITE(12,100)Time,Circ
-	
+
 100    FORMAT(f10.4,2x,e13.6)
 
 	RETURN
-	END                                                           
+	END

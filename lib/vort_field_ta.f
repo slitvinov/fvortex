@@ -5,9 +5,9 @@ C   This subroutine outputs the vorticity field on a grid for time averaging.
 
         implicit none
 
-	include 'main_dim.h'
+        include 'main_dim.h'
 
-	include 'part.h'
+        include 'part.h'
 
         include 'measure.h'
 
@@ -23,12 +23,12 @@ C   This subroutine outputs the vorticity field on a grid for time averaging.
         real Xmaxavg,Xminavg,Ymaxavg,Yminavg
         COMMON/VORT_AVG/Nxavg,Nyavg,Xmaxavg,Xminavg,Ymaxavg,Yminavg
 
-	integer ivelpts
-	real Xstr(Nsx),Ystr(Nsy)
-	real Psi(Nsx * Nsy),xg(nsx*nsy),yg(nsx*nsy),gg(nsx*nsy)
-	real u90(ivel_pts),v90(ivel_pts),u270(ivel_pts),v270(ivel_pts)
-	real x90(ivel_pts),y90(ivel_pts),x270(ivel_pts),y270(ivel_pts)
-	COMMON/TIME_AVG/Xstr,Ystr,Psi,ivelpts,
+        integer ivelpts
+        real Xstr(Nsx),Ystr(Nsy)
+        real Psi(Nsx * Nsy),xg(nsx*nsy),yg(nsx*nsy),gg(nsx*nsy)
+        real u90(ivel_pts),v90(ivel_pts),u270(ivel_pts),v270(ivel_pts)
+        real x90(ivel_pts),y90(ivel_pts),x270(ivel_pts),y270(ivel_pts)
+        COMMON/TIME_AVG/Xstr,Ystr,Psi,ivelpts,
      &      u90,v90,u270,v270,x90,y90,x270,y270,xg,yg,gg 
 
         integer ny,j,ix,iy,m0,m,nx,ngrid
@@ -45,7 +45,7 @@ c----------------------------------------------------------------
         Y0 = Yminavg
         ny = nyavg
         nx = nxavg
-	ngrid = nx*ny
+        ngrid = nx*ny
 
 c- Determination of  the  circulation  of each particle
 
@@ -67,317 +67,317 @@ c-- loop over grid in expnaded code in order to vectorize
 C     ---- Points on column IX
          m0 = (ix -1)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX - 3
          m0 = (ix - 4)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX - 2
          m0 = (ix - 3)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX - 1
          m0 = (ix - 2)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX + 1
          m0 = (ix)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX + 2
          m0 = (ix + 1)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
 
 C     ---- Points on column IX + 3
          m0 = (ix + 2)*Ny + iy
          m = m0
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 - 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 1
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 2
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
          m = m0 + 3
-	 if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
+         if( (m.gt.0).and.(m.lt.(ngrid+1)) ) then
          r2s = ((xg(m) - x)**2 + (yg(m) - y)**2) * s2inv2
          c = EXP(-r2s)
          gg(m) = gg(m) + g * c
-	 endif
+         endif
           endif
 20       CONTINUE
 

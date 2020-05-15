@@ -10,7 +10,7 @@ c Lamb-Oseen (initially point) vortex are input.
 
         implicit none
 
-	    include 'main_dim.h'
+            include 'main_dim.h'
         include 'measure.h'
 
         integer n
@@ -70,8 +70,8 @@ c-----read in various parameters for the computation
         READ(1,*)
         READ(1,*)idiags
         READ(1,*)
-	    READ(1,*)Ntree
-	    READ(1,*)
+            READ(1,*)Ntree
+            READ(1,*)
         READ(1,*)icase,Nrestart
         close(1)
 
@@ -80,23 +80,23 @@ c~~~~~~~~~~~~~~~~~~~~ GLOSSARY OF INPUT PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~
 
 c       dt = time step length   Nsteps = # of time steps
 
-c	    Lamb vortex IC: omega(r)=(gamma_0/(4.*gnu*time_0*pi))exp(-r*r/4.*gnu*time_0)
+c            Lamb vortex IC: omega(r)=(gamma_0/(4.*gnu*time_0*pi))exp(-r*r/4.*gnu*time_0)
 c       gnu = kinematic viscosity       
 
-c	    s2 = particle core area
+c            s2 = particle core area
 c       ovrlp = ratio of grid to particle core size
 
 c       Limpar = minimum particles per box in tree decompositions
 c       vortlim = cutoff vorticity for a particle
 
 c       Nrem = frequency of remeshing
-c	    visc_rmax = maximum radius at which do account for diffusion
+c            visc_rmax = maximum radius at which do account for diffusion
 
 c       Rmax = outer radius of remesh grid
 c       slip_frac = fractional time during step when slip is given
 
-c	    istepping = type of time stepping after remesh
-c		(1=Euler (1st order), 2=Runge Kutta 2nd order)
+c            istepping = type of time stepping after remesh
+c                (1=Euler (1st order), 2=Runge Kutta 2nd order)
 
 c       Nvf = frequency of vorticity field measurement
 c       Nvel = frequency of velocity field measurement
@@ -116,7 +116,7 @@ c       ipath = 0 to do pathlines throughout the run
 
 c       idiags = 0 for no force measurement, 1 for momentum, 2 for both
 
-c	    ntree = frequency for tree stats output
+c            ntree = frequency for tree stats output
 
 c       icase = 0 for a continuation run
 c       Nrestart = frequency with which to write restart files
