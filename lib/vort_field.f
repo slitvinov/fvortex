@@ -6,7 +6,6 @@ C     outputs the vorticity field on a grid.
 
       include 'main_dim.h'
       include 'part.h'
-      include 'measure.h'
 
       integer Nx,Ny
       real xmax,xmin,ymax,ymin
@@ -22,7 +21,7 @@ C     outputs the vorticity field on a grid.
       real pi,twopiinv,dx,dy,x0,y0,xx,s2inv2,s2piinv,dxinv,dyinv
       real g,x,y,r2s,c
       real xg(Nx*Ny),yg(Nx*Ny),gg(Nx*Ny)
-      character(len=256) :: value,vortoutfile
+      character(len=256) :: vortoutfile
 c----------------------------------------------------------------
       pi = 4.0*ATAN(1.0)
       twopiinv = 0.5/pi

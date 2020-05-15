@@ -67,7 +67,7 @@ vel_tree.o: vel_tree.f tree_tmp.h
 velocity.o: velocity.f main_dim.h
 velocity_x.o: velocity_x.f
 velocity_y.o: velocity_y.f
-vort_field.o: vort_field.f main_dim.h part.h measure.h
+vort_field.o: vort_field.f main_dim.h part.h
 vort_field_ta.o: vort_field_ta.f main_dim.h part.h measure.h
 wheneq.o: wheneq.f main_dim.h
 write_restart.o: write_restart.f
