@@ -2,7 +2,7 @@
 .SUFFIXES: .o .f
 include ../conf.mk
 
-M_FFLAGS = -I$(PREFIX)/include
+M_FFLAGS = -I$(PREFIX)/include -std=f95
 M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lgfortran -lm
 
 M = \

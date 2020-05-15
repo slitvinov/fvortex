@@ -3,6 +3,8 @@
 .PHONY: clean lint install
 include ../conf.mk
 
+M_FFLAGS = -std=f95
+
 H = \
 main_dim.h\
 part.h\
@@ -89,7 +91,7 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f.o:; $(FC) -c $(FFLAGS) $< -o $@
+.f.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
 include dep.mk
 
 lint:; make FFLAGS='-Wall -Wextra -g -O2'

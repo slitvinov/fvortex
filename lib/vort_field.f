@@ -384,7 +384,7 @@ C     ---- Points on column IX + 3
        endif
  20   CONTINUE
       WRITE(vortoutfile,'(A,I0.5,A)') 'w.', iframe, '.dat'
-      open(1,file=vortoutfile,status='new')
+      open(1,file=vortoutfile,status='replace')
       WRITE(1,'(A)') 'variables=x,y,w'
       WRITE(1,'(A,I8,A,I8)') 'zone i=',Nx,', j=',Ny
       in = 0
