@@ -37,11 +37,11 @@ Usage: python fdeclarations.py file.f90 > output.f90
 Restrictions:
 
 *) Assumes free source format
-*) Assumes 'implicit none'
+*) Assumes "implicit none"
 *) Only one subroutine per file allowed
 
 *) There might be problems when working with Fortran functions
-Workaround: replace 'function' keyword temporarily with 'subroutine'
+Workaround: replace "function" keyword temporarily with "subroutine"
 
 *) Warning: does not deal with attributes in different lines:
 *) e.g.:
@@ -64,10 +64,10 @@ from __future__ import print_function
 import re
 import sys
 
-TYPEKEYS = ['integer', 'logical', 'real', 'complex',
-            'double precision', 'double complex', 'character', 'doubleprecision', 'doublecomplex']
+TYPEKEYS = ["integer", "logical", "real", "complex",
+            "double precision", "double complex", "character", "doubleprecision", "doublecomplex"]
 
-#m = re.search(r'(subroutine|function)(.*?)\((.*?)\)', s)
+#m = re.search(r"(subroutine|function)(.*?)\((.*?)\)", s)
 
 
 #class FortranVariableDict
@@ -80,7 +80,7 @@ class FortranVariable:
         self.initialiser = initialiser
         self.is_argument = is_argument
 
-        if 'parameter' in self.decl:
+        if "parameter" in self.decl:
             self.is_parameter = True
         else:
             self.is_parameter = False
@@ -101,7 +101,7 @@ class FortranVariable:
 
 class FortranSubroutineHeader:
     def __init__(name, arglist):
-        self.name = ''
+        self.name = ""
         self.arglist = []
 
 #------------------------------------------------------------------------------
@@ -111,17 +111,17 @@ def gen_removeComments(stream):
 
     for line in stream:
         string_delim = None
-        result_line = ''
+        result_line = ""
 
         for ch in line:
-            if ch in ["'", '"']:
+            if ch in [""", """]:
                 if not string_delim:
                     string_delim = ch
                 elif string_delim == ch:
                     string_delim = None
 
-            if ch == '!' and not string_delim:
-                result_line += '\n'
+            if ch == "!" and not string_delim:
+                result_line += "\n"
                 break
 
             result_line += ch
@@ -134,17 +134,17 @@ def gen_removeComments(stream):
 
 #------------------------------------------------------------------------------
 def gen_removeLineContinuations(stream):
-    result_line = ''
+    result_line = ""
 
     for line in stream:
-        if re.search(r'&\s*$', line):
-            result_line = result_line.rstrip() + line.rstrip().rstrip('&').lstrip()
+        if re.search(r"&\s*$", line):
+            result_line = result_line.rstrip() + line.rstrip().rstrip("&").lstrip()
             continue
         else:
             result_line += line
 
         yield result_line
-        result_line = ''
+        result_line = ""
 
 #------------------------------------------------------------------------------
 def gen_removeEmptyLines(stream):
@@ -163,7 +163,7 @@ def isDeclarationLine(line):
 
     for ty in TYPEKEYS:
         # search for whole words only
-        if re.search(r'\b'+ty+r'\b', line, re.IGNORECASE):
+        if re.search(r"\b"+ty+r"\b", line, re.IGNORECASE):
             return True
 
     return False
@@ -174,32 +174,32 @@ def separate_names_and_dims(varstr):
     names = []
     dims = []
 
-    namestr = ''
-    dimstr = ''
+    namestr = ""
+    dimstr = ""
 
     num_par = 0
 
     for ch in varstr:
 
-        if not ch in '()':
+        if not ch in "()":
             if num_par == 0:
                 namestr += ch
             else:
                 dimstr += ch
-        elif ch == '(':
+        elif ch == "(":
             num_par += 1
             dimstr += ch
-        elif ch == ')':
+        elif ch == ")":
             num_par -= 1
             dimstr += ch
 
-        if ch == ',' and num_par == 0:
-            namestr = namestr.replace(',', '')
+        if ch == "," and num_par == 0:
+            namestr = namestr.replace(",", "")
             # new variable
             names.append(namestr.strip())
             dims.append(dimstr.strip())
-            namestr = ''
-            dimstr = ''
+            namestr = ""
+            dimstr = ""
 
     names.append(namestr.strip())
     dims.append(dimstr.strip())
@@ -209,21 +209,21 @@ def separate_names_and_dims(varstr):
 #------------------------------------------------------------------------------
 def removeDimension(x):
     """Removes dimension list. E.g.: "var (n,m), x(5)" -> "var, x" """
-    result = ''
+    result = ""
     num_par = 0
     for ch in x:
-        if not ch in '()':
+        if not ch in "()":
             if num_par == 0:
                 result += ch
-        elif ch == '(':
+        elif ch == "(":
             num_par += 1
-        elif ch == ')':
+        elif ch == ")":
             num_par -= 1
     return result
 
 #------------------------------------------------------------------------------
 def getVarsF90Style(line):
-    ind = line.find('::')
+    ind = line.find("::")
     varstr = line[ind+2:].strip()
     decl = line[:ind].strip()
     return decl, varstr
@@ -231,24 +231,24 @@ def getVarsF90Style(line):
 #------------------------------------------------------------------------------
 def getVarsF77Style(line):
     #([*][0-9]+)? is to support stuff like real*8
-    #varstr = re.sub('('+'|'.join(TYPEKEYS) + r')([*][0-9]+)?.*?', '', line, re.IGNORECASE).strip()
+    #varstr = re.sub("("+"|".join(TYPEKEYS) + r")([*][0-9]+)?.*?", "", line, re.IGNORECASE).strip()
     # deal also with stuff like real(8)
-    #print re.match('('+'|'.join(TYPEKEYS) + r')(([*][0-9]+)|\(.+?\))?.*?', line, re.IGNORECASE).group(0)
-    #varstr = re.sub('('+'|'.join(TYPEKEYS) + r')(([*][0-9]+)|\(.+?\))?', '', line, re.IGNORECASE).strip()
+    #print re.match("("+"|".join(TYPEKEYS) + r")(([*][0-9]+)|\(.+?\))?.*?", line, re.IGNORECASE).group(0)
+    #varstr = re.sub("("+"|".join(TYPEKEYS) + r")(([*][0-9]+)|\(.+?\))?", "", line, re.IGNORECASE).strip()
     #print varstr
     #ind = line.find(varstr)
     #decl = line[:ind].strip()
     sline = line.split()
     decl = sline.pop(0).strip()
-    if decl.lower() == 'double':
-        decl += ' ' + sline.pop(0).strip()
-    varstr = ' '.join(sline)    
+    if decl.lower() == "double":
+        decl += " " + sline.pop(0).strip()
+    varstr = " ".join(sline)    
 
     return decl, varstr
 
 #------------------------------------------------------------------------------
 def extractInitialiser(expr):
-    split_expr = expr.split('=')
+    split_expr = expr.split("=")
     if len(split_expr) > 1:
         return split_expr[0].strip(), split_expr[1].strip()
     else:
@@ -259,7 +259,7 @@ def getVariablenames(line):
     """Given a declaration line, returns a list of names of
        variables declared in this line and the declaration part"""
 
-    if '::' in line:
+    if "::" in line:
         decl, varstr = getVarsF90Style(line)
     else:
         decl, varstr = getVarsF77Style(line)
@@ -267,7 +267,7 @@ def getVariablenames(line):
     # if initialisation of varible in same line - extract it
     varstr, initialiser = extractInitialiser(varstr)
 
-    #names = [name.strip() for name in removeDimension(varstr).split(',')]
+    #names = [name.strip() for name in removeDimension(varstr).split(",")]
 
     names, dims = separate_names_and_dims(varstr)
     return decl, names, dims, initialiser
@@ -277,7 +277,7 @@ def getVariablenames(line):
 def getArgumentList(argline):
     """Returns the argument list of a Fortran subroutine"""
     #print line
-    re_match = re.search(r'subroutine(.*?)\((.*)\)', argline, re.IGNORECASE)
+    re_match = re.search(r"subroutine(.*?)\((.*)\)", argline, re.IGNORECASE)
     
     if re_match == None:
         return None
@@ -285,7 +285,7 @@ def getArgumentList(argline):
     #print re_match.group(0)
     
     name = re_match.group(1).strip()
-    arglist = [arg.strip() for arg in re_match.group(2).split(',')]
+    arglist = [arg.strip() for arg in re_match.group(2).split(",")]
 
     return name, arglist
 
@@ -293,7 +293,7 @@ def getArgumentList(argline):
 
 #------------------------------------------------------------------------------
 def printWrapperCode(subname, arglist, varlist):
-    print("subroutine " + subname + "(" + ','.join(arglist) + ')')
+    print("subroutine " + subname + "(" + ",".join(arglist) + ")")
     print("  implicit none")
     # parameters first
     for entry in varlist:
@@ -307,7 +307,7 @@ def printWrapperCode(subname, arglist, varlist):
 
 if __name__ == "__main__":
 
-    f = open(sys.argv[1], 'r')
+    f = open(sys.argv[1], "r")
 
     xf = gen_removeEmptyLines(gen_removeLineContinuations(gen_removeComments(f)))
 
