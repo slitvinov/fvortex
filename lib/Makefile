@@ -1,9 +1,7 @@
 .POSIX:
-.SUFFIXES: .o .f
+.SUFFIXES: .o .f95
 .PHONY: clean lint install
 include ../conf.mk
-
-M_FFLAGS = -std=f95
 
 H = \
 main_dim.h\
@@ -91,9 +89,9 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
+.f95.o:; $(FC) -c $(FFLAGS) $< -o $@
 include dep.mk
 
 lint:; make FFLAGS='-Wall -Wextra -g -O2'
-dep:; for i in *.f; do $(FC) -MM -cpp $$i; done > dep.mk
+dep:; for i in *.f95; do $(FC) -MM -cpp $$i; done > dep.mk
 clean:; rm -f -- $O $L

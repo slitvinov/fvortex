@@ -1,17 +1,17 @@
 .POSIX:
-.SUFFIXES: .o .f
+.SUFFIXES: .o .f95
 include ../conf.mk
 
-M_FFLAGS = -I$(PREFIX)/include -std=f95
+M_FFLAGS = -I$(PREFIX)/include
 M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lgfortran -lm
 
 M = \
 main\
 
 all: $M
-.f.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
+.f95.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
 .o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
-%: %.f
+%: %.f95
 
 lint:; make FFLAGS='-Wall -Wextra -g -O2'
 

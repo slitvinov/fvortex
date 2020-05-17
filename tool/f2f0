@@ -8,3 +8,11 @@ do o=`dirname $i`/`basename $i .f`.f95
    then printf >&2 %s\\n "$me: failed"
    fi
 done
+
+for i in `find lib/ example/ -name '*.h'`
+do printf >&2 %s\\n "$me: $i $o"
+   if ! ./tool/f2f $i /tmp/t
+   then printf >&2 %s\\n "$me: failed"
+   fi
+   mv /tmp/t $i
+done
