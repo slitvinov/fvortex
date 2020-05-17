@@ -11,8 +11,8 @@ subroutine vort_field(iframe)
    real :: xmax, xmin, ymax, ymin
    common/vort_avg/Nx, Ny, xmax, xmin, ymax, ymin
    integer :: n
-   real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   real :: time, dt
+   common/params/n, Time, dt
    integer :: np
    real :: s2, ovrlp, gnu
    common/part/Np, s2, ovrlp, gnu

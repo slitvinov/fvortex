@@ -10,8 +10,8 @@ subroutine diagnos
    include 'part.h'
 
    integer :: n
-   real :: Time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   real :: Time, dt
+   common/params/n, Time, dt
 
    integer :: np
    real :: s2, ovrlp, gnu

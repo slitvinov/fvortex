@@ -14,8 +14,8 @@ subroutine remesh
    common/part/Np, s2, ovrlp, gnu
 
    integer :: n
-   real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   real :: time, dt
+   common/params/n, Time, dt
 
    real :: vortlim
    common/rems/vortlim

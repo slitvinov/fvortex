@@ -13,8 +13,8 @@ subroutine input(icase, ipath, idiags, istepping, &
    include 'measure.h'
 
    integer :: n
-   real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   real :: time, dt
+   common/params/n, Time, dt
 
    integer :: np
    real :: s2, ovrlp, gnu
@@ -53,7 +53,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    read (1, *)
    read (1, *) Nrem, visc_rmax
    read (1, *)
-   read (1, *) Rmax, slip_frac, ell_x, ell_y
+   read (1, *) Rmax, ell_x, ell_y
    read (1, *)
    read (1, *) istepping
    read (1, *)
@@ -91,8 +91,7 @@ subroutine input(icase, ipath, idiags, istepping, &
 !            visc_rmax = maximum radius at which do account for diffusion
 
 !       Rmax = outer radius of remesh grid
-!       slip_frac = fractional time during step when slip is given
-
+!
 !            istepping = type of time stepping after remesh
 !                (1=Euler (1st order), 2=Runge Kutta 2nd order)
 

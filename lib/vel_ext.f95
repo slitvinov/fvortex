@@ -10,8 +10,8 @@ subroutine vel_ext(tm)
    include 'part.h'
 
    integer :: n
-   real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   real :: time, dt
+   common/params/n, Time, dt
 
    integer :: np
    real :: s2, ovrlp, gnu
