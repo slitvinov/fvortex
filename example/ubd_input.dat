@@ -1,6 +1,6 @@
 dt,Nsteps
 0.001,10000
-time_0,gnu
+gnu
 0.0,1.E-02
 s2,ovrlp
 1.e-04,0.9

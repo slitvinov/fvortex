@@ -13,7 +13,7 @@ program go
 
    integer :: n
    real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
+   common/params/n, time, dt, slip_frac
 
    real :: vortlim, t1, t2
    common/rems/vortlim
@@ -23,7 +23,7 @@ program go
    integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Nvel, Ntree
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   real :: Rmax, ell_x, ell_y, time_0, visc_rmax
+   real :: Rmax, ell_x, ell_y, visc_rmax
    logical ::  lremesh
 
 !---------------------------------------------------------------------------
@@ -35,7 +35,7 @@ program go
    call input(icase, ipath, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Nvel, Ntree, &
-              Rmax, ell_x, ell_y, time_0, visc_rmax, &
+              Rmax, ell_x, ell_y, visc_rmax, &
               i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
 
 !---  tabulate the gaussian for use as diffusion kernel
@@ -49,7 +49,7 @@ program go
       !     -- NEW run
    else
       call initial(Rmax, ell_x, ell_y)
-      Time = time_0
+      time = 0.0
       irk = 0
       call diagnos           ! get initial impulse and circulation
    endif
@@ -98,8 +98,8 @@ program go
          irk = 0
       endif
 
-      Time = Time + dt
-      write (*, 102) n, Time
+      time = time + dt
+      write (*, 102) n, time
       !--   remesh every few steps to regularize particle locations
 
       if (mod(n, Nrem) == 0) then

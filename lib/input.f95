@@ -1,7 +1,7 @@
 subroutine input(icase, ipath, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Nvel, Ntree, &
-                 Rmax, ell_x, ell_y, time_0, visc_rmax, &
+                 Rmax, ell_x, ell_y, visc_rmax, &
                  i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
 
 ! In this subroutine parameters for the computation of the
@@ -37,7 +37,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
    integer :: nvel, ntree, istepping
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   real :: Rmax, ell_x, ell_y, time_0, visc_rmax
+   real :: Rmax, ell_x, ell_y, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
@@ -45,7 +45,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    read (1, *)
    read (1, *) dt, Nsteps
    read (1, *)
-   read (1, *) time_0, gnu
+   read (1, *) gnu
    read (1, *)
    read (1, *) s2, ovrlp
    read (1, *)
@@ -77,10 +77,7 @@ subroutine input(icase, ipath, idiags, istepping, &
 !~~~~~~~~~~~~~~~~~~~~ GLOSSARY OF INPUT PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~
 
 !       dt = time step length   Nsteps = # of time steps
-
-!            Lamb vortex IC: omega(r)=(gamma_0/(4.*gnu*time_0*pi))exp(-r*r/4.*gnu*time_0)
 !       gnu = kinematic viscosity
-
 !            s2 = particle core area
 !       ovrlp = ratio of grid to particle core size
 
