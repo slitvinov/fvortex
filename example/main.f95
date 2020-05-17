@@ -1,6 +1,9 @@
 program go
    implicit none
 
+   interface
+      include 'petros.h'
+   end interface
    include 'main_dim.h'
    include 'part.h'
 

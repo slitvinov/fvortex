@@ -1,11 +1,12 @@
 .POSIX:
 .SUFFIXES: .o .f95
-.PHONY: clean lint install
+.PHONY: clean lint install dep int
 include ../conf.mk
 
 H = \
 main_dim.h\
 part.h\
+petros.h\
 
 L = libpetros.a
 O = \
@@ -93,5 +94,7 @@ $L: $O; ar rv $@ $O && ranlib $@
 include dep.mk
 
 lint:; make FFLAGS='-Wall -Wextra -g -O2'
+int:; ../tool/fdeclarations read_restart.f95 write_restart.f95 > petros.h
 dep:; for i in *.f95; do $(FC) -MM -cpp $$i; done > dep.mk
+
 clean:; rm -f -- $O $L

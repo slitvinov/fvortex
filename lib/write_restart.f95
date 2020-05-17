@@ -1,4 +1,4 @@
-subroutine write_restart(ivalue, time, np, s2, ovrlp, nmin, radin, &
+subroutine write_restart(ivalue, time, np, s2, ovrlp, &
                          nvort, xp, yp, gp)
 
 !  Write the files needed to restart the simulation.
@@ -6,8 +6,8 @@ subroutine write_restart(ivalue, time, np, s2, ovrlp, nmin, radin, &
 
    implicit none
 
-   integer :: ivalue, np, nmin, nvort
-   real :: time, s2, ovrlp, radin, xp(nvort), yp(nvort), gp(nvort)
+   integer :: ivalue, np, nvort
+   real :: time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)
    character value
 !----------------------------------------------------------------------
 
@@ -18,8 +18,6 @@ subroutine write_restart(ivalue, time, np, s2, ovrlp, nmin, radin, &
    write (1, *) np
    write (1, *) s2
    write (1, *) ovrlp
-   write (1, *) nmin
-   write (1, *) radin
    close (1)
 
    open (1, file='x'//value//'.cont', status='new', form='unformatted')
