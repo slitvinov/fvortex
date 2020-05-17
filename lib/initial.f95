@@ -11,8 +11,6 @@ subroutine initial(Rmax, ell_x, ell_y)
    include 'main_dim.h'
    include 'part.h'
 
-   integer :: n
-
    integer :: np
    real :: s2, ovrlp, gnu
    common/part/Np, s2, ovrlp, gnu
@@ -24,7 +22,6 @@ subroutine initial(Rmax, ell_x, ell_y)
    deltax = sqrt(h2)  ! grid spacing
    h2 = deltax*deltax ! actual cell area
    Nmx = 2*Rmax/deltax + 1
-
    denom = 1.0/(0.1*Rmax)**2
 
 !--- generate the grid
