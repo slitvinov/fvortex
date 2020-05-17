@@ -68,7 +68,6 @@ velocity.o: velocity.f95 main_dim.h
 velocity_x.o: velocity_x.f95
 velocity_y.o: velocity_y.f95
 vort_field.o: vort_field.f95 main_dim.h part.h
-vort_field_ta.o: vort_field_ta.f95 main_dim.h part.h measure.h
 wheneq.o: wheneq.f95 main_dim.h
 write_restart.o: write_restart.f95
 zeroall.o: zeroall.f95 tree_tmp.h main_dim.h tree9.h

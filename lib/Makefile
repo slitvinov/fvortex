@@ -91,7 +91,6 @@ velocity_y.o\
 vel_part.o\
 vel_tree.o\
 vort_field.o\
-vort_field_ta.o\
 wheneq.o\
 write_restart.o\
 zeroall.o\
