@@ -5,10 +5,9 @@ subroutine condiff(Npart,islip,visc_rmax,istats)
   integer :: istats
   real :: visc_rmax
 end subroutine
-subroutine initial(Rmax,gamma_0,ell_x,ell_y)
+subroutine initial(Rmax,ell_x,ell_y)
   implicit none
   real :: rmax
-  real :: gamma_0
   real :: ell_x
   real :: ell_y
 end subroutine

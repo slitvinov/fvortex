@@ -23,7 +23,7 @@ program go
    integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Nvel, Ntree
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   real :: Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax
+   real :: Rmax, ell_x, ell_y, time_0, visc_rmax
    logical ::  lremesh
 
 !---------------------------------------------------------------------------
@@ -35,7 +35,7 @@ program go
    call input(icase, ipath, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Nvel, Ntree, &
-              Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax, &
+              Rmax, ell_x, ell_y, time_0, visc_rmax, &
               i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
 
 !---  tabulate the gaussian for use as diffusion kernel
@@ -48,7 +48,7 @@ program go
 
       !     -- NEW run
    else
-      call initial(Rmax, gamma_0, ell_x, ell_y)
+      call initial(Rmax, ell_x, ell_y)
       Time = time_0
       irk = 0
       call diagnos           ! get initial impulse and circulation

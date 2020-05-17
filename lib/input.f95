@@ -1,7 +1,7 @@
 subroutine input(icase, ipath, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Nvel, Ntree, &
-                 Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax, &
+                 Rmax, ell_x, ell_y, time_0, visc_rmax, &
                  i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
 
 ! In this subroutine parameters for the computation of the
@@ -37,7 +37,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
    integer :: nvel, ntree, istepping
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   real :: Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax
+   real :: Rmax, ell_x, ell_y, time_0, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
@@ -45,7 +45,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    read (1, *)
    read (1, *) dt, Nsteps
    read (1, *)
-   read (1, *) gamma_0, time_0, gnu
+   read (1, *) time_0, gnu
    read (1, *)
    read (1, *) s2, ovrlp
    read (1, *)
