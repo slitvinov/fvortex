@@ -12,18 +12,11 @@ subroutine initial(Rmax, gamma_0, ell_x, ell_y)
    include 'part.h'
 
    integer :: n
-   real :: time, dt, slip_frac
-   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
    common/part/Np, s2, ovrlp, gnu
-
-   real :: vortlim
-   common/rems/vortlim
-
    real :: rmax, gamma_0, ell_x, ell_y, r_arg
-
    integer :: Nmx, in, ix, iy
    real :: pi, h2, deltax, denom, front, x, y, strength
 !-----------------------------------------------------------------------
