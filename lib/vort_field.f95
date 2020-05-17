@@ -391,8 +391,6 @@ subroutine vort_field(iframe)
    do j = 1, Nx
       do i = 1, Ny
          in = in + 1
-         if (abs(gg(in)) < 1.e-20) gg(in) = 0.
-         if (abs(gg(in)) > 1.e20) gg(in) = 0.
          write (1, '(3E17.9)') xg(in), yg(in), gg(in)
       end do
    end do

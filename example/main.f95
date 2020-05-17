@@ -133,8 +133,8 @@ program go
 
 1  end do
 
-102 format(10x, ' Time Step :', i5, 6x, 'Time :', f8.4)
-103 format(10x, ' Particles :', i5, 6x, 'Time :', f8.4)
+102 format(10x, ' Time Step :', i9, 6x, 'Time :', f8.4)
+103 format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
 
    stop
 end program
