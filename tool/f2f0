@@ -1,7 +1,10 @@
 #!/bin/sh
 
+me=f2f20
 for i in `find lib/ example/ -name '*.f'`
 do o=`dirname $i`/`basename $i .f`.f95
-   printf >&2 %s\\n "$i $o"
-   ./tool/f2f $i $o
+   printf >&2 %s\\n "$me: $i $o"
+   if ! ./tool/f2f $i $o
+   then printf >&2 %s\\n "$me: failed"
+   fi
 done
