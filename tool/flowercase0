@@ -1,0 +1,11 @@
+#!/bin/sh
+
+me=flowercase0
+for i in `find lib/ example/ -name '*.h' -or name '*.f95`
+do printf >&2 %s\\n "$me: $i $o"
+   if ! ./tool/flowercase $i > /tmp/t
+   then printf >&2 %s\\n "$me: failed"
+        exit 2
+   fi
+   mv /tmp/t $i
+done
