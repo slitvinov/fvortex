@@ -48,7 +48,7 @@ program go
 
       !     -- NEW run
    else
-      call initial(Rmax, gamma_0, ell_x, ell_y, time_0)
+      call initial(Rmax, gamma_0, ell_x, ell_y)
       Time = time_0
       irk = 0
       call diagnos           ! get initial impulse and circulation
