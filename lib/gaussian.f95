@@ -16,9 +16,9 @@ subroutine gaussian
    real :: x
 !------------------------------------------------------------------
 
-   gdelta = gauss_cut/(Ngauss - 1)
+   gdelta = gauss_cut/(ngauss - 1)
 
-   do 1 i = 1, Ngauss
+   do 1 i = 1, ngauss
       x = (i - 1)*gdelta
       gauss(i) = exp(-x)
 1  end do
