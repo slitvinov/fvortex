@@ -1,8 +1,7 @@
 subroutine input(icase, ipath, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Nvel, Ntree, &
-                 Rmax, ell_x, ell_y, visc_rmax, &
-                 i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
+                 Rmax, ell_x, ell_y, visc_rmax)
 
 ! In this subroutine parameters for the computation of the
 ! Lamb-Oseen (initially point) vortex are input.
@@ -31,12 +30,8 @@ subroutine input(icase, ipath, idiags, istepping, &
    real :: xmaxavg, xminavg, ymaxavg, yminavg
    common/vort_avg/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
 
-   real :: vel_rmax, vel_points
-   common/vel_avg/vel_rmax, vel_points
-
    integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
    integer :: nvel, ntree, istepping
-   integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
    real :: Rmax, ell_x, ell_y, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
@@ -59,11 +54,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    read (1, *)
    read (1, *) Nvf, Nvel
    read (1, *)
-   read (1, *) i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   read (1, *)
    read (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
-   read (1, *)
-   read (1, *) vel_rmax, vel_points
    read (1, *)
    read (1, *) ipath
    read (1, *)
@@ -95,23 +86,15 @@ subroutine input(icase, ipath, idiags, istepping, &
 !       Nvf = frequency of vorticity field measurement
 !       Nvel = frequency of velocity field measurement
 
-!       i_time_avg = whether to do time averaged measurements
-!       n_avg_start = step on which to start averaging
-!       n_avg_times = number of times to do averaging measurements
-!       n_avg_interval = freqency of doing a measurement used in the average
-
 !       nxavg,nyavg = points in grid for vorticity time averaging
 !       xmaxavg,xminavg,ymaxavg,yminavg = boundaries of this grid
-
-!       vel_rmax = outer radius to measure time averaged velocity to
-!       vel_points = points along the ray to measure velocity
-
+!
 !       ipath = 0 to do pathlines throughout the run
-
+!
 !       idiags = 0 for no force measurement, 1 for momentum, 2 for both
-
+!
 !            ntree = frequency for tree stats output
-
+!
 !       icase = 0 for a continuation run
 !       Nrestart = frequency with which to write restart files
 

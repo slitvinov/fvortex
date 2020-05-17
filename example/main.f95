@@ -22,7 +22,6 @@ program go
    integer :: icase, ipath, idiags
    integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Nvel, Ntree
-   integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
    real :: Rmax, ell_x, ell_y, visc_rmax
    logical ::  lremesh
 
@@ -35,8 +34,7 @@ program go
    call input(icase, ipath, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Nvel, Ntree, &
-              Rmax, ell_x, ell_y, visc_rmax, &
-              i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
+              Rmax, ell_x, ell_y, visc_rmax)
 
 !---  tabulate the gaussian for use as diffusion kernel
 
