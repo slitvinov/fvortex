@@ -293,40 +293,16 @@ def getArgumentList(argline):
 
 #------------------------------------------------------------------------------
 def printWrapperCode(subname, arglist, varlist):
-    print("!" + "-"*79)
-    print("!> A wrapper for the subroutine " + subname)
-    #for entry in arglist:
-    #    print "!> @param        " + entry
-    print("subroutine " + subname + "_wrapper(" + ','.join(arglist) + ')')
-    print()
+    print("subroutine " + subname + "(" + ','.join(arglist) + ')')
     print("  implicit none")
-    print()
     # parameters first
-    print( "  ! Parameters")
     for entry in varlist:
         if not entry.is_argument and entry.is_parameter:
             print ("  " + entry.getDeclString())
     # print scalar arguments
-    print()
-    print( "  ! Arguments")
     for entry in varlist:
         if entry.is_argument:
             print ("  " + entry.getDeclString())
-    # print array arguments
-    #print
-    #print "  ! Array arguments"
-    #for entry in varlist:
-    #    if entry.is_argument and entry.dim:
-    #        print "  " + entry.getDeclString()
-    print()
-    print("  ! Former local variables of " + subname)
-    for entry in varlist:
-        if not entry.is_argument:
-            print("  ! " + entry.getDeclString())
-    
-    print()
-    print ("  call " + subname + "(" + ','.join(arglist) + ')')
-    print()
     print("end subroutine")
 
 if __name__ == "__main__":
