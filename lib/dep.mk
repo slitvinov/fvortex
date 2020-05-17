@@ -48,7 +48,6 @@ mv_rk.o: mv_rk.f95 main_dim.h part.h
 near_far.o: near_far.f95 tree_tmp.h
 omega.o: omega.f95
 par_to_ch.o: par_to_ch.f95
-pathlines.o: pathlines.f95
 pot_box_cyl.o: pot_box_cyl.f95 tree_tmp.h
 pot_box_ubd.o: pot_box_ubd.f95 tree_tmp.h
 pot_part_cyl.o: pot_part_cyl.f95 tree_tmp.h

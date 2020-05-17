@@ -14,7 +14,6 @@ condiff.f95\
 initial.f95\
 mv_ab.f95\
 mv_rk.f95\
-pathlines.f95\
 read_restart.f95\
 vel_ext.f95\
 vort_field.f95\
@@ -71,7 +70,6 @@ mv_rk.o\
 near_far.o\
 omega.o\
 par_to_ch.o\
-pathlines.o\
 pot_box_cyl.o\
 pot_box_ubd.o\
 potential.o\

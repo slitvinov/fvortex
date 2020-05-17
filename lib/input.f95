@@ -1,4 +1,4 @@
-subroutine input(icase, ipath, idiags, istepping, &
+subroutine input(icase, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Nvel, Ntree, &
                  Rmax, ell_x, ell_y, visc_rmax)
@@ -30,7 +30,7 @@ subroutine input(icase, ipath, idiags, istepping, &
    real :: xmaxavg, xminavg, ymaxavg, yminavg
    common/vort_avg/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
 
-   integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
+   integer :: icase, idiags, nsteps, nrem, nrestart, nvf
    integer :: nvel, ntree, istepping
    real :: Rmax, ell_x, ell_y, visc_rmax
 !---------------------------------------------------------------------------
@@ -55,8 +55,6 @@ subroutine input(icase, ipath, idiags, istepping, &
    read (1, *) Nvf, Nvel
    read (1, *)
    read (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
-   read (1, *)
-   read (1, *) ipath
    read (1, *)
    read (1, *) idiags
    read (1, *)
@@ -88,8 +86,6 @@ subroutine input(icase, ipath, idiags, istepping, &
 
 !       nxavg,nyavg = points in grid for vorticity time averaging
 !       xmaxavg,xminavg,ymaxavg,yminavg = boundaries of this grid
-!
-!       ipath = 0 to do pathlines throughout the run
 !
 !       idiags = 0 for no force measurement, 1 for momentum, 2 for both
 !

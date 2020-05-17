@@ -18,8 +18,8 @@ program go
    real :: vortlim, t1, t2
    common/rems/vortlim
 
-   integer :: irk, npath, ivalue, istepping
-   integer :: icase, ipath, idiags
+   integer :: irk, ivalue, istepping
+   integer :: icase, idiags
    integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Nvel, Ntree
    real :: Rmax, ell_x, ell_y, visc_rmax
@@ -28,10 +28,9 @@ program go
 !---------------------------------------------------------------------------
 
    irk = 0
-   npath = -1
    lremesh = .false.
 
-   call input(icase, ipath, idiags, istepping, &
+   call input(icase, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Nvel, Ntree, &
               Rmax, ell_x, ell_y, visc_rmax)
@@ -72,13 +71,6 @@ program go
       call cpu_time(t2)
       write (*, 103) Np, t2 - t1
       call vel_ext(time)     ! Add irrotational velocities
-
-      !--   do pathlines if desired
-
-      if (ipath == 0) then
-         npath = npath + 1
-         call pathlines(npath)
-      endif
 
       !---  Move the particles
 

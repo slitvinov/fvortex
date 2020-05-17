@@ -19,10 +19,6 @@ subroutine mv_rk(visc_rmax)
   implicit none
   real :: visc_rmax
 end subroutine
-subroutine pathlines(npath)
-  implicit none
-  integer :: npath
-end subroutine
 subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   implicit none
   integer :: np

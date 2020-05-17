@@ -16,8 +16,6 @@ Nvort,Nvel
 50,100000
 Nx,Ny,Xmin,Xmax,Ymin,Ymax (vorticity)
 100,100,-1.5,1.5,-1.5,1.5
-ipathlines(0=take them)
-1
 idiags(1=take them)
 1
 ntree
