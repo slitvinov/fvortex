@@ -1,3 +1,7 @@
+# Dependencies
+
+gfortran, make
+
 # Install
 
     (cd lib && make)
