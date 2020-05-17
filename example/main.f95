@@ -21,7 +21,7 @@ program go
    integer :: irk, ivalue, istepping
    integer :: icase, idiags
    integer :: Nsteps, Nrem, Nrestart
-   integer :: Nvf, Nvel, Ntree
+   integer :: Nvf, Ntree
    real :: Rmax, ell_x, ell_y, visc_rmax
    logical ::  lremesh
 
@@ -32,7 +32,7 @@ program go
 
    call input(icase, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
-              Nvf, Nvel, Ntree, &
+              Nvf, Ntree, &
               Rmax, ell_x, ell_y, visc_rmax)
 
 !---  tabulate the gaussian for use as diffusion kernel

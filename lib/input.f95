@@ -1,6 +1,6 @@
 subroutine input(icase, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
-                 Nvf, Nvel, Ntree, &
+                 Nvf, Ntree, &
                  Rmax, ell_x, ell_y, visc_rmax)
 
 ! In this subroutine parameters for the computation of the
@@ -31,7 +31,7 @@ subroutine input(icase, idiags, istepping, &
    common/vort_avg/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
 
    integer :: icase, idiags, nsteps, nrem, nrestart, nvf
-   integer :: nvel, ntree, istepping
+   integer :: ntree, istepping
    real :: Rmax, ell_x, ell_y, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
@@ -52,7 +52,7 @@ subroutine input(icase, idiags, istepping, &
    read (1, *)
    read (1, *) istepping
    read (1, *)
-   read (1, *) Nvf, Nvel
+   read (1, *) Nvf
    read (1, *)
    read (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
    read (1, *)
@@ -80,10 +80,9 @@ subroutine input(icase, idiags, istepping, &
 !
 !            istepping = type of time stepping after remesh
 !                (1=Euler (1st order), 2=Runge Kutta 2nd order)
-
+!
 !       Nvf = frequency of vorticity field measurement
-!       Nvel = frequency of velocity field measurement
-
+!
 !       nxavg,nyavg = points in grid for vorticity time averaging
 !       xmaxavg,xminavg,ymaxavg,yminavg = boundaries of this grid
 !
