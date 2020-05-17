@@ -18,9 +18,9 @@ program go
    real :: vortlim, t1, t2
    common/rems/vortlim
 
-   integer :: irk, npath, i, ivalue, istepping
+   integer :: irk, npath, ivalue, istepping
    integer :: icase, ipath, idiags
-   integer :: Nsteps, Nrem, Nfilter, Nrestart
+   integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Nvel, Ntree
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
    real :: Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax
@@ -133,7 +133,6 @@ program go
 
 1  end do
 
-101 format(f8.4, 5(2x, f8.4))
 102 format(10x, ' Time Step :', i5, 6x, 'Time :', f8.4)
 103 format(10x, ' Particles :', i5, 6x, 'Time :', f8.4)
 
