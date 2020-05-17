@@ -18,9 +18,8 @@ subroutine initial(Rmax, ell_x, ell_y)
    common/part/Np, s2, ovrlp, gnu
    real :: rmax, ell_x, ell_y, r_arg
    integer :: Nmx, in, ix, iy
-   real :: pi, h2, deltax, denom, x, y, strength
+   real :: h2, deltax, denom, x, y, strength
 !-----------------------------------------------------------------------
-   pi = 4.*atan(1.0)
    h2 = s2*ovrlp**2
    deltax = sqrt(h2)  ! grid spacing
    h2 = deltax*deltax ! actual cell area
