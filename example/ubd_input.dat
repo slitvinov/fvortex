@@ -27,4 +27,4 @@ idiags(1=take them)
 ntree
 10
 icase(0=Continue),Nrestart
-1,99999999
+1,1000
