@@ -9,6 +9,17 @@ part.h\
 petros.h\
 
 L = libpetros.a
+I = \
+condiff.f95\
+initial.f95\
+mv_ab.f95\
+mv_rk.f95\
+pathlines.f95\
+read_restart.f95\
+vel_ext.f95\
+vort_field.f95\
+write_restart.f95\
+
 O = \
 acc_theta.o\
 acc_x.o\
@@ -94,7 +105,8 @@ $L: $O; ar rv $@ $O && ranlib $@
 include dep.mk
 
 lint:; make FFLAGS='-Wall -Wextra -g -O2'
-int:; ../tool/fdeclarations read_restart.f95 write_restart.f95 > petros.h
+int: $I; ../tool/fdeclarations $I > petros.h
+
 dep:; for i in *.f95; do $(FC) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L

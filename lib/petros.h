@@ -1,3 +1,30 @@
+subroutine condiff(Npart,islip,visc_rmax,istats)
+  implicit none
+  integer :: npart
+  integer :: islip
+  integer :: istats
+  real :: visc_rmax
+end subroutine
+subroutine initial(Rmax,gamma_0,ell_x,ell_y,time_0)
+  implicit none
+  real :: rmax
+  real :: gamma_0
+  real :: ell_x
+  real :: ell_y
+  real :: time_0
+end subroutine
+subroutine mv_ab(irk)
+  implicit none
+  integer :: irk
+end subroutine
+subroutine mv_rk(visc_rmax)
+  implicit none
+  real :: visc_rmax
+end subroutine
+subroutine pathlines(npath)
+  implicit none
+  integer :: npath
+end subroutine
 subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   implicit none
   integer :: np
@@ -9,9 +36,16 @@ subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
 end subroutine
-subroutine write_restart(ivalue,time,np,s2,ovrlp,nvort,xp,yp,gp)
+subroutine vel_ext(tm)
   implicit none
-  integer :: ivalue
+  real :: tm
+end subroutine
+subroutine vort_field(iframe)
+  implicit none
+  integer :: iframe
+end subroutine
+subroutine write_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
+  implicit none
   integer :: np
   integer :: nvort
   real :: time

@@ -115,7 +115,7 @@ program go
 
       if (mod(n, Nrestart) == 0) then
          ivalue = n/Nrestart
-         call write_restart(ivalue, time, np, s2, ovrlp, nvort, xp, yp, gp)
+         call write_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
       endif
 
       !--   take measurements if desired
