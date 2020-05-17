@@ -15,7 +15,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: icheck, nn, kfp
    real :: xbc, ybc
@@ -33,39 +33,39 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    kpart = 0
 
 !  Start out with the first four boxes
-   DO 432 k = 1, kp1
+   do 432 k = 1, kp1
       Listclose(k) = Liststart(k)
-432 END DO
+432 end do
    kclose = kp1
 
 !          LEVEL = 1
-   CALL CHECK_BOX(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
+   call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
                   Listpart, Ipar1Ch2, Imark1)
-   IF (Kpart /= 0) then
-      DO 12 m = 1, Kpart  ! these are all from childless level 1 boxes
-         np1 = NPB1(Listpart(m), 1)
-         np2 = NPB1(Listpart(m), 2)
-         DO 121 npt = np1, np2
+   if (Kpart /= 0) then
+      do 12 m = 1, Kpart  ! these are all from childless level 1 boxes
+         np1 = npb1(Listpart(m), 1)
+         np2 = npb1(Listpart(m), 2)
+         do 121 npt = np1, np2
             nn = nn + 1
-            XT(nn) = XN(npt)   ! will interact with these as particles
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-121      END DO
-12    END DO
+            xt(nn) = xn(npt)   ! will interact with these as particles
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+121      end do
+12    end do
    endif
 
-   LEVEL = 2
-   IF (kexam == 0) GOTO 9876
+   level = 2
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds2
    yst = y0 - 0.5*ds2
-   CALL FAR_CLS(icheck, NMax2, Xbc, Ybc, ds2, IC2, JC2, kexam, xst, yst, &
+   call far_cls(icheck, NMax2, Xbc, Ybc, ds2, ic2, jc2, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
-   IF (kfar /= 0) then   ! boxes far enough away to interact with
-      DO 211 k = 1, kfar
+   if (kfar /= 0) then   ! boxes far enough away to interact with
+      do 211 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC2(id)
-         Ybox(kfp) = YC2(id)
+         Xbox(kfp) = xc2(id)
+         Ybox(kfp) = yc2(id)
          Prbox(kfp, 0) = Pr2(id, 0)
          Pibox(kfp, 0) = Pi2(id, 0)
          Prbox(kfp, 1) = Pr2(id, 1)
@@ -82,37 +82,37 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi2(id, 6)
          Prbox(kfp, 7) = Pr2(id, 7)
          Pibox(kfp, 7) = Pi2(id, 7)
-211   END DO
+211   end do
    endif
 
-   CALL CHECK_BOX(Nmax2, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax2, kclose, Listclose, kexam, Listexam, &
                   kpart, Listpart, Ipar2Ch3, Imark2)
-   IF (kpart /= 0) then          ! again childless boxes
-      DO 22 k = 1, Kpart
-         n1 = NPB2(Listpart(k), 1)
-         n2 = NPB2(Listpart(k), 2)
-         DO 221 npt = n1, n2
+   if (kpart /= 0) then          ! again childless boxes
+      do 22 k = 1, Kpart
+         n1 = npb2(Listpart(k), 1)
+         n2 = npb2(Listpart(k), 2)
+         do 221 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-221      END DO
-22    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+221      end do
+22    end do
    endif
 
-   LEVEL = 3
-   IF (kexam == 0) GOTO 9876
+   level = 3
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds3
    yst = y0 - 0.5*ds3
-   CALL FAR_CLS(icheck, NMax3, Xbc, Ybc, ds3, IC3, JC3, kexam, xst, yst, &
+   call far_cls(icheck, NMax3, Xbc, Ybc, ds3, ic3, jc3, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 311 k = 1, kfar
+   if (kfar /= 0) then
+      do 311 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC3(id)
-         Ybox(kfp) = YC3(id)
+         Xbox(kfp) = xc3(id)
+         Ybox(kfp) = yc3(id)
          Prbox(kfp, 0) = Pr3(id, 0)
          Prbox(kfp, 1) = Pr3(id, 1)
          Pibox(kfp, 1) = Pi3(id, 1)
@@ -128,38 +128,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi3(id, 6)
          Prbox(kfp, 7) = Pr3(id, 7)
          Pibox(kfp, 7) = Pi3(id, 7)
-311   END DO
+311   end do
    endif
 
-   CALL CHECK_BOX(Nmax3, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax3, kclose, Listclose, kexam, Listexam, &
                   Kpart, Listpart, Ipar3Ch4, Imark3)
 
-   IF (kpart /= 0) then
-      DO 32 k = 1, Kpart
-         n1 = NPB3(Listpart(k), 1)
-         n2 = NPB3(Listpart(k), 2)
-         DO 321 npt = n1, n2
+   if (kpart /= 0) then
+      do 32 k = 1, Kpart
+         n1 = npb3(Listpart(k), 1)
+         n2 = npb3(Listpart(k), 2)
+         do 321 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-321      END DO
-32    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+321      end do
+32    end do
    endif
 
-   LEVEL = 4
-   IF (kexam == 0) GOTO 9876
+   level = 4
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds4
    yst = y0 - 0.5*ds4
-   CALL FAR_CLS(icheck, Nmax4, Xbc, Ybc, ds4, IC4, JC4, kexam, xst, yst, &
+   call far_cls(icheck, Nmax4, Xbc, Ybc, ds4, ic4, jc4, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 411 k = 1, kfar
+   if (kfar /= 0) then
+      do 411 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC4(id)
-         Ybox(kfp) = YC4(id)
+         Xbox(kfp) = xc4(id)
+         Ybox(kfp) = yc4(id)
          Prbox(kfp, 0) = Pr4(id, 0)
          Prbox(kfp, 1) = Pr4(id, 1)
          Pibox(kfp, 1) = Pi4(id, 1)
@@ -175,38 +175,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi4(id, 6)
          Prbox(kfp, 7) = Pr4(id, 7)
          Pibox(kfp, 7) = Pi4(id, 7)
-411   END DO
+411   end do
    endif
 
-   CALL CHECK_BOX(NMax4, kclose, Listclose, kexam, Listexam, &
+   call check_box(NMax4, kclose, Listclose, kexam, Listexam, &
                   kpart, Listpart, Ipar4Ch5, Imark4)
 
-   IF (kpart /= 0) then
-      DO 43 k = 1, Kpart
-         n1 = NPB4(Listpart(k), 1)
-         n2 = NPB4(Listpart(k), 2)
-         DO 431 npt = n1, n2
+   if (kpart /= 0) then
+      do 43 k = 1, Kpart
+         n1 = npb4(Listpart(k), 1)
+         n2 = npb4(Listpart(k), 2)
+         do 431 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-431      END DO
-43    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+431      end do
+43    end do
    endif
 
-   LEVEL = 5
-   IF (kexam == 0) GOTO 9876
+   level = 5
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds5
    yst = y0 - 0.5*ds5
-   CALL FAR_CLS(icheck, Nmax5, xbc, ybc, ds5, IC5, JC5, kexam, xst, yst, &
+   call far_cls(icheck, Nmax5, xbc, ybc, ds5, ic5, jc5, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 511 k = 1, kfar
+   if (kfar /= 0) then
+      do 511 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC5(id)
-         Ybox(kfp) = YC5(id)
+         Xbox(kfp) = xc5(id)
+         Ybox(kfp) = yc5(id)
          Prbox(kfp, 0) = Pr5(id, 0)
          Prbox(kfp, 1) = Pr5(id, 1)
          Pibox(kfp, 1) = Pi5(id, 1)
@@ -222,38 +222,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi5(id, 6)
          Prbox(kfp, 7) = Pr5(id, 7)
          Pibox(kfp, 7) = Pi5(id, 7)
-511   END DO
+511   end do
    endif
 
-   CALL CHECK_BOX(Nmax5, kclose, Listclose, kexam, &
+   call check_box(Nmax5, kclose, Listclose, kexam, &
                   Listexam, kpart, Listpart, Ipar5Ch6, Imark5)
 
-   IF (kpart /= 0) then
-      DO 52 k = 1, Kpart
-         n1 = NPB5(Listpart(k), 1)
-         n2 = NPB5(Listpart(k), 2)
-         DO 521 npt = n1, n2
+   if (kpart /= 0) then
+      do 52 k = 1, Kpart
+         n1 = npb5(Listpart(k), 1)
+         n2 = npb5(Listpart(k), 2)
+         do 521 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-521      END DO
-52    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+521      end do
+52    end do
    endif
 
-   LEVEL = 6
-   IF (kexam == 0) GOTO 9876
+   level = 6
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds6
    yst = y0 - 0.5*ds6
-   CALL FAR_CLS(icheck, Nmax6, Xbc, Ybc, ds6, IC6, JC6, kexam, xst, yst, &
+   call far_cls(icheck, Nmax6, Xbc, Ybc, ds6, ic6, jc6, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 611 k = 1, kfar
+   if (kfar /= 0) then
+      do 611 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC6(id)
-         Ybox(kfp) = YC6(id)
+         Xbox(kfp) = xc6(id)
+         Ybox(kfp) = yc6(id)
          Prbox(kfp, 0) = Pr6(id, 0)
          Prbox(kfp, 1) = Pr6(id, 1)
          Pibox(kfp, 1) = Pi6(id, 1)
@@ -269,38 +269,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi6(id, 6)
          Prbox(kfp, 7) = Pr6(id, 7)
          Pibox(kfp, 7) = Pi6(id, 7)
-611   END DO
+611   end do
    endif
 
-   CALL CHECK_BOX(Nmax6, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax6, kclose, Listclose, kexam, Listexam, &
                   kpart, Listpart, Ipar6Ch7, Imark6)
 
-   IF (kpart /= 0) then
-      DO 62 k = 1, Kpart
-         n1 = NPB6(Listpart(k), 1)
-         n2 = NPB6(Listpart(k), 2)
-         DO 621 npt = n1, n2
+   if (kpart /= 0) then
+      do 62 k = 1, Kpart
+         n1 = npb6(Listpart(k), 1)
+         n2 = npb6(Listpart(k), 2)
+         do 621 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-621      END DO
-62    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+621      end do
+62    end do
    endif
 
-   LEVEL = 7
-   IF (kexam == 0) GOTO 9876
+   level = 7
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds7
    yst = y0 - 0.5*ds7
-   CALL FAR_CLS(icheck, Nmax7, Xbc, Ybc, ds7, IC7, JC7, kexam, xst, yst, &
+   call far_cls(icheck, Nmax7, Xbc, Ybc, ds7, ic7, jc7, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 711 k = 1, kfar
+   if (kfar /= 0) then
+      do 711 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC7(id)
-         Ybox(kfp) = YC7(id)
+         Xbox(kfp) = xc7(id)
+         Ybox(kfp) = yc7(id)
          Prbox(kfp, 0) = Pr7(id, 0)
          Prbox(kfp, 1) = Pr7(id, 1)
          Pibox(kfp, 1) = Pi7(id, 1)
@@ -316,38 +316,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi7(id, 6)
          Prbox(kfp, 7) = Pr7(id, 7)
          Pibox(kfp, 7) = Pi7(id, 7)
-711   END DO
+711   end do
    endif
 
-   CALL CHECK_BOX(Nmax7, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax7, kclose, Listclose, kexam, Listexam, &
                   kpart, Listpart, Ipar7Ch8, Imark7)
 
-   IF (kpart /= 0) then
-      DO 72 k = 1, Kpart
-         n1 = NPB7(Listpart(k), 1)
-         n2 = NPB7(Listpart(k), 2)
-         DO 721 npt = n1, n2
+   if (kpart /= 0) then
+      do 72 k = 1, Kpart
+         n1 = npb7(Listpart(k), 1)
+         n2 = npb7(Listpart(k), 2)
+         do 721 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-721      END DO
-72    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+721      end do
+72    end do
    endif
 
-   LEVEL = 8
-   IF (kexam == 0) GOTO 9876
+   level = 8
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds8
    yst = y0 - 0.5*ds8
-   CALL FAR_CLS(icheck, Nmax8, Xbc, Ybc, ds8, IC8, JC8, kexam, xst, yst, &
+   call far_cls(icheck, Nmax8, Xbc, Ybc, ds8, ic8, jc8, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 811 k = 1, kfar
+   if (kfar /= 0) then
+      do 811 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC8(id)
-         Ybox(kfp) = YC8(id)
+         Xbox(kfp) = xc8(id)
+         Ybox(kfp) = yc8(id)
          Prbox(kfp, 0) = Pr8(id, 0)
          Prbox(kfp, 1) = Pr8(id, 1)
          Pibox(kfp, 1) = Pi8(id, 1)
@@ -363,38 +363,38 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi8(id, 6)
          Prbox(kfp, 7) = Pr8(id, 7)
          Pibox(kfp, 7) = Pi8(id, 7)
-811   END DO
+811   end do
    endif
 
-   CALL CHECK_BOX(Nmax8, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax8, kclose, Listclose, kexam, Listexam, &
                   kpart, Listpart, Ipar8Ch9, Imark8)
 
-   IF (kpart /= 0) then
-      DO 82 k = 1, Kpart
-         n1 = NPB8(Listpart(k), 1)
-         n2 = NPB8(Listpart(k), 2)
-         DO 821 npt = n1, n2
+   if (kpart /= 0) then
+      do 82 k = 1, Kpart
+         n1 = npb8(Listpart(k), 1)
+         n2 = npb8(Listpart(k), 2)
+         do 821 npt = n1, n2
             nn = nn + 1
-            XT(nn) = XN(npt)
-            YT(nn) = YN(npt)
-            GT(nn) = GN(npt)
-821      END DO
-82    END DO
+            xt(nn) = xn(npt)
+            yt(nn) = yn(npt)
+            gt(nn) = gn(npt)
+821      end do
+82    end do
    endif
 
-   LEVEL = 9
-   IF (kexam == 0) GOTO 9876
+   level = 9
+   if (kexam == 0) goto 9876
    xst = x0 - 0.5*ds9
    yst = y0 - 0.5*ds9
-   CALL FAR_CLS(icheck, Nmax9, Xbc, Ybc, ds9, IC9, JC9, kexam, xst, yst, &
+   call far_cls(icheck, Nmax9, Xbc, Ybc, ds9, ic9, jc9, kexam, xst, yst, &
                 Listexam, kfar, Listfar, kclose, Listclose)
 
-   IF (kfar /= 0) then
-      DO 911 k = 1, kfar
+   if (kfar /= 0) then
+      do 911 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC9(id)
-         Ybox(kfp) = YC9(id)
+         Xbox(kfp) = xc9(id)
+         Ybox(kfp) = yc9(id)
          Prbox(kfp, 0) = Pr9(id, 0)
          Prbox(kfp, 1) = Pr9(id, 1)
          Pibox(kfp, 1) = Pi9(id, 1)
@@ -410,23 +410,23 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
          Pibox(kfp, 6) = Pi9(id, 6)
          Prbox(kfp, 7) = Pr9(id, 7)
          Pibox(kfp, 7) = Pi9(id, 7)
-911   END DO
+911   end do
    endif
 
 !  No more checking here. All close boxes are cosidered childless
 
-   DO 92 k = 1, Kclose
-      n1 = NPB9(Listclose(k), 1)
-      n2 = NPB9(Listclose(k), 2)
-      DO 921 npt = n1, n2
+   do 92 k = 1, Kclose
+      n1 = npb9(Listclose(k), 1)
+      n2 = npb9(Listclose(k), 2)
+      do 921 npt = n1, n2
          nn = nn + 1
-         XT(nn) = XN(npt)
-         YT(nn) = YN(npt)
-         GT(nn) = GN(npt)
-921   END DO
-92 END DO
+         xt(nn) = xn(npt)
+         yt(nn) = yn(npt)
+         gt(nn) = gn(npt)
+921   end do
+92 end do
 
-9876 CONTINUE
+9876 continue
 
-   RETURN
+   return
 end subroutine build_tree

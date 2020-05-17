@@ -20,7 +20,7 @@ subroutine wheneq(npart, ibox, itoss, imatch, idummy, nmatch)
          nmatch = nmatch + 1
          idummy(nmatch) = i
       endif
-10 END DO
+10 end do
 
    return
 end subroutine wheneq

@@ -1,4 +1,4 @@
-PROGRAM GO
+program go
    implicit none
 
    include 'main_dim.h'
@@ -6,14 +6,14 @@ PROGRAM GO
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    real :: vortlim, t1, t2
-   COMMON/REMS/vortlim
+   common/rems/vortlim
 
    integer :: irk, npath, i, ivalue, istepping
    integer :: icase, ipath, idiags
@@ -21,15 +21,15 @@ PROGRAM GO
    integer :: Nvf, Nvel, Ntree
    integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
    real :: Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax
-   LOGICAL ::  LREMESH
+   logical ::  lremesh
 
 !---------------------------------------------------------------------------
 
    irk = 0
    npath = -1
-   LREMESH = .FALSE.
+   lremesh = .false.
 
-   CALL INPUT(icase, ipath, idiags, istepping, &
+   call input(icase, ipath, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Nvel, Ntree, &
               Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax, &
@@ -37,40 +37,40 @@ PROGRAM GO
 
 !---  tabulate the gaussian for use as diffusion kernel
 
-   CALL GAUSSIAN
+   call gaussian
 
 !---  old data for continuation run
-   IF (icase == 0) THEN
-      CALL READ_RESTART(time, np, s2, ovrlp, nvort, xp, yp, gp)
+   if (icase == 0) then
+      call read_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
 
       !     -- NEW run
-   ELSE
-      CALL INITIAL(Rmax, gamma_0, ell_x, ell_y, time_0)
+   else
+      call initial(Rmax, gamma_0, ell_x, ell_y, time_0)
       Time = time_0
       irk = 0
-      CALL DIAGNOS           ! get initial impulse and circulation
-   ENDIF
+      call diagnos           ! get initial impulse and circulation
+   endif
    ivalue = 0
-   call VORT_FIELD(ivalue)
+   call vort_field(ivalue)
 
-   CALL CONDIFF(Np, 0, 9999., 0) ! rebuild the interaction tree
+   call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
 
 !     call vel_error  ! absolute error in a vel. profile relative to exact
 
-   DO 1 n = 1, Nsteps
+   do 1 n = 1, Nsteps
 
       !--   compute vortex interactions with the FAST MULTIPOLE METHOD
-      CALL CPU_TIME(t1)
+      call cpu_time(t1)
 
-      IF (MOD(n, Ntree) == 0) THEN
-         CALL CONDIFF(Np, 1, visc_rmax, 1)
+      if (mod(n, Ntree) == 0) then
+         call condiff(Np, 1, visc_rmax, 1)
       else
          call condiff(np, 1, visc_rmax, 0)
       endif
 
-      CALL CPU_TIME(t2)
-      WRITE (*, 103) Np, t2 - t1
-      CALL VEL_EXT(time)     ! Add irrotational velocities
+      call cpu_time(t2)
+      write (*, 103) Np, t2 - t1
+      call vel_ext(time)     ! Add irrotational velocities
 
       !--   do pathlines if desired
 
@@ -81,31 +81,31 @@ PROGRAM GO
 
       !---  Move the particles
 
-      IF ((n == 1) .OR. (LREMESH)) THEN ! first step or first after remesh
-         LREMESH = .FALSE.
+      if ((n == 1) .or. (lremesh)) then ! first step or first after remesh
+         lremesh = .false.
          if (istepping == 2) then
-            CALL MV_RK(visc_rmax)
+            call mv_rk(visc_rmax)
             irk = 1
          else
             call mv_eul
             irk = 0
          endif
-      ELSE
-         CALL MV_AB(irk)
+      else
+         call mv_ab(irk)
          irk = 0
-      ENDIF
+      endif
 
       Time = Time + dt
-      WRITE (*, 102) n, Time
+      write (*, 102) n, Time
       !--   remesh every few steps to regularize particle locations
 
-      IF (MOD(n, Nrem) == 0) THEN
-         CALL REMESH
-         LREMESH = .TRUE.
-      ENDIF
+      if (mod(n, Nrem) == 0) then
+         call remesh
+         lremesh = .true.
+      endif
 
       if (idiags == 1) then
-         CALL DIAGNOS        ! flow momentum and circulation
+         call diagnos        ! flow momentum and circulation
       endif
 
       !--   save data for restart, if desired
@@ -117,22 +117,22 @@ PROGRAM GO
 
       !--   take measurements if desired
 
-      CALL CONDIFF(Np, 0, 9999., 0) ! rebuild the interaction tree
+      call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
 
       !     call vel_error  ! absolute error in a vel. profile relative to exact
 
       if (mod(n, Nvf) == 0) then
          ivalue = n/Nvf
-         call VORT_FIELD(ivalue)
+         call vort_field(ivalue)
       endif
 
       !--   end of loop
 
-1  END DO
+1  end do
 
-101 FORMAT(f8.4, 5(2x, f8.4))
-102 FORMAT(10x, ' Time Step :', I5, 6x, 'Time :', F8.4)
-103 FORMAT(10x, ' Particles :', I5, 6x, 'Time :', F8.4)
+101 format(f8.4, 5(2x, f8.4))
+102 format(10x, ' Time Step :', i5, 6x, 'Time :', f8.4)
+103 format(10x, ' Particles :', i5, 6x, 'Time :', f8.4)
 
-   STOP
-END PROGRAM
+   stop
+end program

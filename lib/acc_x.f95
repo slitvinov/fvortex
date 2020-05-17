@@ -30,7 +30,7 @@ function acc_x(time)
    if (xfree == 1) then
       acc_x = last_udot
    else
-      acc_x = x_amp*x_freq*COS(x_freq*Time + x_phase)
+      acc_x = x_amp*x_freq*cos(x_freq*Time + x_phase)
    endif
 
    return

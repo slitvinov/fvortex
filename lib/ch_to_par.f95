@@ -1,4 +1,4 @@
-SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
+subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
                      Pr, Pi, Pgr, Pgi, Gr, Gi)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
@@ -10,9 +10,9 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
    integer :: nmax1, kparent
    real :: dch
    integer :: IPARiCHj(Nmax1/4, 4), Iparent(Nmax1/4)
-   real :: PR(Nmax1, 0:7), PI(Nmax1, 0:7)
-   real :: PGR(Nmax1/4, 0:7), PGI(Nmax1/4, 0:7)
-   real :: GR(Nmax1/4, 0:7), GI(Nmax1/4, 0:7)
+   real :: pr(Nmax1, 0:7), pi(Nmax1, 0:7)
+   real :: pgr(Nmax1/4, 0:7), pgi(Nmax1/4, 0:7)
+   real :: gr(Nmax1/4, 0:7), gi(Nmax1/4, 0:7)
 
    integer :: km, m, k, kb, nb
    real :: p1, p2, p3, p4, p5, p6, p7, p32, p26, p13, p44, p38, p212, p14
@@ -59,7 +59,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
    p242 = 42.*p2
    p17 = 7.*p1
 
-   DO 20 nb = 1, kparent
+   do 20 nb = 1, kparent
       Gr(nb, 0) = 0.
       Gr(nb, 1) = 0.
       Gr(nb, 2) = 0.
@@ -80,7 +80,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
       ! Contribution of 1st Child (if any)
       km = Iparent(nb)
       m = IpariChj(km, 1)       ! index of child (if any) box 1 at level i
-      IF (m == 0) GOTO 2
+      if (m == 0) goto 2
 
       ! REAL VALUES
       r0 = Pr(m, 0)
@@ -141,7 +141,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
       !-  Contribution of 2nd Child (if any)
 
 2     m = IpariChj(km, 2)       ! index of child (if any) box 2 at level i
-      IF (m == 0) GOTO 3
+      if (m == 0) goto 3
 
       ! REAL VALUES
       r0 = Pr(m, 0)
@@ -204,7 +204,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
 
       !-  Contribution of 3rd Child (if any)
 3     m = IpariChj(km, 3)       ! index of child (if any) box 3 at level i
-      IF (m == 0) GOTO 4
+      if (m == 0) goto 4
 
       ! REAL VALUES
       r0 = Pr(m, 0)
@@ -268,7 +268,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
       !-   Contribution of 4th Child (if any)
 
 4     m = IpariChj(km, 4)       ! index of child (if any) box 4 at level 7
-      IF (m == 0) GOTO 20            ! Non-Empty box.
+      if (m == 0) goto 20            ! Non-Empty box.
 
       ! REAL VALUES
       r0 = Pr(m, 0)
@@ -329,9 +329,9 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
                   - p4140*f3 - p370*(r4 + f4) - p242*r5 &
                   - p17*(r6 - f6) + f7
 
-20 END DO
+20 end do
 
-   DO 30 k = 1, Kparent
+   do 30 k = 1, Kparent
       kb = Iparent(k)
       Pgr(kb, 0) = Gr(k, 0)
       Pgr(kb, 1) = Gr(k, 1)
@@ -349,7 +349,7 @@ SUBROUTINE CH_TO_PAR(Nmax1, dch, kparent, Iparent, IPARiCHj, &
       Pgi(kb, 5) = Gi(k, 5)
       Pgi(kb, 6) = Gi(k, 6)
       Pgi(kb, 7) = Gi(k, 7)
-30 END DO
+30 end do
 
-   RETURN
-END SUBROUTINE CH_TO_PAR
+   return
+end subroutine ch_to_par

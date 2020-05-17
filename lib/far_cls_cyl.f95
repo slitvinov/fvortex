@@ -1,4 +1,4 @@
-SUBROUTINE FAR_CLS(icheck, Nmax, xtest, ytest, ds, IC, JC, kexam, &
+subroutine far_cls(icheck, Nmax, xtest, ytest, ds, ic, jc, kexam, &
                    Xst, Yst, Listexam, kfar, Listfar, kclose, Listclose)
 
 !  This  subroutine finds all the far & close boxes at a certain
@@ -13,11 +13,11 @@ SUBROUTINE FAR_CLS(icheck, Nmax, xtest, ytest, ds, IC, JC, kexam, &
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: icheck, nmax, kexam, kfar, kclose
    integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
-   integer :: IC(Nmax), JC(Nmax)
+   integer :: ic(Nmax), jc(Nmax)
    real :: xtest, ytest, ds, xst, yst
 
    integer :: k, ib, jb, ks, lx, ly
@@ -32,26 +32,26 @@ SUBROUTINE FAR_CLS(icheck, Nmax, xtest, ytest, ds, IC, JC, kexam, &
    radius = 1.                ! assumed Rcyl=1. here
    radius_ds = radius + dshaf
 
-   DO 2 k = 1, kexam
+   do 2 k = 1, kexam
       ks = Listexam(k)
-      ib = IC(ks)
-      jb = JC(ks)
+      ib = ic(ks)
+      jb = jc(ks)
       ax = Xst + ib*ds
       ay = yst + jb*ds
-      IF ((IABS(ib - lx) <= 1) &
-          .AND. (IABS(jb - ly) <= 1)) THEN
+      if ((iabs(ib - lx) <= 1) &
+          .and. (iabs(jb - ly) <= 1)) then
          kclose = kclose + 1
          Listclose(kclose) = ks        ! close
-      ELSE IF ((icheck == 1) .AND. &
-               (abs(ay) <= radius_ds) .AND. &
-               (ax <= radius_ds)) THEN
+      else if ((icheck == 1) .and. &
+               (abs(ay) <= radius_ds) .and. &
+               (ax <= radius_ds)) then
          kclose = kclose + 1
          Listclose(kclose) = ks        ! close
-      ELSE
+      else
          kfar = kfar + 1
          Listfar(kfar) = ks            ! far away
-      ENDIF
-2  END DO
+      endif
+2  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

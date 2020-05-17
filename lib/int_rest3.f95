@@ -1,4 +1,4 @@
-SUBROUTINE INT_REST3(kp3)
+subroutine int_rest3(kp3)
 
 !  Same as int_rest2 for level 3 boxes.
 
@@ -11,7 +11,7 @@ SUBROUTINE INT_REST3(kp3)
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: kp3
 
@@ -29,73 +29,73 @@ SUBROUTINE INT_REST3(kp3)
    r32 = 0.50
    r33 = 1.0
 
-   DO 20 kb = 1, kp3       ! All boxes Childless & Parents
-      ib = IC3(kb)
-      jb = JC3(kb)
-      xb = XC3(kb)
-      yb = YC3(kb)
-      ipar = (xb - X0)/ds2 + 1
-      jpar = (yb - Y0)/ds2 + 1
+   do 20 kb = 1, kp3       ! All boxes Childless & Parents
+      ib = ic3(kb)
+      jb = jc3(kb)
+      xb = xc3(kb)
+      yb = yc3(kb)
+      ipar = (xb - x0)/ds2 + 1
+      jpar = (yb - y0)/ds2 + 1
       do 1 i = 1, kp1
          kexam = kp1
          Listexam(i) = Liststart(i)
-1     END DO
+1     end do
 
-      CALL near_far(Nmax1, ipar, jpar, r21, IC1, JC1, kexam, Listexam, &
+      call near_far(Nmax1, ipar, jpar, r21, ic1, jc1, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar1Ch2, Imark1)
 
-      CALL near_far(Nmax1, ib, jb, r31, IC1, JC1, kpart, Listpart, &
+      call near_far(Nmax1, ib, jb, r31, ic1, jc1, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
       n4 = 0
-      DO 21 k = 1, kfar
+      do 21 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB1(id, 1)
-         n2 = NPB1(id, 2)
-         DO 210 np = n1, n2
+         n1 = npb1(id, 1)
+         n2 = npb1(id, 2)
+         do 210 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-210      END DO
-21    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+210      end do
+21    end do
 
-      CALL near_far(Nmax2, ipar, jpar, r22, IC2, JC2, kexam, Listexam, &
+      call near_far(Nmax2, ipar, jpar, r22, ic2, jc2, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar2Ch3, Imark2)
 
-      CALL near_far(Nmax2, ib, jb, r32, IC2, JC2, kpart, Listpart, &
+      call near_far(Nmax2, ib, jb, r32, ic2, jc2, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 22 k = 1, kfar
+      do 22 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB2(id, 1)
-         n2 = NPB2(id, 2)
-         DO 220 np = n1, n2
+         n1 = npb2(id, 1)
+         n2 = npb2(id, 2)
+         do 220 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-220      END DO
-22    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+220      end do
+22    end do
 
-      IF (n4 == 0) GOTO 88
+      if (n4 == 0) goto 88
       if (n4 > np_max) write (*, *) 'error in rest3b', n4
-      CALL int_box_part(Nmax3, kb, xb, yb, n4, Br3, Bi3)
+      call int_box_part(Nmax3, kb, xb, yb, n4, Br3, Bi3)
 
-88    CALL near_far(Nmax3, ib, jb, r33, IC3, JC3, kexam, Listexam, &
+88    call near_far(Nmax3, ib, jb, r33, ic3, jc3, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
       ! CDIR$SHORTLOOP
-      DO 25 kbb = 1, kfar
+      do 25 kbb = 1, kfar
          id = Listfar(kbb)
-         Xbox(kbb) = XC3(id)
-         Ybox(kbb) = YC3(id)
+         Xbox(kbb) = xc3(id)
+         Ybox(kbb) = yc3(id)
          Prbox(kbb, 0) = Pr3(id, 0)
          Pibox(kbb, 0) = Pi3(id, 0)
          Prbox(kbb, 1) = Pr3(id, 1)
@@ -112,11 +112,11 @@ SUBROUTINE INT_REST3(kp3)
          Pibox(kbb, 6) = Pi3(id, 6)
          Prbox(kbb, 7) = Pr3(id, 7)
          Pibox(kbb, 7) = Pi3(id, 7)
-25    END DO
+25    end do
 
       if (kfar > nbox_max) write (*, *) 'error in rest3', kbb
-      CALL int_box(Nmax3, kb, xb, yb, kfar, Br3, Bi3)
+      call int_box(Nmax3, kb, xb, yb, kfar, Br3, Bi3)
 
-20 END DO
-   RETURN
-END SUBROUTINE
+20 end do
+   return
+end subroutine

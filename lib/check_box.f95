@@ -1,4 +1,4 @@
-SUBROUTINE CHECK_BOX(Nmax1, kclose, Listclose, kexam, Listexam, &
+subroutine check_box(Nmax1, kclose, Listclose, kexam, Listexam, &
                      kpart, Listpart, Ipar1Ch2, Imark1)
 
 !  This  subroutine examines the nearby boxes of a certain particle.
@@ -24,27 +24,27 @@ SUBROUTINE CHECK_BOX(Nmax1, kclose, Listclose, kexam, Listexam, &
    kpart = 0
    kcheck = 0
 
-   DO 2 k = 1, kclose
+   do 2 k = 1, kclose
       ks = Listclose(k)
-      IF (Imark1(ks) == 0) THEN  ! childless
+      if (Imark1(ks) == 0) then  ! childless
          kpart = kpart + 1
          Listpart(kpart) = ks
-      ELSE
+      else
          kcheck = kcheck + 1
          Icheck4(kcheck) = ks
-      ENDIF
-2  END DO
+      endif
+2  end do
 
-   DO 3 i = 1, 4
-      DO 30 k = 1, Kcheck
+   do 3 i = 1, 4
+      do 30 k = 1, Kcheck
          ks = Icheck4(k)
          m = Ipar1Ch2(ks, i)
-         IF (m /= 0) THEN     ! box not empty, examine at lower
+         if (m /= 0) then     ! box not empty, examine at lower
             kexam = kexam + 1
             Listexam(kexam) = m
-         ENDIF
-30    END DO
-3  END DO
+         endif
+30    end do
+3  end do
 
-   RETURN
-END SUBROUTINE CHECK_BOX
+   return
+end subroutine check_box

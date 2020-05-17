@@ -1,4 +1,4 @@
-SUBROUTINE MAX_RAD(Np, rmax)
+subroutine max_rad(Np, rmax)
 
 !  This subroutine finds the distance of the particle farthest from (0,0).
 
@@ -14,15 +14,15 @@ SUBROUTINE MAX_RAD(Np, rmax)
    real :: x, y, r
 !----------------------------------------------------------------------
 
-   x = XP(1)
-   y = YP(1)
-   rmax = SQRT(x*x + y*y)
-   DO 11 i = 2, Np
-      x = XP(i)
-      y = YP(i)
-      r = SQRT(x*x + y*y)
-      rmax = AMAX1(rmax, r)
-11 END DO
+   x = xp(1)
+   y = yp(1)
+   rmax = sqrt(x*x + y*y)
+   do 11 i = 2, Np
+      x = xp(i)
+      y = yp(i)
+      r = sqrt(x*x + y*y)
+      rmax = amax1(rmax, r)
+11 end do
 
-   RETURN
-END SUBROUTINE MAX_RAD
+   return
+end subroutine max_rad

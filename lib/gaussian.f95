@@ -1,4 +1,4 @@
-SUBROUTINE GAUSSIAN
+subroutine gaussian
 
 !    Computes a table of values for the gaussian, which is used in the
 !    formulas for convection and diffusion between particles. Table just
@@ -10,7 +10,7 @@ SUBROUTINE GAUSSIAN
    include 'main_dim.h'
 
    real :: gdelta, gauss(ngauss)
-   COMMON/GAUSS_TABLE/gdelta, GAUSS
+   common/gauss_table/gdelta, gauss
 
    integer :: i
    real :: x
@@ -21,7 +21,7 @@ SUBROUTINE GAUSSIAN
    do 1 i = 1, Ngauss
       x = (i - 1)*gdelta
       gauss(i) = exp(-x)
-1  END DO
+1  end do
 
    return
-END SUBROUTINE GAUSSIAN
+end subroutine gaussian

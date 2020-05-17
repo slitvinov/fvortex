@@ -1,4 +1,4 @@
-SUBROUTINE INT_CHLESS1(kchildless1)
+subroutine int_chless1(kchildless1)
 !  These subroutines determine the hierarchy of interactions and call for the
 !  interactions. Particle interactions are assigned in the int_chless routines
 !  as they only happen for childless boxes (otherwise you go to the next level
@@ -49,61 +49,61 @@ SUBROUTINE INT_CHLESS1(kchildless1)
       Listclose(i) = 0
    enddo
 
-   DO 10 kh = 1, Kchildless1
+   do 10 kh = 1, Kchildless1
       kb = Ichildless1(kh)
-      Ib = IC1(kb)
-      Jb = JC1(kb)
-      nb1 = NPB1(kb, 1)
-      nb2 = NPB1(kb, 2)
+      Ib = ic1(kb)
+      Jb = jc1(kb)
+      nb1 = npb1(kb, 1)
+      nb2 = npb1(kb, 2)
       do 1 i = 1, kp1
          kclose = kclose + 1
          Listclose(i) = Liststart(i)
-1     END DO
+1     end do
 
       !  Construct the interaction list with particles and boxes that belong
       !  to finer levels than the ** 1st **.
       !  First find all childless boxes on level 1.
       !  Note that the box will find and interact with itself (as particles)
 
-      CALL check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
+      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
                      Listpart, Ipar1Ch2, Imark1)
 
       nns = 0
-      DO 11 k = 1, Kpart
+      do 11 k = 1, Kpart
          id = Listpart(k)
-         n1 = NPB1(id, 1)
-         n2 = NPB1(id, 2)
-         DO 111 np = n1, n2
+         n1 = npb1(id, 1)
+         n2 = npb1(id, 2)
+         do 111 np = n1, n2
             nns = nns + 1
-            XT(nns) = XN(np)
-            YT(nns) = YN(np)
-            GT(nns) = GN(np)
-111      END DO
-11    END DO
+            xt(nns) = xn(np)
+            yt(nns) = yn(np)
+            gt(nns) = gn(np)
+111      end do
+11    end do
 
-      IF (nns > np_max) WRITE (*, *) 'error in int_chless1', nns
-      DO 251 n = nb1, nb2
-         CALL int_part1(XN(n), YN(n), GN(n), up1, vp1, gp1, nns)
-         UU(n) = UU(n) + up1*dyopiinv
-         VV(n) = VV(n) + vp1*dyopiinv
+      if (nns > np_max) write (*, *) 'error in int_chless1', nns
+      do 251 n = nb1, nb2
+         call int_part1(xn(n), yn(n), gn(n), up1, vp1, gp1, nns)
+         uu(n) = uu(n) + up1*dyopiinv
+         vv(n) = vv(n) + vp1*dyopiinv
          gdiff(n) = gdiff(n) + gp1
-251   END DO
+251   end do
 
       ! ______________________________
-      LEVEL = 2
+      level = 2
 
       !  Find which level 2 boxes are far enough away to interact as a box with
       !  level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
 
-      CALL near_far(Nmax2, ib, jb, r12, IC2, JC2, kexam, Listexam, &
+      call near_far(Nmax2, ib, jb, r12, ic2, jc2, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       kfp = 0
-      DO 12 k = 1, Kfar
+      do 12 k = 1, Kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC2(id)
-         Ybox(kfp) = YC2(id)
+         Xbox(kfp) = xc2(id)
+         Ybox(kfp) = yc2(id)
          Prbox(kfp, 0) = Pr2(id, 0)
          Pibox(kfp, 0) = Pi2(id, 0)
          Prbox(kfp, 1) = Pr2(id, 1)
@@ -120,44 +120,44 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Pibox(kfp, 6) = Pi2(id, 6)
          Prbox(kfp, 7) = Pr2(id, 7)
          Pibox(kfp, 7) = Pi2(id, 7)
-12    END DO
+12    end do
 
       !  Check the remaining level 2 boxes for childless boxes. Since they didn't
       !  interact as a box above and further subdivisions don't exist for the
       !  box, it must now interact as particles.
 
-      CALL check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart, &
+      call check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart, &
                      Listpart, Ipar2Ch3, Imark2)
 
       nn = 0
-      DO 25 k = 1, kpart
+      do 25 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB2(id, 1)
-         n2 = NPB2(id, 2)
-         DO 250 np = n1, n2
+         n1 = npb2(id, 1)
+         n2 = npb2(id, 2)
+         do 250 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-250      END DO
-25    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+250      end do
+25    end do
 
       ! All remaining boxes (those which have not yet interacted in some way) are
       ! parents, thus go to their level 3 children. Process of level 2 repeats
       ! for all subsequent levels.
 
       ! _____________________________________
-      LEVEL = 3
+      level = 3
 
-      CALL near_far(Nmax3, ib, jb, r13, IC3, JC3, kexam, Listexam, &
+      call near_far(Nmax3, ib, jb, r13, ic3, jc3, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 26 k = 1, kfar
+      do 26 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC3(id)
-         Ybox(kfp) = YC3(id)
+         Xbox(kfp) = xc3(id)
+         Ybox(kfp) = yc3(id)
          Prbox(kfp, 0) = Pr3(id, 0)
          Pibox(kfp, 0) = Pi3(id, 0)
          Prbox(kfp, 1) = Pr3(id, 1)
@@ -175,35 +175,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Prbox(kfp, 7) = Pr3(id, 7)
          Pibox(kfp, 7) = Pi3(id, 7)
 
-26    END DO
+26    end do
 
-      CALL check_box(Nmax3, Kclose, Listclose, kexam, Listexam, Kpart &
+      call check_box(Nmax3, Kclose, Listclose, kexam, Listexam, Kpart &
                      , Listpart, Ipar3Ch4, Imark3)
 
-      DO 27 k = 1, kpart
+      do 27 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB3(id, 1)
-         n2 = NPB3(id, 2)
-         DO 270 np = n1, n2
+         n1 = npb3(id, 1)
+         n2 = npb3(id, 2)
+         do 270 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-270      END DO
-27    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+270      end do
+27    end do
 
       ! ____________________
-      LEVEL = 4
+      level = 4
 
-      CALL near_far(Nmax4, ib, jb, r14, IC4, JC4, kexam, Listexam, &
+      call near_far(Nmax4, ib, jb, r14, ic4, jc4, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 28 k = 1, kfar
+      do 28 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC4(id)
-         Ybox(kfp) = YC4(id)
+         Xbox(kfp) = xc4(id)
+         Ybox(kfp) = yc4(id)
          Prbox(kfp, 0) = Pr4(id, 0)
          Pibox(kfp, 0) = Pi4(id, 0)
          Prbox(kfp, 1) = Pr4(id, 1)
@@ -221,35 +221,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Prbox(kfp, 7) = Pr4(id, 7)
          Pibox(kfp, 7) = Pi4(id, 7)
 
-28    END DO
+28    end do
 
-      CALL check_box(Nmax4, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax4, Kclose, Listclose, kexam, Listexam, Kpart, &
                      Listpart, Ipar4Ch5, Imark4)
 
-      DO 29 k = 1, kpart
+      do 29 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB4(id, 1)
-         n2 = NPB4(id, 2)
-         DO 290 np = n1, n2
+         n1 = npb4(id, 1)
+         n2 = npb4(id, 2)
+         do 290 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-290      END DO
-29    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+290      end do
+29    end do
 
       ! ____________________
-      LEVEL = 5
+      level = 5
 
-      CALL near_far(Nmax5, ib, jb, r15, IC5, JC5, kexam, Listexam, &
+      call near_far(Nmax5, ib, jb, r15, ic5, jc5, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 30 k = 1, kfar
+      do 30 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC5(id)
-         Ybox(kfp) = YC5(id)
+         Xbox(kfp) = xc5(id)
+         Ybox(kfp) = yc5(id)
          Prbox(kfp, 0) = Pr5(id, 0)
          Pibox(kfp, 0) = Pi5(id, 0)
          Prbox(kfp, 1) = Pr5(id, 1)
@@ -267,35 +267,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Prbox(kfp, 7) = Pr5(id, 7)
          Pibox(kfp, 7) = Pi5(id, 7)
 
-30    END DO
+30    end do
 
-      CALL check_box(Nmax5, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax5, Kclose, Listclose, kexam, Listexam, Kpart, &
                      Listpart, Ipar5Ch6, Imark5)
 
-      DO 31 k = 1, kpart
+      do 31 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB5(id, 1)
-         n2 = NPB5(id, 2)
-         DO 310 np = n1, n2
+         n1 = npb5(id, 1)
+         n2 = npb5(id, 2)
+         do 310 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-310      END DO
-31    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+310      end do
+31    end do
 
       ! ____________________
-      LEVEL = 6
+      level = 6
 
-      CALL near_far(Nmax6, ib, jb, r16, IC6, JC6, kexam, Listexam, &
+      call near_far(Nmax6, ib, jb, r16, ic6, jc6, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 32 k = 1, kfar
+      do 32 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC6(id)
-         Ybox(kfp) = YC6(id)
+         Xbox(kfp) = xc6(id)
+         Ybox(kfp) = yc6(id)
          Prbox(kfp, 0) = Pr6(id, 0)
          Pibox(kfp, 0) = Pi6(id, 0)
          Prbox(kfp, 1) = Pr6(id, 1)
@@ -313,35 +313,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Prbox(kfp, 7) = Pr6(id, 7)
          Pibox(kfp, 7) = Pi6(id, 7)
 
-32    END DO
+32    end do
 
-      CALL check_box(Nmax6, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax6, Kclose, Listclose, kexam, Listexam, Kpart, &
                      Listpart, Ipar6Ch7, Imark6)
 
-      DO 33 k = 1, kpart
+      do 33 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB6(id, 1)
-         n2 = NPB6(id, 2)
-         DO 330 np = n1, n2
+         n1 = npb6(id, 1)
+         n2 = npb6(id, 2)
+         do 330 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-330      END DO
-33    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+330      end do
+33    end do
 
       ! ____________________
-      LEVEL = 7
+      level = 7
 
-      CALL near_far(Nmax7, ib, jb, r17, IC7, JC7, kexam, Listexam, &
+      call near_far(Nmax7, ib, jb, r17, ic7, jc7, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 34 k = 1, kfar
+      do 34 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC7(id)
-         Ybox(kfp) = YC7(id)
+         Xbox(kfp) = xc7(id)
+         Ybox(kfp) = yc7(id)
          Prbox(kfp, 0) = Pr7(id, 0)
          Pibox(kfp, 0) = Pi7(id, 0)
          Prbox(kfp, 1) = Pr7(id, 1)
@@ -358,35 +358,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Pibox(kfp, 6) = Pi7(id, 6)
          Prbox(kfp, 7) = Pr7(id, 7)
          Pibox(kfp, 7) = Pi7(id, 7)
-34    END DO
+34    end do
 
-      CALL check_box(Nmax7, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax7, Kclose, Listclose, kexam, Listexam, Kpart, &
                      Listpart, Ipar7Ch8, Imark7)
 
-      DO 35 k = 1, kpart
+      do 35 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB7(id, 1)
-         n2 = NPB7(id, 2)
-         DO 350 np = n1, n2
+         n1 = npb7(id, 1)
+         n2 = npb7(id, 2)
+         do 350 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-350      END DO
-35    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+350      end do
+35    end do
 
       ! ____________________
-      LEVEL = 8
+      level = 8
 
-      CALL near_far(Nmax8, ib, jb, r18, IC8, JC8, kexam, Listexam, &
+      call near_far(Nmax8, ib, jb, r18, ic8, jc8, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 36 k = 1, kfar
+      do 36 k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC8(id)
-         Ybox(kfp) = YC8(id)
+         Xbox(kfp) = xc8(id)
+         Ybox(kfp) = yc8(id)
          Prbox(kfp, 0) = Pr8(id, 0)
          Pibox(kfp, 0) = Pi8(id, 0)
          Prbox(kfp, 1) = Pr8(id, 1)
@@ -403,35 +403,35 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Pibox(kfp, 6) = Pi8(id, 6)
          Prbox(kfp, 7) = Pr8(id, 7)
          Pibox(kfp, 7) = Pi8(id, 7)
-36    END DO
+36    end do
 
-      CALL check_box(Nmax8, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax8, Kclose, Listclose, kexam, Listexam, Kpart, &
                      Listpart, Ipar8Ch9, Imark8)
 
-      DO 37 k = 1, kpart
+      do 37 k = 1, kpart
          id = Listpart(k)
-         n1 = NPB8(id, 1)
-         n2 = NPB8(id, 2)
-         DO 370 np = n1, n2
+         n1 = npb8(id, 1)
+         n2 = npb8(id, 2)
+         do 370 np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
-370      END DO
-37    END DO
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
+370      end do
+37    end do
 
       ! ____________________
-      LEVEL = 9
+      level = 9
 
-      CALL near_far(Nmax9, ib, jb, r19, IC9, JC9, kexam, Listexam, &
+      call near_far(Nmax9, ib, jb, r19, ic9, jc9, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO k = 1, kfar
+      do k = 1, kfar
          kfp = kfp + 1
          id = Listfar(k)
-         Xbox(kfp) = XC9(id)
-         Ybox(kfp) = YC9(id)
+         Xbox(kfp) = xc9(id)
+         Ybox(kfp) = yc9(id)
          Prbox(kfp, 0) = Pr9(id, 0)
          Pibox(kfp, 0) = Pi9(id, 0)
          Prbox(kfp, 1) = Pr9(id, 1)
@@ -450,33 +450,33 @@ SUBROUTINE INT_CHLESS1(kchildless1)
          Pibox(kfp, 7) = Pi9(id, 7)
       enddo
 
-      DO k = 1, kclose   ! All close boxes are now childless
+      do k = 1, kclose   ! All close boxes are now childless
          id = Listclose(k)
-         n1 = NPB9(id, 1)
-         n2 = NPB9(id, 2)
-         DO np = n1, n2
+         n1 = npb9(id, 1)
+         n2 = npb9(id, 2)
+         do np = n1, n2
             nn = nn + 1
-            XT(nn) = XN(np)
-            YT(nn) = YN(np)
-            GT(nn) = GN(np)
-            IT(nn) = np
+            xt(nn) = xn(np)
+            yt(nn) = yn(np)
+            gt(nn) = gn(np)
+            it(nn) = np
          enddo
       enddo
 
-      IF (nn > np_max) WRITE (*, *) 'error in int_chless1p', nn
-      IF (kfp > nbox_max) WRITE (*, *) 'error in int_chless1b', kfp
-      DO 351 n = nb1, nb2
-         xnn = XN(n)
-         ynn = YN(n)
-         gnn = GN(n)
-         CALL int_part2(gnn, xnn, ynn, up2, vp2, gp2, nn)
-         CALL int_part_box(xnn, ynn, ubox, vbox, kfp)
-         UU(n) = UU(n) + (up2 + ubox)*dyopiinv
-         VV(n) = VV(n) + (vp2 + vbox)*dyopiinv
+      if (nn > np_max) write (*, *) 'error in int_chless1p', nn
+      if (kfp > nbox_max) write (*, *) 'error in int_chless1b', kfp
+      do 351 n = nb1, nb2
+         xnn = xn(n)
+         ynn = yn(n)
+         gnn = gn(n)
+         call int_part2(gnn, xnn, ynn, up2, vp2, gp2, nn)
+         call int_part_box(xnn, ynn, ubox, vbox, kfp)
+         uu(n) = uu(n) + (up2 + ubox)*dyopiinv
+         vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
          gdiff(n) = gdiff(n) + gp2
-351   END DO
+351   end do
 
-10 END DO
+10 end do
 
-   RETURN
-END SUBROUTINE INT_CHLESS1
+   return
+end subroutine int_chless1

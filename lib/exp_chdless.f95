@@ -1,5 +1,5 @@
-SUBROUTINE exp_chdless(nmax, kchildless, XC, YC, Ichildless, &
-                       NPB, Pr, Pi)
+subroutine exp_chdless(nmax, kchildless, xc, yc, Ichildless, &
+                       npb, Pr, Pi)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
 !               the childless boxes at a level.
@@ -21,12 +21,12 @@ SUBROUTINE exp_chdless(nmax, kchildless, XC, YC, Ichildless, &
    real :: re5, fa5, re6, fa6, re7, fa7
 !-----------------------------------------------------------------
 
-   DO 10 k = 1, kchildless
+   do 10 k = 1, kchildless
       nb = Ichildless(k)
-      n1 = NPB(nb, 1)
-      n2 = NPB(nb, 2)
-      Xm = XC(nb)
-      Ym = YC(nb)
+      n1 = npb(nb, 1)
+      n2 = npb(nb, 2)
+      Xm = xc(nb)
+      Ym = yc(nb)
       Tr0 = 0.
       Ti0 = 0.
       Tr1 = 0.
@@ -44,10 +44,10 @@ SUBROUTINE exp_chdless(nmax, kchildless, XC, YC, Ichildless, &
       Tr7 = 0.
       Ti7 = 0.
 
-      DO 100 j = n1, n2
-         X = XN(j) - Xm
-         Y = Ym - YN(j)
-         re0 = GN(j)
+      do 100 j = n1, n2
+         x = xn(j) - Xm
+         y = Ym - yn(j)
+         re0 = gn(j)
          re1 = re0*x
          fa1 = re0*y
          re2 = re1*x - fa1*y
@@ -78,7 +78,7 @@ SUBROUTINE exp_chdless(nmax, kchildless, XC, YC, Ichildless, &
          Ti6 = Ti6 + fa6
          Tr7 = Tr7 + re7
          Ti7 = Ti7 + fa7
-100   END DO
+100   end do
       Pr(nb, 0) = Tr0
       Pi(nb, 0) = Ti0
       Pr(nb, 1) = Tr1
@@ -95,7 +95,7 @@ SUBROUTINE exp_chdless(nmax, kchildless, XC, YC, Ichildless, &
       Pi(nb, 6) = Ti6
       Pr(nb, 7) = Tr7
       Pi(nb, 7) = Ti7
-10 END DO
+10 end do
 
-   RETURN
-end SUBROUTINE exp_chdless
+   return
+end subroutine exp_chdless

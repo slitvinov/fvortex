@@ -1,4 +1,4 @@
-SUBROUTINE near_far(Nmax, ib, jb, r, IC, JC, kexam, Listexam, &
+subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
 !  This  subroutine finds all the far & close boxes at a certain
@@ -24,17 +24,17 @@ SUBROUTINE near_far(Nmax, ib, jb, r, IC, JC, kexam, Listexam, &
    kfar = 0
    kclose = 0
 
-   DO 2 k = 1, kexam
+   do 2 k = 1, kexam
       ks = Listexam(k)
-      si = IC(ks)
-      sj = JC(ks)
-      IF ((ABS(fi - si) < cr) .AND. (ABS(fj - sj) < cr)) THEN
+      si = ic(ks)
+      sj = jc(ks)
+      if ((abs(fi - si) < cr) .and. (abs(fj - sj) < cr)) then
          kclose = kclose + 1
          Listclose(kclose) = ks        ! close
-      ELSE
+      else
          kfar = kfar + 1
          Listfar(kfar) = ks            ! far away
-      ENDIF
-2  END DO
-   RETURN
-end SUBROUTINE near_far
+      endif
+2  end do
+   return
+end subroutine near_far

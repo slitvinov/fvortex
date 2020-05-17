@@ -1,4 +1,4 @@
-SUBROUTINE int_part_box(xtest, ytest, ubox, vbox, kbox)
+subroutine int_part_box(xtest, ytest, ubox, vbox, kbox)
 
 !  This  subroutine calculates the velocities induced by boxes
 !  on individual particles.
@@ -18,7 +18,7 @@ SUBROUTINE int_part_box(xtest, ytest, ubox, vbox, kbox)
 !-----------------------------------------------------------
    ubox = 0.
    vbox = 0.
-   DO 2 ks = 1, kbox
+   do 2 ks = 1, kbox
 
       level = 0
       xx = Xtest - Xbox(ks)
@@ -92,7 +92,7 @@ SUBROUTINE int_part_box(xtest, ytest, ubox, vbox, kbox)
       !  Calculate the velocity induced by the group "k" on particle "i"
       ubox = ubox - velr
       vbox = vbox + veli
-2  END DO
+2  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

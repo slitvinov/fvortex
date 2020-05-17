@@ -1,4 +1,4 @@
-SUBROUTINE STR_BOX(xtest, ytest, kbox, Sb)
+subroutine str_box(xtest, ytest, kbox, Sb)
 
 !  This subroutine finds the streamfunction value induced at (xtest,ytest)
 !  from the boxes in Xbox,Ybox,Pr.
@@ -26,7 +26,7 @@ SUBROUTINE STR_BOX(xtest, ytest, kbox, Sb)
    t9 = 1./9.
    Sb = 0.0
 
-   DO 2 ks = 1, kbox
+   do 2 ks = 1, kbox
       xx = Xtest - Xbox(ks)
       yy = Ytest - Ybox(ks)
       x0 = xx
@@ -35,7 +35,7 @@ SUBROUTINE STR_BOX(xtest, ytest, kbox, Sb)
       r2inv = 1.0/r2d
 
       level = 0
-      c0 = Prbox(ks, level)*ALOG(r2d)
+      c0 = Prbox(ks, level)*alog(r2d)
 
       level = 1
       rpt = Prbox(ks, level)
@@ -95,7 +95,7 @@ SUBROUTINE STR_BOX(xtest, ytest, kbox, Sb)
 
       Sb = Sb + cr
 
-2  END DO
+2  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

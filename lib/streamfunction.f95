@@ -1,4 +1,4 @@
-SUBROUTINE streamfunction(Xbc, Ybc, Sp, Sb)
+subroutine streamfunction(Xbc, Ybc, Sp, Sb)
 
 !  This subroutine finds the streamfunction value at (xbc,ybc) induced
 !  by the vorticity field, sending back contributions from particle
@@ -15,17 +15,17 @@ SUBROUTINE streamfunction(Xbc, Ybc, Sp, Sb)
 
    call build_tree(0, xbc, ybc, nn, kfp)
 
-   CALL STR_PART(xbc, ybc, nn, Sp)
-   IF (nn > np_max) then
+   call str_part(xbc, ybc, nn, Sp)
+   if (nn > np_max) then
       write (*, *) 'error in str_part, nn=', nn
       stop
    endif
 
-   CALL STR_BOX(xbc, ybc, kfp, Sb)
-   IF (kfp > nbox_max) then
+   call str_box(xbc, ybc, kfp, Sb)
+   if (kfp > nbox_max) then
       write (*, *) 'error in str_box, kfp=', kfp
       stop
    endif
 
-900 RETURN
-end SUBROUTINE streamfunction
+900 return
+end subroutine streamfunction

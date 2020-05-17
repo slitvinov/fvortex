@@ -1,4 +1,4 @@
-SUBROUTINE INT_REST8(kp8)
+subroutine int_rest8(kp8)
 
 !  Same as int_rest2 for level 8 boxes.
 
@@ -11,7 +11,7 @@ SUBROUTINE INT_REST8(kp8)
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: kp8
 
@@ -41,177 +41,177 @@ SUBROUTINE INT_REST8(kp8)
    r87 = 0.50000
    r88 = 1.0
 
-   DO 20 kb = 1, kp8       ! All boxes Childless & Parents
-      ib = IC8(kb)
-      jb = JC8(kb)
-      xb = XC8(kb)
-      yb = YC8(kb)
-      ipar = (xb - X0)/ds7 + 1
-      jpar = (yb - Y0)/ds7 + 1
+   do 20 kb = 1, kp8       ! All boxes Childless & Parents
+      ib = ic8(kb)
+      jb = jc8(kb)
+      xb = xc8(kb)
+      yb = yc8(kb)
+      ipar = (xb - x0)/ds7 + 1
+      jpar = (yb - y0)/ds7 + 1
       do 1 i = 1, kp1
          kexam = kp1
          Listexam(i) = Liststart(i)
-1     END DO
-      CALL near_far(Nmax1, ipar, jpar, r71, IC1, JC1, kexam, Listexam, &
+1     end do
+      call near_far(Nmax1, ipar, jpar, r71, ic1, jc1, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar1Ch2, Imark1)               !NT
 
-      CALL near_far(Nmax1, ib, jb, r81, IC1, JC1, kpart, Listpart, &
+      call near_far(Nmax1, ib, jb, r81, ic1, jc1, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
       n4 = 0
-      DO 21 k = 1, kfar
+      do 21 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB1(id, 1)
-         n2 = NPB1(id, 2)
-         DO 210 np = n1, n2
+         n1 = npb1(id, 1)
+         n2 = npb1(id, 2)
+         do 210 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-210      END DO
-21    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+210      end do
+21    end do
 
-      CALL near_far(Nmax2, ipar, jpar, r72, IC2, JC2, kexam, Listexam, &
+      call near_far(Nmax2, ipar, jpar, r72, ic2, jc2, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar2Ch3, Imark2)                 ! NT
 
-      CALL near_far(Nmax2, ib, jb, r82, IC2, JC2, kpart, Listpart, &
+      call near_far(Nmax2, ib, jb, r82, ic2, jc2, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 22 k = 1, kfar
+      do 22 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB2(id, 1)
-         n2 = NPB2(id, 2)
-         DO 220 np = n1, n2
+         n1 = npb2(id, 1)
+         n2 = npb2(id, 2)
+         do 220 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-220      END DO
-22    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+220      end do
+22    end do
 
-      CALL near_far(Nmax3, ipar, jpar, r73, IC3, JC3, kexam, Listexam, &
+      call near_far(Nmax3, ipar, jpar, r73, ic3, jc3, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax3, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax3, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar3Ch4, Imark3)                 ! NT
 
-      CALL near_far(Nmax3, ib, jb, r83, IC3, JC3, kpart, Listpart, &
+      call near_far(Nmax3, ib, jb, r83, ic3, jc3, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 23 k = 1, kfar
+      do 23 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB3(id, 1)
-         n2 = NPB3(id, 2)
-         DO 230 np = n1, n2
+         n1 = npb3(id, 1)
+         n2 = npb3(id, 2)
+         do 230 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-230      END DO
-23    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+230      end do
+23    end do
 
-      CALL near_far(Nmax4, ipar, jpar, r74, IC4, JC4, kexam, Listexam, &
+      call near_far(Nmax4, ipar, jpar, r74, ic4, jc4, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax4, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax4, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar4Ch5, Imark4)                 ! NT
 
-      CALL near_far(Nmax4, ib, jb, r84, IC4, JC4, kpart, Listpart, &
+      call near_far(Nmax4, ib, jb, r84, ic4, jc4, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 24 k = 1, kfar
+      do 24 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB4(id, 1)
-         n2 = NPB4(id, 2)
-         DO 240 np = n1, n2
+         n1 = npb4(id, 1)
+         n2 = npb4(id, 2)
+         do 240 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-240      END DO
-24    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+240      end do
+24    end do
 
-      CALL near_far(Nmax5, ipar, jpar, r75, IC5, JC5, kexam, Listexam, &
+      call near_far(Nmax5, ipar, jpar, r75, ic5, jc5, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      CALL check_box(Nmax5, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax5, kclose, Listclose, kexam, Listexam, kpart &
                      , Listpart, Ipar5Ch6, Imark5)                 ! NT
 
-      CALL near_far(Nmax5, ib, jb, r85, IC5, JC5, kpart, Listpart, &
+      call near_far(Nmax5, ib, jb, r85, ic5, jc5, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 25 k = 1, kfar
+      do 25 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB5(id, 1)
-         n2 = NPB5(id, 2)
-         DO 250 np = n1, n2
+         n1 = npb5(id, 1)
+         n2 = npb5(id, 2)
+         do 250 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-250      END DO
-25    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+250      end do
+25    end do
 
-      CALL near_far(Nmax6, ipar, jpar, r76, IC6, JC6, Kexam, Listexam, &
+      call near_far(Nmax6, ipar, jpar, r76, ic6, jc6, Kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      CALL check_box(Nmax6, kclose, Listclose, &
+      call check_box(Nmax6, kclose, Listclose, &
                      kexam, Listexam, kpart, Listpart, Ipar6Ch7, Imark6)
 
-      CALL near_far(Nmax6, ib, jb, r86, IC6, JC6, Kpart, Listpart, &
+      call near_far(Nmax6, ib, jb, r86, ic6, jc6, Kpart, Listpart, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 26 k = 1, kfar
+      do 26 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB6(id, 1)
-         n2 = NPB6(id, 2)
-         DO 260 np = n1, n2
+         n1 = npb6(id, 1)
+         n2 = npb6(id, 2)
+         do 260 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-260      END DO
-26    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+260      end do
+26    end do
 
-      CALL near_far(Nmax7, ipar, jpar, r77, IC7, JC7, Kexam, Listexam, &
+      call near_far(Nmax7, ipar, jpar, r77, ic7, jc7, Kexam, Listexam, &
                     kfar, Listfar, kclose, Listclose)
 
-      CALL check_box(Nmax7, kclose, Listclose, &
+      call check_box(Nmax7, kclose, Listclose, &
                      kexam, Listexam, kpart, Listpart, Ipar7Ch8, Imark7)
 
-      CALL near_far(Nmax7, ib, jb, r87, IC7, JC7, Kpart, Listpart, &
+      call near_far(Nmax7, ib, jb, r87, ic7, jc7, Kpart, Listpart, &
                     kfar, Listfar, kclose, Listclose)
 
-      DO 27 k = 1, kfar
+      do 27 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB7(id, 1)
-         n2 = NPB7(id, 2)
-         DO 270 np = n1, n2
+         n1 = npb7(id, 1)
+         n2 = npb7(id, 2)
+         do 270 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-270      END DO
-27    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+270      end do
+27    end do
 
-      IF (n4 == 0) GOTO 88
+      if (n4 == 0) goto 88
       if (n4 > np_max) write (*, *) 'error in rest8b', n4
-      CALL int_box_part(Nmax8, kb, xb, yb, n4, Br8, Bi8)
+      call int_box_part(Nmax8, kb, xb, yb, n4, Br8, Bi8)
 
-88    CALL near_far(Nmax8, ib, jb, r88, IC8, JC8, kexam, Listexam, &
+88    call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
       ! CDIR$SHORTLOOP
-      DO kbb = 1, kfar
+      do kbb = 1, kfar
          id = Listfar(kbb)
-         Xbox(kbb) = XC8(id)
-         Ybox(kbb) = YC8(id)
+         Xbox(kbb) = xc8(id)
+         Ybox(kbb) = yc8(id)
 
          Prbox(kbb, 0) = Pr8(id, 0)
          Pibox(kbb, 0) = Pi8(id, 0)
@@ -232,8 +232,8 @@ SUBROUTINE INT_REST8(kp8)
       enddo
 
       if (kfar > nbox_max) write (*, *) 'error in rest8', kbb
-      CALL int_box(Nmax8, kb, xb, yb, kfar, Br8, Bi8)
+      call int_box(Nmax8, kb, xb, yb, kfar, Br8, Bi8)
 
-20 END DO
-   RETURN
-END SUBROUTINE
+20 end do
+   return
+end subroutine

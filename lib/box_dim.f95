@@ -1,4 +1,4 @@
-SUBROUTINE BOX_DIM(Num, Xmin, Xmax, Ymin, Ymax)
+subroutine box_dim(Num, Xmin, Xmax, Ymin, Ymax)
 
 !  This subroutine finds the bounding x and y coordinates in the domain.
 
@@ -13,18 +13,18 @@ SUBROUTINE BOX_DIM(Num, Xmin, Xmax, Ymin, Ymax)
    integer :: i
 !------------------------------------------------------------------
 
-   Xmin = XP(1)
-   Xmax = XP(1)
-   Ymin = YP(1)
-   Ymax = YP(1)
-   DO 10 I = 1, Num
-      x = XP(i)
-      y = YP(i)
-      Xmin = AMIN1(Xmin, x)
-      Xmax = AMAX1(Xmax, x)
-      Ymin = AMIN1(Ymin, y)
-      Ymax = AMAX1(Ymax, y)
-10 END DO
+   Xmin = xp(1)
+   Xmax = xp(1)
+   Ymin = yp(1)
+   Ymax = yp(1)
+   do 10 i = 1, Num
+      x = xp(i)
+      y = yp(i)
+      Xmin = amin1(Xmin, x)
+      Xmax = amax1(Xmax, x)
+      Ymin = amin1(Ymin, y)
+      Ymax = amax1(Ymax, y)
+10 end do
 
-   RETURN
-END SUBROUTINE BOX_DIM
+   return
+end subroutine box_dim

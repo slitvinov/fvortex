@@ -1,4 +1,4 @@
-SUBROUTINE INT_CHLESS9(kp8, kp9)
+subroutine int_chless9(kp8, kp9)
 
 !  Same idea as in int_chless2 but now for level 9 childless boxes.
 !  For descriptive comments, go back to int_chless1&2
@@ -12,7 +12,7 @@ SUBROUTINE INT_CHLESS9(kp8, kp9)
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: kp8, kp9
 
@@ -28,59 +28,59 @@ SUBROUTINE INT_CHLESS9(kp8, kp9)
 
    r99 = 1.0
 
-   DO 20 kb = 1, Kp9
+   do 20 kb = 1, Kp9
       nns = 0   ! List 1 (same level)
       nn = 0    ! List 1 (finer levels)
       kfp = 0   ! List 3
-      ib = IC9(kb)
-      jb = JC9(kb)
-      nb1 = NPB9(kb, 1)
-      nb2 = NPB9(kb, 2)
-      ipar = (XC9(kb) - X0)/ds8 + 1
-      jpar = (YC9(kb) - Y0)/ds8 + 1
+      ib = ic9(kb)
+      jb = jc9(kb)
+      nb1 = npb9(kb, 1)
+      nb2 = npb9(kb, 2)
+      ipar = (xc9(kb) - x0)/ds8 + 1
+      jpar = (yc9(kb) - y0)/ds8 + 1
       kc = 0
-      DO 21 k = 1, Kp8 ! Loop over boxes in parents level.
-         i = IC8(k)
-         j = JC8(k)
-         IF ((IABS(i - ipar) > 1) .OR. (IABS(j - jpar) > 1)) GOTO 21
+      do 21 k = 1, Kp8 ! Loop over boxes in parents level.
+         i = ic8(k)
+         j = jc8(k)
+         if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
          kc = kc + 1
          Lclg(kc) = k
-21    END DO
+21    end do
 
       kexam = 0
-      DO 22 m = 1, 4
-         DO 23 k = 1, kc
+      do 22 m = 1, 4
+         do 23 k = 1, kc
             ks = Lclg(k)
             km = Ipar8Ch9(ks, m)
-            IF (km == 0) GOTO 23
+            if (km == 0) goto 23
             kexam = kexam + 1
             Listexam(kexam) = km
-23       END DO
-22    END DO
+23       end do
+22    end do
 
-      CALL near_far(Nmax9, ib, jb, r99, IC9, JC9, kexam, Listexam &
+      call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, Listexam &
                     , kfar, Listfar, Kclose, Listclose)
 
-      DO 25 k = 1, kclose
+      do 25 k = 1, kclose
          id = Listclose(k)
-         n1 = NPB9(id, 1)
-         n2 = NPB9(id, 2)
-         DO 250 np = n1, n2
+         n1 = npb9(id, 1)
+         n2 = npb9(id, 2)
+         do 250 np = n1, n2
             nns = nns + 1
-            XT(nns) = XN(np)
-            YT(nns) = YN(np)    ! childless boxes same level
-            GT(nns) = GN(np)
-250      END DO
-25    END DO
+            xt(nns) = xn(np)
+            yt(nns) = yn(np)    ! childless boxes same level
+            gt(nns) = gn(np)
+250      end do
+25    end do
 
-      IF (nns > np_max) WRITE (*, *) 'error in int_chless8', nns
-      DO 251 n = nb1, nb2
-         CALL int_part1(XN(n), YN(n), GN(n), up1, vp1, gp1, nns)
-         UU(n) = UU(n) + up1*dyopiinv
-         VV(n) = VV(n) + vp1*dyopiinv
+      if (nns > np_max) write (*, *) 'error in int_chless8', nns
+      do 251 n = nb1, nb2
+         call int_part1(xn(n), yn(n), gn(n), up1, vp1, gp1, nns)
+         uu(n) = uu(n) + up1*dyopiinv
+         vv(n) = vv(n) + vp1*dyopiinv
          gdiff(n) = gdiff(n) + gp1
-251   END DO
-20 END DO
+251   end do
+20 end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

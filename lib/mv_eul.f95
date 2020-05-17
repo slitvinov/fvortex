@@ -1,4 +1,4 @@
-SUBROUTINE MV_EUL
+subroutine mv_eul
 
 !  Advance the particle positions using an Euler step
 !  based on velocities calculated in CONDIFF and VEL_EXT.
@@ -11,25 +11,25 @@ SUBROUTINE MV_EUL
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: in, i
    real :: pi, const, xpi, ypi, theta, u_vel, v_vel, vel_tan
 !--------------------------------------------------------------------
 
    in = 0
-   pi = 4.*ATAN(1.)
+   pi = 4.*atan(1.)
    const = gnu*ovrlp**2/(pi*s2)
 
-   DO 1 i = 1, Np
-      xp(i) = XN(i) + dt*uu(i)
-      yp(i) = YN(i) + dt*VV(i)
+   do 1 i = 1, Np
+      xp(i) = xn(i) + dt*uu(i)
+      yp(i) = yn(i) + dt*vv(i)
       gp(i) = gn(i) + dt*const*gdiff(i)
-1  END DO
+1  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

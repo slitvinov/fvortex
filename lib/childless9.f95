@@ -1,4 +1,4 @@
-SUBROUTINE childless9(kp9)
+subroutine childless9(kp9)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
 !               the childless boxes on level 9.
@@ -18,11 +18,11 @@ SUBROUTINE childless9(kp9)
    real :: tr6, ti6, re6, fa6, tr7, ti7, re7, fa7
 !-----------------------------------------------------------------------
 
-   DO 10 nb = 1, kp9
-      n1 = NPB9(nb, 1)
-      n2 = NPB9(nb, 2)
-      Xm = XC9(nb)
-      Ym = YC9(nb)
+   do 10 nb = 1, kp9
+      n1 = npb9(nb, 1)
+      n2 = npb9(nb, 2)
+      Xm = xc9(nb)
+      Ym = yc9(nb)
       Tr0 = 0.
       Ti0 = 0.
       Tr1 = 0.
@@ -40,10 +40,10 @@ SUBROUTINE childless9(kp9)
       Tr7 = 0.
       Ti7 = 0.
 
-      DO 100 j = n1, n2
-         X = XN(j) - Xm
-         Y = Ym - YN(j)
-         re0 = GN(j)
+      do 100 j = n1, n2
+         x = xn(j) - Xm
+         y = Ym - yn(j)
+         re0 = gn(j)
          re1 = re0*x
          fa1 = re0*y
          re2 = re1*x - fa1*y
@@ -74,7 +74,7 @@ SUBROUTINE childless9(kp9)
          Ti6 = Ti6 + fa6
          Tr7 = Tr7 + re7
          Ti7 = Ti7 + fa7
-100   END DO
+100   end do
       Pr9(nb, 0) = Tr0
       Pi9(nb, 0) = Ti0
       Pr9(nb, 1) = Tr1
@@ -92,7 +92,7 @@ SUBROUTINE childless9(kp9)
       Pr9(nb, 7) = Tr7
       Pi9(nb, 7) = Ti7
 
-10 END DO
+10 end do
 
-   RETURN
-end SUBROUTINE childless9
+   return
+end subroutine childless9

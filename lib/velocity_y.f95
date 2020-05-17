@@ -30,7 +30,7 @@ function velocity_y(time)
    if (yfree == 1) then
       velocity_y = last_v
    else
-      velocity_y = y_amp*SIN(y_freq*Time + y_phase)
+      velocity_y = y_amp*sin(y_freq*Time + y_phase)
    endif
 
    return

@@ -1,4 +1,4 @@
-SUBROUTINE MV_RK(visc_rmax)
+subroutine mv_rk(visc_rmax)
 
 !  Advance the particle positions using a Runge-Kutta scheme.
 !  Must do after a remesh rather than Adams Bashforth because
@@ -11,11 +11,11 @@ SUBROUTINE MV_RK(visc_rmax)
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: xfree, yfree, wfree
    real :: xmass, xdamp, xspring, xforce
@@ -44,21 +44,21 @@ SUBROUTINE MV_RK(visc_rmax)
    real :: theta, u_vel, v_vel, vel_tan
 !------------------------------------------------------------------
    in = 0
-   pi = 4.*ATAN(1.)
+   pi = 4.*atan(1.)
    const = gnu*ovrlp**2/(pi*s2)
 
 !--- 1st Substep, predictor step, goes to dt/2
-   DO 1 i = 1, Np
-      xp(i) = XN(i) + 0.5*dt*UU(i)
-      yp(i) = YN(i) + 0.5*dt*VV(i)
+   do 1 i = 1, Np
+      xp(i) = xn(i) + 0.5*dt*uu(i)
+      yp(i) = yn(i) + 0.5*dt*vv(i)
 
       gp(i) = gn(i) + 0.5*dt*const*gdiff(i)
-1  END DO
+1  end do
 
 !-- If any free motion, need to update now
-   if ((xfree == 1) .OR. (yfree == 1) .OR. (wfree == 1)) then
+   if ((xfree == 1) .or. (yfree == 1) .or. (wfree == 1)) then
       !-- Rebuild the tree
-      CALL CONDIFF(Np, 0, 9999., 0)
+      call condiff(Np, 0, 9999., 0)
       call update_position(0.5*dt)
    endif
 
@@ -66,14 +66,14 @@ SUBROUTINE MV_RK(visc_rmax)
 
    in = 0
 !-- Need to rebuild the interaction tree
-   CALL CONDIFF(Np, 1, visc_rmax, 0)
-   CALL VEL_EXT(time + 0.5*dt)
-   DO 2 i = 1, Np
-      xp(i) = XN(i) + dt*(UU(i) - 0.5*Uold(i))
-      yp(i) = YN(i) + dt*(VV(i) - 0.5*Vold(i))
+   call condiff(Np, 1, visc_rmax, 0)
+   call vel_ext(time + 0.5*dt)
+   do 2 i = 1, Np
+      xp(i) = xn(i) + dt*(uu(i) - 0.5*Uold(i))
+      yp(i) = yn(i) + dt*(vv(i) - 0.5*Vold(i))
 
       gp(i) = gn(i) + dt*const*(gdiff(i) - 0.5*gdold(i))
-2  END DO
+2  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

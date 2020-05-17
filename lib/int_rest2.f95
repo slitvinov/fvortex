@@ -1,4 +1,4 @@
-SUBROUTINE INT_REST2(kp2)
+subroutine int_rest2(kp2)
 
 !  This routine figures box-box interactions for level 2 boxes as well as
 !  interacting with the particles at higher level childless boxes that
@@ -13,7 +13,7 @@ SUBROUTINE INT_REST2(kp2)
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: kp2
 
@@ -29,65 +29,65 @@ SUBROUTINE INT_REST2(kp2)
    r11 = 1.0
    r22 = 1.0
 
-   DO 20 kb = 1, kp2       ! All level 2 boxes, Childless & Parents
-      ib = IC2(kb)
-      jb = JC2(kb)
-      xb = XC2(kb)
-      yb = YC2(kb)
+   do 20 kb = 1, kp2       ! All level 2 boxes, Childless & Parents
+      ib = ic2(kb)
+      jb = jc2(kb)
+      xb = xc2(kb)
+      yb = yc2(kb)
       ! Step 1 : Find i,j of your parent.
-      ipar = (xb - X0)/ds1 + 1
-      jpar = (yb - Y0)/ds1 + 1
+      ipar = (xb - x0)/ds1 + 1
+      jpar = (yb - y0)/ds1 + 1
       do 1 i = 1, kp1
          kexam = kp1
          Listexam(i) = Liststart(i)
-1     END DO
+1     end do
 
       ! Step 2 : Find boxes adjacent to the parents
       !          ( Start at coarsest  level )
 
       ! -> 1st level
-      CALL near_far(Nmax1, ipar, jpar, r11, IC1, JC1, kexam, Listexam, &
+      call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
       ! Examine boxes that are close for being childless or not.
 
-      CALL check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
+      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
                      Listpart, Ipar1Ch2, Imark1)
       ! Boxes that are childless and close to the parents are examined to see if
       ! they are close to the box itself.
 
-      CALL near_far(Nmax1, ib, jb, r21, IC1, JC1, kpart, Listpart, &
+      call near_far(Nmax1, ib, jb, r21, ic1, jc1, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
 
       ! Boxes that are far from the child had interacted particle-box earlier.
       ! Box kb now needs to interact with their particles.
 
       n4 = 0
-      DO 21 k = 1, kfar
+      do 21 k = 1, kfar
          id = Listfar(k)
-         n1 = NPB1(id, 1)
-         n2 = NPB1(id, 2)
-         DO 210 np = n1, n2
+         n1 = npb1(id, 1)
+         n2 = npb1(id, 2)
+         do 210 np = n1, n2
             n4 = n4 + 1
-            XT(n4) = XN(np)
-            YT(n4) = YN(np)
-            GT(n4) = GN(np)
-210      END DO
-21    END DO
+            xt(n4) = xn(np)
+            yt(n4) = yn(np)
+            gt(n4) = gn(np)
+210      end do
+21    end do
 
-      IF (n4 == 0) GOTO 88
+      if (n4 == 0) goto 88
       if (n4 > np_max) write (*, *) 'error in rest2b', n4
-      CALL int_box_part(Nmax2, kb, xb, yb, n4, Br2, Bi2)
+      call int_box_part(Nmax2, kb, xb, yb, n4, Br2, Bi2)
 
       !  Now at level of child (box kb), look for boxes far enough away to
       !  interact as box-box
 
-88    CALL near_far(Nmax2, ib, jb, r22, IC2, JC2, kexam, Listexam, &
+88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      DO 24 kbb = 1, kfar
+      do 24 kbb = 1, kfar
          id = Listfar(kbb)
-         Xbox(kbb) = XC2(id)
-         Ybox(kbb) = YC2(id)
+         Xbox(kbb) = xc2(id)
+         Ybox(kbb) = yc2(id)
          Prbox(kbb, 0) = Pr2(id, 0)
          Pibox(kbb, 0) = Pi2(id, 0)
          Prbox(kbb, 1) = Pr2(id, 1)
@@ -104,11 +104,11 @@ SUBROUTINE INT_REST2(kp2)
          Pibox(kbb, 6) = Pi2(id, 6)
          Prbox(kbb, 7) = Pr2(id, 7)
          Pibox(kbb, 7) = Pi2(id, 7)
-24    END DO
+24    end do
 
       if (kfar > nbox_max) write (*, *) 'error in rest2', kbb
-      CALL int_box(Nmax2, kb, xb, yb, kfar, Br2, Bi2)
+      call int_box(Nmax2, kb, xb, yb, kfar, Br2, Bi2)
 
-20 END DO
-   RETURN
-END SUBROUTINE
+20 end do
+   return
+end subroutine

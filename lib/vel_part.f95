@@ -1,4 +1,4 @@
-SUBROUTINE vel_part(xtest, ytest, upart, vpart, kpart)
+subroutine vel_part(xtest, ytest, upart, vpart, kpart)
 
 !  This  subroutine calculates the velocities induced on the
 !  particle located at *xtest*,*ytest*, by the particles in its
@@ -10,7 +10,7 @@ SUBROUTINE vel_part(xtest, ytest, upart, vpart, kpart)
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: kpart
    real :: xtest, ytest, upart, vpart
@@ -26,14 +26,14 @@ SUBROUTINE vel_part(xtest, ytest, upart, vpart, kpart)
    eps = 0.000001
    s2inv2 = 0.5/s2
 
-   DO 4 m = 1, kpart
-      xx = xtest - XT(m)
-      yy = YT(m) - ytest
+   do 4 m = 1, kpart
+      xx = xtest - xt(m)
+      yy = yt(m) - ytest
       r2 = xx*xx + yy*yy
-      fc = GT(m)*(1.-exp(-r2*s2inv2))/(r2 + eps)
+      fc = gt(m)*(1.-exp(-r2*s2inv2))/(r2 + eps)
       Upart = Upart + yy*fc
       Vpart = Vpart + xx*fc
-4  END DO
+4  end do
 
-   RETURN
-end SUBROUTINE vel_part
+   return
+end subroutine vel_part

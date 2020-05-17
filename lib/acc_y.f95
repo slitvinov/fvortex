@@ -30,7 +30,7 @@ function acc_y(time)
    if (yfree == 1) then
       acc_y = last_vdot
    else
-      acc_y = y_amp*y_freq*COS(y_freq*Time + y_phase)
+      acc_y = y_amp*y_freq*cos(y_freq*Time + y_phase)
    endif
 
    return

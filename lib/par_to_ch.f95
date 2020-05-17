@@ -1,4 +1,4 @@
-SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
+subroutine par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
                      ich3par2, ipar2ch3)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
@@ -71,7 +71,7 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
    p18 = 8.*p1
 !-----------------------------------------------------------------------------
 
-   DO 20 nb = 1, kp
+   do 20 nb = 1, kp
 
       km = ich3par2(nb)
       ! REAL VALUES
@@ -99,7 +99,7 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
       m3 = ipar2ch3(km, 3)       ! index of child (if any) box 3 at level i
       m4 = ipar2ch3(km, 4)       ! index of child (if any) box 4 at level i
 
-      IF (nb == m1) THEN
+      if (nb == m1) then
          ! z
          ! --------
          ! REAL and IMAGINARY PART OF EXPANSIONS
@@ -143,7 +143,7 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
          Br3(nb, 7) = Br3(nb, 7) + r7
          Bi3(nb, 7) = Bi3(nb, 7) + f7
 
-      ELSE IF (nb == m2) THEN
+      else if (nb == m2) then
 
          !*****************************************************************************
          !                                                                            *
@@ -193,7 +193,7 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
          Br3(nb, 7) = Br3(nb, 7) + r7
          Bi3(nb, 7) = Bi3(nb, 7) + f7
 
-      ELSE IF (nb == m3) THEN
+      else if (nb == m3) then
          !*****************************************************************************
          !                                                                            *
          !                    Contribution to 3rd Child (if any)                      *
@@ -241,7 +241,7 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
          Br3(nb, 7) = Br3(nb, 7) + r7
          Bi3(nb, 7) = Bi3(nb, 7) + f7
 
-      ELSE IF (nb == m4) THEN
+      else if (nb == m4) then
 
          !*****************************************************************************
          !                                                                            *
@@ -290,9 +290,9 @@ SUBROUTINE par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3, &
          Br3(nb, 7) = Br3(nb, 7) + r7
          Bi3(nb, 7) = Bi3(nb, 7) + f7
 
-      END IF
+      end if
 
-20 END DO
+20 end do
 
-   RETURN
-end SUBROUTINE par_to_ch
+   return
+end subroutine par_to_ch

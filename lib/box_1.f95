@@ -1,4 +1,4 @@
-SUBROUTINE BOX_1(Npart, s0, XC1, YC1, IC1, JC1, NPB1, ds1, kp1 &
+subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
                  , Liststart)
 
 !  This subroutine sorts the particles into four boxes and provides the
@@ -11,11 +11,11 @@ SUBROUTINE BOX_1(Npart, s0, XC1, YC1, IC1, JC1, NPB1, ds1, kp1 &
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, limpar
+   common/geom/x0, y0, limpar
 
    integer :: BF_marker(Nvort)
    real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
-   COMMON/BF/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
+   common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
    integer :: npart, kp1, BF_marker_temp(Nvort)
    integer :: ic1(4), jc1(4), npb1(4, 2), Liststart(4)
@@ -26,91 +26,91 @@ SUBROUTINE BOX_1(Npart, s0, XC1, YC1, IC1, JC1, NPB1, ds1, kp1 &
    integer :: nbx, nb1, nb2, nb3, nb4
    real :: xst, yst, ds1inv, lx, ly
 
-   integer :: IXY(Nvort), IDUMMY(Nvort)
+   integer :: ixy(Nvort), idummy(Nvort)
 !------------------------------------------------------------------------
 
    do i = 1, nvort
-      IXY(i) = 0
-      IDUMMY(i) = 0
+      ixy(i) = 0
+      idummy(i) = 0
       BF_marker_temp(i) = BF_marker(i)
    enddo
-   ds1 = 0.5*S0
-   Xst = X0 - 0.5*ds1
-   Yst = Y0 - 0.5*ds1
+   ds1 = 0.5*s0
+   Xst = x0 - 0.5*ds1
+   Yst = y0 - 0.5*ds1
    ds1inv = 1.0/ds1
 
 !-- Identify each particle with one of the boxes
-   DO 1 n = 1, Npart
-      lx = (Xp(n) - X0)*ds1inv
-      ly = (Yp(n) - Y0)*ds1inv
+   do 1 n = 1, Npart
+      lx = (Xp(n) - x0)*ds1inv
+      ly = (Yp(n) - y0)*ds1inv
       ibox = lx + 1                ! indices of the box where the particles
       jbox = ly + 1                ! reside
-      IXY(n) = 1                                  ! IXY(n) has as value
-      IF ((ibox == 1) .AND. (jbox == 2)) THEN         ! the index (1,2,3,4)
-         IXY(n) = 2                                  ! of the box that
-      ELSE IF ((ibox == 2) .AND. (jbox == 1)) THEN    ! particle n is in
-         IXY(n) = 3
-      ELSE IF ((ibox == 2) .AND. (jbox == 2)) THEN
-         IXY(n) = 4
-      END IF
-1  END DO
+      ixy(n) = 1                                  ! IXY(n) has as value
+      if ((ibox == 1) .and. (jbox == 2)) then         ! the index (1,2,3,4)
+         ixy(n) = 2                                  ! of the box that
+      else if ((ibox == 2) .and. (jbox == 1)) then    ! particle n is in
+         ixy(n) = 3
+      else if ((ibox == 2) .and. (jbox == 2)) then
+         ixy(n) = 4
+      end if
+1  end do
 
 !   Find  how  many  particles  are  in  each subbox
 !  and store  the  particles  in their new sorted  locations
 
-   CALL WHENEQ(Npart, IXY, 1, 1, IDUMMY, nb1)
-   DO 211 i = 1, nb1
-      inew = IDUMMY(i)
-      XN(i) = XP(inew)
-      YN(i) = YP(inew)
-      GN(i) = GP(inew)
-      Uold(i) = UU(inew)
-      Vold(i) = VV(inew)
+   call wheneq(Npart, ixy, 1, 1, idummy, nb1)
+   do 211 i = 1, nb1
+      inew = idummy(i)
+      xn(i) = xp(inew)
+      yn(i) = yp(inew)
+      gn(i) = gp(inew)
+      Uold(i) = uu(inew)
+      Vold(i) = vv(inew)
       Gdold(i) = Gdiff(inew)
       BF_marker(i) = BF_marker_temp(inew)
-211 END DO
+211 end do
 
-   CALL WHENEQ(Npart, IXY, 1, 2, IDUMMY, nb2)
+   call wheneq(Npart, ixy, 1, 2, idummy, nb2)
    nbx = nb1
-   DO 212 i = 1, nb2
+   do 212 i = 1, nb2
       ix = i + nbx
-      inew = IDUMMY(i)
-      XN(ix) = XP(inew)
-      YN(ix) = YP(inew)
-      GN(ix) = GP(inew)
-      Uold(ix) = UU(inew)
-      Vold(ix) = VV(inew)
+      inew = idummy(i)
+      xn(ix) = xp(inew)
+      yn(ix) = yp(inew)
+      gn(ix) = gp(inew)
+      Uold(ix) = uu(inew)
+      Vold(ix) = vv(inew)
       Gdold(ix) = Gdiff(inew)
       BF_marker(ix) = BF_marker_temp(inew)
-212 END DO
+212 end do
 
-   CALL WHENEQ(Npart, IXY, 1, 3, IDUMMY, nb3)
+   call wheneq(Npart, ixy, 1, 3, idummy, nb3)
    nbx = nbx + nb2
-   DO 213 i = 1, nb3
+   do 213 i = 1, nb3
       ix = i + nbx
-      inew = IDUMMY(i)
-      XN(ix) = XP(inew)
-      YN(ix) = YP(inew)
-      GN(ix) = GP(inew)
-      Uold(ix) = UU(inew)
-      Vold(ix) = VV(inew)
+      inew = idummy(i)
+      xn(ix) = xp(inew)
+      yn(ix) = yp(inew)
+      gn(ix) = gp(inew)
+      Uold(ix) = uu(inew)
+      Vold(ix) = vv(inew)
       Gdold(ix) = Gdiff(inew)
       BF_marker(ix) = BF_marker_temp(inew)
-213 END DO
+213 end do
 
-   CALL WHENEQ(Npart, IXY, 1, 4, IDUMMY, nb4)
+   call wheneq(Npart, ixy, 1, 4, idummy, nb4)
    nbx = nbx + nb3
-   DO 214 i = 1, nb4
+   do 214 i = 1, nb4
       ix = i + nbx
-      inew = IDUMMY(i)
-      XN(ix) = XP(inew)
-      YN(ix) = YP(inew)
-      GN(ix) = GP(inew)
-      Uold(ix) = UU(inew)
-      Vold(ix) = VV(inew)
+      inew = idummy(i)
+      xn(ix) = xp(inew)
+      yn(ix) = yp(inew)
+      gn(ix) = gp(inew)
+      Uold(ix) = uu(inew)
+      Vold(ix) = vv(inew)
       Gdold(ix) = Gdiff(inew)
       BF_marker(ix) = BF_marker_temp(inew)
-214 END DO
+214 end do
 
 !  NPBk(kp1,1)  -> index of first particle in box kp1 at level k
 !  NPBk(kp1,2)  -> index of last particle in box kp1 at level k
@@ -124,56 +124,56 @@ SUBROUTINE BOX_1(Npart, s0, XC1, YC1, IC1, JC1, NPB1, ds1, kp1 &
       Liststart(i) = 0
    enddo
    np = 0
-   IF (nb1 > 0) THEN
+   if (nb1 > 0) then
       kp1 = kp1 + 1
       Liststart(kp1) = kp1
-      NPB1(kp1, 1) = np + 1
+      npb1(kp1, 1) = np + 1
       np = nb1
-      NPB1(kp1, 2) = np
-      IC1(kp1) = 1
-      JC1(kp1) = 1
-      XC1(kp1) = Xst + ds1
-      YC1(kp1) = Yst + ds1
-   END IF
+      npb1(kp1, 2) = np
+      ic1(kp1) = 1
+      jc1(kp1) = 1
+      xc1(kp1) = Xst + ds1
+      yc1(kp1) = Yst + ds1
+   end if
 
 ! Box 2
-   IF (nb2 > 0) THEN
+   if (nb2 > 0) then
       kp1 = kp1 + 1
       Liststart(kp1) = kp1
-      NPB1(kp1, 1) = np + 1
+      npb1(kp1, 1) = np + 1
       np = np + nb2
-      NPB1(kp1, 2) = np
-      IC1(kp1) = 1
-      JC1(kp1) = 2
-      XC1(kp1) = Xst + ds1
-      YC1(kp1) = Yst + 2.*ds1
-   END IF
+      npb1(kp1, 2) = np
+      ic1(kp1) = 1
+      jc1(kp1) = 2
+      xc1(kp1) = Xst + ds1
+      yc1(kp1) = Yst + 2.*ds1
+   end if
 
 ! Box 3
-   IF (nb3 > 0) THEN
+   if (nb3 > 0) then
       kp1 = kp1 + 1
       Liststart(kp1) = kp1
-      NPB1(kp1, 1) = np + 1
+      npb1(kp1, 1) = np + 1
       np = np + nb3
-      NPB1(kp1, 2) = np
-      IC1(kp1) = 2
-      JC1(kp1) = 1
-      XC1(kp1) = Xst + 2.*ds1
-      YC1(kp1) = Yst + ds1
-   END IF
+      npb1(kp1, 2) = np
+      ic1(kp1) = 2
+      jc1(kp1) = 1
+      xc1(kp1) = Xst + 2.*ds1
+      yc1(kp1) = Yst + ds1
+   end if
 
 ! Box 4
-   IF (nb4 > 0) THEN
+   if (nb4 > 0) then
       kp1 = kp1 + 1
       Liststart(kp1) = kp1
-      NPB1(kp1, 1) = np + 1
+      npb1(kp1, 1) = np + 1
       np = np + nb4
-      NPB1(kp1, 2) = np
-      IC1(kp1) = 2
-      JC1(kp1) = 2
-      XC1(kp1) = Xst + 2.*ds1
-      YC1(kp1) = Yst + 2.*ds1
-   END IF
+      npb1(kp1, 2) = np
+      ic1(kp1) = 2
+      jc1(kp1) = 2
+      xc1(kp1) = Xst + 2.*ds1
+      yc1(kp1) = Yst + 2.*ds1
+   end if
 
-   RETURN
-END SUBROUTINE BOX_1
+   return
+end subroutine box_1

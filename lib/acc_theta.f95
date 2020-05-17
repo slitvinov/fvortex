@@ -30,7 +30,7 @@ function acc_theta(time)
    if (xfree == 1) then
       acc_theta = last_wdot
    else
-      acc_theta = w_amp*w_freq*COS(w_freq*Time + w_phase)
+      acc_theta = w_amp*w_freq*cos(w_freq*Time + w_phase)
    endif
 
    return

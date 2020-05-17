@@ -1,4 +1,4 @@
-SUBROUTINE REMESH
+subroutine remesh
 
 !   This subroutine remeshes the vortex field onto a uniform Cartesian
 !   grid.
@@ -11,14 +11,14 @@ SUBROUTINE REMESH
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    real :: vortlim
-   COMMON/REMS/vortlim
+   common/rems/vortlim
 
    integer :: nx_r, nx_l, ny_t, ny_b, ig, ix, iy, i, in, ifar, iback
    integer :: ix0, ix1, ix2, iy0, iy1, iy2, nmesh
@@ -32,7 +32,7 @@ SUBROUTINE REMESH
 
 !----------------------------------------------------------------
 
-   pi = 4.0*ATAN(1.0)
+   pi = 4.0*atan(1.0)
    twopi = 2.*pi
    twopiinv = 1./twopi
    dh = 2.*ovrlp*sqrt(s2/pi)
@@ -47,51 +47,51 @@ SUBROUTINE REMESH
    xl = xmin - 5.*dh
    yt = ymax + 5.*dh
    yb = ymin - 5.*dh
-   Nx_r = NINT(Xr/dh)
-   Nx_l = NINT(Xl/dh)
-   Ny_t = NINT(Yt/dh)
-   Ny_b = NINT(Yb/dh) - 1
+   Nx_r = nint(Xr/dh)
+   Nx_l = nint(Xl/dh)
+   Ny_t = nint(Yt/dh)
+   Ny_b = nint(Yb/dh) - 1
 
-   WRITE (*, *) 'Nx_l,Nx_r', Nx_l, Nx_r
+   write (*, *) 'Nx_l,Nx_r', Nx_l, Nx_r
    write (*, *) 'Ny_t,Ny_b', ny_t, ny_b
-   IF (Nx_r > NX_max) THEN
+   if (Nx_r > NX_max) then
       write (*, *) 'PROBLEM :Nx_right =', Nx_r, ' Nx_max = ', Nx_max
-   END IF
-   IF (Nx_l < NX_min) THEN
+   end if
+   if (Nx_l < NX_min) then
       write (*, *) 'PROBLEM :Nx_left =', Nx_l, ' Nx_min=', Nx_min
-   END IF
-   IF (Ny_t > Ny_max) THEN
+   end if
+   if (Ny_t > Ny_max) then
       write (*, *) 'PROBLEM :Ny_top =', Ny_t, 'Ny_max=', Ny_max
-   END IF
-   IF (Ny_b < Ny_min) THEN
+   end if
+   if (Ny_b < Ny_min) then
       write (*, *) 'PROBLEM :Ny_bottom =', Ny_b, 'Ny_min=', Ny_min
-   END IF
+   end if
 
-   IF ((Nx_r > NX_max) .OR. (Nx_l < NX_min) .OR. &
-       (Ny_t > Ny_max) .OR. (Ny_b < Ny_min)) THEN
-      STOP
-   END IF
+   if ((Nx_r > NX_max) .or. (Nx_l < NX_min) .or. &
+       (Ny_t > Ny_max) .or. (Ny_b < Ny_min)) then
+      stop
+   end if
 
 !--- Establish the new grid for the remeshed field
 
    dhhaf = 0.5*dh
    ig = 0
-   DO 10 ix = Nx_l, Nx_r, 1
+   do 10 ix = Nx_l, Nx_r, 1
       xx = dhhaf + ix*dh
-      DO 11 iy = Ny_b, Ny_t, 1
+      do 11 iy = Ny_b, Ny_t, 1
          yy = dhhaf + iy*dh
          ig = ig + 1
-         XG(ig) = xx
-         YG(ig) = yy
-         GG(ig) = 0.0
-         INDX(ix, iy) = ig          ! We can avoid this big array
-11    END DO
-10 END DO
+         xg(ig) = xx
+         yg(ig) = yy
+         gg(ig) = 0.0
+         indx(ix, iy) = ig          ! We can avoid this big array
+11    end do
+10 end do
 
    Nmesh = ig
 
-   WRITE (*, *) 'Nmesh = ', Nmesh
-   IF (nmesh > ngrid) then ! overran array dimensions
+   write (*, *) 'Nmesh = ', Nmesh
+   if (nmesh > ngrid) then ! overran array dimensions
       write (*, *) 'nmesh too large in remesh, stopping'
       stop
    endif
@@ -100,11 +100,11 @@ SUBROUTINE REMESH
 
    cold = 0.0
    cx = 0.0
-   DO 71 i = 1, Np
-      cold = cold + GP(i)                ! total circulation
-      cx = cx + GP(i)*YP(i)        ! x-impulse
-71 END DO
-   WRITE (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
+   do 71 i = 1, Np
+      cold = cold + gp(i)                ! total circulation
+      cx = cx + gp(i)*yp(i)        ! x-impulse
+71 end do
+   write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
 !-- set cutoff values to throw out particles
 
@@ -114,37 +114,37 @@ SUBROUTINE REMESH
 
    in = 0
    ifar = 0
-   DO 40 i = 1, Np   ! loop through, mapping particles to mesh
-      g = GP(i)
-      x = XP(i)
-      y = YP(i)
+   do 40 i = 1, Np   ! loop through, mapping particles to mesh
+      g = gp(i)
+      x = xp(i)
+      y = yp(i)
       ndist = y
       sdist = x
-      ix = NINT(sdist*dhinv - 0.5)
-      iy = NINT(ndist*dhinv - 0.5)
+      ix = nint(sdist*dhinv - 0.5)
+      iy = nint(ndist*dhinv - 0.5)
 
       ! ---- Do not remesh the particles outside the established grid
 
-      IF ((ix > Nx_r) .OR. (ix < nx_l) .OR. (iy > ny_t) .OR. &
-          (iy < ny_b)) THEN
+      if ((ix > Nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or. &
+          (iy < ny_b)) then
          if (abs(g) >= cut_far) then
             ifar = ifar + 1
-            XP(ifar) = x
-            YP(ifar) = y
-            GP(ifar) = g
+            xp(ifar) = x
+            yp(ifar) = y
+            gp(ifar) = g
          endif
 
          !-- all other particles are in the inner grid
-      ELSE IF ((ix == nx_r) .OR. (ix == nx_l) .OR. &
-               (iy == ny_t) .OR. (iy == ny_b)) then
+      else if ((ix == nx_r) .or. (ix == nx_l) .or. &
+               (iy == ny_t) .or. (iy == ny_b)) then
          !----------------------------------------------------------------
          !- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
          !----------------------------------------------------------------
          in = in + 1
-         ig = INDX(ix, iy)
-         GG(ig) = GG(ig) + g  ! NGP   Interpolation
+         ig = indx(ix, iy)
+         gg(ig) = gg(ig) + g  ! NGP   Interpolation
 
-      ELSE
+      else
          !----------------------------------------------------------------
          !- Category 0_1 : ALL other PARTICLES in the domain
          !----------------------------------------------------------------
@@ -155,66 +155,66 @@ SUBROUTINE REMESH
          iy0 = iy
          iy1 = iy - 1
          iy2 = iy + 1
-         k00 = INDX(ix0, iy0)
-         k10 = INDX(ix1, iy0)
-         k20 = INDX(ix2, iy0)
-         k01 = INDX(ix0, iy1)
-         k11 = INDX(ix1, iy1)
-         k21 = INDX(ix2, iy1)
-         k02 = INDX(ix0, iy2)
-         k12 = INDX(ix1, iy2)
-         k22 = INDX(ix2, iy2)
-         u = (sdist - XG(k00))*dhinv
-         v = (ndist - YG(k00))*dhinv
+         k00 = indx(ix0, iy0)
+         k10 = indx(ix1, iy0)
+         k20 = indx(ix2, iy0)
+         k01 = indx(ix0, iy1)
+         k11 = indx(ix1, iy1)
+         k21 = indx(ix2, iy1)
+         k02 = indx(ix0, iy2)
+         k12 = indx(ix1, iy2)
+         k22 = indx(ix2, iy2)
+         u = (sdist - xg(k00))*dhinv
+         v = (ndist - yg(k00))*dhinv
          Fy0 = 1.0 - v*v
          Fy1 = 0.5*v*(v - 1.)
          Fy2 = 0.5*v*(v + 1.)
          Fx0 = g*(1.-u*u)
          Fx1 = g*(0.5*u*(u - 1.))
          Fx2 = g*(0.5*u*(u + 1.))
-         GG(k00) = GG(k00) + Fx0*Fy0
-         GG(k01) = GG(k01) + Fx0*Fy1
-         GG(k02) = GG(k02) + Fx0*Fy2
-         GG(k10) = GG(k10) + Fx1*Fy0
-         GG(k11) = GG(k11) + Fx1*Fy1
-         GG(k12) = GG(k12) + Fx1*Fy2
-         GG(k20) = GG(k20) + Fx2*Fy0
-         GG(k21) = GG(k21) + Fx2*Fy1
-         GG(k22) = GG(k22) + Fx2*Fy2
-      ENDIF
-40 END DO
+         gg(k00) = gg(k00) + Fx0*Fy0
+         gg(k01) = gg(k01) + Fx0*Fy1
+         gg(k02) = gg(k02) + Fx0*Fy2
+         gg(k10) = gg(k10) + Fx1*Fy0
+         gg(k11) = gg(k11) + Fx1*Fy1
+         gg(k12) = gg(k12) + Fx1*Fy2
+         gg(k20) = gg(k20) + Fx2*Fy0
+         gg(k21) = gg(k21) + Fx2*Fy1
+         gg(k22) = gg(k22) + Fx2*Fy2
+      endif
+40 end do
 
 !--- put remeshed particles into arrays, using cutoffs determined earlier
 
    iback = ifar
-   DO 29 i = 1, Nmesh
+   do 29 i = 1, Nmesh
       g = gg(i)
-      ag = ABS(g)
+      ag = abs(g)
       !-- only cutoff if below threshold AND away from domain center
-      IF ((ag > cutoff) .OR. ((abs(yg(i))*abs(yg(i)) + &
+      if ((ag > cutoff) .or. ((abs(yg(i))*abs(yg(i)) + &
                                abs(xg(i))*abs(xg(i))) < 1.)) then
          iback = iback + 1
-         XP(iback) = xg(i)
-         YP(iback) = yg(i)
-         GP(iback) = g
+         xp(iback) = xg(i)
+         yp(iback) = yg(i)
+         gp(iback) = g
       endif
-29 END DO
+29 end do
 
 !---  check diagnostics
 
    Np = iback
    cnew = 0.0
    cx = 0.0
-   DO 72 i = 1, Np
+   do 72 i = 1, Np
       circ = gp(i)
       cnew = cnew + circ
-      cx = cx + circ*YP(i)
-72 END DO
-   WRITE (*, *) 'post-remesh, circulation:', cnew, '  x-impulse: ', cx
+      cx = cx + circ*yp(i)
+72 end do
+   write (*, *) 'post-remesh, circulation:', cnew, '  x-impulse: ', cx
 
-   WRITE (*, 89) Np, iback - ifar, ifar
+   write (*, 89) Np, iback - ifar, ifar
 
-89 FORMAT(3x, 'New Total :', I8, 3x, 'INSIDE :', I8, 2x, 'OUTSIDE :', I8, 2x)
+89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x, 'OUTSIDE :', i8, 2x)
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

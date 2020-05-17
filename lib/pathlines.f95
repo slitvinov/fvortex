@@ -9,11 +9,11 @@ subroutine pathlines(npath)
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: ipoints
    real :: xpath(nppts), ypath(nppts), upath(nppts), vpath(nppts)
@@ -39,7 +39,7 @@ subroutine pathlines(npath)
          vpath(k) = v
          xpath(k) = x + u*dt
          ypath(k) = y + v*dt
-1     END DO
+1     end do
       close (1)
    else
       do 2 k = 1, ipoints              ! Adams Bashforth for rest
@@ -52,14 +52,14 @@ subroutine pathlines(npath)
          vpath(k) = v
          xpath(k) = x + 0.5*dt*(3.*u - uo)
          ypath(k) = y + 0.5*dt*(3.*v - vo)
-2     END DO
+2     end do
    endif
 
    open (1, file='path'//file//'.dat', status='new')
    write (1, 101) time, ipoints
    do 3 k = 1, ipoints
       write (1, 100) xpath(k), ypath(k)
-3  END DO
+3  end do
    close (1)
 
 100 format(f10.6, 2x, f10.6)

@@ -1,4 +1,4 @@
-SUBROUTINE MV_AB(irk)
+subroutine mv_ab(irk)
 
 !  Advance the particle positions using an Adams Bashforth scheme
 !  based on velocities calculated in CONDIFF and VEL_EXT.
@@ -11,11 +11,11 @@ SUBROUTINE MV_AB(irk)
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    integer :: irk
 
@@ -24,7 +24,7 @@ SUBROUTINE MV_AB(irk)
 !--------------------------------------------------------------------
 
    in = 0
-   pi = 4.*ATAN(1.)
+   pi = 4.*atan(1.)
    const = gnu*ovrlp**2/(pi*s2)
 
    if (irk == 0) then
@@ -34,12 +34,12 @@ SUBROUTINE MV_AB(irk)
       c1 = 2.
       c2 = 1.
    endif
-   DO i = 1, Np
-      xp(i) = XN(i) + dt*(c1*UU(i) - c2*Uold(i))
-      yp(i) = YN(i) + dt*(c1*VV(i) - c2*Vold(i))
+   do i = 1, Np
+      xp(i) = xn(i) + dt*(c1*uu(i) - c2*Uold(i))
+      yp(i) = yn(i) + dt*(c1*vv(i) - c2*Vold(i))
 
       gp(i) = gn(i) + dt*const*(c1*gdiff(i) - c2*gdold(i))
-   ENDDO
+   enddo
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

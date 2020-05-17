@@ -1,4 +1,4 @@
-SUBROUTINE POT_BOX_UBD(xtest, ytest, kbox, ub)
+subroutine pot_box_ubd(xtest, ytest, kbox, ub)
 
 !  This subroutine finds the velocity potential induced at (xtest,ytest) by
 !  boxes in Xbox,Ybox.
@@ -26,7 +26,7 @@ SUBROUTINE POT_BOX_UBD(xtest, ytest, kbox, ub)
    t9 = 1./9.
    ub = 0.0
 
-   DO 2 ks = 1, kbox
+   do 2 ks = 1, kbox
       xx = Xtest - Xbox(ks)
       yy = Ytest - Ybox(ks)
       x0 = xx
@@ -34,7 +34,7 @@ SUBROUTINE POT_BOX_UBD(xtest, ytest, kbox, ub)
       r2inv = 1.0/(xx*xx + yy*yy)
 
       level = 0
-      c0 = Prbox(ks, level)*ATAN2(y0, x0)
+      c0 = Prbox(ks, level)*atan2(y0, x0)
 
       level = 1
       rpt = Prbox(ks, level)
@@ -92,7 +92,7 @@ SUBROUTINE POT_BOX_UBD(xtest, ytest, kbox, ub)
       !  Calculate the potential induced by the group "k" on panel "i"
       ub = ub + cr
 
-2  END DO
+2  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

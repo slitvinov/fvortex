@@ -1,4 +1,4 @@
-SUBROUTINE int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
+subroutine int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
 
 !  This subroutine computes the influence of the particles of childless
 !  boxes on far boxes of a lower level, as these are particle-box interactions.
@@ -32,10 +32,10 @@ SUBROUTINE int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
    Br7 = 0.
    Bi7 = 0.
 
-   DO 1 nb = 1, k4
-      g = GT(nb)
-      xx = xb - XT(nb)
-      yy = yb - YT(nb)
+   do 1 nb = 1, k4
+      g = gt(nb)
+      xx = xb - xt(nb)
+      yy = yb - yt(nb)
       r2inv = 1.0/(xx*xx + yy*yy)
       p = xx*r2inv
       f = yy*r2inv
@@ -76,7 +76,7 @@ SUBROUTINE int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
       Bi6 = Bi6 - t5
       Br7 = Br7 + s6
       Bi7 = Bi7 + t6
-1  END DO
+1  end do
 
    Br(kb, 1) = Br(kb, 1) + br1
    Bi(kb, 1) = Bi(kb, 1) + bi1
@@ -92,5 +92,5 @@ SUBROUTINE int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
    Bi(kb, 6) = Bi(kb, 6) + Bi6
    Br(kb, 7) = Br(kb, 7) + Br7
    Bi(kb, 7) = Bi(kb, 7) + Bi7
-   RETURN
-end SUBROUTINE int_box_part
+   return
+end subroutine int_box_part

@@ -1,4 +1,4 @@
-function OMEGA(Time)
+function omega(Time)
 
 !  Gives the rotational velocity of the body at Time.
 
@@ -30,8 +30,8 @@ function OMEGA(Time)
    if (wfree == 1) then
       omega = last_w
    else
-      OMEGA = w_const + w_amp*SIN(w_freq*Time + w_phase)
+      omega = w_const + w_amp*sin(w_freq*Time + w_phase)
    endif
 
-   RETURN
-end function OMEGA
+   return
+end function omega

@@ -1,4 +1,4 @@
-SUBROUTINE int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
+subroutine int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
 
 !  This subroutine computes BOX-BOX interactions.
 
@@ -18,7 +18,7 @@ SUBROUTINE int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
    real :: prl, pil
    real :: cr0, ci0, cr1, ci1, cr2, ci2, cr3, ci3, cr4, ci4
    real :: cr5, ci5, cr6, ci6, cr7, ci7
-   real :: A, B, xx, yy, r2inv
+   real :: a, b, xx, yy, r2inv
 !-----------------------------------------------------------
 
    br0 = 0.
@@ -38,7 +38,7 @@ SUBROUTINE int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
    br7 = 0.
    bi7 = 0.
 
-   DO 2 ni = 1, kbb
+   do 2 ni = 1, kbb
       level = 0
       xx = Xtest - Xbox(ni)
       yy = Ytest - Ybox(ni)
@@ -104,53 +104,53 @@ SUBROUTINE int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
       cr7 = s7*prl - t7*pil
       ci7 = s7*pil + t7*prl
 
-      A = cr0 + cr1 + cr2 + cr3 + cr4 + cr5 + cr6 + cr7
-      B = ci0 + ci1 + ci2 + ci3 + ci4 + ci5 + ci6 + ci7
-      br1 = br1 + s1*A - t1*B
-      bi1 = bi1 + s1*B + t1*A
+      a = cr0 + cr1 + cr2 + cr3 + cr4 + cr5 + cr6 + cr7
+      b = ci0 + ci1 + ci2 + ci3 + ci4 + ci5 + ci6 + ci7
+      br1 = br1 + s1*a - t1*b
+      bi1 = bi1 + s1*b + t1*a
 
-      A = cr0 + 2.*cr1 + 3.*cr2 + 4.*cr3 + 5.*cr4 + 6.*cr5 &
+      a = cr0 + 2.*cr1 + 3.*cr2 + 4.*cr3 + 5.*cr4 + 6.*cr5 &
           + 7.*cr6 + 8.*cr7
-      B = ci0 + 2.*ci1 + 3.*ci2 + 4.*ci3 + 5.*ci4 + 6.*ci5 &
+      b = ci0 + 2.*ci1 + 3.*ci2 + 4.*ci3 + 5.*ci4 + 6.*ci5 &
           + 7.*ci6 + 8.*ci7
-      br2 = br2 + s2*A - t2*B
-      bi2 = bi2 + s2*B + t2*A
+      br2 = br2 + s2*a - t2*b
+      bi2 = bi2 + s2*b + t2*a
 
-      A = cr0 + 3.*cr1 + 6.*cr2 + 10.*cr3 + 15.*cr4 + 21.*cr5 &
+      a = cr0 + 3.*cr1 + 6.*cr2 + 10.*cr3 + 15.*cr4 + 21.*cr5 &
           + 28.*cr6 + 36.*cr7
-      B = ci0 + 3.*ci1 + 6.*ci2 + 10.*ci3 + 15.*ci4 + 21.*ci5 &
+      b = ci0 + 3.*ci1 + 6.*ci2 + 10.*ci3 + 15.*ci4 + 21.*ci5 &
           + 28.*ci6 + 36.*ci7
-      br3 = br3 + s3*A - t3*B
-      bi3 = bi3 + s3*B + t3*A
+      br3 = br3 + s3*a - t3*b
+      bi3 = bi3 + s3*b + t3*a
 
-      A = cr0 + 4.*cr1 + 10.*cr2 + 20.*cr3 + 35.*cr4 + 56.*cr5 &
+      a = cr0 + 4.*cr1 + 10.*cr2 + 20.*cr3 + 35.*cr4 + 56.*cr5 &
           + 84.*cr6 + 120.*cr7
-      B = ci0 + 4.*ci1 + 10.*ci2 + 20.*ci3 + 35.*ci4 + 56.*ci5 &
+      b = ci0 + 4.*ci1 + 10.*ci2 + 20.*ci3 + 35.*ci4 + 56.*ci5 &
           + 84.*ci6 + 120.*ci7
-      br4 = br4 + s4*A - t4*B
-      bi4 = bi4 + s4*B + t4*A
+      br4 = br4 + s4*a - t4*b
+      bi4 = bi4 + s4*b + t4*a
 
-      A = cr0 + 5.*cr1 + 15.*cr2 + 35.*cr3 + 70.*cr4 + 126.*cr5 &
+      a = cr0 + 5.*cr1 + 15.*cr2 + 35.*cr3 + 70.*cr4 + 126.*cr5 &
           + 210.*cr6 + 330.*cr7
-      B = ci0 + 5.*ci1 + 15.*ci2 + 35.*ci3 + 70.*ci4 + 126.*ci5 &
+      b = ci0 + 5.*ci1 + 15.*ci2 + 35.*ci3 + 70.*ci4 + 126.*ci5 &
           + 210.*ci6 + 330.*ci7
-      br5 = br5 + s5*A - t5*B
-      bi5 = bi5 + s5*B + t5*A
+      br5 = br5 + s5*a - t5*b
+      bi5 = bi5 + s5*b + t5*a
 
-      A = cr0 + 6.*cr1 + 21.*cr2 + 56.*cr3 + 126.*cr4 + 252.*cr5 &
+      a = cr0 + 6.*cr1 + 21.*cr2 + 56.*cr3 + 126.*cr4 + 252.*cr5 &
           + 462.*cr6 + 792.*cr7
-      B = ci0 + 6.*ci1 + 21.*ci2 + 56.*ci3 + 126.*ci4 + 252.*ci5 &
+      b = ci0 + 6.*ci1 + 21.*ci2 + 56.*ci3 + 126.*ci4 + 252.*ci5 &
           + 462.*ci6 + 792.*ci7
-      br6 = br6 + s6*A - t6*B
-      bi6 = bi6 + s6*B + t6*A
+      br6 = br6 + s6*a - t6*b
+      bi6 = bi6 + s6*b + t6*a
 
-      A = cr0 + 7.*cr1 + 28.*cr2 + 84.*cr3 + 210.*cr4 + 462.*cr5 &
+      a = cr0 + 7.*cr1 + 28.*cr2 + 84.*cr3 + 210.*cr4 + 462.*cr5 &
           + 924.*cr6 + 1716.*cr7
-      B = ci0 + 7.*ci1 + 28.*ci2 + 84.*ci3 + 210.*ci4 + 462.*ci5 &
+      b = ci0 + 7.*ci1 + 28.*ci2 + 84.*ci3 + 210.*ci4 + 462.*ci5 &
           + 924.*ci6 + 1716.*ci7
-      br7 = br7 + s7*A - t7*B
-      bi7 = bi7 + s7*B + t7*A
-2  END DO
+      br7 = br7 + s7*a - t7*b
+      bi7 = bi7 + s7*b + t7*a
+2  end do
 
    Br(id, 1) = Br(id, 1) + br1
    Bi(id, 1) = Bi(id, 1) + bi1
@@ -167,5 +167,5 @@ SUBROUTINE int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
    Br(id, 7) = Br(id, 7) + br7
    Bi(id, 7) = Bi(id, 7) + bi7
 
-   RETURN
-end SUBROUTINE int_box
+   return
+end subroutine int_box

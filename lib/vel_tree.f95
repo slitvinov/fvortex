@@ -1,4 +1,4 @@
-SUBROUTINE vel_tree(Xbc, Ybc, u, v)
+subroutine vel_tree(Xbc, Ybc, u, v)
 !  This group of routines is used to get various outputs using the
 !  interaction tree.
 !----------------------------------------------------------------------
@@ -18,14 +18,14 @@ SUBROUTINE vel_tree(Xbc, Ybc, u, v)
 
    call build_tree(0, xbc, ybc, nn, kfp)
 
-   CALL vel_PART(xbc, ybc, upart, vpart, nn)
-   IF (nn > np_max) then
+   call vel_PART(xbc, ybc, upart, vpart, nn)
+   if (nn > np_max) then
       write (*, *) 'error in vel_part, nn=', nn
       stop
    endif
 
-   CALL vel_BOX(xbc, ybc, ubox, vbox, kfp)
-   IF (kfp > nbox_max) then
+   call vel_BOX(xbc, ybc, ubox, vbox, kfp)
+   if (kfp > nbox_max) then
       write (*, *) 'error in vel_box, kfp=', kfp
       stop
    endif
@@ -33,5 +33,5 @@ SUBROUTINE vel_tree(Xbc, Ybc, u, v)
    u = upart + ubox
    v = vpart + vbox
 
-900 RETURN
-end SUBROUTINE vel_tree
+900 return
+end subroutine vel_tree

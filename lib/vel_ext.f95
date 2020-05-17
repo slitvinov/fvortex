@@ -1,4 +1,4 @@
-SUBROUTINE VEL_EXT(tm)
+subroutine vel_ext(tm)
 
 !  This routine adds the irrotational components of the velocity field
 !  (which are not represented by the vorticity field) such as a free stream.
@@ -11,11 +11,11 @@ SUBROUTINE VEL_EXT(tm)
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    real :: tm
 
@@ -29,15 +29,15 @@ SUBROUTINE VEL_EXT(tm)
    x_vel = velocity_x(tm)
    y_vel = velocity_y(tm)
 
-   DO 1 i = 1, Np
-      xni = XN(i)
-      yni = YN(i)
+   do 1 i = 1, Np
+      xni = xn(i)
+      yni = yn(i)
       Arn2 = alpha/(xni*xni + yni*yni)   ! from rotation
       Uext = -yni*Arn2 + x_vel
       Vext = xni*Arn2 + y_vel
-      UU(i) = UU(i) + Uext
-      VV(i) = VV(i) + Vext
-1  END DO
+      uu(i) = uu(i) + Uext
+      vv(i) = vv(i) + Vext
+1  end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

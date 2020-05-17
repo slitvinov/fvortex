@@ -30,7 +30,7 @@ function velocity_x(time)
    if (xfree == 1) then
       velocity_x = last_u
    else
-      velocity_x = x_const + x_amp*SIN(x_freq*Time + x_phase)
+      velocity_x = x_const + x_amp*sin(x_freq*Time + x_phase)
    endif
 
    return

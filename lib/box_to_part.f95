@@ -1,4 +1,4 @@
-SUBROUTINE box_to_part(nmax, kchildless, ichildless, xc, yc, &
+subroutine box_to_part(nmax, kchildless, ichildless, xc, yc, &
                        npb, br, bi)
 
 !  This subroutine calculates the velocities induced by a box
@@ -20,12 +20,12 @@ SUBROUTINE box_to_part(nmax, kchildless, ichildless, xc, yc, &
 !-----------------------------------------------------------
 
    dyopiinv = 1./(8.*atan(1.))
-   DO 90 k = 1, kchildless  ! all childless boxes on level
+   do 90 k = 1, kchildless  ! all childless boxes on level
       id = ichildless(k)
-      xb = XC(id)
-      yb = YC(id)
-      n1 = NPB(id, 1)
-      n2 = NPB(id, 2)
+      xb = xc(id)
+      yb = yc(id)
+      n1 = npb(id, 1)
+      n2 = npb(id, 2)
       Brb(1) = Br(id, 1)
       Bib(1) = Bi(id, 1)
       Brb(2) = Br(id, 2)
@@ -41,9 +41,9 @@ SUBROUTINE box_to_part(nmax, kchildless, ichildless, xc, yc, &
       Brb(7) = Br(id, 7)
       Bib(7) = Bi(id, 7)
 
-      DO 2 n = n1, n2       ! all particles in each box
-         xx = XN(n) - xb
-         yy = yb - YN(n)
+      do 2 n = n1, n2       ! all particles in each box
+         xx = xn(n) - xb
+         yy = yb - yn(n)
 
          ! Use multipole expansions to compute the forces on the box
 
@@ -106,11 +106,11 @@ SUBROUTINE box_to_part(nmax, kchildless, ichildless, xc, yc, &
 
          !  Calculate the velocity induced by the group "k" on particle "i"
 
-         UU(n) = UU(n) - ci*dyopiinv
-         VV(n) = VV(n) + cr*dyopiinv
+         uu(n) = uu(n) - ci*dyopiinv
+         vv(n) = vv(n) + cr*dyopiinv
 
-2     END DO
-90 END DO
+2     end do
+90 end do
 
-   RETURN
-END SUBROUTINE
+   return
+end subroutine

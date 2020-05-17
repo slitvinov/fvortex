@@ -1,4 +1,4 @@
-SUBROUTINE STR_PART(xtest, ytest, kpart, sp)
+subroutine str_part(xtest, ytest, kpart, sp)
 
 !  This subroutine finds the streamfunction value at (xtest,ytest) induced
 !  by the vorticies in the list XT,YT,GT.
@@ -16,17 +16,17 @@ SUBROUTINE STR_PART(xtest, ytest, kpart, sp)
 
    Sp = 0.0
 
-   DO 4 m = 1, kpart
-      gv = GT(m)
-      xv = XT(m)
-      yv = YT(m)
+   do 4 m = 1, kpart
+      gv = gt(m)
+      xv = xt(m)
+      yv = yt(m)
       xa = xtest - xv
       ya = ytest - yv
       r2a = xa*xa + ya*ya
-      Sp = Sp - gv*ALOG(r2a)
-4  END DO
+      Sp = Sp - gv*alog(r2a)
+4  end do
 
    Sp = 0.5*Sp
 
-   RETURN
-END SUBROUTINE STR_PART
+   return
+end subroutine str_part

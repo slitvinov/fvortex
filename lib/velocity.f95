@@ -8,7 +8,7 @@ subroutine velocity(x, y, u, v, tme)
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    real :: x, y, u, v, tme
 
@@ -17,9 +17,9 @@ subroutine velocity(x, y, u, v, tme)
    real :: velocity_x, velocity_y, omega
 !------------------------------------------------------------------------
 
-   pi = 4.0*ATAN(1.)
+   pi = 4.0*atan(1.)
    twopiinv = 0.5/pi
-   alpha = OMEGA(Tme)
+   alpha = omega(Tme)
    x_vel = velocity_x(tme)
    y_vel = velocity_y(tme)
 

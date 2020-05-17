@@ -1,4 +1,4 @@
-SUBROUTINE ZEROALL
+subroutine zeroall
 !-----------------------------------------------------------------------
 ! This subroutine zeroes the various arrays used in identifying the tree
 
@@ -22,133 +22,133 @@ SUBROUTINE ZEROALL
       enddo
    enddo
    do i = 1, np_max
-      XT(i) = 0.0
-      YT(i) = 0.0
-      GT(i) = 0.0
-      IT(i) = 0
+      xt(i) = 0.0
+      yt(i) = 0.0
+      gt(i) = 0.0
+      it(i) = 0
    enddo
 
    do i = 1, nmax1
-      XC1(i) = 0.0
-      YC1(i) = 0.0
-      NPB1(i, 1) = 0
-      NPB1(i, 2) = 0
-      IC1(i) = 0
+      xc1(i) = 0.0
+      yc1(i) = 0.0
+      npb1(i, 1) = 0
+      npb1(i, 2) = 0
+      ic1(i) = 0
       Ichildless1(i) = 0
-      IPARENT1(i) = 0
+      iparent1(i) = 0
       Imark1(i) = 0
-      LISTSTART(i) = 0
+      liststart(i) = 0
    enddo
    do i = 1, nmax2
-      XC2(i) = 0.0
-      YC2(i) = 0.0
-      NPB2(i, 1) = 0
-      NPB2(i, 2) = 0
-      IC2(i) = 0
-      JC2(i) = 0
+      xc2(i) = 0.0
+      yc2(i) = 0.0
+      npb2(i, 1) = 0
+      npb2(i, 2) = 0
+      ic2(i) = 0
+      jc2(i) = 0
       Ichildless2(i) = 0
-      IPARENT2(i) = 0
+      iparent2(i) = 0
       Imark2(i) = 0
    enddo
    do i = 1, nmax3
-      XC3(i) = 0.0
-      YC3(i) = 0.0
-      NPB3(i, 1) = 0
-      NPB3(i, 2) = 0
-      IC3(i) = 0
-      JC3(i) = 0
+      xc3(i) = 0.0
+      yc3(i) = 0.0
+      npb3(i, 1) = 0
+      npb3(i, 2) = 0
+      ic3(i) = 0
+      jc3(i) = 0
       Ichildless3(i) = 0
-      IPARENT3(i) = 0
+      iparent3(i) = 0
       Imark3(i) = 0
    enddo
    do i = 1, nmax4
-      XC4(i) = 0.0
-      YC4(i) = 0.0
-      NPB4(i, 1) = 0
-      NPB4(i, 2) = 0
-      IC4(i) = 0
-      JC4(i) = 0
+      xc4(i) = 0.0
+      yc4(i) = 0.0
+      npb4(i, 1) = 0
+      npb4(i, 2) = 0
+      ic4(i) = 0
+      jc4(i) = 0
       Ichildless4(i) = 0
-      IPARENT4(i) = 0
+      iparent4(i) = 0
       Imark4(i) = 0
    enddo
    do i = 1, nmax5
-      XC5(i) = 0.0
-      YC5(i) = 0.0
-      NPB5(i, 1) = 0
-      NPB5(i, 2) = 0
-      IC5(i) = 0
-      JC5(i) = 0
+      xc5(i) = 0.0
+      yc5(i) = 0.0
+      npb5(i, 1) = 0
+      npb5(i, 2) = 0
+      ic5(i) = 0
+      jc5(i) = 0
       Ichildless5(i) = 0
-      IPARENT5(i) = 0
+      iparent5(i) = 0
       Imark5(i) = 0
    enddo
    do i = 1, nmax6
-      XC6(i) = 0.0
-      YC6(i) = 0.0
-      NPB6(i, 1) = 0
-      NPB6(i, 2) = 0
-      IC6(i) = 0
-      JC6(i) = 0
+      xc6(i) = 0.0
+      yc6(i) = 0.0
+      npb6(i, 1) = 0
+      npb6(i, 2) = 0
+      ic6(i) = 0
+      jc6(i) = 0
       Ichildless6(i) = 0
-      IPARENT6(i) = 0
+      iparent6(i) = 0
       Imark6(i) = 0
    enddo
    do i = 1, nmax7
-      XC7(i) = 0.0
-      YC7(i) = 0.0
-      NPB7(i, 1) = 0
-      NPB7(i, 2) = 0
-      IC7(i) = 0
-      JC7(i) = 0
+      xc7(i) = 0.0
+      yc7(i) = 0.0
+      npb7(i, 1) = 0
+      npb7(i, 2) = 0
+      ic7(i) = 0
+      jc7(i) = 0
       Ichildless7(i) = 0
-      IPARENT7(i) = 0
+      iparent7(i) = 0
       Imark7(i) = 0
    enddo
    do i = 1, nmax8
-      XC8(i) = 0.0
-      YC8(i) = 0.0
-      NPB8(i, 1) = 0
-      NPB8(i, 2) = 0
-      IC8(i) = 0
-      JC8(i) = 0
+      xc8(i) = 0.0
+      yc8(i) = 0.0
+      npb8(i, 1) = 0
+      npb8(i, 2) = 0
+      ic8(i) = 0
+      jc8(i) = 0
       Ichildless8(i) = 0
-      IPARENT8(i) = 0
+      iparent8(i) = 0
       Imark8(i) = 0
    enddo
    do i = 1, nmax9
-      XC9(i) = 0.0
-      YC9(i) = 0.0
-      NPB9(i, 1) = 0
-      NPB9(i, 2) = 0
-      IC9(i) = 0
-      JC9(i) = 0
+      xc9(i) = 0.0
+      yc9(i) = 0.0
+      npb9(i, 1) = 0
+      npb9(i, 2) = 0
+      ic9(i) = 0
+      jc9(i) = 0
    enddo
 
    do i = 1, 4
       do j = 1, nmax1
-         IPAR1CH2(j, i) = 0
+         ipar1ch2(j, i) = 0
       enddo
       do j = 1, nmax2
-         IPAR2CH3(j, i) = 0
+         ipar2ch3(j, i) = 0
       enddo
       do j = 1, nmax3
-         IPAR3CH4(j, i) = 0
+         ipar3ch4(j, i) = 0
       enddo
       do j = 1, nmax4
-         IPAR4CH5(j, i) = 0
+         ipar4ch5(j, i) = 0
       enddo
       do j = 1, nmax5
-         IPAR5CH6(j, i) = 0
+         ipar5ch6(j, i) = 0
       enddo
       do j = 1, nmax6
-         IPAR6CH7(j, i) = 0
+         ipar6ch7(j, i) = 0
       enddo
       do j = 1, nmax7
-         IPAR7CH8(j, i) = 0
+         ipar7ch8(j, i) = 0
       enddo
       do j = 1, nmax8
-         IPAR8CH9(j, i) = 0
+         ipar8ch9(j, i) = 0
       enddo
    enddo
 
@@ -229,5 +229,5 @@ SUBROUTINE ZEROALL
       enddo
    enddo
 
-   RETURN
-END SUBROUTINE ZEROALL
+   return
+end subroutine zeroall

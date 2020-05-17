@@ -1,4 +1,4 @@
-SUBROUTINE POT_PART_UBD(xtest, ytest, kpart, up)
+subroutine pot_part_ubd(xtest, ytest, kpart, up)
 
 !  This subroutine finds the velocity potential induced at (xtest,ytest)
 !  by the particles in XT,YT.
@@ -16,16 +16,16 @@ SUBROUTINE POT_PART_UBD(xtest, ytest, kpart, up)
 
    Up = 0.0
 
-   DO 4 m = 1, kpart
-      gv = GT(m)
-      xv = XT(m)
-      yv = YT(m)
+   do 4 m = 1, kpart
+      gv = gt(m)
+      xv = xt(m)
+      yv = yt(m)
       xa = xtest - xv
       ya = ytest - yv
 
-      up = up + gv*ATAN2(ya, xa)
-4  END DO
+      up = up + gv*atan2(ya, xa)
+4  end do
 
-   RETURN
-END SUBROUTINE POT_PART_UBD
+   return
+end subroutine pot_part_ubd
 

@@ -1,4 +1,4 @@
-SUBROUTINE INITIAL(Rmax, gamma_0, ell_x, ell_y, time_0)
+subroutine initial(Rmax, gamma_0, ell_x, ell_y, time_0)
 
 !     Computes the initial positions for the particles in a new run and
 !     assigns circulation based on initial time desired.
@@ -13,23 +13,23 @@ SUBROUTINE INITIAL(Rmax, gamma_0, ell_x, ell_y, time_0)
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    real :: vortlim
-   COMMON/REMS/vortlim
+   common/rems/vortlim
 
    real :: rmax, gamma_0, ell_x, ell_y, time_0, r_arg
 
    integer :: Nmx, in, ix, iy
    real :: pi, h2, deltax, denom, front, x, y, r, strength, t_shift
 !-----------------------------------------------------------------------
-   pi = 4.*ATAN(1.0)
+   pi = 4.*atan(1.0)
    h2 = s2*ovrlp**2
-   deltax = SQRT(h2)  ! grid spacing
+   deltax = sqrt(h2)  ! grid spacing
    h2 = deltax*deltax ! actual cell area
    Nmx = 2*Rmax/deltax + 1
 
@@ -38,8 +38,8 @@ SUBROUTINE INITIAL(Rmax, gamma_0, ell_x, ell_y, time_0)
 
 !--- generate the grid
    in = 0
-   DO 101 ix = 1, Nmx
-      DO 102 iy = 1, Nmx
+   do 101 ix = 1, Nmx
+      do 102 iy = 1, Nmx
          x = -Rmax + deltax*(ix - 0.5)
          y = -Rmax + deltax*(iy - 0.5)
          r_arg = (x/ell_x)**2 + (y/ell_y)**2 ! elliptic vortex
@@ -48,11 +48,11 @@ SUBROUTINE INITIAL(Rmax, gamma_0, ell_x, ell_y, time_0)
          xp(in) = x
          yp(in) = y
          gp(in) = strength
-102   END DO
-101 END DO
+102   end do
+101 end do
 
    Np = in           ! the initial number of particles
    write (*, *) 'initial number of Particles ', Np
 
-   RETURN
-END SUBROUTINE INITIAL
+   return
+end subroutine initial

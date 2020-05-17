@@ -1,4 +1,4 @@
-SUBROUTINE update_position(delta_t)
+subroutine update_position(delta_t)
 
 !  This routine updates the motion of the body in all directions in
 !  which it is not considered fixed.
@@ -68,5 +68,5 @@ SUBROUTINE update_position(delta_t)
    endif
 
    return
-END SUBROUTINE
+end subroutine
 

@@ -1,4 +1,4 @@
-SUBROUTINE INPUT(icase, ipath, idiags, istepping, &
+subroutine input(icase, ipath, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Nvel, Ntree, &
                  Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax, &
@@ -14,25 +14,25 @@ SUBROUTINE INPUT(icase, ipath, idiags, istepping, &
 
    integer :: n
    real :: time, dt, slip_frac
-   COMMON/PARAMS/n, Time, dt, slip_frac
+   common/params/n, Time, dt, slip_frac
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    real :: vortlim
-   COMMON/REMS/vortlim
+   common/rems/vortlim
 
    integer :: limpar
    real :: x0, y0
-   COMMON/GEOM/X0, Y0, Limpar
+   common/geom/x0, y0, Limpar
 
    integer :: nxavg, nyavg
    real :: xmaxavg, xminavg, ymaxavg, yminavg
-   COMMON/VORT_AVG/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
+   common/vort_avg/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
 
    real :: vel_rmax, vel_points
-   COMMON/vel_avg/vel_rmax, vel_points
+   common/vel_avg/vel_rmax, vel_points
 
    integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
    integer :: nvel, ntree, istepping
@@ -41,37 +41,37 @@ SUBROUTINE INPUT(icase, ipath, idiags, istepping, &
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
-   OPEN (1, FILE='ubd_input.dat', STATUS='OLD')
-   READ (1, *)
-   READ (1, *) dt, Nsteps
-   READ (1, *)
-   READ (1, *) gamma_0, time_0, gnu
-   READ (1, *)
-   READ (1, *) s2, ovrlp
-   READ (1, *)
-   READ (1, *) Limpar, vortlim
-   READ (1, *)
-   READ (1, *) Nrem, visc_rmax
-   READ (1, *)
-   READ (1, *) Rmax, slip_frac, ell_x, ell_y
-   READ (1, *)
-   READ (1, *) istepping
-   READ (1, *)
-   READ (1, *) Nvf, Nvel
-   READ (1, *)
-   READ (1, *) i_time_avg, n_avg_start, n_avg_times, n_avg_interval
-   READ (1, *)
-   READ (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
-   READ (1, *)
-   READ (1, *) vel_rmax, vel_points
-   READ (1, *)
-   READ (1, *) ipath
-   READ (1, *)
-   READ (1, *) idiags
-   READ (1, *)
-   READ (1, *) Ntree
-   READ (1, *)
-   READ (1, *) icase, Nrestart
+   open (1, file='ubd_input.dat', status='OLD')
+   read (1, *)
+   read (1, *) dt, Nsteps
+   read (1, *)
+   read (1, *) gamma_0, time_0, gnu
+   read (1, *)
+   read (1, *) s2, ovrlp
+   read (1, *)
+   read (1, *) Limpar, vortlim
+   read (1, *)
+   read (1, *) Nrem, visc_rmax
+   read (1, *)
+   read (1, *) Rmax, slip_frac, ell_x, ell_y
+   read (1, *)
+   read (1, *) istepping
+   read (1, *)
+   read (1, *) Nvf, Nvel
+   read (1, *)
+   read (1, *) i_time_avg, n_avg_start, n_avg_times, n_avg_interval
+   read (1, *)
+   read (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
+   read (1, *)
+   read (1, *) vel_rmax, vel_points
+   read (1, *)
+   read (1, *) ipath
+   read (1, *)
+   read (1, *) idiags
+   read (1, *)
+   read (1, *) Ntree
+   read (1, *)
+   read (1, *) icase, Nrestart
    close (1)
 
 !~~~~~~~~~~~~~~~~~~~~ GLOSSARY OF INPUT PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -121,5 +121,5 @@ SUBROUTINE INPUT(icase, ipath, idiags, istepping, &
 
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   RETURN
-END SUBROUTINE INPUT
+   return
+end subroutine input

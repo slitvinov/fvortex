@@ -1,4 +1,4 @@
-SUBROUTINE int_part2(gtest, xtest, ytest, upart, vpart, gpart, kpart)
+subroutine int_part2(gtest, xtest, ytest, upart, vpart, gpart, kpart)
 
 !  This  subroutine calculates the velocities induced on the
 !  particle located at *xtest*,*ytest*, by the particles in its
@@ -14,10 +14,10 @@ SUBROUTINE int_part2(gtest, xtest, ytest, upart, vpart, gpart, kpart)
 
    integer :: np
    real :: s2, ovrlp, gnu
-   COMMON/PART/Np, s2, ovrlp, gnu
+   common/part/Np, s2, ovrlp, gnu
 
    real :: gdelta, gauss(ngauss)
-   COMMON/GAUSS_TABLE/gdelta, gauss
+   common/gauss_table/gdelta, gauss
 
    real :: visc_cutoff
    common/cutoff/visc_cutoff
@@ -26,8 +26,8 @@ SUBROUTINE int_part2(gtest, xtest, ytest, upart, vpart, gpart, kpart)
    real :: gtest, xtest, ytest, upart, vpart, gpart
 
    integer :: m, i, n
-   real :: s2inv2, gg, xx, yy, r2, arg, C, svl, fm, fn
-   real :: rad1, rad2, A, dyopiinv
+   real :: s2inv2, gg, xx, yy, r2, arg, c, svl, fm, fn
+   real :: rad1, rad2, a, dyopiinv
 !------------------------------------------------------------------------
 
    dyopiinv = 1./(8.*atan(1.))
@@ -38,34 +38,34 @@ SUBROUTINE int_part2(gtest, xtest, ytest, upart, vpart, gpart, kpart)
    gpart = 0.0
 
 !     FPP$PERMUTATION(IT)
-   DO 4 m = 1, kpart
-      xx = xtest - XT(m)
-      yy = YT(m) - ytest
+   do 4 m = 1, kpart
+      xx = xtest - xt(m)
+      yy = yt(m) - ytest
       r2 = xx*xx + yy*yy
       arg = r2*s2inv2
-      IF (arg < gauss_cut) then
+      if (arg < gauss_cut) then
          i = arg/gdelta + 1
-         C = gauss(i)*(1 + i*gdelta - arg) ! includes first error term
+         c = gauss(i)*(1 + i*gdelta - arg) ! includes first error term
       else
-         C = 0.
+         c = 0.
       endif
-      SVL = (1.-C)/r2
-      fm = GT(m)*SVL
+      svl = (1.-c)/r2
+      fm = gt(m)*svl
       Upart = Upart + yy*fm  ! velocity on particle LP
       Vpart = Vpart + xx*fm
       ! Calculation is made symmetric here
-      n = IT(m)
-      fn = gg*SVL
-      UU(n) = UU(n) - yy*fn
-      VV(n) = VV(n) - xx*fn
+      n = it(m)
+      fn = gg*svl
+      uu(n) = uu(n) - yy*fn
+      vv(n) = vv(n) - xx*fn
       !*          rad1 = xtest*xtest + ytest*ytest
       !*          rad2 = xt(m)*xt(m) + yt(m)*yt(m)
       !*          if((rad1.lt.visc_cutoff).and.(rad2.lt.visc_cutoff))then
-      A = (GT(m) - gtest)*C
-      gpart = gpart + A
-      Gdiff(n) = Gdiff(n) - A ! Strength of n
+      a = (gt(m) - gtest)*c
+      gpart = gpart + a
+      Gdiff(n) = Gdiff(n) - a ! Strength of n
       !*         endif
-4  END DO
+4  end do
 
-   RETURN
-end SUBROUTINE int_part2
+   return
+end subroutine int_part2
