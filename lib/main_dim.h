@@ -1,4 +1,4 @@
-integer :: Nvort, ngauss, nerf, nnear
+integer :: Nvort, ngauss
 real :: gauss_cut
 parameter(Nvort=5000000)
 parameter(ngauss=15001)
