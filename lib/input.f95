@@ -1,82 +1,80 @@
-!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    SUBROUTINE INPUT(icase,ipath,idiags,istepping, &
-    Nsteps,Nrem,Nrestart, &
-    Nvf,Nvel,Ntree, &
-    Rmax,gamma_0,ell_x,ell_y,time_0,visc_rmax, &
-    i_time_avg,n_avg_start,n_avg_times,n_avg_interval)
+SUBROUTINE INPUT(icase, ipath, idiags, istepping, &
+                 Nsteps, Nrem, Nrestart, &
+                 Nvf, Nvel, Ntree, &
+                 Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax, &
+                 i_time_avg, n_avg_start, n_avg_times, n_avg_interval)
 
 ! In this subroutine parameters for the computation of the
 ! Lamb-Oseen (initially point) vortex are input.
 
-    implicit none
+   implicit none
 
-    include 'main_dim.h'
-    include 'measure.h'
+   include 'main_dim.h'
+   include 'measure.h'
 
-    integer :: n
-    real :: time,dt,slip_frac
-    COMMON/PARAMS/n,Time,dt,slip_frac
+   integer :: n
+   real :: time, dt, slip_frac
+   COMMON/PARAMS/n, Time, dt, slip_frac
 
-    integer :: np
-    real :: s2,ovrlp,gnu
-    COMMON/PART/Np,s2,ovrlp,gnu
+   integer :: np
+   real :: s2, ovrlp, gnu
+   COMMON/PART/Np, s2, ovrlp, gnu
 
-    real :: vortlim
-    COMMON/REMS/vortlim
+   real :: vortlim
+   COMMON/REMS/vortlim
 
-    integer :: limpar
-    real :: x0,y0
-    COMMON/GEOM/X0,Y0,Limpar
+   integer :: limpar
+   real :: x0, y0
+   COMMON/GEOM/X0, Y0, Limpar
 
-    integer :: nxavg,nyavg
-    real :: xmaxavg,xminavg,ymaxavg,yminavg
-    COMMON/VORT_AVG/Nxavg,Nyavg,Xmaxavg,Xminavg,Ymaxavg,Yminavg
+   integer :: nxavg, nyavg
+   real :: xmaxavg, xminavg, ymaxavg, yminavg
+   COMMON/VORT_AVG/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
 
-    real :: vel_rmax,vel_points
-    COMMON/vel_avg/vel_rmax,vel_points
+   real :: vel_rmax, vel_points
+   COMMON/vel_avg/vel_rmax, vel_points
 
-    integer :: icase,ipath,idiags,nsteps,nrem,nrestart,nvf
-    integer :: nvel,ntree,istepping
-    integer :: i_time_avg,n_avg_start,n_avg_times,n_avg_interval
-    real :: Rmax,gamma_0,ell_x,ell_y,time_0,visc_rmax
+   integer :: icase, ipath, idiags, nsteps, nrem, nrestart, nvf
+   integer :: nvel, ntree, istepping
+   integer :: i_time_avg, n_avg_start, n_avg_times, n_avg_interval
+   real :: Rmax, gamma_0, ell_x, ell_y, time_0, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
-    OPEN(1,FILE='ubd_input.dat',STATUS = 'OLD')
-    READ(1,*)
-    READ(1,*)dt,Nsteps
-    READ(1,*)
-    READ(1,*)gamma_0,time_0,gnu
-    READ(1,*)
-    READ(1,*)s2,ovrlp
-    READ(1,*)
-    READ(1,*)Limpar,vortlim
-    READ(1,*)
-    READ(1,*)Nrem,visc_rmax
-    READ(1,*)
-    READ(1,*)Rmax,slip_frac,ell_x,ell_y
-    READ(1,*)
-    READ(1,*)istepping
-    READ(1,*)
-    READ(1,*)Nvf,Nvel
-    READ(1,*)
-    READ(1,*)i_time_avg,n_avg_start,n_avg_times,n_avg_interval
-    READ(1,*)
-    READ(1,*)nxavg,nyavg,xminavg,xmaxavg,yminavg,ymaxavg
-    READ(1,*)
-    READ(1,*)vel_rmax,vel_points
-    READ(1,*)
-    READ(1,*)ipath
-    READ(1,*)
-    READ(1,*)idiags
-    READ(1,*)
-    READ(1,*)Ntree
-    READ(1,*)
-    READ(1,*)icase,Nrestart
-    close(1)
+   OPEN (1, FILE='ubd_input.dat', STATUS='OLD')
+   READ (1, *)
+   READ (1, *) dt, Nsteps
+   READ (1, *)
+   READ (1, *) gamma_0, time_0, gnu
+   READ (1, *)
+   READ (1, *) s2, ovrlp
+   READ (1, *)
+   READ (1, *) Limpar, vortlim
+   READ (1, *)
+   READ (1, *) Nrem, visc_rmax
+   READ (1, *)
+   READ (1, *) Rmax, slip_frac, ell_x, ell_y
+   READ (1, *)
+   READ (1, *) istepping
+   READ (1, *)
+   READ (1, *) Nvf, Nvel
+   READ (1, *)
+   READ (1, *) i_time_avg, n_avg_start, n_avg_times, n_avg_interval
+   READ (1, *)
+   READ (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
+   READ (1, *)
+   READ (1, *) vel_rmax, vel_points
+   READ (1, *)
+   READ (1, *) ipath
+   READ (1, *)
+   READ (1, *) idiags
+   READ (1, *)
+   READ (1, *) Ntree
+   READ (1, *)
+   READ (1, *) icase, Nrestart
+   close (1)
 
 !~~~~~~~~~~~~~~~~~~~~ GLOSSARY OF INPUT PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 !       dt = time step length   Nsteps = # of time steps
 
@@ -123,5 +121,5 @@
 
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    RETURN
-    END SUBROUTINE INPUT
+   RETURN
+END SUBROUTINE INPUT

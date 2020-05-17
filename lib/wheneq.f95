@@ -1,28 +1,27 @@
-    subroutine wheneq(npart,ibox,itoss,imatch,idummy,nmatch)
-          
+subroutine wheneq(npart, ibox, itoss, imatch, idummy, nmatch)
+
 !  This routine finds elements of an array which match some key and saves
 !  their indicies in a new array.
 
-    implicit none
+   implicit none
 
-    include 'main_dim.h'
+   include 'main_dim.h'
 
-    integer :: npart,itoss,imatch,nmatch
-    integer :: ibox(nvort),idummy(nvort)
+   integer :: npart, itoss, imatch, nmatch
+   integer :: ibox(nvort), idummy(nvort)
 
-    integer :: i
+   integer :: i
 !----------------------------------------------------------
 
-    nmatch=0
+   nmatch = 0
 
-    do 10 i=1,npart
-        if(ibox(i) == imatch) then
-            nmatch = nmatch + 1
-            idummy(nmatch)=i
-        endif
-    10 END DO
+   do 10 i = 1, npart
+      if (ibox(i) == imatch) then
+         nmatch = nmatch + 1
+         idummy(nmatch) = i
+      endif
+10 END DO
 
-    return
-    end subroutine wheneq
-
+   return
+end subroutine wheneq
 
