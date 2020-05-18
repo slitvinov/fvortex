@@ -11,11 +11,15 @@ petros.h\
 L = libpetros.a
 I = \
 condiff.f95\
+diagnos.f95\
+gaussian.f95\
 initial.f95\
 input.f95\
 mv_ab.f95\
+mv_eul.f95\
 mv_rk.f95\
 read_restart.f95\
+remesh.f95\
 vel_ext.f95\
 vort_field.f95\
 write_restart.f95\

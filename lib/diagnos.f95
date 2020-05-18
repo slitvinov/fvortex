@@ -1,4 +1,4 @@
-subroutine diagnos
+subroutine diagnos()
 
 !  Calculates the linear/angular impulse and circulation of the flow.
 !  Differentiation of the impulse will give drag and lift.

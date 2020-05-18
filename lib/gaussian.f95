@@ -1,4 +1,4 @@
-subroutine gaussian
+subroutine gaussian()
 
 !    Computes a table of values for the gaussian, which is used in the
 !    formulas for convection and diffusion between particles. Table just

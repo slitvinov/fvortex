@@ -64,3 +64,15 @@ subroutine write_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
 end subroutine
+subroutine mv_eul()
+  implicit none
+end subroutine
+subroutine diagnos()
+  implicit none
+end subroutine
+subroutine remesh()
+  implicit none
+end subroutine
+subroutine gaussian()
+  implicit none
+end subroutine

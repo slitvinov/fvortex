@@ -1,4 +1,4 @@
-subroutine remesh
+subroutine remesh()
 
 !   This subroutine remeshes the vortex field onto a uniform Cartesian
 !   grid.
