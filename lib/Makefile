@@ -13,8 +13,6 @@ I = \
 condiff.f95\
 diagnos.f95\
 gaussian.f95\
-initial.f95\
-input.f95\
 mv_ab.f95\
 mv_eul.f95\
 mv_rk.f95\

@@ -5,30 +5,18 @@ subroutine condiff(Npart,islip,visc_rmax,istats)
   integer :: istats
   real :: visc_rmax
 end subroutine
-subroutine initial(Rmax,ell_x,ell_y)
+subroutine diagnos()
   implicit none
-  real :: rmax
-  real :: ell_x
-  real :: ell_y
 end subroutine
-subroutine input(icase,idiags,istepping,Nsteps,Nrem,Nrestart,Nvf,Ntree,Rmax,ell_x,ell_y,visc_rmax)
+subroutine gaussian()
   implicit none
-  integer :: icase
-  integer :: idiags
-  integer :: nsteps
-  integer :: nrem
-  integer :: nrestart
-  integer :: nvf
-  integer :: ntree
-  integer :: istepping
-  real :: Rmax
-  real :: ell_x
-  real :: ell_y
-  real :: visc_rmax
 end subroutine
 subroutine mv_ab(irk)
   implicit none
   integer :: irk
+end subroutine
+subroutine mv_eul()
+  implicit none
 end subroutine
 subroutine mv_rk(visc_rmax)
   implicit none
@@ -44,6 +32,9 @@ subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: xp
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
+end subroutine
+subroutine remesh()
+  implicit none
 end subroutine
 subroutine vel_ext(tm)
   implicit none
@@ -63,16 +54,4 @@ subroutine write_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: xp
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
-end subroutine
-subroutine mv_eul()
-  implicit none
-end subroutine
-subroutine diagnos()
-  implicit none
-end subroutine
-subroutine remesh()
-  implicit none
-end subroutine
-subroutine gaussian()
-  implicit none
 end subroutine
