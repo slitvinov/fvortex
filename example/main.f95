@@ -213,7 +213,7 @@ subroutine input(icase, idiags, istepping, &
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
-   open (1, file='ubd_input.dat', status='OLD')
+   open (1, file='input.dat', status='OLD')
    read (1, *)
    read (1, *) dt, Nsteps
    read (1, *)
