@@ -61,11 +61,10 @@ import sys
 
 TYPEKEYS = ["integer", "logical", "real", "complex",
             "double precision", "double complex", "character", "doubleprecision", "doublecomplex"]
-
-#m = re.search(r"(subroutine|function)(.*?)\((.*?)\)", s)
-
-
-#class FortranVariableDict
+me = "tool/fdeclarations"
+def err(s):
+    sys.stderr.write("%s: %s\n" % (me, s))
+    sys.exit(2)
 
 class FortranVariable:
     def __init__(self, name, decl, dim, initialiser, is_argument=False):
@@ -271,17 +270,12 @@ def getVariablenames(line):
 #-----------------------------------------------------------------------------
 def getArgumentList(argline):
     """Returns the argument list of a Fortran subroutine"""
-    #print line
     re_match = re.search(r"subroutine(.*?)\((.*)\)", argline, re.IGNORECASE)
-    
     if re_match == None:
         return None
-
-    #print re_match.group(0)
-    
     name = re_match.group(1).strip()
     arglist = [arg.strip() for arg in re_match.group(2).split(",")]
-
+    arglist = [arg for arg in arglist if arg != ""]
     return name, arglist
 
 #TODO: store declaration line, extract type info, save dimension info
@@ -317,18 +311,13 @@ if __name__ == "__main__":
         if temp != None:
             subname, args = temp
             break
-
-    if not args:
-        print("ERROR: no subroutine header found!")
-        raise NoArgList
-
+    if args == None:
+        err("no subroutine(..)")
     vardict = {}
     varlist = []
-
     for line in xf:
         if isDeclarationLine(line):
             decl, names, dims, initstr = getVariablenames(line)
-            #print getVariablenames(line)
             for name, dim in zip(names, dims):
                 entry = FortranVariable(name, decl, dim, initstr, is_argument=False)
                 vardict[name.lower()] = entry
@@ -336,8 +325,6 @@ if __name__ == "__main__":
 
         if "end subroutine" in line:
             break
-
-    #print varlist
 
     # Flag arguments
     for arg in args:
