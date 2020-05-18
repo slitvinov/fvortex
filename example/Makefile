@@ -13,7 +13,7 @@ all: $M
 .o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
 %: %.f95
 
-lint:; make FFLAGS='-Wall -Wextra -g -O2'
+lint:; make FFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 
 .PHONY: clean lint
 clean:; rm -f -- $M

@@ -11,6 +11,21 @@ subroutine initial(Rmax,ell_x,ell_y)
   real :: ell_x
   real :: ell_y
 end subroutine
+subroutine input(icase,idiags,istepping,Nsteps,Nrem,Nrestart,Nvf,Ntree,Rmax,ell_x,ell_y,visc_rmax)
+  implicit none
+  integer :: icase
+  integer :: idiags
+  integer :: nsteps
+  integer :: nrem
+  integer :: nrestart
+  integer :: nvf
+  integer :: ntree
+  integer :: istepping
+  real :: Rmax
+  real :: ell_x
+  real :: ell_y
+  real :: visc_rmax
+end subroutine
 subroutine mv_ab(irk)
   implicit none
   integer :: irk

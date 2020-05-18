@@ -12,6 +12,7 @@ L = libpetros.a
 I = \
 condiff.f95\
 initial.f95\
+input.f95\
 mv_ab.f95\
 mv_rk.f95\
 read_restart.f95\
@@ -100,8 +101,7 @@ install: $L $H
 $L: $O; ar rv $@ $O && ranlib $@
 .f95.o:; $(FC) -c $(FFLAGS) $< -o $@
 include dep.mk
-
-lint:; make FFLAGS='-Wall -Wextra -g -O2'
+lint:; make FFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > petros.h
 
 dep:; for i in *.f95; do $(FC) -MM -cpp $$i; done > dep.mk
