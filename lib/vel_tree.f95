@@ -18,13 +18,13 @@ subroutine vel_tree(Xbc, Ybc, u, v)
 
    call build_tree(0, xbc, ybc, nn, kfp)
 
-   call vel_PART(xbc, ybc, upart, vpart, nn)
+   call vel_part(xbc, ybc, upart, vpart, nn)
    if (nn > np_max) then
       write (*, *) 'error in vel_part, nn=', nn
       stop
    endif
 
-   call vel_BOX(xbc, ybc, ubox, vbox, kfp)
+   call vel_box(xbc, ybc, ubox, vbox, kfp)
    if (kfp > nbox_max) then
       write (*, *) 'error in vel_box, kfp=', kfp
       stop
