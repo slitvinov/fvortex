@@ -5,9 +5,9 @@ gfortran, make
 # Install
 
     (cd lib && make)
-    (cd example && make)
+    (cd example/gauss && make)
 
 # Run
 
-    cd example
+    cd example/gauss
     ./main
