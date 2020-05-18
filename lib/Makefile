@@ -41,8 +41,6 @@ exp_chdless.o\
 far_cls_cyl.o\
 far_cls_ubd.o\
 gaussian.o\
-initial.o\
-input.o\
 int_box.o\
 int_box_part.o\
 int_chless1.o\

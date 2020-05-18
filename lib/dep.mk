@@ -16,8 +16,6 @@ exp_chdless.o: exp_chdless.f95 main_dim.h part.h
 far_cls_cyl.o: far_cls_cyl.f95 tree_tmp.h
 far_cls_ubd.o: far_cls_ubd.f95 tree_tmp.h
 gaussian.o: gaussian.f95 main_dim.h
-initial.o: initial.f95 main_dim.h part.h
-input.o: input.f95 main_dim.h measure.h
 int_box.o: int_box.f95 tree_tmp.h
 int_box_part.o: int_box_part.f95 tree_tmp.h
 int_chless1.o: int_chless1.f95 tree_tmp.h main_dim.h part.h tree9.h
