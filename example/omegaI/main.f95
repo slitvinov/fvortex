@@ -22,7 +22,7 @@ program go
    integer :: icase, idiags
    integer :: Nsteps, Nrem, Nrestart
    integer :: Nvf, Ntree
-   real :: Rmax, ell_x, ell_y, visc_rmax
+   real :: Rmax, visc_rmax
    logical ::  lremesh
 
 !---------------------------------------------------------------------------
@@ -33,7 +33,7 @@ program go
    call input(icase, idiags, istepping, &
               Nsteps, Nrem, Nrestart, &
               Nvf, Ntree, &
-              Rmax, ell_x, ell_y, visc_rmax)
+              Rmax, visc_rmax)
 
 !---  tabulate the gaussian for use as diffusion kernel
 
@@ -45,7 +45,7 @@ program go
 
       !     -- NEW run
    else
-      call initial(Rmax, ell_x, ell_y)
+      call initial(Rmax)
       time = 0.0
       irk = 0
       call diagnos           ! get initial impulse and circulation
@@ -127,9 +127,9 @@ program go
 103 format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
 
    stop
-end program
+end program go
 
-subroutine initial(Rmax, ell_x, ell_y)
+subroutine initial(Rmax)
 
 !     Computes the initial positions for the particles in a new run and
 !     assigns circulation based on initial time desired.
@@ -137,36 +137,64 @@ subroutine initial(Rmax, ell_x, ell_y)
 !     Initial time is shifted backwards for accurate discretization
 !     using initially point vortex diffused to desired core size.
 
-   implicit none
+  implicit none
 
    include 'main_dim.h'
    include 'part.h'
 
-   integer :: np
-   real :: s2, ovrlp, gnu
+   interface
+      function f(z, q)
+        implicit none
+        real :: z
+        real :: q
+        real :: f
+      end function f
+   end interface
+
    common/part/Np, s2, ovrlp, gnu
-   real :: rmax, ell_x, ell_y, r_arg
-   integer :: Nmx, in, ix, iy
-   real :: h2, deltax, denom, x, y, strength
-!-----------------------------------------------------------------------
+   integer :: in
+   integer :: ix
+   integer :: iy
+   integer :: Nmx
+   integer :: np
+   real :: a
+   real :: b
+   real :: deltax
+   real :: gnu
+   real :: h2
+   real :: Ksi
+   real :: ovrlp
+   real :: q
+   real :: r
+   real :: rmax
+   real :: s2
+   real :: strength
+   real :: x
+   real :: y
+   
+   a = 0.8
+   b = 1.6
+   q = 2.56085
+   Ksi = 20.0
    h2 = s2*ovrlp**2
    deltax = sqrt(h2)  ! grid spacing
    h2 = deltax*deltax ! actual cell area
    Nmx = 2*Rmax/deltax + 1
-   denom = 1.0/(0.1*Rmax)**2
-
-!--- generate the grid
    in = 0
    do 101 ix = 1, Nmx
       do 102 iy = 1, Nmx
          x = -Rmax + deltax*(ix - 0.5)
          y = -Rmax + deltax*(iy - 0.5)
-         r_arg = (x/ell_x)**2 + (y/ell_y)**2 ! elliptic vortex
-         strength = denom*h2*exp(-r_arg*denom)
+         r = sqrt((x/a)**2 + (y/b)**2)
+         if (r < 1) then
+            strength = Ksi * (1.0 - f(r, q))
+         else
+            strength = 0.0
+         endif
          in = in + 1
          xp(in) = x
          yp(in) = y
-         gp(in) = strength
+         gp(in) = strength * h2
 102   end do
 101 end do
 
@@ -179,7 +207,7 @@ end subroutine initial
 subroutine input(icase, idiags, istepping, &
                  Nsteps, Nrem, Nrestart, &
                  Nvf, Ntree, &
-                 Rmax, ell_x, ell_y, visc_rmax)
+                 Rmax, visc_rmax)
 
 ! In this subroutine parameters for the computation of the
 ! Lamb-Oseen (initially point) vortex are input.
@@ -209,13 +237,13 @@ subroutine input(icase, idiags, istepping, &
 
    integer :: icase, idiags, nsteps, nrem, nrestart, nvf
    integer :: ntree, istepping
-   real :: Rmax, ell_x, ell_y, visc_rmax
+   real :: Rmax, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
    open (1, file='input.dat', status='OLD')
    read (1, *)
-   read (1, *) dt, Nsteps
+   read (1, *) dt, Nsteps, Nvf
    read (1, *)
    read (1, *) gnu
    read (1, *)
@@ -225,11 +253,9 @@ subroutine input(icase, idiags, istepping, &
    read (1, *)
    read (1, *) Nrem, visc_rmax
    read (1, *)
-   read (1, *) Rmax, ell_x, ell_y
+   read (1, *) Rmax
    read (1, *)
    read (1, *) istepping
-   read (1, *)
-   read (1, *) Nvf
    read (1, *)
    read (1, *) nxavg, nyavg, xminavg, xmaxavg, yminavg, ymaxavg
    read (1, *)
@@ -274,3 +300,17 @@ subroutine input(icase, idiags, istepping, &
 
    return
 end subroutine input
+
+function f(z, q)
+  implicit none
+  real :: f
+  real :: z
+  real :: q
+  real :: eps
+  eps = 1e-12
+  if (z > eps) then
+     f = exp(-(q/z) * exp(1/(z - 1)))
+  else
+     f = 0.0
+  endif
+end function f

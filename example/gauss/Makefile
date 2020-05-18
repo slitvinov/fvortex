@@ -1,6 +1,6 @@
 .POSIX:
 .SUFFIXES: .o .f95
-include ../conf.mk
+include ../../conf.mk
 
 M_FFLAGS = -I$(PREFIX)/include
 M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lgfortran -lm
