@@ -41,6 +41,9 @@ subroutine diagnos()
    write (10, 100) Time, xmom
    write (11, 100) Time, ymom
    write (12, 100) Time, Circ
+   close(10)
+   close(11)
+   close(12)
 
 100 format(f10.4, 2x, e13.6)
 

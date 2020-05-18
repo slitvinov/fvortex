@@ -139,17 +139,17 @@ subroutine initial(Rmax)
 
   implicit none
 
-   include 'main_dim.h'
-   include 'part.h'
+  include 'main_dim.h'
+  include 'part.h'
 
-   interface
-      function f(z, q)
-        implicit none
-        real :: z
-        real :: q
-        real :: f
-      end function f
-   end interface
+  interface
+     function f(z, q)
+       implicit none
+       real :: z
+       real :: q
+       real :: f
+     end function f
+  end interface
 
    common/part/Np, s2, ovrlp, gnu
    integer :: in

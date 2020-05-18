@@ -1,13 +1,13 @@
 dt,Nsteps,Nvort
-1e-3,10000,1
+1e-3,48000,500
 gnu
 0.0
 s2,ovrlp
-5e-5,0.5
+5e-5,0.33
 Limpar,vortlim
 30,1e-3
 Nrem,visc_rmax
-1,100.0
+9,100.0
 Rmax
 1.8
 istepping(1=Euler/AB2, 2=RK2/AB2)

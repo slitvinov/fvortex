@@ -3,7 +3,7 @@
 include ../../conf.mk
 
 M_FFLAGS = -I$(PREFIX)/include
-M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lgfortran -lm -ffpe-trap=invalid,zero,overflow,denormal
+M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lgfortran -lm
 
 M = \
 main\
