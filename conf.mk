@@ -1,4 +1,4 @@
 PREFIX = $(HOME)
 FC = gfortran
-LINK = cc
+LINK = gfortran
 FFLAGS = -Ofast

@@ -1,21 +1,21 @@
 dt,Nsteps,Nvort
-1e-3,48000,500
+1e-2,48000,50
 gnu
 0.0
 s2,ovrlp
-5e-5,0.33
+1e-4,0.9
 Limpar,vortlim
-30,1e-3
+1,1e-3
 Nrem,visc_rmax
-9,100.0
+5,100.0
 Rmax
-1.8
+1.65
 istepping(1=Euler/AB2, 2=RK2/AB2)
 2
 Nx,Ny,Xmin,Xmax,Ymin,Ymax (vorticity)
-200,200,-2.5,2.5,-2.5,2.5
+100,100,-2.5,2.5,-2.5,2.5
 idiags(1=take them)
-1
+0
 ntree
 10
 icase(0=Continue),Nrestart
