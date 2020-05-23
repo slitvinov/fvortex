@@ -2,7 +2,7 @@
 
 gfortran, make
 
-# Install
+# Build
 
     (cd lib && make)
     (cd example/gauss && make)
