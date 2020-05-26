@@ -4,7 +4,7 @@ acc_y.o: acc_y.f95
 angle.o: angle.f95
 box9_to_part.o: box9_to_part.f95 main_dim.h part.h
 box_1.o: box_1.f95 main_dim.h part.h
-box_dim.o: box_dim.f95 main_dim.h part.h
+box_dim.o: box_dim.f95 main_dim.h
 box_to_part.o: box_to_part.f95 main_dim.h part.h
 build_tree.o: build_tree.f95 main_dim.h tree_tmp.h part.h tree9.h
 ch_to_par.o: ch_to_par.f95
