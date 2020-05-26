@@ -1,3 +1,11 @@
+subroutine box_dim(Npart,Xmin,Xmax,Ymin,Ymax)
+  implicit none
+  integer :: Npart
+  real :: xmin
+  real :: xmax
+  real :: ymin
+  real :: ymax
+end subroutine
 subroutine condiff(Npart,islip,visc_rmax,istats)
   implicit none
   integer :: npart

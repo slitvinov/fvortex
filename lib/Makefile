@@ -10,6 +10,7 @@ petros.h\
 
 L = libpetros.a
 I = \
+box_dim.f95\
 condiff.f95\
 diagnos.f95\
 gaussian.f95\
