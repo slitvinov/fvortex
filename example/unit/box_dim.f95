@@ -1,0 +1,33 @@
+program main
+   implicit none
+   interface
+      include 'petros.h'
+   end interface
+   include 'main_dim.h'
+   common/vort1/xp, yp
+   integer :: npart
+   integer :: stat
+   real :: x
+   real :: xmax
+   real :: xmin
+   real :: xp(Nvort)
+   real :: y
+   real :: ymax
+   real :: ymin
+   real :: yp(Nvort)
+
+   npart = 0
+   do
+      read(5, *, iostat = stat) x, y
+      if (stat /= 0) exit
+      npart = npart + 1
+      xp(npart) = x
+      yp(npart) = y
+   end do
+   call box_dim(npart, xmin, xmax, ymin, ymax)
+   print *, xmin, ymin
+   print *, xmax, ymin
+   print *, xmax, ymax
+   print *, xmin, ymax
+   print *, xmin, ymin
+end program main
