@@ -1,7 +1,3 @@
-acc_theta.o: acc_theta.f95
-acc_x.o: acc_x.f95
-acc_y.o: acc_y.f95
-angle.o: angle.f95
 box9_to_part.o: box9_to_part.f95 main_dim.h part.h
 box_1.o: box_1.f95 main_dim.h part.h
 box_dim.o: box_dim.f95 main_dim.h
@@ -36,27 +32,19 @@ int_rest7.o: int_rest7.f95 tree_tmp.h main_dim.h part.h tree9.h
 int_rest8.o: int_rest8.f95 tree_tmp.h main_dim.h part.h tree9.h
 int_rest9.o: int_rest9.f95 tree_tmp.h main_dim.h part.h tree9.h
 make_box.o: make_box.f95 main_dim.h part.h
-max_rad.o: max_rad.f95 main_dim.h part.h
 mv_ab.o: mv_ab.f95 main_dim.h part.h
 mv_eul.o: mv_eul.f95 main_dim.h part.h
 mv_rk.o: mv_rk.f95 main_dim.h part.h
 near_far.o: near_far.f95 tree_tmp.h
 omega.o: omega.f95
 par_to_ch.o: par_to_ch.f95
-pot_box_cyl.o: pot_box_cyl.f95 tree_tmp.h
-pot_box_ubd.o: pot_box_ubd.f95 tree_tmp.h
-pot_part_cyl.o: pot_part_cyl.f95 tree_tmp.h
-pot_part_ubd.o: pot_part_ubd.f95 tree_tmp.h
 read_restart.o: read_restart.f95
 remesh.o: remesh.f95 remesh_cartesian.h main_dim.h part.h
 str_box.o: str_box.f95 tree_tmp.h
 str_part.o: str_part.f95 tree_tmp.h
 streamfunction.o: streamfunction.f95 tree_tmp.h
 update_position.o: update_position.f95
-vel_box.o: vel_box.f95 tree_tmp.h
 vel_ext.o: vel_ext.f95 main_dim.h part.h
-vel_part.o: vel_part.f95 tree_tmp.h
-velocity.o: velocity.f95 main_dim.h
 velocity_x.o: velocity_x.f95
 velocity_y.o: velocity_y.f95
 vort_field.o: vort_field.f95 main_dim.h part.h

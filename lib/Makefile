@@ -25,10 +25,6 @@ vort_field.f95\
 write_restart.f95\
 
 O = \
-acc_theta.o\
-acc_x.o\
-acc_y.o\
-angle.o\
 box_1.o\
 box9_to_part.o\
 box_dim.o\
@@ -63,29 +59,18 @@ int_rest7.o\
 int_rest8.o\
 int_rest9.o\
 make_box.o\
-max_rad.o\
 mv_ab.o\
 mv_eul.o\
 mv_rk.o\
 near_far.o\
 omega.o\
 par_to_ch.o\
-pot_box_cyl.o\
-pot_box_ubd.o\
-pot_part_cyl.o\
-pot_part_ubd.o\
 read_restart.o\
 remesh.o\
-str_box.o\
-streamfunction.o\
-str_part.o\
 update_position.o\
-vel_box.o\
 vel_ext.o\
-velocity.o\
 velocity_x.o\
 velocity_y.o\
-vel_part.o\
 vort_field.o\
 wheneq.o\
 write_restart.o\
