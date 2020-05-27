@@ -9,6 +9,7 @@ program main
    common/vort2/xn, yn
    common/geom/x0, y0
    integer :: i
+   integer :: j
    integer :: npart
    integer :: stat
    real :: s0
@@ -44,13 +45,15 @@ program main
    write (0, *) yc1
    write (0, *) ic1
    write (0, *) jc1
-   write (0, *) npb1
+   write (0, *) npb1(:, 1)
+   write (0, *) npb1(:, 2)
    write (0, *) ds1
    write (0, *) kp1
    write (0, *) Liststart
-
-   do i = 1, npart
-      print *, xn(i), yn(i)
+   do j = 1, 4
+      do i = npb1(j, 1), npb1(j, 2)
+         print *, xn(i), yn(i), j
+      end do
    end do
 
 end program main
