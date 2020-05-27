@@ -41,8 +41,8 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 
 !-- Identify each particle with one of the boxes
    do 1 n = 1, Npart
-      lx = (Xp(n) - x0)*ds1inv
-      ly = (Yp(n) - y0)*ds1inv
+      lx = (xp(n) - x0)*ds1inv
+      ly = (yp(n) - y0)*ds1inv
       ibox = lx + 1                ! indices of the box where the particles
       jbox = ly + 1                ! reside
       ixy(n) = 1                                  ! IXY(n) has as value

@@ -7,6 +7,7 @@ H = \
 main_dim.h\
 part.h\
 petros.h\
+tree9.h\
 
 L = libpetros.a
 I = \
