@@ -6,7 +6,11 @@ gfortran, make
 
     (cd lib && make)
     (cd example/gauss && make)
-    (cd example/omegaI/ && make)
+    (cd example/omegaI && make)
+
+# Unit tests
+
+  [example/unit](example/unit/)
 
 # Run
 
