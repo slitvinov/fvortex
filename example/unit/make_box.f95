@@ -2,6 +2,13 @@ program main
    implicit none
    interface
       include 'petros.h'
+      subroutine print_box(n, x, y, s)
+        implicit none
+        integer :: n
+        real, dimension(:) :: x
+        real, dimension(:) :: y
+        real :: s
+      end subroutine print_box
    end interface
    include 'main_dim.h'
    include 'tree9.h'
@@ -34,7 +41,7 @@ program main
    integer :: kchildless7, kchildless8
    integer :: limpar
 
-   limpar = 30
+   limpar = 8
    npart = 0
    do
       read(5, *, iostat = stat) x, y
@@ -113,8 +120,8 @@ program main
  subroutine print_box(n, x, y, s)
    implicit none
    integer :: n
-   real, dimension(4) :: x
-   real, dimension(4) :: y
+   real, dimension(:) :: x
+   real, dimension(:) :: y
    real :: s
    integer i
    do i = 1, n
