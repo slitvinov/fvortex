@@ -1,7 +1,7 @@
 #!/bin/sh
 
 gnuplot <<!
-set term pngcairo size 1200,1200
+set term pngcairo
 set output "make_box.png"
 set size sq
 unset key
