@@ -7,16 +7,19 @@ program main
    include 'tree9.h'
    common/vort1/xp, yp
    common/vort2/xn, yn
+   common/geom/x0, y0
    integer :: i
    integer :: npart
    integer :: stat
    real :: s0
    real :: x
+   real :: x0
    real :: xmax
    real :: xmin
    real :: xn(Nvort)
    real :: xp(Nvort)
    real :: y
+   real :: y0
    real :: ymax
    real :: ymin
    real :: yn(Nvort)
@@ -32,16 +35,19 @@ program main
    end do
    call box_dim(npart, xmin, xmax, ymin, ymax)
    s0 = max(abs(Xmax - Xmin), abs(Ymax - Ymin))
+   x0 = xmin - 0.01*s0                   ! Coords. of lower
+   y0 = ymin - 0.01*s0      ! left corner of square (origin)
+   s0 = 1.02*s0
 
    call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1, Liststart)
-!   print *, xc1
-!   print *, yc1
-!   print *, ic1
-!   print *, jc1
-!   print *, npb1
-!   print *, ds1
-!   print *, kp1
-!   print *, Liststart
+   write (0, *) xc1
+   write (0, *) yc1
+   write (0, *) ic1
+   write (0, *) jc1
+   write (0, *) npb1
+   write (0, *) ds1
+   write (0, *) kp1
+   write (0, *) Liststart
 
    do i = 1, npart
       print *, xn(i), yn(i)
