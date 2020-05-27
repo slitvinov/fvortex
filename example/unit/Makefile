@@ -8,6 +8,7 @@ M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lm
 M = \
 box_dim\
 box_1\
+make_box\
 
 all: $M
 .f95.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
