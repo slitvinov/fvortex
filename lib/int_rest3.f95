@@ -11,7 +11,7 @@ subroutine int_rest3(kp3)
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, Limpar
+   common/geom/x0, y0, limpar
 
    integer :: kp3
 

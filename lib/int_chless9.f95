@@ -12,7 +12,7 @@ subroutine int_chless9(kp8, kp9)
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, Limpar
+   common/geom/x0, y0, limpar
 
    integer :: kp8, kp9
 

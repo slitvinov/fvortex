@@ -14,7 +14,7 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, Limpar
+   common/geom/x0, y0, limpar
 
    integer :: BF_marker(Nvort)
    real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF

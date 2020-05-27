@@ -10,7 +10,7 @@ subroutine condiff(Npart, islip, visc_rmax, istats)
 !    and the initial velocity field is stored in: Uold,Vold.                 *
 !  The new velocity field is placed in: UU,VV.                               *
 !  The changed to the circulations due to diffusion are put in Gdiff.        *
-!  The minimum number of particles for a box is given by Limpar.             *
+!  The minimum number of particles for a box is given by limpar.             *
 !                                                                            *
 !*****************************************************************************
 
@@ -22,7 +22,7 @@ subroutine condiff(Npart, islip, visc_rmax, istats)
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, Limpar
+   common/geom/x0, y0, limpar
 
    real :: visc_cutoff
    common/cutoff/visc_cutoff

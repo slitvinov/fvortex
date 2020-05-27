@@ -12,7 +12,7 @@ subroutine int_chless3(kp2, kchildless3)
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, Limpar
+   common/geom/x0, y0, limpar
 
    integer :: kp2, kchildless3
 
