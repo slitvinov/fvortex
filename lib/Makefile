@@ -33,15 +33,12 @@ box_1.o\
 box9_to_part.o\
 box_dim.o\
 box_to_part.o\
-build_tree.o\
 check_box.o\
 childless9.o\
 ch_to_par.o\
 condiff.o\
 diagnos.o\
 exp_chdless.o\
-far_cls_cyl.o\
-far_cls_ubd.o\
 gaussian.o\
 int_box.o\
 int_box_part.o\
@@ -75,7 +72,6 @@ omega.o\
 par_to_ch.o\
 pot_box_cyl.o\
 pot_box_ubd.o\
-potential.o\
 pot_part_cyl.o\
 pot_part_ubd.o\
 read_restart.o\
@@ -90,7 +86,6 @@ velocity.o\
 velocity_x.o\
 velocity_y.o\
 vel_part.o\
-vel_tree.o\
 vort_field.o\
 wheneq.o\
 write_restart.o\

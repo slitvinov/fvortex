@@ -6,15 +6,12 @@ box9_to_part.o: box9_to_part.f95 main_dim.h part.h
 box_1.o: box_1.f95 main_dim.h part.h
 box_dim.o: box_dim.f95 main_dim.h
 box_to_part.o: box_to_part.f95 main_dim.h part.h
-build_tree.o: build_tree.f95 main_dim.h tree_tmp.h part.h tree9.h
 ch_to_par.o: ch_to_par.f95
 check_box.o: check_box.f95 tree_tmp.h
 childless9.o: childless9.f95 main_dim.h part.h tree9.h
 condiff.o: condiff.f95 main_dim.h part.h tree9.h
 diagnos.o: diagnos.f95 main_dim.h part.h
 exp_chdless.o: exp_chdless.f95 main_dim.h part.h
-far_cls_cyl.o: far_cls_cyl.f95 tree_tmp.h
-far_cls_ubd.o: far_cls_ubd.f95 tree_tmp.h
 gaussian.o: gaussian.f95 main_dim.h
 int_box.o: int_box.f95 tree_tmp.h
 int_box_part.o: int_box_part.f95 tree_tmp.h
@@ -50,7 +47,6 @@ pot_box_cyl.o: pot_box_cyl.f95 tree_tmp.h
 pot_box_ubd.o: pot_box_ubd.f95 tree_tmp.h
 pot_part_cyl.o: pot_part_cyl.f95 tree_tmp.h
 pot_part_ubd.o: pot_part_ubd.f95 tree_tmp.h
-potential.o: potential.f95 tree_tmp.h
 read_restart.o: read_restart.f95
 remesh.o: remesh.f95 remesh_cartesian.h main_dim.h part.h
 str_box.o: str_box.f95 tree_tmp.h
@@ -60,7 +56,6 @@ update_position.o: update_position.f95
 vel_box.o: vel_box.f95 tree_tmp.h
 vel_ext.o: vel_ext.f95 main_dim.h part.h
 vel_part.o: vel_part.f95 tree_tmp.h
-vel_tree.o: vel_tree.f95 tree_tmp.h
 velocity.o: velocity.f95 main_dim.h
 velocity_x.o: velocity_x.f95
 velocity_y.o: velocity_y.f95
