@@ -30,9 +30,9 @@ program main
    real :: ymin
    real :: yn(nvort)
    real :: yp(nvort)
-   integer :: Ich2Par1(nmax2), Ich3Par2(nmax3), Ich4Par3(nmax4)
-   integer :: Ich5Par4(nmax5), Ich6Par5(nmax6), Ich7par6(nmax7)
-   integer :: Ich8par7(nmax8), Ich9par8(nmax9)
+   integer :: ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
+   integer :: ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
+   integer :: ich8par7(nmax8), ich9par8(nmax9)
    integer :: kparent1, kparent2, kparent3, kparent4
    integer :: kparent5, kparent6, kparent7, kparent8
    integer :: kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9

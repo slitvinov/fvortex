@@ -16,7 +16,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
    integer :: ipar1Ch2(Nmax1, 4), imark1(Nmax1)
 
    integer :: k, ks, i, m, kcheck
-   integer :: Icheck4(Nhlp)
+   integer :: icheck4(Nhlp)
 !------------------------------------------------------
 
    if (kclose > nhlp) write (*, *) 'error in check_box,', kclose
@@ -31,13 +31,13 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
          Listpart(kpart) = ks
       else
          kcheck = kcheck + 1
-         Icheck4(kcheck) = ks
+         icheck4(kcheck) = ks
       endif
 2  end do
 
    do 3 i = 1, 4
       do 30 k = 1, Kcheck
-         ks = Icheck4(k)
+         ks = icheck4(k)
          m = ipar1Ch2(ks, i)
          if (m /= 0) then     ! box not empty, examine at lower
             kexam = kexam + 1

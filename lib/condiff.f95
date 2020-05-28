@@ -37,9 +37,9 @@ subroutine condiff(npart, islip, visc_rmax, istats)
    integer :: kparent1, kparent2, kparent3, kparent4
    integer :: kparent5, kparent6, kparent7, kparent8
    integer :: i, j
-   integer :: Ich2Par1(nmax2), Ich3Par2(nmax3), Ich4Par3(nmax4)
-   integer :: Ich5Par4(nmax5), Ich6Par5(nmax6), Ich7par6(nmax7)
-   integer :: Ich8par7(nmax8), Ich9par8(nmax9)
+   integer :: ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
+   integer :: ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
+   integer :: ich8par7(nmax8), ich9par8(nmax9)
    real :: s0, xmin, xmax, ymin, ymax
    real :: gr1(nmax1, 0:7), gi1(nmax1, 0:7)
    real :: gr2(nmax2, 0:7), gi2(nmax2, 0:7)
@@ -89,28 +89,28 @@ subroutine condiff(npart, islip, visc_rmax, istats)
    kparent8 = 0.
 
    do i = 1, nmax2
-      Ich2par1(i) = 0.
+      ich2par1(i) = 0.
    enddo
    do i = 1, nmax3
-      Ich3par2(i) = 0.
+      ich3par2(i) = 0.
    enddo
    do i = 1, nmax4
-      Ich4par3(i) = 0.
+      ich4par3(i) = 0.
    enddo
    do i = 1, nmax5
-      Ich5par4(i) = 0.
+      ich5par4(i) = 0.
    enddo
    do i = 1, nmax6
-      Ich6par5(i) = 0.
+      ich6par5(i) = 0.
    enddo
    do i = 1, nmax7
-      Ich7par6(i) = 0.
+      ich7par6(i) = 0.
    enddo
    do i = 1, nmax8
-      Ich8par7(i) = 0.
+      ich8par7(i) = 0.
    enddo
    do i = 1, nmax9
-      Ich9par8(i) = 0.
+      ich9par8(i) = 0.
    enddo
 
    do i = 0, 7
