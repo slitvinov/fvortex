@@ -10,11 +10,11 @@ program main
    real :: x
    real :: xmax
    real :: xmin
-   real :: xp(Nvort)
+   real :: xp(nvort)
    real :: y
    real :: ymax
    real :: ymin
-   real :: yp(Nvort)
+   real :: yp(nvort)
 
    npart = 0
    do

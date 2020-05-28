@@ -1,13 +1,13 @@
 !------------------ LOCATIONS --------------------
-real :: xp(Nvort), yp(Nvort), gp(Nvort)
+real :: xp(nvort), yp(nvort), gp(nvort)
 common/vort1/xp, yp, gp
-real :: xn(Nvort), yn(Nvort), gn(Nvort)
+real :: xn(nvort), yn(nvort), gn(nvort)
 common/vort2/xn, yn, gn
 !------------------ VELOCITIES --------------------
-real :: uu(Nvort), vv(Nvort)
+real :: uu(nvort), vv(nvort)
 common/vel/uu, vv
-real :: Uold(Nvort), Vold(Nvort)
+real :: Uold(nvort), Vold(nvort)
 common/oldvel/Uold, Vold
 !------------------ DIFFUSION --------------------
-real :: Gdiff(Nvort), GDold(Nvort)
+real :: Gdiff(nvort), GDold(nvort)
 common/diff/Gdiff, GDold

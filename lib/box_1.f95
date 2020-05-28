@@ -13,11 +13,11 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
    real :: x0, y0
    common/geom/x0, y0, limpar
 
-   integer :: BF_marker(Nvort)
+   integer :: BF_marker(nvort)
    real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
    common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
-   integer :: npart, kp1, BF_marker_temp(Nvort)
+   integer :: npart, kp1, BF_marker_temp(nvort)
    integer :: ic1(4), jc1(4), npb1(4, 2), liststart(4)
    real :: s0, ds1
    real :: xc1(4), yc1(4)
@@ -26,7 +26,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
    integer :: nbx, nb1, nb2, nb3, nb4
    real :: xst, yst, ds1inv, lx, ly
 
-   integer :: ixy(Nvort), idummy(Nvort)
+   integer :: ixy(nvort), idummy(nvort)
 !------------------------------------------------------------------------
 
    do i = 1, nvort

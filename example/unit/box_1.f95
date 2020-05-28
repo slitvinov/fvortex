@@ -17,14 +17,14 @@ program main
    real :: x0
    real :: xmax
    real :: xmin
-   real :: xn(Nvort)
-   real :: xp(Nvort)
+   real :: xn(nvort)
+   real :: xp(nvort)
    real :: y
    real :: y0
    real :: ymax
    real :: ymin
-   real :: yn(Nvort)
-   real :: yp(Nvort)
+   real :: yn(nvort)
+   real :: yp(nvort)
    integer :: stderr
    integer :: stdin
 

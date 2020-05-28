@@ -16,7 +16,7 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
    real :: x0, y0
    common/geom/x0, y0, limpar
 
-   integer :: BF_marker(Nvort)
+   integer :: BF_marker(nvort)
    real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
    common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
@@ -32,7 +32,7 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
    integer :: ich1, jch1, ich2, jch2, ich3, jch3, ich4, jch4
    integer :: lx, ly, ibox, jbox, jn, n1m1, nbx, ix, inew
    integer :: nb1, nb2, nb3, nb4
-   integer :: ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
+   integer :: ixy(nvort), idummy(nvort), BF_marker_temp(nvort)
    real :: ds2inv, xst, yst
    real :: si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
 !---------------------------------------------------------------------

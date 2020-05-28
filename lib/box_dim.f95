@@ -3,7 +3,7 @@ subroutine box_dim(Npart, xmin, xmax, ymin, ymax)
    implicit none
 
    include 'main_dim.h'
-   real :: xp(Nvort), yp(Nvort)
+   real :: xp(nvort), yp(nvort)
    common/vort1/xp, yp
    integer :: Npart
    real :: xmax

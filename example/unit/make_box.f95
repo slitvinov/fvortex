@@ -22,14 +22,14 @@ program main
    real :: x0
    real :: xmax
    real :: xmin
-   real :: xn(Nvort)
-   real :: xp(Nvort)
+   real :: xn(nvort)
+   real :: xp(nvort)
    real :: y
    real :: y0
    real :: ymax
    real :: ymin
-   real :: yn(Nvort)
-   real :: yp(Nvort)
+   real :: yn(nvort)
+   real :: yp(nvort)
    integer :: Ich2Par1(nmax2), Ich3Par2(nmax3), Ich4Par3(nmax4)
    integer :: Ich5Par4(nmax5), Ich6Par5(nmax6), Ich7par6(nmax7)
    integer :: Ich8par7(nmax8), Ich9par8(nmax9)
