@@ -1,4 +1,4 @@
-subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, Listexam, &
+subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
 !  This  subroutine finds all the far & close boxes at a certain
@@ -9,7 +9,7 @@ subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, Listexam, &
    include 'tree_tmp.h'
 
    integer :: nmax, ib, jb, ic(nmax), jc(nmax), kexam, kfar, kclose
-   integer :: Listclose(Nhlp), Listexam(Nhlp), Listfar(Nhlp)
+   integer :: Listclose(Nhlp), listexam(Nhlp), Listfar(Nhlp)
    real :: r
 
    integer :: k, ks
@@ -25,7 +25,7 @@ subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, Listexam, &
    kclose = 0
 
    do 2 k = 1, kexam
-      ks = Listexam(k)
+      ks = listexam(k)
       si = ic(ks)
       sj = jc(ks)
       if ((abs(fi - si) < cr) .and. (abs(fj - sj) < cr)) then

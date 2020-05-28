@@ -16,7 +16,7 @@ subroutine int_chless9(kp8, kp9)
 
    integer :: kp8, kp9
 
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: Lclg(10), nns, ipar, jpar, kc, j, m, ks, km
    integer :: kexam, kfar, kclose, i, kb, ib, jb
    integer :: nb1, nb2, k, id, n1, n2, np, kfp, nn, n
@@ -54,11 +54,11 @@ subroutine int_chless9(kp8, kp9)
             km = Ipar8Ch9(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
-            Listexam(kexam) = km
+            listexam(kexam) = km
 23       end do
 22    end do
 
-      call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, Listexam &
+      call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, listexam &
                     , kfar, Listfar, Kclose, Listclose)
 
       do 25 k = 1, kclose

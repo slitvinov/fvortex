@@ -17,7 +17,7 @@ subroutine int_rest2(kp2)
 
    integer :: kp2
 
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
    integer :: n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
    real :: dyopiinv, r21, r11, r22, xb, yb
@@ -39,18 +39,18 @@ subroutine int_rest2(kp2)
       jpar = (yb - y0)/ds1 + 1
       do 1 i = 1, kp1
          kexam = kp1
-         Listexam(i) = liststart(i)
+         listexam(i) = liststart(i)
 1     end do
 
       ! Step 2 : Find boxes adjacent to the parents
       !          ( Start at coarsest  level )
 
       ! -> 1st level
-      call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam, Listexam, &
+      call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
       ! Examine boxes that are close for being childless or not.
 
-      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
+      call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart, &
                      Listpart, Ipar1Ch2, Imark1)
       ! Boxes that are childless and close to the parents are examined to see if
       ! they are close to the box itself.
@@ -81,7 +81,7 @@ subroutine int_rest2(kp2)
       !  Now at level of child (box kb), look for boxes far enough away to
       !  interact as box-box
 
-88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, Listexam, &
+88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
       do 24 kbb = 1, kfar

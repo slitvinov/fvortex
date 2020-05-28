@@ -20,7 +20,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    integer :: icheck, nn, kfp
    real :: xbc, ybc
 
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: Listpart(Nhlp), kclose, kfar, kexam, kpart, k, m
    integer :: np1, np2, npt, level, id, n1, n2
    real :: xst, yst
@@ -39,7 +39,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    kclose = kp1
 
 !          LEVEL = 1
-   call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart, &
+   call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart, &
                   Listpart, Ipar1Ch2, Imark1)
    if (Kpart /= 0) then
       do 12 m = 1, Kpart  ! these are all from childless level 1 boxes
@@ -59,7 +59,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds2
    yst = y0 - 0.5*ds2
    call far_cls(icheck, NMax2, Xbc, Ybc, ds2, ic2, jc2, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
    if (kfar /= 0) then   ! boxes far enough away to interact with
       do 211 k = 1, kfar
          kfp = kfp + 1
@@ -85,7 +85,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 211   end do
    endif
 
-   call check_box(Nmax2, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax2, kclose, Listclose, kexam, listexam, &
                   kpart, Listpart, Ipar2Ch3, Imark2)
    if (kpart /= 0) then          ! again childless boxes
       do 22 k = 1, Kpart
@@ -105,7 +105,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds3
    yst = y0 - 0.5*ds3
    call far_cls(icheck, NMax3, Xbc, Ybc, ds3, ic3, jc3, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 311 k = 1, kfar
@@ -131,7 +131,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 311   end do
    endif
 
-   call check_box(Nmax3, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax3, kclose, Listclose, kexam, listexam, &
                   Kpart, Listpart, Ipar3Ch4, Imark3)
 
    if (kpart /= 0) then
@@ -152,7 +152,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds4
    yst = y0 - 0.5*ds4
    call far_cls(icheck, Nmax4, Xbc, Ybc, ds4, ic4, jc4, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 411 k = 1, kfar
@@ -178,7 +178,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 411   end do
    endif
 
-   call check_box(NMax4, kclose, Listclose, kexam, Listexam, &
+   call check_box(NMax4, kclose, Listclose, kexam, listexam, &
                   kpart, Listpart, Ipar4Ch5, Imark4)
 
    if (kpart /= 0) then
@@ -199,7 +199,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds5
    yst = y0 - 0.5*ds5
    call far_cls(icheck, Nmax5, xbc, ybc, ds5, ic5, jc5, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 511 k = 1, kfar
@@ -226,7 +226,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax5, kclose, Listclose, kexam, &
-                  Listexam, kpart, Listpart, Ipar5Ch6, Imark5)
+                  listexam, kpart, Listpart, Ipar5Ch6, Imark5)
 
    if (kpart /= 0) then
       do 52 k = 1, Kpart
@@ -246,7 +246,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds6
    yst = y0 - 0.5*ds6
    call far_cls(icheck, Nmax6, Xbc, Ybc, ds6, ic6, jc6, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 611 k = 1, kfar
@@ -272,7 +272,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 611   end do
    endif
 
-   call check_box(Nmax6, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax6, kclose, Listclose, kexam, listexam, &
                   kpart, Listpart, Ipar6Ch7, Imark6)
 
    if (kpart /= 0) then
@@ -293,7 +293,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds7
    yst = y0 - 0.5*ds7
    call far_cls(icheck, Nmax7, Xbc, Ybc, ds7, ic7, jc7, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 711 k = 1, kfar
@@ -319,7 +319,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 711   end do
    endif
 
-   call check_box(Nmax7, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax7, kclose, Listclose, kexam, listexam, &
                   kpart, Listpart, Ipar7Ch8, Imark7)
 
    if (kpart /= 0) then
@@ -340,7 +340,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds8
    yst = y0 - 0.5*ds8
    call far_cls(icheck, Nmax8, Xbc, Ybc, ds8, ic8, jc8, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 811 k = 1, kfar
@@ -366,7 +366,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 811   end do
    endif
 
-   call check_box(Nmax8, kclose, Listclose, kexam, Listexam, &
+   call check_box(Nmax8, kclose, Listclose, kexam, listexam, &
                   kpart, Listpart, Ipar8Ch9, Imark8)
 
    if (kpart /= 0) then
@@ -387,7 +387,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    xst = x0 - 0.5*ds9
    yst = y0 - 0.5*ds9
    call far_cls(icheck, Nmax9, Xbc, Ybc, ds9, ic9, jc9, kexam, xst, yst, &
-                Listexam, kfar, Listfar, kclose, Listclose)
+                listexam, kfar, Listfar, kclose, Listclose)
 
    if (kfar /= 0) then
       do 911 k = 1, kfar

@@ -15,7 +15,7 @@ subroutine int_rest6(kp6)
 
    integer :: kp6
 
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
    integer :: n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
    real :: dyopiinv, r51, r52, r53, r54, r55, r61, r62, r63, r64, r65, r66, xb, yb
@@ -44,13 +44,13 @@ subroutine int_rest6(kp6)
       jpar = (yb - y0)/ds5 + 1
       do 1 i = 1, kp1
          kexam = kp1
-         Listexam(i) = liststart(i)
+         listexam(i) = liststart(i)
 1     end do
 
-      call near_far(Nmax1, ipar, jpar, r51, ic1, jc1, kexam, Listexam, &
+      call near_far(Nmax1, ipar, jpar, r51, ic1, jc1, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      call check_box(Nmax1, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart &
                      , Listpart, Ipar1Ch2, Imark1)               !NT
 
       call near_far(Nmax1, ib, jb, r61, ic1, jc1, kpart, Listpart, &
@@ -69,10 +69,10 @@ subroutine int_rest6(kp6)
 210      end do
 21    end do
 
-      call near_far(Nmax2, ipar, jpar, r52, ic2, jc2, kexam, Listexam, &
+      call near_far(Nmax2, ipar, jpar, r52, ic2, jc2, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      call check_box(Nmax2, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart &
                      , Listpart, Ipar2Ch3, Imark2)                 ! NT
 
       call near_far(Nmax2, ib, jb, r62, ic2, jc2, kpart, Listpart, &
@@ -90,10 +90,10 @@ subroutine int_rest6(kp6)
 220      end do
 22    end do
 
-      call near_far(Nmax3, ipar, jpar, r53, ic3, jc3, kexam, Listexam, &
+      call near_far(Nmax3, ipar, jpar, r53, ic3, jc3, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      call check_box(Nmax3, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart &
                      , Listpart, Ipar3Ch4, Imark3)                 ! NT
 
       call near_far(Nmax3, ib, jb, r63, ic3, jc3, kpart, Listpart, &
@@ -111,10 +111,10 @@ subroutine int_rest6(kp6)
 230      end do
 23    end do
 
-      call near_far(Nmax4, ipar, jpar, r54, ic4, jc4, kexam, Listexam, &
+      call near_far(Nmax4, ipar, jpar, r54, ic4, jc4, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
-      call check_box(Nmax4, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax4, kclose, Listclose, kexam, listexam, kpart &
                      , Listpart, Ipar4Ch5, Imark4)                 ! NT
 
       call near_far(Nmax4, ib, jb, r64, ic4, jc4, kpart, Listpart, &
@@ -132,11 +132,11 @@ subroutine int_rest6(kp6)
 240      end do
 24    end do
 
-      call near_far(Nmax5, ipar, jpar, r55, ic5, jc5, Kexam, Listexam, &
+      call near_far(Nmax5, ipar, jpar, r55, ic5, jc5, Kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       call check_box(Nmax5, kclose, Listclose, &
-                     kexam, Listexam, kpart, Listpart, Ipar5Ch6, Imark5)
+                     kexam, listexam, kpart, Listpart, Ipar5Ch6, Imark5)
 
       call near_far(Nmax5, ib, jb, r65, ic5, jc5, Kpart, Listpart, &
                     kfar, Listfar, kclose, Listclose)
@@ -157,7 +157,7 @@ subroutine int_rest6(kp6)
       if (n4 > np_max) write (*, *) 'error in rest6b', n4
       call int_box_part(Nmax6, kb, xb, yb, n4, Br6, Bi6)
 
-88    call near_far(Nmax6, ib, jb, r66, ic6, jc6, kexam, Listexam, &
+88    call near_far(Nmax6, ib, jb, r66, ic6, jc6, kexam, listexam, &
                     kfar, Listfar, Kclose, Listclose)
 
       ! CDIR$SHORTLOOP

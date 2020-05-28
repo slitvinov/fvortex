@@ -1,9 +1,9 @@
-subroutine check_box(Nmax1, kclose, Listclose, kexam, Listexam, &
+subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
                      kpart, Listpart, Ipar1Ch2, Imark1)
 
 !  This  subroutine examines the nearby boxes of a certain particle.
 !  If they are parents then their children are placed in the list
-!  *Listexam* so that they are eaxmined at the lower level.
+!  *listexam* so that they are eaxmined at the lower level.
 !  If they are childless then their particles are placed in list
 !  *Listpart* so that they interact directly with the particle.
 
@@ -12,7 +12,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, Listexam, &
    include 'tree_tmp.h'
 
    integer :: nmax1, kclose, kexam, kpart
-   integer :: Listclose(Nhlp), Listexam(Nhlp), Listpart(Nhlp)
+   integer :: Listclose(Nhlp), listexam(Nhlp), Listpart(Nhlp)
    integer :: Ipar1Ch2(Nmax1, 4), Imark1(Nmax1)
 
    integer :: k, ks, i, m, kcheck
@@ -41,7 +41,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, Listexam, &
          m = Ipar1Ch2(ks, i)
          if (m /= 0) then     ! box not empty, examine at lower
             kexam = kexam + 1
-            Listexam(kexam) = m
+            listexam(kexam) = m
          endif
 30    end do
 3  end do

@@ -1,5 +1,5 @@
 subroutine far_cls_ubd(icheck, Nmax, xtest, ytest, ds, ic, jc, kexam, &
-                       Xst, Yst, Listexam, kfar, Listfar, kclose, Listclose)
+                       Xst, Yst, listexam, kfar, Listfar, kclose, Listclose)
 
 !  This  subroutine finds all the far & close boxes at a certain
 !  level associated with a certain particle. The term icheck is needed
@@ -16,7 +16,7 @@ subroutine far_cls_ubd(icheck, Nmax, xtest, ytest, ds, ic, jc, kexam, &
    common/geom/x0, y0, Limpar
 
    integer :: icheck, nmax, kexam, kfar, kclose
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: ic(Nmax), jc(Nmax)
    real :: xtest, ytest, ds, xst, yst
 
@@ -29,7 +29,7 @@ subroutine far_cls_ubd(icheck, Nmax, xtest, ytest, ds, ic, jc, kexam, &
    kclose = 0
 
    do 2 k = 1, kexam
-      ks = Listexam(k)
+      ks = listexam(k)
       ib = ic(ks)
       jb = jc(ks)
       if ((iabs(ib - lx) <= 1) &

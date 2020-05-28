@@ -16,7 +16,7 @@ subroutine int_chless5(kp4, kchildless5)
 
    integer :: kp4, kchildless5
 
-   integer :: Listfar(Nhlp), Listclose(Nhlp), Listexam(Nhlp)
+   integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
    integer :: Listpart(Nhlp), Lclg(10), nns, ipar, jpar, kc, j, m, ks, km
    integer :: kexam, kfar, kclose, i, kh, kb, ib, jb
    integer :: nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
@@ -60,14 +60,14 @@ subroutine int_chless5(kp4, kchildless5)
             km = Ipar4Ch5(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
-            Listexam(kexam) = km
+            listexam(kexam) = km
 23       end do
 22    end do
 
-      call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, Listexam &
+      call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam &
                     , kfar, Listfar, Kclose, Listclose)
 
-      call check_box(Nmax5, kclose, Listclose, kexam, Listexam, kpart &
+      call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart &
                      , Listpart, Ipar5Ch6, Imark5)
 
       do 25 k = 1, kpart
@@ -94,7 +94,7 @@ subroutine int_chless5(kp4, kchildless5)
       level = 6
       if (kexam == 0) goto 201
 
-      call near_far(Nmax6, ib, jb, r56, ic6, jc6, kexam, Listexam, &
+      call near_far(Nmax6, ib, jb, r56, ic6, jc6, kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       do 32 k = 1, kfar
@@ -120,7 +120,7 @@ subroutine int_chless5(kp4, kchildless5)
          Pibox(kfp, 7) = Pi6(id, 7)
 32    end do
 
-      call check_box(Nmax6, Kclose, Listclose, kexam, Listexam, Kpart &
+      call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart &
                      , Listpart, Ipar6Ch7, Imark6)
 
       do 33 k = 1, kpart
@@ -141,7 +141,7 @@ subroutine int_chless5(kp4, kchildless5)
       level = 7
       if (kexam == 0) goto 201
 
-      call near_far(Nmax7, ib, jb, r57, ic7, jc7, kexam, Listexam, &
+      call near_far(Nmax7, ib, jb, r57, ic7, jc7, kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       do 34 k = 1, kfar
@@ -167,7 +167,7 @@ subroutine int_chless5(kp4, kchildless5)
          Pibox(kfp, 7) = Pi7(id, 7)
 34    end do
 
-      call check_box(Nmax7, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax7, Kclose, Listclose, kexam, listexam, Kpart, &
                      Listpart, Ipar7Ch8, Imark7)
 
       do 35 k = 1, kpart
@@ -186,7 +186,7 @@ subroutine int_chless5(kp4, kchildless5)
       ! ____________________
       level = 8
 
-      call near_far(Nmax8, ib, jb, r58, ic8, jc8, kexam, Listexam, &
+      call near_far(Nmax8, ib, jb, r58, ic8, jc8, kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       do 36 k = 1, kfar
@@ -212,7 +212,7 @@ subroutine int_chless5(kp4, kchildless5)
          Pibox(kfp, 7) = Pi8(id, 7)
 36    end do
 
-      call check_box(Nmax8, Kclose, Listclose, kexam, Listexam, Kpart, &
+      call check_box(Nmax8, Kclose, Listclose, kexam, listexam, Kpart, &
                      Listpart, Ipar8Ch9, Imark8)
 
       do 37 k = 1, kpart
@@ -231,7 +231,7 @@ subroutine int_chless5(kp4, kchildless5)
       ! ____________________
       level = 9
 
-      call near_far(Nmax9, ib, jb, r59, ic9, jc9, kexam, Listexam, &
+      call near_far(Nmax9, ib, jb, r59, ic9, jc9, kexam, listexam, &
                     kfar, Listfar, kclose, Listclose)
 
       do k = 1, kfar
