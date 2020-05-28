@@ -40,7 +40,7 @@ subroutine int_chless4(kp3, kchildless4)
       nns = 0   ! List 1 (same level)
       nn = 0    ! List 1 (finer levels)
       kfp = 0   ! List 3
-      kb = Ichildless4(kh)           ! box b index
+      kb = ichildless4(kh)           ! box b index
       ib = ic4(kb)
       jb = jc4(kb)
       nb1 = npb4(kb, 1)
@@ -60,7 +60,7 @@ subroutine int_chless4(kp3, kchildless4)
       do 22 m = 1, 4
          do 23 k = 1, kc
             ks = Lclg(k)
-            km = Ipar3Ch4(ks, m)
+            km = ipar3Ch4(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
             listexam(kexam) = km
@@ -71,7 +71,7 @@ subroutine int_chless4(kp3, kchildless4)
                     , kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax4, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar4Ch5, Imark4)
+                     , Listpart, ipar4Ch5, imark4)
 
       do 25 k = 1, kpart
          id = Listpart(k)
@@ -124,7 +124,7 @@ subroutine int_chless4(kp3, kchildless4)
 30    end do
 
       call check_box(Nmax5, Kclose, Listclose, kexam, listexam, Kpart &
-                     , Listpart, Ipar5Ch6, Imark5)
+                     , Listpart, ipar5Ch6, imark5)
 
       do 31 k = 1, kpart
          id = Listpart(k)
@@ -169,7 +169,7 @@ subroutine int_chless4(kp3, kchildless4)
 32    end do
 
       call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart &
-                     , Listpart, Ipar6Ch7, Imark6)
+                     , Listpart, ipar6Ch7, imark6)
 
       do 33 k = 1, kpart
          id = Listpart(k)
@@ -216,7 +216,7 @@ subroutine int_chless4(kp3, kchildless4)
 34    end do
 
       call check_box(Nmax7, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar7Ch8, Imark7)
+                     Listpart, ipar7Ch8, imark7)
 
       do 35 k = 1, kpart
          id = Listpart(k)
@@ -261,7 +261,7 @@ subroutine int_chless4(kp3, kchildless4)
 36    end do
 
       call check_box(Nmax8, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar8Ch9, Imark8)
+                     Listpart, ipar8Ch9, imark8)
 
       do 37 k = 1, kpart
          id = Listpart(k)

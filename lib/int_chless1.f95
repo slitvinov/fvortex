@@ -50,7 +50,7 @@ subroutine int_chless1(kchildless1)
    enddo
 
    do 10 kh = 1, Kchildless1
-      kb = Ichildless1(kh)
+      kb = ichildless1(kh)
       Ib = ic1(kb)
       Jb = jc1(kb)
       nb1 = npb1(kb, 1)
@@ -66,7 +66,7 @@ subroutine int_chless1(kchildless1)
       !  Note that the box will find and interact with itself (as particles)
 
       call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart, &
-                     Listpart, Ipar1Ch2, Imark1)
+                     Listpart, ipar1Ch2, imark1)
 
       nns = 0
       do 11 k = 1, Kpart
@@ -127,7 +127,7 @@ subroutine int_chless1(kchildless1)
       !  box, it must now interact as particles.
 
       call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart, &
-                     Listpart, Ipar2Ch3, Imark2)
+                     Listpart, ipar2Ch3, imark2)
 
       nn = 0
       do 25 k = 1, kpart
@@ -178,7 +178,7 @@ subroutine int_chless1(kchildless1)
 26    end do
 
       call check_box(Nmax3, Kclose, Listclose, kexam, listexam, Kpart &
-                     , Listpart, Ipar3Ch4, Imark3)
+                     , Listpart, ipar3Ch4, imark3)
 
       do 27 k = 1, kpart
          id = Listpart(k)
@@ -224,7 +224,7 @@ subroutine int_chless1(kchildless1)
 28    end do
 
       call check_box(Nmax4, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar4Ch5, Imark4)
+                     Listpart, ipar4Ch5, imark4)
 
       do 29 k = 1, kpart
          id = Listpart(k)
@@ -270,7 +270,7 @@ subroutine int_chless1(kchildless1)
 30    end do
 
       call check_box(Nmax5, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar5Ch6, Imark5)
+                     Listpart, ipar5Ch6, imark5)
 
       do 31 k = 1, kpart
          id = Listpart(k)
@@ -316,7 +316,7 @@ subroutine int_chless1(kchildless1)
 32    end do
 
       call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar6Ch7, Imark6)
+                     Listpart, ipar6Ch7, imark6)
 
       do 33 k = 1, kpart
          id = Listpart(k)
@@ -361,7 +361,7 @@ subroutine int_chless1(kchildless1)
 34    end do
 
       call check_box(Nmax7, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar7Ch8, Imark7)
+                     Listpart, ipar7Ch8, imark7)
 
       do 35 k = 1, kpart
          id = Listpart(k)
@@ -406,7 +406,7 @@ subroutine int_chless1(kchildless1)
 36    end do
 
       call check_box(Nmax8, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar8Ch9, Imark8)
+                     Listpart, ipar8Ch9, imark8)
 
       do 37 k = 1, kpart
          id = Listpart(k)

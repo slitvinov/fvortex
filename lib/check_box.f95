@@ -1,5 +1,5 @@
 subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
-                     kpart, Listpart, Ipar1Ch2, Imark1)
+                     kpart, Listpart, ipar1Ch2, imark1)
 
 !  This  subroutine examines the nearby boxes of a certain particle.
 !  If they are parents then their children are placed in the list
@@ -13,7 +13,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
 
    integer :: nmax1, kclose, kexam, kpart
    integer :: Listclose(Nhlp), listexam(Nhlp), Listpart(Nhlp)
-   integer :: Ipar1Ch2(Nmax1, 4), Imark1(Nmax1)
+   integer :: ipar1Ch2(Nmax1, 4), imark1(Nmax1)
 
    integer :: k, ks, i, m, kcheck
    integer :: Icheck4(Nhlp)
@@ -26,7 +26,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
 
    do 2 k = 1, kclose
       ks = Listclose(k)
-      if (Imark1(ks) == 0) then  ! childless
+      if (imark1(ks) == 0) then  ! childless
          kpart = kpart + 1
          Listpart(kpart) = ks
       else
@@ -38,7 +38,7 @@ subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam, &
    do 3 i = 1, 4
       do 30 k = 1, Kcheck
          ks = Icheck4(k)
-         m = Ipar1Ch2(ks, i)
+         m = ipar1Ch2(ks, i)
          if (m /= 0) then     ! box not empty, examine at lower
             kexam = kexam + 1
             listexam(kexam) = m

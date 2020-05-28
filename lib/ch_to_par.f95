@@ -1,4 +1,4 @@
-subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
+subroutine ch_to_par(Nmax1, dch, kparent, iparent, IPARiCHj, &
                      Pr, Pi, Pgr, Pgi, Gr, Gi)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
@@ -9,7 +9,7 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
 
    integer :: nmax1, kparent
    real :: dch
-   integer :: IPARiCHj(Nmax1/4, 4), Iparent(Nmax1/4)
+   integer :: IPARiCHj(Nmax1/4, 4), iparent(Nmax1/4)
    real :: pr(Nmax1, 0:7), pi(Nmax1, 0:7)
    real :: pgr(Nmax1/4, 0:7), pgi(Nmax1/4, 0:7)
    real :: gr(Nmax1/4, 0:7), gi(Nmax1/4, 0:7)
@@ -78,8 +78,8 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
       Gi(nb, 7) = 0.
 
       ! Contribution of 1st Child (if any)
-      km = Iparent(nb)
-      m = IpariChj(km, 1)       ! index of child (if any) box 1 at level i
+      km = iparent(nb)
+      m = ipariChj(km, 1)       ! index of child (if any) box 1 at level i
       if (m == 0) goto 2
 
       ! REAL VALUES
@@ -140,7 +140,7 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
 
       !-  Contribution of 2nd Child (if any)
 
-2     m = IpariChj(km, 2)       ! index of child (if any) box 2 at level i
+2     m = ipariChj(km, 2)       ! index of child (if any) box 2 at level i
       if (m == 0) goto 3
 
       ! REAL VALUES
@@ -203,7 +203,7 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
                   - p17*(r6 + f6) + f7
 
       !-  Contribution of 3rd Child (if any)
-3     m = IpariChj(km, 3)       ! index of child (if any) box 3 at level i
+3     m = ipariChj(km, 3)       ! index of child (if any) box 3 at level i
       if (m == 0) goto 4
 
       ! REAL VALUES
@@ -267,7 +267,7 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
 
       !-   Contribution of 4th Child (if any)
 
-4     m = IpariChj(km, 4)       ! index of child (if any) box 4 at level 7
+4     m = ipariChj(km, 4)       ! index of child (if any) box 4 at level 7
       if (m == 0) goto 20            ! Non-Empty box.
 
       ! REAL VALUES
@@ -332,7 +332,7 @@ subroutine ch_to_par(Nmax1, dch, kparent, Iparent, IPARiCHj, &
 20 end do
 
    do 30 k = 1, Kparent
-      kb = Iparent(k)
+      kb = iparent(k)
       Pgr(kb, 0) = Gr(k, 0)
       Pgr(kb, 1) = Gr(k, 1)
       Pgr(kb, 2) = Gr(k, 2)

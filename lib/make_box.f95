@@ -1,6 +1,6 @@
 subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
-                    ic1, jc1, npb1, Iparent1, Imark1, Ipar1ch2, &
-                    Ich2par1, npb2, ic2, jc2, xc2, yc2, Ichildless1)
+                    ic1, jc1, npb1, iparent1, imark1, ipar1ch2, &
+                    Ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
 
 !  This subroutine takes each box on the previous level and splits it into
 !  four boxes, creating all the necessary indentification arrays to relate
@@ -14,9 +14,9 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
 
    integer :: limpar
    real :: x0, y0
-   common/geom/x0, y0, limpar
+   common/geom/x0, y0, Limpar
 
-   integer :: BF_marker(nvort)
+   integer :: BF_marker(Nvort)
    real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
    common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
@@ -32,7 +32,7 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
    integer :: ich1, jch1, ich2, jch2, ich3, jch3, ich4, jch4
    integer :: lx, ly, ibox, jbox, jn, n1m1, nbx, ix, inew
    integer :: nb1, nb2, nb3, nb4
-   integer :: ixy(nvort), idummy(nvort), BF_marker_temp(nvort)
+   integer :: ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
    real :: ds2inv, xst, yst
    real :: si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
 !---------------------------------------------------------------------
@@ -62,8 +62,8 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
       Npbox = n2 - n1 + 1
       if (Npbox > limpar) then  ! *  Parent Box
          kparent1 = kparent1 + 1
-         Iparent1(kparent1) = kbox           ! index of parent box
-         Imark1(kbox) = 1
+         iparent1(kparent1) = kbox           ! index of parent box
+         imark1(kbox) = 1
          ipar = (ip - 1)*2
          jpar = (jp - 1)*2
          ich1 = 1 + ipar          ! 1st subbox
@@ -227,8 +227,8 @@ subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
 
       else                          !  * Box is childless
          kchildless1 = Kchildless1 + 1
-         Ichildless1(kchildless1) = kbox
-         Imark1(kbox) = 0
+         ichildless1(kchildless1) = kbox
+         imark1(kbox) = 0
 
          do 22 i = n1, n2
             xp(i) = xn(i)

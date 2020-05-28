@@ -35,7 +35,7 @@ subroutine int_chless6(kp5, kchildless6)
       nns = 0   ! List 1 (same level)
       nn = 0    ! List 1 (finer levels)
       kfp = 0   ! List 3
-      kb = Ichildless6(kh)           ! box b index
+      kb = ichildless6(kh)           ! box b index
       ib = ic6(kb)
       jb = jc6(kb)
       nb1 = npb6(kb, 1)
@@ -55,7 +55,7 @@ subroutine int_chless6(kp5, kchildless6)
       do 22 m = 1, 4
          do 23 k = 1, kc
             ks = Lclg(k)
-            km = Ipar5Ch6(ks, m)
+            km = ipar5Ch6(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
             listexam(kexam) = km
@@ -66,7 +66,7 @@ subroutine int_chless6(kp5, kchildless6)
                     , kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax6, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar6Ch7, Imark6)
+                     , Listpart, ipar6Ch7, imark6)
 
       do 25 k = 1, kpart
          id = Listpart(k)
@@ -119,7 +119,7 @@ subroutine int_chless6(kp5, kchildless6)
 34    end do
 
       call check_box(Nmax7, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar7Ch8, Imark7)
+                     Listpart, ipar7Ch8, imark7)
 
       do 35 k = 1, kpart
          id = Listpart(k)
@@ -164,7 +164,7 @@ subroutine int_chless6(kp5, kchildless6)
 36    end do
 
       call check_box(Nmax8, Kclose, Listclose, kexam, listexam, Kpart, &
-                     Listpart, Ipar8Ch9, Imark8)
+                     Listpart, ipar8Ch9, imark8)
 
       do 37 k = 1, kpart   ! All close boxes are now childless
          id = Listpart(k)

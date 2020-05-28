@@ -45,7 +45,7 @@ subroutine int_rest3(kp3)
                     kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar1Ch2, Imark1)
+                     , Listpart, ipar1Ch2, imark1)
 
       call near_far(Nmax1, ib, jb, r31, ic1, jc1, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
@@ -67,7 +67,7 @@ subroutine int_rest3(kp3)
                     kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar2Ch3, Imark2)
+                     , Listpart, ipar2Ch3, imark2)
 
       call near_far(Nmax2, ib, jb, r32, ic2, jc2, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)

@@ -21,15 +21,15 @@ integer :: ipar1ch2(4, 4), ipar2ch3(16, 4), ipar3ch4(64, 4), &
 common/index22/ipar1ch2, ipar2ch3, ipar3ch4, &
    ipar4ch5
 
-integer :: Ichildless4(256), Iparent4(256), Imark4(256) &
-           , Ichildless3(64), Iparent3(64), Imark3(64) &
-           , Ichildless2(16), Iparent2(16), Imark2(16) &
-           , Ichildless1(4), Iparent1(4), Imark1(4) &
+integer :: ichildless4(256), iparent4(256), imark4(256) &
+           , ichildless3(64), iparent3(64), imark3(64) &
+           , ichildless2(16), iparent2(16), imark2(16) &
+           , ichildless1(4), iparent1(4), imark1(4) &
            , liststart(4)
-common/index33/Ichildless4, Iparent4, Imark4 &
-   , Ichildless3, Iparent3, Imark3 &
-   , Ichildless2, Iparent2, Imark2 &
-   , Ichildless1, Iparent1, Imark1 &
+common/index33/ichildless4, iparent4, imark4 &
+   , ichildless3, iparent3, imark3 &
+   , ichildless2, iparent2, imark2 &
+   , ichildless1, iparent1, imark1 &
    , liststart
 
 real :: pr5(1024, 0:7), pi5(1024, 0:7), &

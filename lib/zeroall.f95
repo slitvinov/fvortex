@@ -34,9 +34,9 @@ subroutine zeroall
       npb1(i, 1) = 0
       npb1(i, 2) = 0
       ic1(i) = 0
-      Ichildless1(i) = 0
+      ichildless1(i) = 0
       iparent1(i) = 0
-      Imark1(i) = 0
+      imark1(i) = 0
       liststart(i) = 0
    enddo
    do i = 1, nmax2
@@ -46,9 +46,9 @@ subroutine zeroall
       npb2(i, 2) = 0
       ic2(i) = 0
       jc2(i) = 0
-      Ichildless2(i) = 0
+      ichildless2(i) = 0
       iparent2(i) = 0
-      Imark2(i) = 0
+      imark2(i) = 0
    enddo
    do i = 1, nmax3
       xc3(i) = 0.0
@@ -57,9 +57,9 @@ subroutine zeroall
       npb3(i, 2) = 0
       ic3(i) = 0
       jc3(i) = 0
-      Ichildless3(i) = 0
+      ichildless3(i) = 0
       iparent3(i) = 0
-      Imark3(i) = 0
+      imark3(i) = 0
    enddo
    do i = 1, nmax4
       xc4(i) = 0.0
@@ -68,9 +68,9 @@ subroutine zeroall
       npb4(i, 2) = 0
       ic4(i) = 0
       jc4(i) = 0
-      Ichildless4(i) = 0
+      ichildless4(i) = 0
       iparent4(i) = 0
-      Imark4(i) = 0
+      imark4(i) = 0
    enddo
    do i = 1, nmax5
       xc5(i) = 0.0
@@ -79,9 +79,9 @@ subroutine zeroall
       npb5(i, 2) = 0
       ic5(i) = 0
       jc5(i) = 0
-      Ichildless5(i) = 0
+      ichildless5(i) = 0
       iparent5(i) = 0
-      Imark5(i) = 0
+      imark5(i) = 0
    enddo
    do i = 1, nmax6
       xc6(i) = 0.0
@@ -90,9 +90,9 @@ subroutine zeroall
       npb6(i, 2) = 0
       ic6(i) = 0
       jc6(i) = 0
-      Ichildless6(i) = 0
+      ichildless6(i) = 0
       iparent6(i) = 0
-      Imark6(i) = 0
+      imark6(i) = 0
    enddo
    do i = 1, nmax7
       xc7(i) = 0.0
@@ -101,9 +101,9 @@ subroutine zeroall
       npb7(i, 2) = 0
       ic7(i) = 0
       jc7(i) = 0
-      Ichildless7(i) = 0
+      ichildless7(i) = 0
       iparent7(i) = 0
-      Imark7(i) = 0
+      imark7(i) = 0
    enddo
    do i = 1, nmax8
       xc8(i) = 0.0
@@ -112,9 +112,9 @@ subroutine zeroall
       npb8(i, 2) = 0
       ic8(i) = 0
       jc8(i) = 0
-      Ichildless8(i) = 0
+      ichildless8(i) = 0
       iparent8(i) = 0
-      Imark8(i) = 0
+      imark8(i) = 0
    enddo
    do i = 1, nmax9
       xc9(i) = 0.0

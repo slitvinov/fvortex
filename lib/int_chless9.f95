@@ -51,7 +51,7 @@ subroutine int_chless9(kp8, kp9)
       do 22 m = 1, 4
          do 23 k = 1, kc
             ks = Lclg(k)
-            km = Ipar8Ch9(ks, m)
+            km = ipar8Ch9(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
             listexam(kexam) = km

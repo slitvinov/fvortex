@@ -51,7 +51,7 @@ subroutine int_rest2(kp2)
       ! Examine boxes that are close for being childless or not.
 
       call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart, &
-                     Listpart, Ipar1Ch2, Imark1)
+                     Listpart, ipar1Ch2, imark1)
       ! Boxes that are childless and close to the parents are examined to see if
       ! they are close to the box itself.
 

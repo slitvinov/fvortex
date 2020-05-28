@@ -33,7 +33,7 @@ subroutine int_chless8(kp7, kchildless8)
       nns = 0   ! List 1 (same level)
       nn = 0    ! List 1 (finer levels)
       kfp = 0   ! List 3
-      kb = Ichildless8(kh)           ! box b index
+      kb = ichildless8(kh)           ! box b index
       ib = ic8(kb)
       jb = jc8(kb)
       nb1 = npb8(kb, 1)
@@ -53,7 +53,7 @@ subroutine int_chless8(kp7, kchildless8)
       do 22 m = 1, 4
          do 23 k = 1, kc
             ks = Lclg(k)
-            km = Ipar7Ch8(ks, m)
+            km = ipar7Ch8(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
             listexam(kexam) = km
@@ -64,7 +64,7 @@ subroutine int_chless8(kp7, kchildless8)
                     , kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar8Ch9, Imark8)
+                     , Listpart, ipar8Ch9, imark8)
 
       do 25 k = 1, kpart
          id = Listpart(k)

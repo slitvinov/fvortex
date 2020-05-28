@@ -173,50 +173,50 @@ subroutine condiff(npart, islip, visc_rmax, istats)
 
 !  Level 2 - divide level 1 boxes into four squares
    call make_box(16, ds1, ds2, kp1, kp2, kparent1, kchildless1, &
-                 ic1, jc1, npb1, Iparent1, Imark1, Ipar1ch2, ich2par1, &
-                 npb2, ic2, jc2, xc2, yc2, Ichildless1)
+                 ic1, jc1, npb1, iparent1, imark1, ipar1ch2, ich2par1, &
+                 npb2, ic2, jc2, xc2, yc2, ichildless1)
 
 !  Level 3
    if (kp2 == 0) goto 1
    call make_box(64, ds2, ds3, kp2, kp3, kparent2, kchildless2, &
-                 ic2, jc2, npb2, Iparent2, Imark2, Ipar2ch3, ich3par2, &
-                 npb3, ic3, jc3, xc3, yc3, Ichildless2)
+                 ic2, jc2, npb2, iparent2, imark2, ipar2ch3, ich3par2, &
+                 npb3, ic3, jc3, xc3, yc3, ichildless2)
 
 !  Level 4
    if (kp3 == 0) goto 1
    call make_box(256, ds3, ds4, kp3, kp4, kparent3, kchildless3, &
-                 ic3, jc3, npb3, Iparent3, Imark3, Ipar3ch4, ich4par3, &
-                 npb4, ic4, jc4, xc4, yc4, Ichildless3)
+                 ic3, jc3, npb3, iparent3, imark3, ipar3ch4, ich4par3, &
+                 npb4, ic4, jc4, xc4, yc4, ichildless3)
 
 !  Level 5
    if (kp4 == 0) goto 1
    call make_box(1024, ds4, ds5, kp4, kp5, kparent4, kchildless4, &
-                 ic4, jc4, npb4, Iparent4, Imark4, Ipar4ch5, ich5par4, &
-                 npb5, ic5, jc5, xc5, yc5, Ichildless4)
+                 ic4, jc4, npb4, iparent4, imark4, ipar4ch5, ich5par4, &
+                 npb5, ic5, jc5, xc5, yc5, ichildless4)
 
 !  Level 6
    if (kp5 == 0) goto 1
    call make_box(4096, ds5, ds6, kp5, kp6, kparent5, kchildless5, &
-                 ic5, jc5, npb5, Iparent5, Imark5, Ipar5ch6, ich6par5, &
-                 npb6, ic6, jc6, xc6, yc6, Ichildless5)
+                 ic5, jc5, npb5, iparent5, imark5, ipar5ch6, ich6par5, &
+                 npb6, ic6, jc6, xc6, yc6, ichildless5)
 
 !  Level 7
    if (kp6 == 0) goto 1
    call make_box(16384, ds6, ds7, kp6, kp7, kparent6, kchildless6, &
-                 ic6, jc6, npb6, Iparent6, Imark6, Ipar6ch7, ich7par6, &
-                 npb7, ic7, jc7, xc7, yc7, Ichildless6)
+                 ic6, jc6, npb6, iparent6, imark6, ipar6ch7, ich7par6, &
+                 npb7, ic7, jc7, xc7, yc7, ichildless6)
 
 !  Level 8
    if (kp7 == 0) goto 1
    call make_box(65536, ds7, ds8, kp7, kp8, kparent7, kchildless7, &
-                 ic7, jc7, npb7, Iparent7, Imark7, Ipar7ch8, ich8par7, &
-                 npb8, ic8, jc8, xc8, yc8, Ichildless7)
+                 ic7, jc7, npb7, iparent7, imark7, ipar7ch8, ich8par7, &
+                 npb8, ic8, jc8, xc8, yc8, ichildless7)
 
 !  Level 9 (finest boxes)
    if (kp8 == 0) goto 1
    call make_box(262144, ds8, ds9, kp8, kp9, kparent8, kchildless8, &
-                 ic8, jc8, npb8, Iparent8, Imark8, Ipar8ch9, ich9par8, &
-                 npb9, ic9, jc9, xc9, yc9, Ichildless8)
+                 ic8, jc8, npb8, iparent8, imark8, ipar8ch9, ich9par8, &
+                 npb9, ic9, jc9, xc9, yc9, ichildless8)
 
 1  ds2 = 0.5*ds1
    ds3 = 0.5*ds2
@@ -237,49 +237,49 @@ subroutine condiff(npart, islip, visc_rmax, istats)
 
 !  Level 1 (Coarsest)
    if (kchildless1 /= 0) then
-      call exp_chdless(4, kchildless1, xc1, yc1, Ichildless1, &
+      call exp_chdless(4, kchildless1, xc1, yc1, ichildless1, &
                        Npb1, Pr1, Pi1)
    endif
 
 !  Level 2
    If (kchildless2 /= 0) then
-      call exp_chdless(16, kchildless2, xc2, yc2, Ichildless2, &
+      call exp_chdless(16, kchildless2, xc2, yc2, ichildless2, &
                        Npb2, Pr2, Pi2)
    endif
 
 !  Level 3
    If (kchildless3 /= 0) then
-      call exp_chdless(64, kchildless3, xc3, yc3, Ichildless3, &
+      call exp_chdless(64, kchildless3, xc3, yc3, ichildless3, &
                        Npb3, Pr3, Pi3)
    endif
 
 !  Level 4
    If (kchildless4 /= 0) then
-      call exp_chdless(256, kchildless4, xc4, yc4, Ichildless4, &
+      call exp_chdless(256, kchildless4, xc4, yc4, ichildless4, &
                        Npb4, Pr4, Pi4)
    endif
 
 !  Level 5
    If (kchildless5 /= 0) then
-      call exp_chdless(1024, kchildless5, xc5, yc5, Ichildless5, &
+      call exp_chdless(1024, kchildless5, xc5, yc5, ichildless5, &
                        Npb5, Pr5, Pi5)
    endif
 
 !  Level 6
    If (kchildless6 /= 0) then
-      call exp_chdless(4096, kchildless6, xc6, yc6, Ichildless6, &
+      call exp_chdless(4096, kchildless6, xc6, yc6, ichildless6, &
                        Npb6, Pr6, Pi6)
    endif
 
 !  Level 7
    If (kchildless7 /= 0) then
-      call exp_chdless(16384, kchildless7, xc7, yc7, Ichildless7, &
+      call exp_chdless(16384, kchildless7, xc7, yc7, ichildless7, &
                        Npb7, Pr7, Pi7)
    endif
 
 !  Level 8
    If (kchildless8 /= 0) then
-      call exp_chdless(65536, kchildless8, xc8, yc8, Ichildless8, &
+      call exp_chdless(65536, kchildless8, xc8, yc8, ichildless8, &
                        Npb8, Pr8, Pi8)
    endif
 
@@ -290,49 +290,49 @@ subroutine condiff(npart, islip, visc_rmax, istats)
 
 !  Level 8
    if (kparent8 /= 0) then
-      call ch_to_par(262144, ds9, kparent8, Iparent8, Ipar8Ch9, Pr9, Pi9, &
+      call ch_to_par(262144, ds9, kparent8, iparent8, ipar8Ch9, Pr9, Pi9, &
                      Pr8, Pi8, Gr8, Gi8)
    endif
 
 !  Level 7
    if (kparent7 /= 0) then
-      call ch_to_par(65536, ds8, kparent7, Iparent7, Ipar7Ch8, Pr8, Pi8, &
+      call ch_to_par(65536, ds8, kparent7, iparent7, ipar7Ch8, Pr8, Pi8, &
                      Pr7, Pi7, Gr7, Gi7)
    endif
 
 !  Level 6
    if (kparent6 /= 0) then
-      call ch_to_par(16384, ds7, kparent6, Iparent6, Ipar6Ch7, Pr7, Pi7, &
+      call ch_to_par(16384, ds7, kparent6, iparent6, ipar6Ch7, Pr7, Pi7, &
                      Pr6, Pi6, Gr6, Gi6)
    endif
 
 !  Level 5
    if (kparent5 /= 0) then
-      call ch_to_par(4096, ds6, kparent5, Iparent5, Ipar5Ch6, Pr6, Pi6, &
+      call ch_to_par(4096, ds6, kparent5, iparent5, ipar5Ch6, Pr6, Pi6, &
                      Pr5, Pi5, Gr5, Gi5)
    endif
 
 !  Level 4
    if (kparent4 /= 0) then
-      call ch_to_par(1024, ds5, kparent4, Iparent4, Ipar4Ch5, Pr5, Pi5, &
+      call ch_to_par(1024, ds5, kparent4, iparent4, ipar4Ch5, Pr5, Pi5, &
                      Pr4, Pi4, Gr4, Gi4)
    endif
 
 !  Level 3
    if (kparent3 /= 0) then
-      call ch_to_par(256, ds4, kparent3, Iparent3, Ipar3Ch4, Pr4, Pi4, &
+      call ch_to_par(256, ds4, kparent3, iparent3, ipar3Ch4, Pr4, Pi4, &
                      Pr3, Pi3, Gr3, Gi3)
    endif
 
 !  Level 2
    if (kparent2 /= 0) then
-      call ch_to_par(64, ds3, kparent2, Iparent2, Ipar2Ch3, Pr3, Pi3, &
+      call ch_to_par(64, ds3, kparent2, iparent2, ipar2Ch3, Pr3, Pi3, &
                      Pr2, Pi2, Gr2, Gi2)
    endif
 
 !  Level 1
    if (kparent1 /= 0) then
-      call ch_to_par(16, ds2, kparent1, Iparent1, Ipar1Ch2, Pr2, Pi2, &
+      call ch_to_par(16, ds2, kparent1, iparent1, ipar1Ch2, Pr2, Pi2, &
                      Pr1, Pi1, Gr1, Gi1)
    endif
 
@@ -467,43 +467,43 @@ subroutine condiff(npart, islip, visc_rmax, istats)
 !_._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
 !*** Level 2
    if (kchildless2 /= 0) then
-      call box_to_part(16, kchildless2, Ichildless2, xc2, yc2, &
+      call box_to_part(16, kchildless2, ichildless2, xc2, yc2, &
                        npb2, br2, bi2)
    endif
 
 !*** Level 3
    if (kchildless3 /= 0) then
-      call box_to_part(64, kchildless3, Ichildless3, xc3, yc3, &
+      call box_to_part(64, kchildless3, ichildless3, xc3, yc3, &
                        npb3, br3, bi3)
    endif
 
 !*** Level 4
    if (kchildless4 /= 0) then
-      call box_to_part(256, kchildless4, Ichildless4, xc4, yc4, &
+      call box_to_part(256, kchildless4, ichildless4, xc4, yc4, &
                        npb4, br4, bi4)
    endif
 
 !*** Level 5
    if (kchildless5 /= 0) then
-      call box_to_part(1024, kchildless5, Ichildless5, xc5, yc5, &
+      call box_to_part(1024, kchildless5, ichildless5, xc5, yc5, &
                        npb5, br5, bi5)
    endif
 
 !*** Level 6
    if (kchildless6 /= 0) then
-      call box_to_part(4096, kchildless6, Ichildless6, xc6, yc6, &
+      call box_to_part(4096, kchildless6, ichildless6, xc6, yc6, &
                        npb6, br6, bi6)
    endif
 
 !*** Level 7
    if (kchildless7 /= 0) then
-      call box_to_part(16384, kchildless7, Ichildless7, xc7, yc7, &
+      call box_to_part(16384, kchildless7, ichildless7, xc7, yc7, &
                        npb7, br7, bi7)
    endif
 
 !*** Level 8
    if (kchildless8 /= 0) then
-      call box_to_part(65536, kchildless8, Ichildless8, xc8, yc8, &
+      call box_to_part(65536, kchildless8, ichildless8, xc8, yc8, &
                        npb8, br8, bi8)
    endif
 

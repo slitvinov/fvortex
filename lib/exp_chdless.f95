@@ -1,4 +1,4 @@
-subroutine exp_chdless(nmax, kchildless, xc, yc, Ichildless, &
+subroutine exp_chdless(nmax, kchildless, xc, yc, ichildless, &
                        npb, Pr, Pi)
 
 !  This subroutine computes the MULTIPOLE EXPANSIONS of
@@ -22,7 +22,7 @@ subroutine exp_chdless(nmax, kchildless, xc, yc, Ichildless, &
 !-----------------------------------------------------------------
 
    do 10 k = 1, kchildless
-      nb = Ichildless(k)
+      nb = ichildless(k)
       n1 = npb(nb, 1)
       n2 = npb(nb, 2)
       Xm = xc(nb)

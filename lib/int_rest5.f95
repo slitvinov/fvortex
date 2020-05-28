@@ -50,7 +50,7 @@ subroutine int_rest5(kp5)
                     kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar1Ch2, Imark1)
+                     , Listpart, ipar1Ch2, imark1)
 
       call near_far(Nmax1, ib, jb, r51, ic1, jc1, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
@@ -72,7 +72,7 @@ subroutine int_rest5(kp5)
                     kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar2Ch3, Imark2)                 ! NT
+                     , Listpart, ipar2Ch3, imark2)                 ! NT
 
       call near_far(Nmax2, ib, jb, r52, ic2, jc2, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
@@ -93,7 +93,7 @@ subroutine int_rest5(kp5)
                     kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar3Ch4, Imark3)                 ! NT
+                     , Listpart, ipar3Ch4, imark3)                 ! NT
 
       call near_far(Nmax3, ib, jb, r53, ic3, jc3, kpart, Listpart, &
                     kfar, Listfar, Kclose, Listclose)
@@ -118,7 +118,7 @@ subroutine int_rest5(kp5)
 
       ! Close to parents - Childless(?)
       call check_box(Nmax4, kclose, Listclose, &
-                     kexam, listexam, kpart, Listpart, Ipar4Ch5, Imark4)
+                     kexam, listexam, kpart, Listpart, ipar4Ch5, imark4)
 
       ! Close to parents & childless - close to box(?)
       call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart, &

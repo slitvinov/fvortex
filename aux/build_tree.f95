@@ -40,7 +40,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 
 !          LEVEL = 1
    call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart, &
-                  Listpart, Ipar1Ch2, Imark1)
+                  Listpart, ipar1Ch2, imark1)
    if (Kpart /= 0) then
       do 12 m = 1, Kpart  ! these are all from childless level 1 boxes
          np1 = npb1(Listpart(m), 1)
@@ -86,7 +86,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax2, kclose, Listclose, kexam, listexam, &
-                  kpart, Listpart, Ipar2Ch3, Imark2)
+                  kpart, Listpart, ipar2Ch3, imark2)
    if (kpart /= 0) then          ! again childless boxes
       do 22 k = 1, Kpart
          n1 = npb2(Listpart(k), 1)
@@ -132,7 +132,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax3, kclose, Listclose, kexam, listexam, &
-                  Kpart, Listpart, Ipar3Ch4, Imark3)
+                  Kpart, Listpart, ipar3Ch4, imark3)
 
    if (kpart /= 0) then
       do 32 k = 1, Kpart
@@ -179,7 +179,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(NMax4, kclose, Listclose, kexam, listexam, &
-                  kpart, Listpart, Ipar4Ch5, Imark4)
+                  kpart, Listpart, ipar4Ch5, imark4)
 
    if (kpart /= 0) then
       do 43 k = 1, Kpart
@@ -226,7 +226,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax5, kclose, Listclose, kexam, &
-                  listexam, kpart, Listpart, Ipar5Ch6, Imark5)
+                  listexam, kpart, Listpart, ipar5Ch6, imark5)
 
    if (kpart /= 0) then
       do 52 k = 1, Kpart
@@ -273,7 +273,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax6, kclose, Listclose, kexam, listexam, &
-                  kpart, Listpart, Ipar6Ch7, Imark6)
+                  kpart, Listpart, ipar6Ch7, imark6)
 
    if (kpart /= 0) then
       do 62 k = 1, Kpart
@@ -320,7 +320,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax7, kclose, Listclose, kexam, listexam, &
-                  kpart, Listpart, Ipar7Ch8, Imark7)
+                  kpart, Listpart, ipar7Ch8, imark7)
 
    if (kpart /= 0) then
       do 72 k = 1, Kpart
@@ -367,7 +367,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
    endif
 
    call check_box(Nmax8, kclose, Listclose, kexam, listexam, &
-                  kpart, Listpart, Ipar8Ch9, Imark8)
+                  kpart, Listpart, ipar8Ch9, imark8)
 
    if (kpart /= 0) then
       do 82 k = 1, Kpart

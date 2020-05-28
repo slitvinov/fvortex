@@ -34,7 +34,7 @@ subroutine int_chless7(kp6, kchildless7)
       nns = 0   ! List 1 (same level)
       nn = 0    ! List 1 (finer levels)
       kfp = 0   ! List 3
-      kb = Ichildless7(kh)           ! box b index
+      kb = ichildless7(kh)           ! box b index
       ib = ic7(kb)
       jb = jc7(kb)
       nb1 = npb7(kb, 1)
@@ -54,7 +54,7 @@ subroutine int_chless7(kp6, kchildless7)
       do 22 m = 1, 4
          do 23 k = 1, kc
             ks = Lclg(k)
-            km = Ipar6Ch7(ks, m)
+            km = ipar6Ch7(ks, m)
             if (km == 0) goto 23
             kexam = kexam + 1
             listexam(kexam) = km
@@ -65,7 +65,7 @@ subroutine int_chless7(kp6, kchildless7)
                     , kfar, Listfar, Kclose, Listclose)
 
       call check_box(Nmax7, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar7Ch8, Imark7)
+                     , Listpart, ipar7Ch8, imark7)
 
       do 25 k = 1, kpart
          id = Listpart(k)
@@ -118,7 +118,7 @@ subroutine int_chless7(kp6, kchildless7)
 34    end do
 
       call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart &
-                     , Listpart, Ipar8Ch9, Imark8)
+                     , Listpart, ipar8Ch9, imark8)
 
       do 37 k = 1, kpart
          id = Listpart(k)

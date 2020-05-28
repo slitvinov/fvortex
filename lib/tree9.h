@@ -32,23 +32,23 @@ common/index22/ipar1ch2, ipar2ch3, ipar3ch4, &
    ipar4ch5, ipar5ch6, ipar6ch7, ipar7ch8, &
    ipar8ch9
 
-integer :: Ichildless8(65536), Iparent8(65536), Imark8(65536) &
-           , Ichildless7(16384), Iparent7(16384), Imark7(16384) &
-           , Ichildless6(4096), Iparent6(4096), Imark6(4096) &
-           , Ichildless5(1024), Iparent5(1024), Imark5(1024) &
-           , Ichildless4(256), Iparent4(256), Imark4(256) &
-           , Ichildless3(64), Iparent3(64), Imark3(64) &
-           , Ichildless2(16), Iparent2(16), Imark2(16) &
-           , Ichildless1(4), Iparent1(4), Imark1(4) &
+integer :: ichildless8(65536), iparent8(65536), imark8(65536) &
+           , ichildless7(16384), iparent7(16384), imark7(16384) &
+           , ichildless6(4096), iparent6(4096), imark6(4096) &
+           , ichildless5(1024), iparent5(1024), imark5(1024) &
+           , ichildless4(256), iparent4(256), imark4(256) &
+           , ichildless3(64), iparent3(64), imark3(64) &
+           , ichildless2(16), iparent2(16), imark2(16) &
+           , ichildless1(4), iparent1(4), imark1(4) &
            , liststart(4)
-common/index33/Ichildless8, Iparent8, Imark8 &
-   , Ichildless7, Iparent7, Imark7 &
-   , Ichildless6, Iparent6, Imark6 &
-   , Ichildless5, Iparent5, Imark5 &
-   , Ichildless4, Iparent4, Imark4 &
-   , Ichildless3, Iparent3, Imark3 &
-   , Ichildless2, Iparent2, Imark2 &
-   , Ichildless1, Iparent1, Imark1 &
+common/index33/ichildless8, iparent8, imark8 &
+   , ichildless7, iparent7, imark7 &
+   , ichildless6, iparent6, imark6 &
+   , ichildless5, iparent5, imark5 &
+   , ichildless4, iparent4, imark4 &
+   , ichildless3, iparent3, imark3 &
+   , ichildless2, iparent2, imark2 &
+   , ichildless1, iparent1, imark1 &
    , liststart
 
 real :: pr9(262144, 0:7), pi9(262144, 0:7), &
