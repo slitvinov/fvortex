@@ -57,7 +57,7 @@ subroutine int_chless1(kchildless1)
       nb2 = npb1(kb, 2)
       do 1 i = 1, kp1
          kclose = kclose + 1
-         Listclose(i) = Liststart(i)
+         Listclose(i) = liststart(i)
 1     end do
 
       !  Construct the interaction list with particles and boxes that belong

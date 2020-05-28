@@ -1,5 +1,5 @@
 subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
-                 , Liststart)
+                 , liststart)
 
 !  This subroutine sorts the particles into four boxes and provides the
 !  necessary identification arrays for this top level of the interaction tree.
@@ -18,7 +18,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
    common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
    integer :: npart, kp1, BF_marker_temp(Nvort)
-   integer :: ic1(4), jc1(4), npb1(4, 2), Liststart(4)
+   integer :: ic1(4), jc1(4), npb1(4, 2), liststart(4)
    real :: s0, ds1
    real :: xc1(4), yc1(4)
 
@@ -121,12 +121,12 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 ! Box 1
    kp1 = 0
    do i = 1, 4
-      Liststart(i) = 0
+      liststart(i) = 0
    enddo
    np = 0
    if (nb1 > 0) then
       kp1 = kp1 + 1
-      Liststart(kp1) = kp1
+      liststart(kp1) = kp1
       npb1(kp1, 1) = np + 1
       np = nb1
       npb1(kp1, 2) = np
@@ -139,7 +139,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 ! Box 2
    if (nb2 > 0) then
       kp1 = kp1 + 1
-      Liststart(kp1) = kp1
+      liststart(kp1) = kp1
       npb1(kp1, 1) = np + 1
       np = np + nb2
       npb1(kp1, 2) = np
@@ -152,7 +152,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 ! Box 3
    if (nb3 > 0) then
       kp1 = kp1 + 1
-      Liststart(kp1) = kp1
+      liststart(kp1) = kp1
       npb1(kp1, 1) = np + 1
       np = np + nb3
       npb1(kp1, 2) = np
@@ -165,7 +165,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 ! Box 4
    if (nb4 > 0) then
       kp1 = kp1 + 1
-      Liststart(kp1) = kp1
+      liststart(kp1) = kp1
       npb1(kp1, 1) = np + 1
       np = np + nb4
       npb1(kp1, 2) = np

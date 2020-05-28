@@ -34,7 +34,7 @@ subroutine build_tree(icheck, xbc, ybc, nn, kfp)
 
 !  Start out with the first four boxes
    do 432 k = 1, kp1
-      Listclose(k) = Liststart(k)
+      Listclose(k) = liststart(k)
 432 end do
    kclose = kp1
 

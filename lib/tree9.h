@@ -40,7 +40,7 @@ integer :: Ichildless8(65536), Iparent8(65536), Imark8(65536) &
            , Ichildless3(64), Iparent3(64), Imark3(64) &
            , Ichildless2(16), Iparent2(16), Imark2(16) &
            , Ichildless1(4), Iparent1(4), Imark1(4) &
-           , Liststart(4)
+           , liststart(4)
 common/index33/Ichildless8, Iparent8, Imark8 &
    , Ichildless7, Iparent7, Imark7 &
    , Ichildless6, Iparent6, Imark6 &
@@ -49,7 +49,7 @@ common/index33/Ichildless8, Iparent8, Imark8 &
    , Ichildless3, Iparent3, Imark3 &
    , Ichildless2, Iparent2, Imark2 &
    , Ichildless1, Iparent1, Imark1 &
-   , Liststart
+   , liststart
 
 real :: pr9(262144, 0:7), pi9(262144, 0:7), &
         pr8(65536, 0:7), pi8(65536, 0:7), &

@@ -39,7 +39,7 @@ subroutine int_rest2(kp2)
       jpar = (yb - y0)/ds1 + 1
       do 1 i = 1, kp1
          kexam = kp1
-         Listexam(i) = Liststart(i)
+         Listexam(i) = liststart(i)
 1     end do
 
       ! Step 2 : Find boxes adjacent to the parents

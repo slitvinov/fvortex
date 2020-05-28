@@ -56,7 +56,7 @@ program main
    y0 = ymin - 0.01*s0
    s0 = 1.02*s0
    call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, &
-        kp1, Liststart)
+        kp1, liststart)
    call print_box(kp1, xc1, yc1, ds1)
 
 !  Level 2 - divide level 1 boxes into four squares

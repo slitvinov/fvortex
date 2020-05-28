@@ -44,12 +44,12 @@ program main
    y0 = ymin - 0.01*s0 ! left corner of square (origin)
    s0 = 1.02*s0
 
-   call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1, Liststart)
+   call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1, liststart)
    write (stderr, *) 'xc = ', xc1
    write (stderr, *) 'yc = ', yc1
    write (stderr, *) 'ic = ', ic1
    write (stderr, *) 'jc = ', jc1
-   write (stderr, *) 'Liststart = ', Liststart
+   write (stderr, *) 'liststart = ', liststart
    write (stderr, *) 'npb1(:, 1) = ', npb1(:, 1)
    write (stderr, *) 'npb1(:, 2) = ', npb1(:, 2)
    write (stderr, *) 'ds1 = ', ds1

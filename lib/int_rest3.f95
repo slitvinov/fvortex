@@ -38,7 +38,7 @@ subroutine int_rest3(kp3)
       jpar = (yb - y0)/ds2 + 1
       do 1 i = 1, kp1
          kexam = kp1
-         Listexam(i) = Liststart(i)
+         Listexam(i) = liststart(i)
 1     end do
 
       call near_far(Nmax1, ipar, jpar, r21, ic1, jc1, kexam, Listexam, &

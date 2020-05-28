@@ -169,7 +169,7 @@ subroutine condiff(Npart, islip, visc_rmax, istats)
 !  Level 1
 !    Divide the domain into 4 squares and find the particles in them
    call box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, &
-              kp1, Liststart)
+              kp1, liststart)
 
 !  Level 2 - divide level 1 boxes into four squares
    call make_box(16, ds1, ds2, kp1, kp2, kparent1, kchildless1, &

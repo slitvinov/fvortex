@@ -50,7 +50,7 @@ subroutine int_rest8(kp8)
       jpar = (yb - y0)/ds7 + 1
       do 1 i = 1, kp1
          kexam = kp1
-         Listexam(i) = Liststart(i)
+         Listexam(i) = liststart(i)
 1     end do
       call near_far(Nmax1, ipar, jpar, r71, ic1, jc1, kexam, Listexam, &
                     kfar, Listfar, Kclose, Listclose)
