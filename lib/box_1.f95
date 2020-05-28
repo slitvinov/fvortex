@@ -1,4 +1,4 @@
-subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
+subroutine box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
                  , liststart)
 
 !  This subroutine sorts the particles into four boxes and provides the
@@ -40,7 +40,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
    ds1inv = 1.0/ds1
 
 !-- Identify each particle with one of the boxes
-   do 1 n = 1, Npart
+   do 1 n = 1, npart
       lx = (xp(n) - x0)*ds1inv
       ly = (yp(n) - y0)*ds1inv
       ibox = lx + 1                ! indices of the box where the particles
@@ -58,7 +58,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
 !   Find  how  many  particles  are  in  each subbox
 !  and store  the  particles  in their new sorted  locations
 
-   call wheneq(Npart, ixy, 1, 1, idummy, nb1)
+   call wheneq(npart, ixy, 1, 1, idummy, nb1)
    do 211 i = 1, nb1
       inew = idummy(i)
       xn(i) = xp(inew)
@@ -70,7 +70,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
       BF_marker(i) = BF_marker_temp(inew)
 211 end do
 
-   call wheneq(Npart, ixy, 1, 2, idummy, nb2)
+   call wheneq(npart, ixy, 1, 2, idummy, nb2)
    nbx = nb1
    do 212 i = 1, nb2
       ix = i + nbx
@@ -84,7 +84,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
       BF_marker(ix) = BF_marker_temp(inew)
 212 end do
 
-   call wheneq(Npart, ixy, 1, 3, idummy, nb3)
+   call wheneq(npart, ixy, 1, 3, idummy, nb3)
    nbx = nbx + nb2
    do 213 i = 1, nb3
       ix = i + nbx
@@ -98,7 +98,7 @@ subroutine box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1 &
       BF_marker(ix) = BF_marker_temp(inew)
 213 end do
 
-   call wheneq(Npart, ixy, 1, 4, idummy, nb4)
+   call wheneq(npart, ixy, 1, 4, idummy, nb4)
    nbx = nbx + nb3
    do 214 i = 1, nb4
       ix = i + nbx

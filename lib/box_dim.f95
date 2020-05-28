@@ -1,11 +1,11 @@
-subroutine box_dim(Npart, xmin, xmax, ymin, ymax)
+subroutine box_dim(npart, xmin, xmax, ymin, ymax)
 !  This subroutine finds the bounding x and y coordinates in the domain.
    implicit none
 
    include 'main_dim.h'
    real :: xp(nvort), yp(nvort)
    common/vort1/xp, yp
-   integer :: Npart
+   integer :: npart
    real :: xmax
    real :: xmin
    real :: ymax
@@ -20,7 +20,7 @@ subroutine box_dim(Npart, xmin, xmax, ymin, ymax)
    xmax = xp(1)
    ymin = yp(1)
    ymax = yp(1)
-   do 10 i = 1, Npart
+   do 10 i = 1, npart
       x = xp(i)
       y = yp(i)
       xmin = amin1(xmin, x)

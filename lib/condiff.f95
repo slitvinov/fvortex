@@ -1,4 +1,4 @@
-subroutine condiff(Npart, islip, visc_rmax, istats)
+subroutine condiff(npart, islip, visc_rmax, istats)
 
 !  This subroutine is the driver of an implementation of an O(N) method for
 !  fast computation of velocities and diffusion of a field of vortex blobs
@@ -160,7 +160,7 @@ subroutine condiff(Npart, islip, visc_rmax, istats)
 
 ! Determine the  region  of  the main square
 
-   call box_dim(Npart, Xmin, Xmax, Ymin, Ymax)
+   call box_dim(npart, Xmin, Xmax, Ymin, Ymax)
    s0 = max(abs(Xmax - Xmin), abs(Ymax - Ymin))  ! Side of square
    x0 = xmin - 0.01*s0                   ! Coords. of lower
    y0 = ymin - 0.01*s0      ! left corner of square (origin)
@@ -168,7 +168,7 @@ subroutine condiff(Npart, islip, visc_rmax, istats)
 
 !  Level 1
 !    Divide the domain into 4 squares and find the particles in them
-   call box_1(Npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, &
+   call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, &
               kp1, liststart)
 
 !  Level 2 - divide level 1 boxes into four squares
