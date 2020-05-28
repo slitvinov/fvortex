@@ -25,10 +25,14 @@ program main
    real :: ymin
    real :: yn(Nvort)
    real :: yp(Nvort)
+   integer :: stderr
+   integer :: stdin
 
+   stderr = 0
+   stdin = 5
    npart = 0
    do
-      read(5, *, iostat = stat) x, y
+      read(stdin, *, iostat = stat) x, y
       if (stat /= 0) exit
       npart = npart + 1
       xp(npart) = x
@@ -36,21 +40,21 @@ program main
    end do
    call box_dim(npart, xmin, xmax, ymin, ymax)
    s0 = max(abs(Xmax - Xmin), abs(Ymax - Ymin))
-   x0 = xmin - 0.01*s0                   ! Coords. of lower
-   y0 = ymin - 0.01*s0      ! left corner of square (origin)
+   x0 = xmin - 0.01*s0 ! Coords. of lower
+   y0 = ymin - 0.01*s0 ! left corner of square (origin)
    s0 = 1.02*s0
 
    call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1, Liststart)
-   write (0, *) xc1
-   write (0, *) yc1
-   write (0, *) ic1
-   write (0, *) jc1
-   write (0, *) npb1(:, 1)
-   write (0, *) npb1(:, 2)
-   write (0, *) ds1
-   write (0, *) kp1
-   write (0, *) Liststart
-   do j = 1, 4
+   write (stderr, *) 'xc = ', xc1
+   write (stderr, *) 'yc = ', yc1
+   write (stderr, *) 'ic = ', ic1
+   write (stderr, *) 'jc = ', jc1
+   write (stderr, *) 'Liststart = ', Liststart
+   write (stderr, *) 'npb1(:, 1) = ', npb1(:, 1)
+   write (stderr, *) 'npb1(:, 2) = ', npb1(:, 2)
+   write (stderr, *) 'ds1 = ', ds1
+   write (stderr, *) 'kp1 = ', kp1
+   do j = 1, kp1
       do i = npb1(j, 1), npb1(j, 2)
          print *, xn(i), yn(i), j
       end do
