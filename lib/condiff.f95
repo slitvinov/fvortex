@@ -160,8 +160,8 @@ subroutine condiff(npart, islip, visc_rmax, istats)
 
 ! Determine the  region  of  the main square
 
-   call box_dim(npart, Xmin, Xmax, Ymin, Ymax)
-   s0 = max(abs(Xmax - Xmin), abs(Ymax - Ymin))  ! Side of square
+   call box_dim(npart, Xmin, xmax, ymin, ymax)
+   s0 = max(abs(xmax - Xmin), abs(ymax - ymin))  ! Side of square
    x0 = xmin - 0.01*s0                   ! Coords. of lower
    y0 = ymin - 0.01*s0      ! left corner of square (origin)
    s0 = 1.02*s0

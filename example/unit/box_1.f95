@@ -39,7 +39,7 @@ program main
       yp(npart) = y
    end do
    call box_dim(npart, xmin, xmax, ymin, ymax)
-   s0 = max(abs(Xmax - Xmin), abs(Ymax - Ymin))
+   s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
    x0 = xmin - 0.01*s0 ! Coords. of lower
    y0 = ymin - 0.01*s0 ! left corner of square (origin)
    s0 = 1.02*s0

@@ -47,28 +47,28 @@ subroutine remesh()
    xl = xmin - 5.*dh
    yt = ymax + 5.*dh
    yb = ymin - 5.*dh
-   Nx_r = nint(Xr/dh)
-   Nx_l = nint(Xl/dh)
-   Ny_t = nint(Yt/dh)
-   Ny_b = nint(Yb/dh) - 1
+   nx_r = nint(Xr/dh)
+   nx_l = nint(Xl/dh)
+   ny_t = nint(Yt/dh)
+   ny_b = nint(Yb/dh) - 1
 
-   write (*, *) 'Nx_l,Nx_r', Nx_l, Nx_r
-   write (*, *) 'Ny_t,Ny_b', ny_t, ny_b
-   if (Nx_r > NX_max) then
-      write (*, *) 'PROBLEM :Nx_right =', Nx_r, ' Nx_max = ', Nx_max
+   write (*, *) 'nx_l,nx_r', nx_l, nx_r
+   write (*, *) 'ny_t,ny_b', ny_t, ny_b
+   if (nx_r > NX_max) then
+      write (*, *) 'PROBLEM :nx_right =', nx_r, ' nx_max = ', nx_max
    end if
-   if (Nx_l < NX_min) then
-      write (*, *) 'PROBLEM :Nx_left =', Nx_l, ' Nx_min=', Nx_min
+   if (nx_l < NX_min) then
+      write (*, *) 'PROBLEM :nx_left =', nx_l, ' nx_min=', nx_min
    end if
-   if (Ny_t > Ny_max) then
-      write (*, *) 'PROBLEM :Ny_top =', Ny_t, 'Ny_max=', Ny_max
+   if (ny_t > ny_max) then
+      write (*, *) 'PROBLEM :ny_top =', ny_t, 'ny_max=', ny_max
    end if
-   if (Ny_b < Ny_min) then
-      write (*, *) 'PROBLEM :Ny_bottom =', Ny_b, 'Ny_min=', Ny_min
+   if (ny_b < ny_min) then
+      write (*, *) 'PROBLEM :ny_bottom =', ny_b, 'ny_min=', ny_min
    end if
 
-   if ((Nx_r > NX_max) .or. (Nx_l < NX_min) .or. &
-       (Ny_t > Ny_max) .or. (Ny_b < Ny_min)) then
+   if ((nx_r > NX_max) .or. (nx_l < NX_min) .or. &
+       (ny_t > ny_max) .or. (ny_b < ny_min)) then
       stop
    end if
 
@@ -76,9 +76,9 @@ subroutine remesh()
 
    dhhaf = 0.5*dh
    ig = 0
-   do 10 ix = Nx_l, Nx_r, 1
+   do 10 ix = nx_l, nx_r, 1
       xx = dhhaf + ix*dh
-      do 11 iy = Ny_b, Ny_t, 1
+      do 11 iy = ny_b, ny_t, 1
          yy = dhhaf + iy*dh
          ig = ig + 1
          xg(ig) = xx
@@ -125,7 +125,7 @@ subroutine remesh()
 
       ! ---- Do not remesh the particles outside the established grid
 
-      if ((ix > Nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or. &
+      if ((ix > nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or. &
           (iy < ny_b)) then
          if (abs(g) >= cut_far) then
             ifar = ifar + 1

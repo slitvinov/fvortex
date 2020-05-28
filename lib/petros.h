@@ -1,4 +1,4 @@
-subroutine box_dim(npart,Xmin,Xmax,Ymin,Ymax)
+subroutine box_dim(npart,Xmin,xmax,ymin,ymax)
   implicit none
   integer :: npart
   real :: xmin

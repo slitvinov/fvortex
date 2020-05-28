@@ -205,7 +205,7 @@ subroutine input(icase, idiags, istepping, &
 
    integer :: nxavg, nyavg
    real :: xmaxavg, xminavg, ymaxavg, yminavg
-   common/vort_avg/Nxavg, Nyavg, Xmaxavg, Xminavg, Ymaxavg, Yminavg
+   common/vort_avg/nxavg, nyavg, xmaxavg, Xminavg, ymaxavg, yminavg
 
    integer :: icase, idiags, nsteps, nrem, nrestart, nvf
    integer :: ntree, istepping
