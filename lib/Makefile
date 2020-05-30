@@ -1,5 +1,5 @@
 .POSIX:
-.SUFFIXES: .o .f95
+.SUFFIXES: .o .f90
 .PHONY: clean lint install dep int
 include ../conf.mk
 
@@ -11,18 +11,18 @@ tree9.h\
 
 L = libpetros.a
 I = \
-box_dim.f95\
-condiff.f95\
-diagnos.f95\
-gaussian.f95\
-mv_ab.f95\
-mv_eul.f95\
-mv_rk.f95\
-read_restart.f95\
-remesh.f95\
-vel_ext.f95\
-vort_field.f95\
-write_restart.f95\
+box_dim.f90\
+condiff.f90\
+diagnos.f90\
+gaussian.f90\
+mv_ab.f90\
+mv_eul.f90\
+mv_rk.f90\
+read_restart.f90\
+remesh.f90\
+vel_ext.f90\
+vort_field.f90\
+write_restart.f90\
 
 O = \
 box_1.o\
@@ -81,11 +81,11 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f95.o:; $(FC) -c $(FFLAGS) $< -o $@
+.f90.o:; $(FC) -c $(FFLAGS) $<
 include dep.mk
 lint:; make FFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > petros.h
 
-dep:; for i in *.f95; do $(FC) -MM -cpp $$i; done > dep.mk
+dep:; for i in *.f90; do $(FC) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L

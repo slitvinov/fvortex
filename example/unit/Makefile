@@ -1,5 +1,5 @@
 .POSIX:
-.SUFFIXES: .o .f95
+.SUFFIXES: .o .f90
 include ../../conf.mk
 
 M_FFLAGS = -I$(PREFIX)/include
@@ -11,9 +11,9 @@ box_1\
 make_box\
 
 all: $M
-.f95.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
+.f90.o:; $(FC) -c $(FFLAGS) $(M_FFLAGS) $< -o $@
 .o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
-%: %.f95
+%: %.f90
 
 lint:; make FFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 
