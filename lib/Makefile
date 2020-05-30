@@ -11,10 +11,12 @@ tree9.h\
 
 L = libpetros.a
 I = \
+box_1.f90\
 box_dim.f90\
 condiff.f90\
 diagnos.f90\
 gaussian.f90\
+make_box.f90\
 mv_ab.f90\
 mv_eul.f90\
 mv_rk.f90\
@@ -81,9 +83,9 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f90.o:; $(FC) -c $(FFLAGS) $<
+.f90.o:; $(FC) -c $(FCFLAGS) $<
 include dep.mk
-lint:; make FFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
+lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > petros.h
 
 dep:; for i in *.f90; do $(FC) -MM -cpp $$i; done > dep.mk

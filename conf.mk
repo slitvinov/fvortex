@@ -1,5 +1,5 @@
 PREFIX = $(HOME)
 LINK = $(FC)
-FFLAGS = -Ofast
-#FC = ifort
-FC = gfortran
+FCFLAGS = -Ofast
+FC = ifort -stand f95
+#FC = gfortran -std=f95

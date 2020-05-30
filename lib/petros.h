@@ -1,10 +1,23 @@
-subroutine box_dim(npart,Xmin,xmax,ymin,ymax)
+subroutine box_1(npart,s0,xc1,yc1,ic1,jc1,npb1,ds1,kp1,liststart)
   implicit none
   integer :: npart
-  real :: xmin
+  integer :: kp1
+  integer, dimension(4) :: ic1
+  integer, dimension(4) :: jc1
+  integer, dimension(4, 2) :: npb1
+  integer, dimension(4) :: liststart
+  real :: s0
+  real :: ds1
+  real, dimension(4) :: xc1
+  real, dimension(4) :: yc1
+end subroutine
+subroutine box_dim(npart,xmin,xmax,ymin,ymax)
+  implicit none
+  integer :: npart
   real :: xmax
-  real :: ymin
+  real :: xmin
   real :: ymax
+  real :: ymin
 end subroutine
 subroutine condiff(npart,islip,visc_rmax,istats)
   implicit none
@@ -18,6 +31,29 @@ subroutine diagnos()
 end subroutine
 subroutine gaussian()
   implicit none
+end subroutine
+subroutine make_box(nmax,ds1,ds2,kp1,kp2,kparent1,kchildless1,ic1,jc1,npb1,iparent1,imark1,ipar1ch2,ich2par1,npb2,ic2,jc2,xc2,yc2,ichildless1)
+  implicit none
+  integer :: nmax
+  integer :: kp1
+  integer :: kp2
+  integer :: kparent1
+  integer :: kchildless1
+  integer, dimension(nmax/4) :: ic1
+  integer, dimension(nmax/4) :: jc1
+  integer, dimension(nmax/4, 2) :: npb1
+  integer, dimension(nmax/4) :: iparent1
+  integer, dimension(nmax/4) :: imark1
+  integer, dimension(nmax/4, 4) :: ipar1ch2
+  integer, dimension(nmax, 2) :: npb2
+  integer, dimension(nmax) :: ich2par1
+  integer, dimension(nmax) :: ic2
+  integer, dimension(nmax) :: jc2
+  integer, dimension(nmax/4) :: ichildless1
+  real :: ds1
+  real :: ds2
+  real, dimension(nmax) :: xc2
+  real, dimension(nmax) :: yc2
 end subroutine
 subroutine mv_ab(irk)
   implicit none
