@@ -1,8 +1,12 @@
 #!/bin/sh
 
+me=make_box.gp
+i=$1
+o=make_box.svg
+
 gnuplot <<!
-set term pngcairo
-set output "make_box.png"
+set term svg
+set output "$o"
 set size sq
 unset key
 unset border
@@ -12,6 +16,9 @@ set xrange [-1:1]
 set yrange [-1:1]
 
 plot \
-"data/points" w p pt 7 ps 1.5, \
-"<./make_box < data/points" w l lw 3
+"$i" w p pt 7, \
+"<./make_box < $i" w l lw 3
 !
+
+printf %s\\n "$me: $o"
+
