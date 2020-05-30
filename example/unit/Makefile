@@ -11,7 +11,7 @@ box_1\
 make_box\
 
 all: $M
-.f90.o:; $(FC) -c $(FCFLAGS) $(M_FCFLAGS) $< -o $@
+.f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $(M_FCFLAGS) $<
 .o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
 %: %.f90
 

@@ -83,11 +83,11 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f90.o:; $(FC) -c $(FCFLAGS) $<
+.f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > petros.h
 
-dep:; for i in *.f90; do $(FC) -MM -cpp $$i; done > dep.mk
+dep:; for i in *.f90; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L
