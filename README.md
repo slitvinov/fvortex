@@ -1,8 +1,10 @@
 # Dependencies
 
-gfortran, make
+make, gfortran or ifort
 
 # Build
+
+Compile using gfortran by default. To use ifort edit [conf.mk](conf.mk).
 
     (cd lib && make)
     (cd example/gauss && make)
