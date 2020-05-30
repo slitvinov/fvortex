@@ -1,6 +1,15 @@
 #!/bin/sh
 
 me=make_box.gp
+
+err () {
+    printf %s\\n "$me: $@"
+    exit 2
+}
+
+
+if test $# -ne 1; then err "FILE is missing"; fi
+
 i=$1
 o=make_box.svg
 
