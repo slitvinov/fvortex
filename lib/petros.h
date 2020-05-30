@@ -1,4 +1,13 @@
-subroutine box_1(npart,s0,xc1,yc1,ic1,jc1,npb1,ds1,kp1,liststart)
+subroutine box_1(npart,&
+     s0,&
+     xc1,&
+     yc1,&
+     ic1,&
+     jc1,&
+     npb1,&
+     ds1,&
+     kp1,&
+     liststart)
   implicit none
   integer :: npart
   integer :: kp1
@@ -11,7 +20,12 @@ subroutine box_1(npart,s0,xc1,yc1,ic1,jc1,npb1,ds1,kp1,liststart)
   real, dimension(4) :: xc1
   real, dimension(4) :: yc1
 end subroutine
-subroutine box_dim(npart,xmin,xmax,ymin,ymax)
+
+subroutine box_dim(npart,&
+     xmin,&
+     xmax,&
+     ymin,&
+     ymax)
   implicit none
   integer :: npart
   real :: xmax
@@ -19,20 +33,46 @@ subroutine box_dim(npart,xmin,xmax,ymin,ymax)
   real :: ymax
   real :: ymin
 end subroutine
-subroutine condiff(npart,islip,visc_rmax,istats)
+
+subroutine condiff(npart,&
+     islip,&
+     visc_rmax,&
+     istats)
   implicit none
   integer :: npart
   integer :: islip
   integer :: istats
   real :: visc_rmax
 end subroutine
+
 subroutine diagnos()
   implicit none
 end subroutine
+
 subroutine gaussian()
   implicit none
 end subroutine
-subroutine make_box(nmax,ds1,ds2,kp1,kp2,kparent1,kchildless1,ic1,jc1,npb1,iparent1,imark1,ipar1ch2,ich2par1,npb2,ic2,jc2,xc2,yc2,ichildless1)
+
+subroutine make_box(nmax,&
+     ds1,&
+     ds2,&
+     kp1,&
+     kp2,&
+     kparent1,&
+     kchildless1,&
+     ic1,&
+     jc1,&
+     npb1,&
+     iparent1,&
+     imark1,&
+     ipar1ch2,&
+     ich2par1,&
+     npb2,&
+     ic2,&
+     jc2,&
+     xc2,&
+     yc2,&
+     ichildless1)
   implicit none
   integer :: nmax
   integer :: kp1
@@ -55,18 +95,29 @@ subroutine make_box(nmax,ds1,ds2,kp1,kp2,kparent1,kchildless1,ic1,jc1,npb1,ipare
   real, dimension(nmax) :: xc2
   real, dimension(nmax) :: yc2
 end subroutine
+
 subroutine mv_ab(irk)
   implicit none
   integer :: irk
 end subroutine
+
 subroutine mv_eul()
   implicit none
 end subroutine
+
 subroutine mv_rk(visc_rmax)
   implicit none
   real :: visc_rmax
 end subroutine
-subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
+
+subroutine read_restart(time,&
+     np,&
+     s2,&
+     ovrlp,&
+     nvort,&
+     xp,&
+     yp,&
+     gp)
   implicit none
   integer :: np
   integer :: nvort
@@ -77,18 +128,29 @@ subroutine read_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
 end subroutine
+
 subroutine remesh()
   implicit none
 end subroutine
+
 subroutine vel_ext(tm)
   implicit none
   real :: tm
 end subroutine
+
 subroutine vort_field(iframe)
   implicit none
   integer :: iframe
 end subroutine
-subroutine write_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
+
+subroutine write_restart(time,&
+     np,&
+     s2,&
+     ovrlp,&
+     nvort,&
+     xp,&
+     yp,&
+     gp)
   implicit none
   integer :: np
   integer :: nvort
@@ -99,3 +161,4 @@ subroutine write_restart(time,np,s2,ovrlp,nvort,xp,yp,gp)
   real, dimension(nvort) :: yp
   real, dimension(nvort) :: gp
 end subroutine
+

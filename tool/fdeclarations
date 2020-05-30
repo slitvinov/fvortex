@@ -282,7 +282,8 @@ def getArgumentList(argline):
 
 #------------------------------------------------------------------------------
 def printWrapperCode(subname, arglist, varlist):
-    print("subroutine " + subname + "(" + ",".join(arglist) + ")")
+    tab = "     "
+    print("subroutine " + subname + "(" + (",&\n%s" % tab).join(arglist) + ")")
     print("  implicit none")
     # parameters first
     for entry in varlist:
@@ -293,6 +294,7 @@ def printWrapperCode(subname, arglist, varlist):
         if entry.is_argument:
             print ("  " + entry.getDeclString())
     print("end subroutine")
+    print("")
 
 if __name__ == "__main__":
 
