@@ -14,7 +14,7 @@ gfortran, make
 
     ./make_box.gp data/points
 
-<p align="center"><img src="img/make_box.svg"/></p>
+<p align="center"><img src="./img/make_box.svg"/></p>
 
 # Run
 
