@@ -1,10 +1,10 @@
-box9_to_part.o: box9_to_part.f90 main_dim.h part.h
 box_1.o: box_1.f90 main_dim.h part.h
+box9_to_part.o: box9_to_part.f90 main_dim.h part.h
 box_dim.o: box_dim.f90 main_dim.h
 box_to_part.o: box_to_part.f90 main_dim.h part.h
-ch_to_par.o: ch_to_par.f90
 check_box.o: check_box.f90 tree_tmp.h
 childless9.o: childless9.f90 main_dim.h part.h tree9.h
+ch_to_par.o: ch_to_par.f90
 condiff.o: condiff.f90 main_dim.h part.h tree9.h
 diagnos.o: diagnos.f90 main_dim.h part.h
 exp_chdless.o: exp_chdless.f90 main_dim.h part.h
@@ -41,8 +41,8 @@ par_to_ch.o: par_to_ch.f90
 read_restart.o: read_restart.f90
 remesh.o: remesh.f90 remesh_cartesian.h main_dim.h part.h
 str_box.o: str_box.f90 tree_tmp.h
-str_part.o: str_part.f90 tree_tmp.h
 streamfunction.o: streamfunction.f90 tree_tmp.h
+str_part.o: str_part.f90 tree_tmp.h
 update_position.o: update_position.f90
 vel_ext.o: vel_ext.f90 main_dim.h part.h
 velocity_x.o: velocity_x.f90
