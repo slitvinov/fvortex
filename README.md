@@ -1,10 +1,11 @@
 # Dependencies
 
-make, gfortran or ifort
+make, fortran compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
 
 # Build
 
-Compile using gfortran by default. To use ifort edit [conf.mk](conf.mk).
+Compile using gfortran by default (edit [conf.mk](conf.mk) for other
+options).
 
     (cd lib && make)
     (cd example/gauss && make)
