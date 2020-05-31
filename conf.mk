@@ -2,6 +2,9 @@ PREFIX = $(HOME)
 LINK = $(FC)
 FCFLAGS = -Ofast
 
+#FC = ftn
+#FCSTD = 
+
 #FC = ifort
 #FCSTD = -stand f95
 
