@@ -12,4 +12,4 @@ FCFLAGS = -O3
 #FSTD =
 
 FC = gfortran
-FCSTD =
+FCSTD = -std=legacy

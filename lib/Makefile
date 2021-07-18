@@ -85,7 +85,7 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f.o:; $(FC) -c $(FCFLAGS) $<
+.f.o:; $(FC) -c $(FCSTD) $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > fvortex.h
