@@ -58,7 +58,7 @@
  23         end do
  22      end do
 
-         call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, listexam 
+         call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
 
          do 25 k = 1, kclose

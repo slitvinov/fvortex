@@ -61,10 +61,10 @@
  23         end do
  22      end do
 
-         call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, listexam 
+         call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar8Ch9, imark8)
 
          do 25 k = 1, kpart
@@ -91,7 +91,7 @@
          level = 9
          if (kexam == 0) goto 201
 
-         call near_far(Nmax9, ib, jb, r89, ic9, jc9, kexam, listexam, 
+         call near_far(Nmax9, ib, jb, r89, ic9, jc9, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do 34 k = 1, kfar

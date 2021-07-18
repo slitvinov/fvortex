@@ -42,7 +42,7 @@
  1       end do
 
          call near_far(Nmax1, ipar, jpar, r21, ic1, jc1, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
@@ -72,7 +72,7 @@
          call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
      &    , Listpart, ipar2Ch3, imark2)
 
-         call near_far(Nmax2, ib, jb, r32, ic2, jc2, kpart, Listpart, 
+         call near_far(Nmax2, ib, jb, r32, ic2, jc2, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
@@ -91,7 +91,7 @@
          if (n4 > np_max) write (*, *) 'error in rest3b', n4
          call int_box_part(Nmax3, kb, xb, yb, n4, Br3, Bi3)
 
- 88      call near_far(Nmax3, ib, jb, r33, ic3, jc3, kexam, listexam, 
+ 88      call near_far(Nmax3, ib, jb, r33, ic3, jc3, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP

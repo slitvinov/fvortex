@@ -48,13 +48,13 @@
  1       end do
 
          call near_far(Nmax1, ipar, jpar, r41, ic1, jc1, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar1Ch2, imark1)
 
-         call near_far(Nmax1, ib, jb, r51, ic1, jc1, kpart, Listpart, 
+         call near_far(Nmax1, ib, jb, r51, ic1, jc1, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          n4 = 0
@@ -71,13 +71,13 @@
  21      end do
 
          call near_far(Nmax2, ipar, jpar, r42, ic2, jc2, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar2Ch3, imark2) ! NT
 
-         call near_far(Nmax2, ib, jb, r52, ic2, jc2, kpart, Listpart, 
+         call near_far(Nmax2, ib, jb, r52, ic2, jc2, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
@@ -93,13 +93,13 @@
  22      end do
 
          call near_far(Nmax3, ipar, jpar, r43, ic3, jc3, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar3Ch4, imark3) ! NT
 
-         call near_far(Nmax3, ib, jb, r53, ic3, jc3, kpart, Listpart, 
+         call near_far(Nmax3, ib, jb, r53, ic3, jc3, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
          do 23 k = 1, kfar
             id = Listfar(k)
@@ -118,15 +118,15 @@
 
 ! Close to parents(?)
          call near_far(Nmax4, ipar, jpar, r44, ic4, jc4, Kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, kclose, Listclose)
 
 ! Close to parents - Childless(?)
-         call check_box(Nmax4, kclose, Listclose, 
+         call check_box(Nmax4, kclose, Listclose,
      &     kexam, listexam, kpart, Listpart, ipar4Ch5, imark4)
 
 ! Close to parents & childless - close to box(?)
-         call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart, 
+         call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart,
      &     kfar, Listfar, kclose, Listclose)
 
 !  Boxes that are far from the child now belong to list 4 of the box
@@ -148,7 +148,7 @@
          if (n4 > np_max) write (*, *) 'error in rest5b', n4
          call int_box_part(Nmax5, kb, xb, yb, n4, Br5, Bi5)
 
- 88      call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam, 
+ 88      call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP

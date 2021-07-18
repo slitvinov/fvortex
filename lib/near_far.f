@@ -1,4 +1,4 @@
-      subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, listexam, 
+      subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, listexam,
      &  kfar, Listfar, kclose, Listclose)
 
 !     This  subroutine finds all the far & close boxes at a certain

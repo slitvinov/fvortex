@@ -57,10 +57,10 @@
          call near_far(Nmax1, ipar, jpar, r81, ic1, jc1, kexam, listexam
      &    , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar1Ch2, imark1) !NT
 
-         call near_far(Nmax1, ib, jb, r91, ic1, jc1, kpart, Listpart, 
+         call near_far(Nmax1, ib, jb, r91, ic1, jc1, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          n4 = 0
@@ -79,10 +79,10 @@
          call near_far(Nmax2, ipar, jpar, r82, ic2, jc2, kexam, listexam
      &        , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar2Ch3, imark2) ! NT
 
-         call near_far(Nmax2, ib, jb, r92, ic2, jc2, kpart, Listpart, 
+         call near_far(Nmax2, ib, jb, r92, ic2, jc2, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
@@ -100,10 +100,10 @@
          call near_far(Nmax3, ipar, jpar, r83, ic3, jc3, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar3Ch4, imark3) ! NT
 
-         call near_far(Nmax3, ib, jb, r93, ic3, jc3, kpart, Listpart, 
+         call near_far(Nmax3, ib, jb, r93, ic3, jc3, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 23 k = 1, kfar
@@ -121,10 +121,10 @@
          call near_far(Nmax4, ipar, jpar, r84, ic4, jc4, kexam, listexam
      &    , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax4, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax4, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar4Ch5, imark4) ! NT
 
-         call near_far(Nmax4, ib, jb, r94, ic4, jc4, kpart, Listpart, 
+         call near_far(Nmax4, ib, jb, r94, ic4, jc4, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 24 k = 1, kfar
@@ -142,10 +142,10 @@
          call near_far(Nmax5, ipar, jpar, r85, ic5, jc5, kexam, listexam
      &        , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar5Ch6, imark5) ! NT
 
-         call near_far(Nmax5, ib, jb, r95, ic5, jc5, kpart, Listpart, 
+         call near_far(Nmax5, ib, jb, r95, ic5, jc5, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 25 k = 1, kfar
@@ -163,10 +163,10 @@
          call near_far(Nmax6, ipar, jpar, r86, ic6, jc6, Kexam, listexam
      &        , kfar, Listfar, kclose, Listclose)
 
-         call check_box(Nmax6, kclose, Listclose, 
+         call check_box(Nmax6, kclose, Listclose,
      &     kexam, listexam, kpart, Listpart, ipar6Ch7, imark6)
 
-         call near_far(Nmax6, ib, jb, r96, ic6, jc6, Kpart, Listpart, 
+         call near_far(Nmax6, ib, jb, r96, ic6, jc6, Kpart, Listpart,
      &     kfar, Listfar, kclose, Listclose)
 
          do 26 k = 1, kfar
@@ -181,13 +181,13 @@
  260        end do
  26      end do
 
-         call near_far(Nmax7, ipar, jpar, r87, ic7, jc7, Kexam, listexam 
+         call near_far(Nmax7, ipar, jpar, r87, ic7, jc7, Kexam, listexam
      &     , kfar, Listfar, kclose, Listclose)
 
-         call check_box(Nmax7, kclose, Listclose, 
+         call check_box(Nmax7, kclose, Listclose,
      &     kexam, listexam, kpart, Listpart, ipar7Ch8, imark7)
 
-         call near_far(Nmax7, ib, jb, r97, ic7, jc7, Kpart, Listpart, 
+         call near_far(Nmax7, ib, jb, r97, ic7, jc7, Kpart, Listpart,
      &     kfar, Listfar, kclose, Listclose)
 
          do 28 k = 1, kfar
@@ -205,10 +205,10 @@
          call near_far(Nmax8, ipar, jpar, r88, ic8, jc8, Kexam, listexam
      &        , kfar, Listfar, kclose, Listclose)
 
-         call check_box(Nmax8, kclose, Listclose, 
+         call check_box(Nmax8, kclose, Listclose,
      &     kexam, listexam, kpart, Listpart, ipar8Ch9, imark8)
 
-         call near_far(Nmax8, ib, jb, r98, ic8, jc8, Kpart, Listpart, 
+         call near_far(Nmax8, ib, jb, r98, ic8, jc8, Kpart, Listpart,
      &     kfar, Listfar, kclose, Listclose)
 
          do 29 k = 1, kfar

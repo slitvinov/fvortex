@@ -68,9 +68,9 @@
          write (*, *) 'PROBLEM :ny_bottom =', ny_b, 'ny_min=', ny_min
       end if
 
-      if ((nx_r > NX_max) .or. (nx_l < NX_min) .or. 
+      if ((nx_r > NX_max) .or. (nx_l < NX_min) .or.
      &  (ny_t > ny_max) .or. (ny_b < ny_min)) then
-      stop
+         stop
       end if
 
 !---  Establish the new grid for the remeshed field
@@ -126,63 +126,63 @@
 
 ! ---- Do not remesh the particles outside the established grid
 
-         if ((ix > nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or. 
+         if ((ix > nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or.
      &     (iy < ny_b)) then
-         if (abs(g) >= cut_far) then
-            ifar = ifar + 1
-            xp(ifar) = x
-            yp(ifar) = y
-            gp(ifar) = g
-         endif
+            if (abs(g) >= cut_far) then
+               ifar = ifar + 1
+               xp(ifar) = x
+               yp(ifar) = y
+               gp(ifar) = g
+            endif
 
 !-- all other particles are in the inner grid
-      else if ((ix == nx_r) .or. (ix == nx_l) .or. 
-     &     (iy == ny_t) .or. (iy == ny_b)) then
+         else if ((ix == nx_r) .or. (ix == nx_l) .or.
+     &        (iy == ny_t) .or. (iy == ny_b)) then
 !----------------------------------------------------------------
 !- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
 !----------------------------------------------------------------
-         in = in + 1
-         ig = indx(ix, iy)
-         gg(ig) = gg(ig) + g    ! NGP   Interpolation
+            in = in + 1
+            ig = indx(ix, iy)
+            gg(ig) = gg(ig) + g    ! NGP   Interpolation
 
-      else
+         else
 !----------------------------------------------------------------
 !- Category 0_1 : ALL other PARTICLES in the domain
 !----------------------------------------------------------------
-         in = in + 1
-         ix0 = ix
-         ix1 = ix - 1
-         ix2 = ix + 1
-         iy0 = iy
-         iy1 = iy - 1
-         iy2 = iy + 1
-         k00 = indx(ix0, iy0)
-         k10 = indx(ix1, iy0)
-         k20 = indx(ix2, iy0)
-         k01 = indx(ix0, iy1)
-         k11 = indx(ix1, iy1)
-         k21 = indx(ix2, iy1)
-         k02 = indx(ix0, iy2)
-         k12 = indx(ix1, iy2)
-         k22 = indx(ix2, iy2)
-         u = (sdist - xg(k00))*dhinv
-         v = (ndist - yg(k00))*dhinv
-         Fy0 = 1.0 - v*v
-         Fy1 = 0.5*v*(v - 1.)
-         Fy2 = 0.5*v*(v + 1.)
-         Fx0 = g*(1.-u*u)
-         Fx1 = g*(0.5*u*(u - 1.))
-         Fx2 = g*(0.5*u*(u + 1.))
-         gg(k00) = gg(k00) + Fx0*Fy0
-         gg(k01) = gg(k01) + Fx0*Fy1
-         gg(k02) = gg(k02) + Fx0*Fy2
-         gg(k10) = gg(k10) + Fx1*Fy0
-         gg(k11) = gg(k11) + Fx1*Fy1
-         gg(k12) = gg(k12) + Fx1*Fy2
-         gg(k20) = gg(k20) + Fx2*Fy0
-         gg(k21) = gg(k21) + Fx2*Fy1
-         gg(k22) = gg(k22) + Fx2*Fy2
-      endif
+            in = in + 1
+            ix0 = ix
+            ix1 = ix - 1
+            ix2 = ix + 1
+            iy0 = iy
+            iy1 = iy - 1
+            iy2 = iy + 1
+            k00 = indx(ix0, iy0)
+            k10 = indx(ix1, iy0)
+            k20 = indx(ix2, iy0)
+            k01 = indx(ix0, iy1)
+            k11 = indx(ix1, iy1)
+            k21 = indx(ix2, iy1)
+            k02 = indx(ix0, iy2)
+            k12 = indx(ix1, iy2)
+            k22 = indx(ix2, iy2)
+            u = (sdist - xg(k00))*dhinv
+            v = (ndist - yg(k00))*dhinv
+            Fy0 = 1.0 - v*v
+            Fy1 = 0.5*v*(v - 1.)
+            Fy2 = 0.5*v*(v + 1.)
+            Fx0 = g*(1.-u*u)
+            Fx1 = g*(0.5*u*(u - 1.))
+            Fx2 = g*(0.5*u*(u + 1.))
+            gg(k00) = gg(k00) + Fx0*Fy0
+            gg(k01) = gg(k01) + Fx0*Fy1
+            gg(k02) = gg(k02) + Fx0*Fy2
+            gg(k10) = gg(k10) + Fx1*Fy0
+            gg(k11) = gg(k11) + Fx1*Fy1
+            gg(k12) = gg(k12) + Fx1*Fy2
+            gg(k20) = gg(k20) + Fx2*Fy0
+            gg(k21) = gg(k21) + Fx2*Fy1
+            gg(k22) = gg(k22) + Fx2*Fy2
+         endif
  40   end do
 
 !---  put remeshed particles into arrays, using cutoffs determined earlier
@@ -192,13 +192,13 @@
          g = gg(i)
          ag = abs(g)
 !-- only cutoff if below threshold AND away from domain center
-         if ((ag > cutoff) .or. ((abs(yg(i))*abs(yg(i)) + 
+         if ((ag > cutoff) .or. ((abs(yg(i))*abs(yg(i)) +
      &     abs(xg(i))*abs(xg(i))) < 1.)) then
-         iback = iback + 1
-         xp(iback) = xg(i)
-         yp(iback) = yg(i)
-         gp(iback) = g
-      endif
+            iback = iback + 1
+            xp(iback) = xg(i)
+            yp(iback) = yg(i)
+            gp(iback) = g
+         endif
  29   end do
 
 !---  check diagnostics

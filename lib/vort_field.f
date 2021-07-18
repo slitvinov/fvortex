@@ -64,325 +64,325 @@
          y = yp(j)
          ix = nint((x - x0)*dxinv) + 1
          iy = nint((y - y0)*dyinv) + 1
-         if ((ix > -3) .and. (iy > -3) .and. (ix < (nx + 3)) .and. 
+         if ((ix > -3) .and. (iy > -3) .and. (ix < (nx + 3)) .and.
      &     (iy < (ny + 3))) then
 
 !--   loop over grid in expnaded code in order to vectorize
 !     ---- Points on column IX
-         m0 = (ix - 1)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix - 1)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX - 3
-         m0 = (ix - 4)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix - 4)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX - 2
-         m0 = (ix - 3)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix - 3)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX - 1
-         m0 = (ix - 2)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix - 2)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX + 1
-         m0 = (ix)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX + 2
-         m0 = (ix + 1)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
+            m0 = (ix + 1)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
 
 !     ---- Points on column IX + 3
-         m0 = (ix + 2)*ny + iy
-         m = m0
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
+            m0 = (ix + 2)*ny + iy
+            m = m0
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 - 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 1
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 2
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
+            m = m0 + 3
+            if ((m > 0) .and. (m < (ngrid + 1))) then
+               r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
+               c = exp(-r2s)
+               gg(m) = gg(m) + g*c
+            endif
          endif
-         m = m0 - 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 - 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 1
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 2
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-         m = m0 + 3
-         if ((m > 0) .and. (m < (ngrid + 1))) then
-            r2s = ((xg(m) - x)**2 + (yg(m) - y)**2)*s2inv2
-            c = exp(-r2s)
-            gg(m) = gg(m) + g*c
-         endif
-      endif
  20   end do
       write (vortoutfile, '(A,I0.5,A)') 'w.', iframe, '.dat'
       open (1, file=vortoutfile, status='replace')

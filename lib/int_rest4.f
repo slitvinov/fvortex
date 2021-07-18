@@ -44,13 +44,13 @@
  1       end do
 
          call near_far(Nmax1, ipar, jpar, r31, ic1, jc1, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar1Ch2, imark1) !NT
 
-         call near_far(Nmax1, ib, jb, r41, ic1, jc1, kpart, Listpart, 
+         call near_far(Nmax1, ib, jb, r41, ic1, jc1, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          n4 = 0
@@ -67,13 +67,13 @@
  21      end do
 
          call near_far(Nmax2, ipar, jpar, r32, ic2, jc2, kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar2Ch3, imark2) ! NT
 
-         call near_far(Nmax2, ib, jb, r42, ic2, jc2, kpart, Listpart, 
+         call near_far(Nmax2, ib, jb, r42, ic2, jc2, kpart, Listpart,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
@@ -89,13 +89,13 @@
  22      end do
 
          call near_far(Nmax3, ipar, jpar, r33, ic3, jc3, Kexam,
-     &        listexam, 
+     &        listexam,
      &        kfar, Listfar, kclose, Listclose)
 
-         call check_box(Nmax3, kclose, Listclose, 
+         call check_box(Nmax3, kclose, Listclose,
      &     kexam, listexam, kpart, Listpart, ipar3Ch4, imark3)
 
-         call near_far(Nmax3, ib, jb, r43, ic3, jc3, Kpart, Listpart, 
+         call near_far(Nmax3, ib, jb, r43, ic3, jc3, Kpart, Listpart,
      &     kfar, Listfar, kclose, Listclose)
 
          do 23 k = 1, kfar
@@ -114,7 +114,7 @@
          if (n4 > np_max) write (*, *) 'error in rest4b', n4
          call int_box_part(Nmax4, kb, xb, yb, n4, Br4, Bi4)
 
- 88      call near_far(Nmax4, ib, jb, r44, ic4, jc4, kexam, listexam, 
+ 88      call near_far(Nmax4, ib, jb, r44, ic4, jc4, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP

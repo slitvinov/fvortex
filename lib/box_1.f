@@ -1,6 +1,6 @@
       subroutine box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1,
      &     liststart)
-      
+
 !     This subroutine sorts the particles into four boxes and provides the
 !     necessary identification arrays for this top level of the interaction tree.
 

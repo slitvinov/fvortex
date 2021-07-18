@@ -65,10 +65,10 @@
  23         end do
  22      end do
 
-         call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam 
+         call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar5Ch6, imark5)
 
          do 25 k = 1, kpart
@@ -95,7 +95,7 @@
          level = 6
          if (kexam == 0) goto 201
 
-         call near_far(Nmax6, ib, jb, r56, ic6, jc6, kexam, listexam, 
+         call near_far(Nmax6, ib, jb, r56, ic6, jc6, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do 32 k = 1, kfar
@@ -121,7 +121,7 @@
             Pibox(kfp, 7) = Pi6(id, 7)
  32      end do
 
-         call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart 
+         call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar6Ch7, imark6)
 
          do 33 k = 1, kpart
@@ -142,7 +142,7 @@
          level = 7
          if (kexam == 0) goto 201
 
-         call near_far(Nmax7, ib, jb, r57, ic7, jc7, kexam, listexam, 
+         call near_far(Nmax7, ib, jb, r57, ic7, jc7, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do 34 k = 1, kfar
@@ -169,7 +169,7 @@
  34      end do
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
-     &        Kpart, 
+     &        Kpart,
      &        Listpart, ipar7Ch8, imark7)
 
          do 35 k = 1, kpart
@@ -188,7 +188,7 @@
 ! ____________________
          level = 8
 
-         call near_far(Nmax8, ib, jb, r58, ic8, jc8, kexam, listexam, 
+         call near_far(Nmax8, ib, jb, r58, ic8, jc8, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do 36 k = 1, kfar
@@ -215,7 +215,7 @@
  36      end do
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
-     &        Kpart, 
+     &        Kpart,
      &        Listpart, ipar8Ch9, imark8)
 
          do 37 k = 1, kpart
@@ -234,7 +234,7 @@
 ! ____________________
          level = 9
 
-         call near_far(Nmax9, ib, jb, r59, ic9, jc9, kexam, listexam, 
+         call near_far(Nmax9, ib, jb, r59, ic9, jc9, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do k = 1, kfar

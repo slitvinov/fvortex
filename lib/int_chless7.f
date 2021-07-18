@@ -62,10 +62,10 @@
  23         end do
  22      end do
 
-         call near_far(Nmax7, ib, jb, r77, ic7, jc7, kexam, listexam 
+         call near_far(Nmax7, ib, jb, r77, ic7, jc7, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
 
-         call check_box(Nmax7, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax7, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar7Ch8, imark7)
 
          do 25 k = 1, kpart
@@ -92,7 +92,7 @@
          level = 8
          if (kexam == 0) goto 201
 
-         call near_far(Nmax8, ib, jb, r78, ic8, jc8, kexam, listexam, 
+         call near_far(Nmax8, ib, jb, r78, ic8, jc8, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do 34 k = 1, kfar
@@ -118,7 +118,7 @@
             Pibox(kfp, 7) = Pi8(id, 7)
  34      end do
 
-         call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart 
+         call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart
      &     , Listpart, ipar8Ch9, imark8)
 
          do 37 k = 1, kpart
@@ -138,7 +138,7 @@
          level = 9
          if (kexam == 0) goto 201
 
-         call near_far(Nmax9, ib, jb, r79, ic9, jc9, kexam, listexam, 
+         call near_far(Nmax9, ib, jb, r79, ic9, jc9, kexam, listexam,
      &     kfar, Listfar, kclose, Listclose)
 
          do k = 1, kfar
