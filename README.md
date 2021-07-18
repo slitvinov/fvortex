@@ -38,7 +38,7 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
     cd example/omegaI
     ./main
 
-<h2>Hacking<h2>
+<h2>Hacking</h2>
 
 <pre>
 ; for i in *.f; do findent --indent_procedure=0 < $i > t && mv t $i; done
