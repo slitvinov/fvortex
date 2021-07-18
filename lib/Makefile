@@ -21,7 +21,7 @@ diagnos.f90\
 gaussian.f\
 make_box.f90\
 mv_ab.f90\
-mv_eul.f90\
+mv_eul.f\
 mv_rk.f90\
 read_restart.f90\
 remesh.f90\

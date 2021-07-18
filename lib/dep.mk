@@ -33,7 +33,7 @@ int_rest8.o: int_rest8.f90 tree_tmp.h main_dim.h part.h tree9.h
 int_rest9.o: int_rest9.f90 tree_tmp.h main_dim.h part.h tree9.h
 make_box.o: make_box.f90 main_dim.h part.h
 mv_ab.o: mv_ab.f90 main_dim.h part.h
-mv_eul.o: mv_eul.f90 main_dim.h part.h
+mv_eul.o: mv_eul.f main_dim.h part.h
 mv_rk.o: mv_rk.f90 main_dim.h part.h
 near_far.o: near_far.f90 tree_tmp.h
 omega.o: omega.f90
