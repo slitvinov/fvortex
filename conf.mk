@@ -1,9 +1,9 @@
 PREFIX = $(HOME)/.local
-LINK = $(FC)
-FCFLAGS = -O3
+FCFLAGS = -Ofast
+CFLAGS = -Ofast
 
 #FC = ftn
-#FCSTD = 
+#FCSTD =
 
 #FC = ifort
 #FCSTD =
