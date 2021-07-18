@@ -110,8 +110,8 @@
       subroutine print_box(n, x, y, s)
       implicit none
       integer n
-      real x(4)
-      real y(4)
+      real x(*)
+      real y(*)
       real s
       integer i
       do i = 1, n
