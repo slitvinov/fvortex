@@ -89,6 +89,6 @@ include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > fvortex.h
 
-dep:; for i in *.f90; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
+dep:; for i in $I; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L
