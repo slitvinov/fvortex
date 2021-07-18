@@ -7,10 +7,10 @@ include ../conf.mk
 H = \
 main_dim.h\
 part.h\
-petros.h\
+fvortex.h\
 tree9.h\
 
-L = libpetros.a
+L = libfvortex.a
 I = \
 box_1.f90\
 box_dim.f90\
@@ -87,7 +87,7 @@ $L: $O; ar rv $@ $O && ranlib $@
 .f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
-int: $I; ../tool/fdeclarations $I > petros.h
+int: $I; ../tool/fdeclarations $I > fvortex.h
 
 dep:; for i in *.f90; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
 

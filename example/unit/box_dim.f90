@@ -1,7 +1,7 @@
 program main
    implicit none
    interface
-      include 'petros.h'
+      include 'fvortex.h'
    end interface
    include 'main_dim.h'
    common/vort1/xp, yp

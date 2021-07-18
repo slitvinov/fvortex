@@ -4,7 +4,7 @@
 include ../../conf.mk
 
 M_FCFLAGS = -I$(PREFIX)/include
-M_LDFLAGS = -L$(PREFIX)/lib -lpetros -lm
+M_LDFLAGS = -L$(PREFIX)/lib -lfvortex -lm
 
 M = \
 main\

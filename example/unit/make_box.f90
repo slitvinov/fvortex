@@ -1,7 +1,7 @@
 program main
    implicit none
    interface
-      include 'petros.h'
+      include 'fvortex.h'
       subroutine print_box(n, x, y, s)
         implicit none
         integer :: n
