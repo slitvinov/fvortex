@@ -1,8 +1,8 @@
-# Dependencies
+<h2>Dependencies</h2>
 
 make, fortran compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
 
-# Build
+<h2>Build</h2>
 
 Compile using gfortran by default (edit [conf.mk](conf.mk) for other
 options).
@@ -11,7 +11,7 @@ options).
     (cd example/gauss && make)
     (cd example/omegaI && make)
 
-# Unit tests
+<h2>Unit tests</h2>
 
   [example/unit](example/unit/)
 
@@ -19,9 +19,9 @@ options).
 
 <p align="center"><img src="./img/make_box.svg"/></p>
 
-# Run
+<h2>Run</h2>
 
-Lamb vortex:
+Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lamb–Oseen vortex</a>:
 
     cd example/gauss
     ./main
