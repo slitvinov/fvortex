@@ -1,6 +1,8 @@
 .POSIX:
 .SUFFIXES:
-.SUFFIXES: .o .f90
+.SUFFIXES: .f
+.SUFFIXES: .f90
+.SUFFIXES: .o
 .PHONY: clean lint install dep int
 include ../conf.mk
 
@@ -16,7 +18,7 @@ box_1.f90\
 box_dim.f90\
 condiff.f90\
 diagnos.f90\
-gaussian.f90\
+gaussian.f\
 make_box.f90\
 mv_ab.f90\
 mv_eul.f90\
@@ -85,10 +87,11 @@ install: $L $H
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
 .f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $<
+.f.o:; $(F77) -c $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > fvortex.h
 
-dep:; for i in $I; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
+dep:; for i in *.f90 *.f; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L

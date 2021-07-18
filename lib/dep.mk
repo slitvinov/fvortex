@@ -8,7 +8,7 @@ ch_to_par.o: ch_to_par.f90
 condiff.o: condiff.f90 main_dim.h part.h tree9.h
 diagnos.o: diagnos.f90 main_dim.h part.h
 exp_chdless.o: exp_chdless.f90 main_dim.h part.h
-gaussian.o: gaussian.f90 main_dim.h
+gaussian.o: gaussian.f main_dim.h
 int_box.o: int_box.f90 tree_tmp.h
 int_box_part.o: int_box_part.f90 tree_tmp.h
 int_chless1.o: int_chless1.f90 tree_tmp.h main_dim.h part.h tree9.h
