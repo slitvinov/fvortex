@@ -1,6 +1,6 @@
 box_1.o: box_1.f90 main_dim.h part.h
 box9_to_part.o: box9_to_part.f90 main_dim.h part.h
-box_dim.o: box_dim.f90 main_dim.h
+box_dim.o: box_dim.f main_dim.h
 box_to_part.o: box_to_part.f90 main_dim.h part.h
 check_box.o: check_box.f90 tree_tmp.h
 childless9.o: childless9.f90 main_dim.h part.h tree9.h
