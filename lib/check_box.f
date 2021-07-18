@@ -11,12 +11,12 @@
 
       include 'tree_tmp.h'
 
-      integer :: nmax1, kclose, kexam, kpart
-      integer :: Listclose(Nhlp), listexam(Nhlp), Listpart(Nhlp)
-      integer :: ipar1Ch2(Nmax1, 4), imark1(Nmax1)
+      integer nmax1, kclose, kexam, kpart
+      integer Listclose(Nhlp), listexam(Nhlp), Listpart(Nhlp)
+      integer ipar1Ch2(Nmax1, 4), imark1(Nmax1)
 
-      integer :: k, ks, i, m, kcheck
-      integer :: icheck4(Nhlp)
+      integer k, ks, i, m, kcheck
+      integer icheck4(Nhlp)
 !------------------------------------------------------
 
       if (kclose > nhlp) write (*, *) 'error in check_box,', kclose
@@ -47,4 +47,4 @@
  3    end do
 
       return
-      end subroutine check_box
+      end

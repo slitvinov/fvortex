@@ -5,25 +5,25 @@
       common/vort1/xp, yp
       common/vort2/xn, yn
       common/geom/x0, y0
-      integer :: i
-      integer :: j
-      integer :: npart
-      integer :: stat
-      real :: s0
-      real :: x
-      real :: x0
-      real :: xmax
-      real :: xmin
-      real :: xn(nvort)
-      real :: xp(nvort)
-      real :: y
-      real :: y0
-      real :: ymax
-      real :: ymin
-      real :: yn(nvort)
-      real :: yp(nvort)
-      integer :: stderr
-      integer :: stdin
+      integer i
+      integer j
+      integer npart
+      integer stat
+      real s0
+      real x
+      real x0
+      real xmax
+      real xmin
+      real xn(nvort)
+      real xp(nvort)
+      real y
+      real y0
+      real ymax
+      real ymin
+      real yn(nvort)
+      real yp(nvort)
+      integer stderr
+      integer stdin
 
       stderr = 0
       stdin = 5

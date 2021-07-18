@@ -9,24 +9,24 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, limpar
 
-      integer :: BF_marker(nvort)
-      real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
+      integer BF_marker(nvort)
+      real dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
       common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
-      integer :: npart, kp1, BF_marker_temp(nvort)
-      integer :: ic1(4), jc1(4), npb1(4, 2), liststart(4)
-      real :: s0, ds1
-      real :: xc1(4), yc1(4)
+      integer npart, kp1, BF_marker_temp(nvort)
+      integer ic1(4), jc1(4), npb1(4, 2), liststart(4)
+      real s0, ds1
+      real xc1(4), yc1(4)
 
-      integer :: i, n, np, ibox, jbox, inew, ix
-      integer :: nbx, nb1, nb2, nb3, nb4
-      real :: xst, yst, ds1inv, lx, ly
+      integer i, n, np, ibox, jbox, inew, ix
+      integer nbx, nb1, nb2, nb3, nb4
+      real xst, yst, ds1inv, lx, ly
 
-      integer :: ixy(nvort), idummy(nvort)
+      integer ixy(nvort), idummy(nvort)
 !------------------------------------------------------------------------
 
       do i = 1, nvort

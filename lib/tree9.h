@@ -1,21 +1,21 @@
-      integer :: nmax1, nmax2, nmax3, nmax4, nmax5, nmax6, nmax7, nmax8,
+      integer nmax1, nmax2, nmax3, nmax4, nmax5, nmax6, nmax7, nmax8,
      &     nmax9
       parameter(Nmax1=4, Nmax2=16, Nmax3=64, Nmax4=256,
      &     Nmax5=1024, Nmax6=4096, Nmax7=16384,
      &     Nmax8=65536, Nmax9=262144)
 
-      integer :: kp1
-      real :: ds1, ds2, ds3, ds4, ds5, ds6, ds7, ds8, ds9
+      integer kp1
+      real ds1, ds2, ds3, ds4, ds5, ds6, ds7, ds8, ds9
       common/times/kp1, ds1, ds2, ds3, ds4, ds5, ds6, ds7, ds8, ds9
 
-      real :: xc1(4), yc1(4), xc2(16), yc2(16), xc3(64), yc3(64),
+      real xc1(4), yc1(4), xc2(16), yc2(16), xc3(64), yc3(64),
      &     xc4(256), yc4(256), xc5(1024), yc5(1024),
      &     xc6(4096), yc6(4096), xc7(16384), yc7(16384),
      &     xc8(65536), yc8(65536), xc9(262144), yc9(262144)
       common/centre/xc1, yc1, xc2, yc2, xc3, yc3, xc4, yc4, xc5, yc5,
      &     xc6, yc6, xc7, yc7, xc8, yc8, xc9, yc9
 
-      integer :: npb1(4, 2), ic1(4), jc1(4), npb2(16, 2), ic2(16),
+      integer npb1(4, 2), ic1(4), jc1(4), npb2(16, 2), ic2(16),
      &     jc2(16),
      &     npb3(64, 2), ic3(64), jc3(64), npb4(256, 2), ic4(256),
      &     jc4(256),
@@ -28,14 +28,14 @@
      &     npb4, ic4, jc4, npb5, ic5, jc5, npb6, ic6, jc6,
      &     npb7, ic7, jc7, npb8, ic8, jc8, npb9, ic9, jc9
 
-      integer :: ipar1ch2(4, 4), ipar2ch3(16, 4), ipar3ch4(64, 4),
+      integer ipar1ch2(4, 4), ipar2ch3(16, 4), ipar3ch4(64, 4),
      &     ipar4ch5(256, 4), ipar5ch6(1024, 4), ipar6ch7(4096, 4),
      &     ipar7ch8(16384, 4), ipar8ch9(65536, 4)
       common/index22/ipar1ch2, ipar2ch3, ipar3ch4,
      &     ipar4ch5, ipar5ch6, ipar6ch7, ipar7ch8,
      &     ipar8ch9
 
-      integer :: ichildless8(65536), iparent8(65536), imark8(65536),
+      integer ichildless8(65536), iparent8(65536), imark8(65536),
      &     ichildless7(16384), iparent7(16384), imark7(16384),
      &     ichildless6(4096), iparent6(4096), imark6(4096),
      &     ichildless5(1024), iparent5(1024), imark5(1024),
@@ -54,7 +54,7 @@
      &     ichildless1, iparent1, imark1,
      &     liststart
 
-      real :: pr9(262144, 0:7), pi9(262144, 0:7),
+      real pr9(262144, 0:7), pi9(262144, 0:7),
      &     pr8(65536, 0:7), pi8(65536, 0:7),
      &     pr7(16384, 0:7), pi7(16384, 0:7),
      &     pr6(4096, 0:7), pi6(4096, 0:7), pr5(1024, 0:7),
@@ -66,7 +66,7 @@
      &     pi4,
      &     pr3, pi3, pr2, pi2, pr1, pi1
 
-      real :: br9(262144, 7), bi9(262144, 7), br8(65536, 7),
+      real br9(262144, 7), bi9(262144, 7), br8(65536, 7),
      &     bi8(65536, 7),
      &     br7(16384, 7), bi7(16384, 7), br6(4096, 7), bi6(4096, 7),
      &     br5(1024, 7), bi5(1024, 7), br4(256, 7), bi4(256, 7),

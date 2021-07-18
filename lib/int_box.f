@@ -6,19 +6,19 @@
 
       include 'tree_tmp.h'
 
-      integer :: nmax, id, kbb
-      real :: xtest, ytest
-      real :: Br(nmax, 7), Bi(Nmax, 7)
+      integer nmax, id, kbb
+      real xtest, ytest
+      real Br(nmax, 7), Bi(Nmax, 7)
 
-      integer :: ni, level
-      real :: br0, bi0, br1, bi1, br2, bi2, br3, bi3, br4, bi4
-      real :: br5, bi5, br6, bi6, br7, bi7
-      real :: s1, t1, s2, t2, s3, t3, s4, t4
-      real :: s5, t5, s6, t6, s7, t7
-      real :: prl, pil
-      real :: cr0, ci0, cr1, ci1, cr2, ci2, cr3, ci3, cr4, ci4
-      real :: cr5, ci5, cr6, ci6, cr7, ci7
-      real :: a, b, xx, yy, r2inv
+      integer ni, level
+      real br0, bi0, br1, bi1, br2, bi2, br3, bi3, br4, bi4
+      real br5, bi5, br6, bi6, br7, bi7
+      real s1, t1, s2, t2, s3, t3, s4, t4
+      real s5, t5, s6, t6, s7, t7
+      real prl, pil
+      real cr0, ci0, cr1, ci1, cr2, ci2, cr3, ci3, cr4, ci4
+      real cr5, ci5, cr6, ci6, cr7, ci7
+      real a, b, xx, yy, r2inv
 !-----------------------------------------------------------
 
       br0 = 0.
@@ -168,4 +168,4 @@
       Bi(id, 7) = Bi(id, 7) + bi7
 
       return
-      end subroutine int_box
+      end

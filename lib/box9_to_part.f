@@ -8,14 +8,14 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: nmax, kchildless, npb(nmax, 2)
-      real :: xc(nmax), yc(nmax), br(nmax, 7), bi(nmax, 7)
+      integer nmax, kchildless, npb(nmax, 2)
+      real xc(nmax), yc(nmax), br(nmax, 7), bi(nmax, 7)
 
-      integer :: id, n1, n2, n
-      real :: dyopiinv, xb, yb, xx, yy, p, f, cr, ci, brb(7), bib(7)
-      real :: c1r, c1i, r1, f1, c2r, c2i, r2, f2, c3r, c3i, r3, f3, c4r,
+      integer id, n1, n2, n
+      real dyopiinv, xb, yb, xx, yy, p, f, cr, ci, brb(7), bib(7)
+      real c1r, c1i, r1, f1, c2r, c2i, r2, f2, c3r, c3i, r3, f3, c4r,
      &     c4i
-      real :: r4, f4, c5r, c5i, r5, f5, c6r, c6i, r6, f6, c7r, c7i
+      real r4, f4, c5r, c5i, r5, f5, c6r, c6i, r6, f6, c7r, c7i
 !-----------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
@@ -112,4 +112,4 @@
  90   end do
 
       return
-      end subroutine
+      end

@@ -9,16 +9,16 @@
 
       include 'part.h'
 
-      integer :: n
-      real :: Time, dt
+      integer n
+      real Time, dt
       common/params/n, Time, dt
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer :: i
-      real :: pi, circ, xmom, ymom, g, x_acc, y_acc, w_acc, ang, x, y
+      integer i
+      real pi, circ, xmom, ymom, g, ang, x, y
 !-----------------------------------------------------
 
       pi = 4.*atan(1.)
@@ -48,4 +48,4 @@
  100  format(f10.4, 2x, e13.6)
 
       return
-      end subroutine
+      end

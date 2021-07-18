@@ -7,17 +7,17 @@
 
       implicit none
 
-      integer :: nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
-      real :: dch, br2(nmax, 7), bi2(nmax, 7), br3(4*nmax, 7),
+      integer nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
+      real dch, br2(nmax, 7), bi2(nmax, 7), br3(4*nmax, 7),
      &     bi3(4*nmax, 7)
 
-      integer :: nb, km, m1, m2, m3, m4
-      real :: p1, p2, p3, p4, p5, p6, p7, p22, p32, p44, p54, p68, p78
-      real :: p12, p26, p38, p420, p524, p656, p764
-      real :: p13, p212, p320, p460, p584, p6224
-      real :: p14, p220, p340, p4140, p5224
-      real :: p15, p230, p370, p4280, p16, p242, p3112, p17, p256, p18
-      real :: r1, r2, r3, r4, r5, r6, r7, f1, f2, f3, f4, f5, f6, f7
+      integer nb, km, m1, m2, m3, m4
+      real p1, p2, p3, p4, p5, p6, p7, p22, p32, p44, p54, p68, p78
+      real p12, p26, p38, p420, p524, p656, p764
+      real p13, p212, p320, p460, p584, p6224
+      real p14, p220, p340, p4140, p5224
+      real p15, p230, p370, p4280, p16, p242, p3112, p17, p256, p18
+      real r1, r2, r3, r4, r5, r6, r7, f1, f2, f3, f4, f5, f6, f7
 !---------------------------------------------------------------
       p1 = 0.5*dch
       p2 = p1*p1
@@ -296,4 +296,4 @@
  20   end do
 
       return
-      end subroutine par_to_ch
+      end

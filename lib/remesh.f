@@ -9,27 +9,27 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, Time, dt
 
-      real :: vortlim
+      real vortlim
       common/rems/vortlim
 
-      integer :: nx_r, nx_l, ny_t, ny_b, ig, ix, iy, i, in, ifar, iback
-      integer :: ix0, ix1, ix2, iy0, iy1, iy2, nmesh
-      integer :: indx(nx_min:nx_max, ny_min:ny_max)
-      integer :: k00, k10, k20, k01, k11, k21, k02, k12, k22
-      real :: pi, twopi, twopiinv, dh, circ
-      real :: xmax, xmin, ymax, ymin, xr, xl, yt, yb, dhhaf, xx, yy,
+      integer nx_r, nx_l, ny_t, ny_b, ig, ix, iy, i, in, ifar, iback
+      integer ix0, ix1, ix2, iy0, iy1, iy2, nmesh
+      integer indx(nx_min:nx_max, ny_min:ny_max)
+      integer k00, k10, k20, k01, k11, k21, k02, k12, k22
+      real pi, twopi, twopiinv, dh, circ
+      real xmax, xmin, ymax, ymin, xr, xl, yt, yb, dhhaf, xx, yy,
      &     cold, cx
-      real :: cutoff, cut_far, dhinv, g, x, y, ndist, sdist
-      real :: u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
-      real :: xg(ngrid), yg(ngrid), gg(ngrid)
+      real cutoff, cut_far, dhinv, g, x, y, ndist, sdist
+      real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
+      real xg(ngrid), yg(ngrid), gg(ngrid)
 
 !----------------------------------------------------------------
 
@@ -220,4 +220,4 @@
      &     'OUTSIDE :', i8, 2x)
 
       return
-      end subroutine
+      end

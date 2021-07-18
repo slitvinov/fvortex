@@ -20,36 +20,36 @@
       include 'part.h'
       include 'tree9.h'
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, limpar
 
-      real :: visc_cutoff
+      real visc_cutoff
       common/cutoff/visc_cutoff
 
-      integer :: npart, islip, istats
-      real :: visc_rmax
+      integer npart, islip, istats
+      real visc_rmax
 
-      integer :: kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9
-      integer :: kchildless1, kchildless2, kchildless3
-      integer :: kchildless4, kchildless5, kchildless6
-      integer :: kchildless7, kchildless8
-      integer :: kparent1, kparent2, kparent3, kparent4
-      integer :: kparent5, kparent6, kparent7, kparent8
-      integer :: i, j
-      integer :: ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
-      integer :: ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
-      integer :: ich8par7(nmax8), ich9par8(nmax9)
-      real :: s0, xmin, xmax, ymin, ymax
-      real :: gr1(nmax1, 0:7), gi1(nmax1, 0:7)
-      real :: gr2(nmax2, 0:7), gi2(nmax2, 0:7)
-      real :: gr3(nmax3, 0:7), gi3(nmax3, 0:7)
-      real :: gr4(nmax4, 0:7), gi4(nmax4, 0:7)
-      real :: gr5(nmax5, 0:7), gi5(nmax5, 0:7)
-      real :: gr6(nmax6, 0:7), gi6(nmax6, 0:7)
-      real :: gr7(nmax7, 0:7), gi7(nmax7, 0:7)
-      real :: gr8(nmax8, 0:7), gi8(nmax8, 0:7)
-      real :: gr9(nmax9, 0:7), gi9(nmax9, 0:7)
+      integer kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9
+      integer kchildless1, kchildless2, kchildless3
+      integer kchildless4, kchildless5, kchildless6
+      integer kchildless7, kchildless8
+      integer kparent1, kparent2, kparent3, kparent4
+      integer kparent5, kparent6, kparent7, kparent8
+      integer i, j
+      integer ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
+      integer ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
+      integer ich8par7(nmax8), ich9par8(nmax9)
+      real s0, xmin, xmax, ymin, ymax
+      real gr1(nmax1, 0:7), gi1(nmax1, 0:7)
+      real gr2(nmax2, 0:7), gi2(nmax2, 0:7)
+      real gr3(nmax3, 0:7), gi3(nmax3, 0:7)
+      real gr4(nmax4, 0:7), gi4(nmax4, 0:7)
+      real gr5(nmax5, 0:7), gi5(nmax5, 0:7)
+      real gr6(nmax6, 0:7), gi6(nmax6, 0:7)
+      real gr7(nmax7, 0:7), gi7(nmax7, 0:7)
+      real gr8(nmax8, 0:7), gi8(nmax8, 0:7)
+      real gr9(nmax9, 0:7), gi9(nmax9, 0:7)
 !-----------------------------------------------------------------------------
 
 !     _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
@@ -526,4 +526,4 @@
       endif
 
       return
-      end subroutine
+      end

@@ -13,22 +13,22 @@
       include 'tree_tmp.h'
       include 'part.h'
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real :: gdelta, gauss(ngauss)
+      real gdelta, gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
-      real :: visc_cutoff
+      real visc_cutoff
       common/cutoff/visc_cutoff
 
-      integer :: kpart
-      real :: gtest, xtest, ytest, upart, vpart, gpart
+      integer kpart
+      real gtest, xtest, ytest, upart, vpart, gpart
 
-      integer :: m, i, n
-      real :: s2inv2, gg, xx, yy, r2, arg, c, svl, fm, fn
-      real :: rad1, rad2, a, dyopiinv
+      integer m, i, n
+      real s2inv2, gg, xx, yy, r2, arg, c, svl, fm, fn
+      real a, dyopiinv
 !------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
@@ -69,4 +69,4 @@
  4    end do
 
       return
-      end subroutine int_part2
+      end

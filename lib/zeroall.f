@@ -8,7 +8,7 @@
       include 'main_dim.h'
       include 'tree9.h'
 
-      integer :: i, j
+      integer i, j
 !-----------------------------------------------------------------------
 
       do i = 1, nbox_max
@@ -230,4 +230,4 @@
       enddo
 
       return
-      end subroutine zeroall
+      end

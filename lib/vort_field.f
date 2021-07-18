@@ -7,22 +7,22 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: nx, ny
-      real :: xmax, xmin, ymax, ymin
+      integer nx, ny
+      real xmax, xmin, ymax, ymin
       common/vort_avg/nx, ny, xmax, xmin, ymax, ymin
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, Time, dt
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
-      integer :: iframe
-      integer :: in, ix, iy, ngrid, i, j, m0, m
-      real :: pi, twopiinv, dx, dy, x0, y0, xx, s2inv2, s2piinv, dxinv,
+      integer iframe
+      integer in, ix, iy, ngrid, i, j, m0, m
+      real pi, twopiinv, dx, dy, x0, y0, xx, s2inv2, s2piinv, dxinv,
      &     dyinv
-      real :: g, x, y, r2s, c
-      real :: xg(nx*ny), yg(nx*ny), gg(nx*ny)
-      character(len=256) :: vortoutfile
+      real g, x, y, r2s, c
+      real xg(nx*ny), yg(nx*ny), gg(nx*ny)
+      character(len=256) vortoutfile
 !----------------------------------------------------------------
       pi = 4.0*atan(1.0)
       twopiinv = 0.5/pi
@@ -397,4 +397,4 @@
       end do
       close (1)
       return
-      end subroutine
+      end

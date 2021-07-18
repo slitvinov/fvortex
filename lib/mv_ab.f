@@ -9,18 +9,18 @@
 
       include 'part.h'
 
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, Time, dt
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer :: irk
+      integer irk
 
-      integer :: in, i
-      real :: pi, const, xpi, ypi, theta, u_vel, v_vel, vel_tan, c1, c2
+      integer in, i
+      real pi, const, c1, c2
 !--------------------------------------------------------------------
 
       in = 0
@@ -42,4 +42,4 @@
       enddo
 
       return
-      end subroutine
+      end

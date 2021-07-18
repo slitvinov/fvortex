@@ -5,31 +5,31 @@
       common/vort1/xp, yp
       common/vort2/xn, yn
       common/geom/x0, y0, limpar
-      integer :: npart
-      integer :: stat
-      real :: s0
-      real :: x
-      real :: x0
-      real :: xmax
-      real :: xmin
-      real :: xn(nvort)
-      real :: xp(nvort)
-      real :: y
-      real :: y0
-      real :: ymax
-      real :: ymin
-      real :: yn(nvort)
-      real :: yp(nvort)
-      integer :: ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
-      integer :: ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
-      integer :: ich8par7(nmax8), ich9par8(nmax9)
-      integer :: kparent1, kparent2, kparent3, kparent4
-      integer :: kparent5, kparent6, kparent7, kparent8
-      integer :: kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9
-      integer :: kchildless1, kchildless2, kchildless3
-      integer :: kchildless4, kchildless5, kchildless6
-      integer :: kchildless7, kchildless8
-      integer :: limpar
+      integer npart
+      integer stat
+      real s0
+      real x
+      real x0
+      real xmax
+      real xmin
+      real xn(nvort)
+      real xp(nvort)
+      real y
+      real y0
+      real ymax
+      real ymin
+      real yn(nvort)
+      real yp(nvort)
+      integer ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
+      integer ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
+      integer ich8par7(nmax8), ich9par8(nmax9)
+      integer kparent1, kparent2, kparent3, kparent4
+      integer kparent5, kparent6, kparent7, kparent8
+      integer kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9
+      integer kchildless1, kchildless2, kchildless3
+      integer kchildless4, kchildless5, kchildless6
+      integer kchildless7, kchildless8
+      integer limpar
 
       limpar = 8
       npart = 0
@@ -109,10 +109,10 @@
 
       subroutine print_box(n, x, y, s)
       implicit none
-      integer :: n
-      real :: x(4)
-      real :: y(4)
-      real :: s
+      integer n
+      real x(4)
+      real y(4)
+      real s
       integer i
       do i = 1, n
          call print_box0(x(i), y(i), s)
@@ -122,14 +122,14 @@
 
       subroutine print_box0(x, y, s)
       implicit none
-      real :: x
-      real :: y
-      real :: s
+      real x
+      real y
+      real s
 
-      real :: xh
-      real :: xl
-      real :: yh
-      real :: yl
+      real xh
+      real xl
+      real yh
+      real yl
 
       xl = x - s/2
       xh = x + s/2

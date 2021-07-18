@@ -9,18 +9,18 @@
       include 'part.h'
       include 'tree9.h'
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, limpar
 
-      integer :: kp9
+      integer kp9
 
-      integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer :: Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
-      integer :: n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
-      real :: xb, yb, dyopiinv
-      real :: r81, r82, r83, r84, r85, r86, r87, r88
-      real :: r91, r92, r93, r94, r95, r96, r97, r98, r99
+      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
+      integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
+      integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
+      real xb, yb, dyopiinv
+      real r81, r82, r83, r84, r85, r86, r87, r88
+      real r91, r92, r93, r94, r95, r96, r97, r98, r99
 !---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
@@ -259,4 +259,4 @@
 
  20   end do
       return
-      end subroutine
+      end

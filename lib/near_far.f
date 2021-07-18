@@ -8,12 +8,12 @@
 
       include 'tree_tmp.h'
 
-      integer :: nmax, ib, jb, ic(nmax), jc(nmax), kexam, kfar, kclose
-      integer :: Listclose(Nhlp), listexam(Nhlp), Listfar(Nhlp)
-      real :: r
+      integer nmax, ib, jb, ic(nmax), jc(nmax), kexam, kfar, kclose
+      integer Listclose(Nhlp), listexam(Nhlp), Listfar(Nhlp)
+      real r
 
-      integer :: k, ks
-      real :: fi, fj, cr, si, sj
+      integer k, ks
+      real fi, fj, cr, si, sj
 !------------------------------------------------------------------------------
 
       if (kexam > nhlp) write (*, *) 'error in near_far,', kexam
@@ -37,4 +37,4 @@
          endif
  2    end do
       return
-      end subroutine near_far
+      end

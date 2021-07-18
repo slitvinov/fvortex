@@ -9,13 +9,13 @@
       include 'part.h'
       include 'tree9.h'
 
-      integer :: kp9
+      integer kp9
 
-      integer :: nb, n1, n2, j
-      real :: xm, ym, x, y
-      real :: tr0, ti0, re0, tr1, ti1, re1, fa1, tr2, ti2, re2, fa2
-      real :: tr3, ti3, re3, fa3, tr4, ti4, re4, fa4, tr5, ti5, re5, fa5
-      real :: tr6, ti6, re6, fa6, tr7, ti7, re7, fa7
+      integer nb, n1, n2, j
+      real xm, ym, x, y
+      real tr0, ti0, re0, tr1, ti1, re1, fa1, tr2, ti2, re2, fa2
+      real tr3, ti3, re3, fa3, tr4, ti4, re4, fa4, tr5, ti5, re5, fa5
+      real tr6, ti6, re6, fa6, tr7, ti7, re7, fa7
 !-----------------------------------------------------------------------
 
       do 10 nb = 1, kp9
@@ -95,4 +95,4 @@
  10   end do
 
       return
-      end subroutine childless9
+      end

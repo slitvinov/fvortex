@@ -13,24 +13,24 @@
       include 'main_dim.h'
       include 'tree_tmp.h'
 
-      real :: eps
+      real eps
       parameter(eps=1.e-09)
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real :: gdelta, gauss(ngauss)
+      real gdelta, gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
-      real :: visc_cutoff
+      real visc_cutoff
       common/cutoff/visc_cutoff
 
-      integer :: kpart
-      real :: xtest, ytest, gtest, upart, vpart, gpart
+      integer kpart
+      real xtest, ytest, gtest, upart, vpart, gpart
 
-      integer :: m, i
-      real :: s2inv2, xx, yy, r2, arg, c, fc, rad1
+      integer m, i
+      real s2inv2, xx, yy, r2, arg, c, fc
 !------------------------------------------------------------------------------
 
       s2inv2 = 0.5/s2
@@ -59,5 +59,5 @@
  4    end do
 
       return
-      end subroutine int_part1
+      end
 

@@ -7,15 +7,15 @@
 
       include 'tree_tmp.h'
 
-      integer :: nmax, kb, k4
-      real :: Br(nmax, 7), Bi(Nmax, 7)
-      real :: xb, yb
+      integer nmax, kb, k4
+      real Br(nmax, 7), Bi(Nmax, 7)
+      real xb, yb
 
-      integer :: nb
-      real :: br1, bi1, br2, bi2, br3, bi3, br4, bi4
-      real :: br5, bi5, br6, bi6, br7, bi7
-      real :: s0, t0, s1, t1, s2, t2, s3, t3, s4, t4, s5, t5, s6, t6
-      real :: g, xx, yy, p, f, r2inv
+      integer nb
+      real br1, bi1, br2, bi2, br3, bi3, br4, bi4
+      real br5, bi5, br6, bi6, br7, bi7
+      real s0, t0, s1, t1, s2, t2, s3, t3, s4, t4, s5, t5, s6, t6
+      real g, xx, yy, p, f, r2inv
 !-----------------------------------------------------------
       Br1 = 0.
       Bi1 = 0.
@@ -93,4 +93,4 @@
       Br(kb, 7) = Br(kb, 7) + Br7
       Bi(kb, 7) = Bi(kb, 7) + Bi7
       return
-      end subroutine int_box_part
+      end

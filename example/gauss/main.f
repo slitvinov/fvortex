@@ -4,23 +4,23 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, time, dt
 
-      real :: vortlim, t1, t2
+      real vortlim, t1, t2
       common/rems/vortlim
 
-      integer :: irk, ivalue, istepping
-      integer :: icase, idiags
-      integer :: Nsteps, Nrem, Nrestart
-      integer :: Nvf, Ntree
-      real :: Rmax, ell_x, ell_y, visc_rmax
-      logical ::  lremesh
+      integer irk, ivalue, istepping
+      integer icase, idiags
+      integer Nsteps, Nrem, Nrestart
+      integer Nvf, Ntree
+      real Rmax, ell_x, ell_y, visc_rmax
+      logical  lremesh
 
 !---------------------------------------------------------------------------
 
@@ -139,12 +139,12 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
-      real :: rmax, ell_x, ell_y, r_arg
-      integer :: Nmx, in, ix, iy
-      real :: h2, deltax, denom, x, y, strength
+      real rmax, ell_x, ell_y, r_arg
+      integer Nmx, in, ix, iy
+      real h2, deltax, denom, x, y, strength
 !-----------------------------------------------------------------------
       h2 = s2*ovrlp**2
       deltax = sqrt(h2)         ! grid spacing
@@ -185,28 +185,28 @@
 
       include 'main_dim.h'
 
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, Time, dt
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real :: vortlim
+      real vortlim
       common/rems/vortlim
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, Limpar
 
-      integer :: nxavg, nyavg
-      real :: xmaxavg, xminavg, ymaxavg, yminavg
+      integer nxavg, nyavg
+      real xmaxavg, xminavg, ymaxavg, yminavg
       common/vort_avg/nxavg, nyavg, xmaxavg, Xminavg, ymaxavg, yminavg
 
-      integer :: icase, idiags, nsteps, nrem, nrestart, nvf
-      integer :: ntree, istepping
-      real :: Rmax, ell_x, ell_y, visc_rmax
+      integer icase, idiags, nsteps, nrem, nrestart, nvf
+      integer ntree, istepping
+      real Rmax, ell_x, ell_y, visc_rmax
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 

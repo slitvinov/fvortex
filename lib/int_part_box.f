@@ -7,15 +7,15 @@
 
       include 'tree_tmp.h'
 
-      integer :: kbox
-      real :: xtest, ytest, ubox, vbox
+      integer kbox
+      real xtest, ytest, ubox, vbox
 
-      integer :: ks, level
-      real :: xx, yy, r2inv, velr, veli, prl, pil
-      real :: r1, f1, r2, f2, r3, f3, r4, f4, r5, f5, r6, f6, r7, f7,
+      integer ks, level
+      real xx, yy, r2inv, velr, veli, prl, pil
+      real r1, f1, r2, f2, r3, f3, r4, f4, r5, f5, r6, f6, r7, f7,
      &     r8, f8
-      real :: c0r, c0i, c1r, c1i, c2r, c2i, c3r, c3i, c4r, c4i
-      real :: c5r, c5i, c6r, c6i, c7r, c7i
+      real c0r, c0i, c1r, c1i, c2r, c2i, c3r, c3i, c4r, c4i
+      real c5r, c5i, c6r, c6i, c7r, c7i
 !-----------------------------------------------------------
       ubox = 0.
       vbox = 0.
@@ -96,4 +96,4 @@
  2    end do
 
       return
-      end subroutine
+      end

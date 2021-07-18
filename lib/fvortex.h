@@ -9,16 +9,16 @@ subroutine box_1(npart,&
      kp1,&
      liststart)
   implicit none
-  integer :: npart
-  integer :: kp1
-  integer, dimension(4) :: ic1
-  integer, dimension(4) :: jc1
-  integer, dimension(4, 2) :: npb1
-  integer, dimension(4) :: liststart
-  real :: s0
-  real :: ds1
-  real, dimension(4) :: xc1
-  real, dimension(4) :: yc1
+  integer npart
+  integer kp1
+  integer, dimension(4) ic1
+  integer, dimension(4) jc1
+  integer, dimension(4, 2) npb1
+  integer, dimension(4) liststart
+  real s0
+  real ds1
+  real, dimension(4) xc1
+  real, dimension(4) yc1
 end subroutine
 
 subroutine box_dim(npart,&
@@ -27,11 +27,11 @@ subroutine box_dim(npart,&
      ymin,&
      ymax)
   implicit none
-  integer :: npart
-  real :: xmax
-  real :: xmin
-  real :: ymax
-  real :: ymin
+  integer npart
+  real xmax
+  real xmin
+  real ymax
+  real ymin
 end subroutine
 
 subroutine condiff(npart,&
@@ -39,10 +39,10 @@ subroutine condiff(npart,&
      visc_rmax,&
      istats)
   implicit none
-  integer :: npart
-  integer :: islip
-  integer :: istats
-  real :: visc_rmax
+  integer npart
+  integer islip
+  integer istats
+  real visc_rmax
 end subroutine
 
 subroutine diagnos()
@@ -74,31 +74,31 @@ subroutine make_box(nmax,&
      yc2,&
      ichildless1)
   implicit none
-  integer :: nmax
-  integer :: kp1
-  integer :: kp2
-  integer :: kparent1
-  integer :: kchildless1
-  integer, dimension(nmax/4) :: ic1
-  integer, dimension(nmax/4) :: jc1
-  integer, dimension(nmax/4, 2) :: npb1
-  integer, dimension(nmax/4) :: iparent1
-  integer, dimension(nmax/4) :: imark1
-  integer, dimension(nmax/4, 4) :: ipar1ch2
-  integer, dimension(nmax, 2) :: npb2
-  integer, dimension(nmax) :: ich2par1
-  integer, dimension(nmax) :: ic2
-  integer, dimension(nmax) :: jc2
-  integer, dimension(nmax/4) :: ichildless1
-  real :: ds1
-  real :: ds2
-  real, dimension(nmax) :: xc2
-  real, dimension(nmax) :: yc2
+  integer nmax
+  integer kp1
+  integer kp2
+  integer kparent1
+  integer kchildless1
+  integer, dimension(nmax/4) ic1
+  integer, dimension(nmax/4) jc1
+  integer, dimension(nmax/4, 2) npb1
+  integer, dimension(nmax/4) iparent1
+  integer, dimension(nmax/4) imark1
+  integer, dimension(nmax/4, 4) ipar1ch2
+  integer, dimension(nmax, 2) npb2
+  integer, dimension(nmax) ich2par1
+  integer, dimension(nmax) ic2
+  integer, dimension(nmax) jc2
+  integer, dimension(nmax/4) ichildless1
+  real ds1
+  real ds2
+  real, dimension(nmax) xc2
+  real, dimension(nmax) yc2
 end subroutine
 
 subroutine mv_ab(irk)
   implicit none
-  integer :: irk
+  integer irk
 end subroutine
 
 subroutine mv_eul()
@@ -107,7 +107,7 @@ end subroutine
 
 subroutine mv_rk(visc_rmax)
   implicit none
-  real :: visc_rmax
+  real visc_rmax
 end subroutine
 
 subroutine read_restart(time,&
@@ -119,14 +119,14 @@ subroutine read_restart(time,&
      yp,&
      gp)
   implicit none
-  integer :: np
-  integer :: nvort
-  real :: time
-  real :: s2
-  real :: ovrlp
-  real, dimension(nvort) :: xp
-  real, dimension(nvort) :: yp
-  real, dimension(nvort) :: gp
+  integer np
+  integer nvort
+  real time
+  real s2
+  real ovrlp
+  real, dimension(nvort) xp
+  real, dimension(nvort) yp
+  real, dimension(nvort) gp
 end subroutine
 
 subroutine remesh()
@@ -135,12 +135,12 @@ end subroutine
 
 subroutine vel_ext(tm)
   implicit none
-  real :: tm
+  real tm
 end subroutine
 
 subroutine vort_field(iframe)
   implicit none
-  integer :: iframe
+  integer iframe
 end subroutine
 
 subroutine write_restart(time,&
@@ -152,13 +152,13 @@ subroutine write_restart(time,&
      yp,&
      gp)
   implicit none
-  integer :: np
-  integer :: nvort
-  real :: time
-  real :: s2
-  real :: ovrlp
-  real, dimension(nvort) :: xp
-  real, dimension(nvort) :: yp
-  real, dimension(nvort) :: gp
+  integer np
+  integer nvort
+  real time
+  real s2
+  real ovrlp
+  real, dimension(nvort) xp
+  real, dimension(nvort) yp
+  real, dimension(nvort) gp
 end subroutine
 

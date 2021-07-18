@@ -9,16 +9,16 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer :: nmax, kchildless
-      integer :: ichildless(nmax), npb(nmax, 2)
-      real :: xc(nmax), yc(nmax), pr(nmax, 0:7), pi(nmax, 0:7)
+      integer nmax, kchildless
+      integer ichildless(nmax), npb(nmax, 2)
+      real xc(nmax), yc(nmax), pr(nmax, 0:7), pi(nmax, 0:7)
 
-      integer :: k, nb, n1, n2, j
-      real :: xm, ym, x, y
-      real :: tr0, ti0, tr1, ti1, tr2, ti2, tr3, ti3, tr4, ti4
-      real :: tr5, ti5, tr6, ti6, tr7, ti7
-      real :: re0, re1, fa1, re2, fa2, re3, fa3, re4, fa4
-      real :: re5, fa5, re6, fa6, re7, fa7
+      integer k, nb, n1, n2, j
+      real xm, ym, x, y
+      real tr0, ti0, tr1, ti1, tr2, ti2, tr3, ti3, tr4, ti4
+      real tr5, ti5, tr6, ti6, tr7, ti7
+      real re0, re1, fa1, re2, fa2, re3, fa3, re4, fa4
+      real re5, fa5, re6, fa6, re7, fa7
 !-----------------------------------------------------------------
 
       do 10 k = 1, kchildless
@@ -98,4 +98,4 @@
  10   end do
 
       return
-      end subroutine exp_chdless
+      end

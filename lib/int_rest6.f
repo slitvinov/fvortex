@@ -9,16 +9,16 @@
       include 'part.h'
       include 'tree9.h'
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, limpar
 
-      integer :: kp6
+      integer kp6
 
-      integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer :: Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
-      integer :: n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
-      real :: dyopiinv, r51, r52, r53, r54, r55, r61, r62, r63,
+      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
+      integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
+      integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
+      real dyopiinv, r51, r52, r53, r54, r55, r61, r62, r63,
      &     r64, r65, r66, xb, yb
 !---------------------------------------------------------------------
 
@@ -195,4 +195,4 @@
 
  20   end do
       return
-      end subroutine
+      end

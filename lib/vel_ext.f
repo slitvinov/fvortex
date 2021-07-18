@@ -9,20 +9,20 @@
 
       include 'part.h'
 
-      integer :: n
-      real :: time, dt
+      integer n
+      real time, dt
       common/params/n, Time, dt
 
-      integer :: np
-      real :: s2, ovrlp, gnu
+      integer np
+      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real :: tm
+      real tm
 
-      integer :: i
-      real :: alpha, x_vel, y_vel, xni, yni, arn2, uext, vext
+      integer i
+      real alpha, x_vel, y_vel, xni, yni, arn2, uext, vext
 
-      real :: velocity_x, velocity_y, omega
+      real velocity_x, velocity_y, omega
 !----------------------------------------
 
       alpha = omega(tm)
@@ -40,4 +40,4 @@
  1    end do
 
       return
-      end subroutine
+      end

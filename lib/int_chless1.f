@@ -22,15 +22,15 @@
       include 'part.h'
       include 'tree9.h'
 
-      integer :: kchildless1
+      integer kchildless1
 
-      integer :: Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer :: Listpart(Nhlp), kexam, kfar, kclose, i, kh, kb, ib, jb
-      integer :: nb1, nb2, nns, k, id, n1, n2, np, level, kfp, nn,
+      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
+      integer Listpart(Nhlp), kexam, kfar, kclose, i, kh, kb, ib, jb
+      integer nb1, nb2, nns, k, id, n1, n2, np, level, kfp, nn,
      &     kpart, n
-      real :: r12, r13, r14, r15, r16, r17, r18, r19, xnn, ynn, gnn,
+      real r12, r13, r14, r15, r16, r17, r18, r19, xnn, ynn, gnn,
      &     dyopiinv
-      real :: up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
+      real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
 !-------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
@@ -488,4 +488,4 @@
  10   end do
 
       return
-      end subroutine int_chless1
+      end

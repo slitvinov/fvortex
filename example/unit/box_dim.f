@@ -2,16 +2,16 @@
       implicit none
       include 'main_dim.h'
       common/vort1/xp, yp
-      integer :: npart
-      integer :: stat
-      real :: x
-      real :: xmax
-      real :: xmin
-      real :: xp(nvort)
-      real :: y
-      real :: ymax
-      real :: ymin
-      real :: yp(nvort)
+      integer npart
+      integer stat
+      real x
+      real xmax
+      real xmin
+      real xp(nvort)
+      real y
+      real ymax
+      real ymin
+      real yp(nvort)
 
       npart = 0
       do

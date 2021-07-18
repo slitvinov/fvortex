@@ -7,13 +7,13 @@ subroutine str_box(xtest, ytest, kbox, Sb)
 
    include 'tree_tmp.h'
 
-   integer :: kbox
-   real :: xtest, ytest, sb
+   integer kbox
+   real xtest, ytest, sb
 
-   integer :: ks, level
-   real :: t2, t3, t4, t5, t6, t7, t8, t9, xx, yy, x0, y0, r2d, r2inv, cr, rpt, fpt
-   real :: c0, r1, c1, f1, r2, c2, f2, r3, c3, f3, r4, c4, f4
-   real :: r5, c5, f5, r6, c6, f6, r7, c7, f7
+   integer ks, level
+   real t2, t3, t4, t5, t6, t7, t8, t9, xx, yy, x0, y0, r2d, r2inv, cr, rpt, fpt
+   real c0, r1, c1, f1, r2, c2, f2, r3, c3, f3, r4, c4, f4
+   real r5, c5, f5, r6, c6, f6, r7, c7, f7
 !-----------------------------------------------------------
 
    t2 = 1./2.
@@ -98,4 +98,4 @@ subroutine str_box(xtest, ytest, kbox, Sb)
 2  end do
 
    return
-end subroutine
+end

@@ -13,29 +13,29 @@
 
       include 'part.h'
 
-      integer :: limpar
-      real :: x0, y0
+      integer limpar
+      real x0, y0
       common/geom/x0, y0, Limpar
 
-      integer :: BF_marker(Nvort)
-      real :: dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
+      integer BF_marker(Nvort)
+      real dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
       common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
-      integer :: nmax, kp1, kp2, kparent1, kchildless1
-      integer :: ic1(nmax/4), jc1(nmax/4), npb1(nmax/4, 2)
-      integer :: iparent1(nmax/4), imark1(nmax/4)
-      integer :: ipar1ch2(nmax/4, 4), npb2(nmax, 2), ich2par1(nmax)
-      integer :: ic2(nmax), jc2(nmax), ichildless1(nmax/4)
-      real :: ds1, ds2
-      real :: xc2(nmax), yc2(nmax)
+      integer nmax, kp1, kp2, kparent1, kchildless1
+      integer ic1(nmax/4), jc1(nmax/4), npb1(nmax/4, 2)
+      integer iparent1(nmax/4), imark1(nmax/4)
+      integer ipar1ch2(nmax/4, 4), npb2(nmax, 2), ich2par1(nmax)
+      integer ic2(nmax), jc2(nmax), ichildless1(nmax/4)
+      real ds1, ds2
+      real xc2(nmax), yc2(nmax)
 
-      integer :: i, np, kbox, ip, jp, n1, n2, npbox, ipar, jpar, n
-      integer :: ich1, jch1, ich2, jch2, ich3, jch3, ich4, jch4
-      integer :: lx, ly, ibox, jbox, jn, n1m1, nbx, ix, inew
-      integer :: nb1, nb2, nb3, nb4
-      integer :: ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
-      real :: ds2inv, xst, yst
-      real :: si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
+      integer i, np, kbox, ip, jp, n1, n2, npbox, ipar, jpar, n
+      integer ich1, jch1, ich2, jch2, ich3, jch3, ich4, jch4
+      integer lx, ly, ibox, jbox, jn, n1m1, nbx, ix, inew
+      integer nb1, nb2, nb3, nb4
+      integer ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
+      real ds2inv, xst, yst
+      real si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
 !---------------------------------------------------------------------
 
       do i = 1, nvort
@@ -255,4 +255,4 @@
       enddo
 
       return
-      end subroutine make_box
+      end

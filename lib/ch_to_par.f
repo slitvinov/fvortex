@@ -7,20 +7,20 @@
 
       implicit none
 
-      integer :: nmax1, kparent
-      real :: dch
-      integer :: IPARiCHj(Nmax1/4, 4), iparent(Nmax1/4)
-      real :: pr(Nmax1, 0:7), pi(Nmax1, 0:7)
-      real :: pgr(Nmax1/4, 0:7), pgi(Nmax1/4, 0:7)
-      real :: gr(Nmax1/4, 0:7), gi(Nmax1/4, 0:7)
+      integer nmax1, kparent
+      real dch
+      integer IPARiCHj(Nmax1/4, 4), iparent(Nmax1/4)
+      real pr(Nmax1, 0:7), pi(Nmax1, 0:7)
+      real pgr(Nmax1/4, 0:7), pgi(Nmax1/4, 0:7)
+      real gr(Nmax1/4, 0:7), gi(Nmax1/4, 0:7)
 
-      integer :: km, m, k, kb, nb
-      real :: p1, p2, p3, p4, p5, p6, p7, p32, p26, p13, p44, p38,
+      integer km, m, k, kb, nb
+      real p1, p2, p3, p4, p5, p6, p7, p32, p26, p13, p44, p38,
      &     p212, p14
-      real :: p54, p420, p320, p220, p15, p68, p524, p460, p340,
+      real p54, p420, p320, p220, p15, p68, p524, p460, p340,
      &     p230, p16
-      real :: p78, p656, p584, p4140, p370, p242, p17
-      real :: r0, r1, r2, r3, r4, r5, r6, r7, f0, f1, f2, f3, f4,
+      real p78, p656, p584, p4140, p370, p242, p17
+      real r0, r1, r2, r3, r4, r5, r6, r7, f0, f1, f2, f3, f4,
      &     f5, f6, f7
 !-----------------------------------------------------------------------------
       p1 = 0.5*dch
