@@ -43,7 +43,7 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 <h2>Hacking</h2>
 
 <pre>
-; for i in *.f; do findent --indent_procedure=0 < $i > t && mv t $i; done
+; for i in *.f; do findent -ofixed --indent_procedure=0 < $i > t && mv t $i; done
 </pre>
 
 <h2>Results</h2>
