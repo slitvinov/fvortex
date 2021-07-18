@@ -1,6 +1,6 @@
 <h2>Dependencies</h2>
 
-make, fortran compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
+make, Fortran 77 compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
 
 <h2>Build</h2>
 
