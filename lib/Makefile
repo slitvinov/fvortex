@@ -1,7 +1,6 @@
 .POSIX:
 .SUFFIXES:
 .SUFFIXES: .f
-.SUFFIXES: .f90
 .SUFFIXES: .o
 .PHONY: clean lint install dep int
 include ../conf.mk
@@ -14,19 +13,19 @@ tree9.h\
 
 L = libfvortex.a
 I = \
-box_1.f90\
-box_dim.f90\
-condiff.f90\
-diagnos.f90\
+box_1.f\
+box_dim.f\
+condiff.f\
+diagnos.f\
 gaussian.f\
-make_box.f90\
-mv_ab.f90\
+make_box.f\
+mv_ab.f\
 mv_eul.f\
-mv_rk.f90\
-read_restart.f90\
-remesh.f90\
-vel_ext.f90\
-vort_field.f90\
+mv_rk.f\
+read_restart.f\
+remesh.f\
+vel_ext.f\
+vort_field.f\
 write_restart.f\
 
 O = \
@@ -86,12 +85,11 @@ install: $L $H
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; ar rv $@ $O && ranlib $@
-.f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $<
-.f.o:; $(F77) -c $(FCFLAGS) $<
+.f.o:; $(FC) -c $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > fvortex.h
 
-dep:; for i in *.f90 *.f; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
+dep:; for i in *.f; do $(FC) $(FCSTD) -MM -cpp $$i; done > dep.mk
 
 clean:; rm -f -- $O $L

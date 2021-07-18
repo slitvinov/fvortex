@@ -11,6 +11,5 @@ FCFLAGS = -O3
 #FC = pgf95
 #FSTD =
 
-F77 = gfortran
 FC = gfortran
 FCSTD =
