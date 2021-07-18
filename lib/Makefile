@@ -27,7 +27,7 @@ read_restart.f90\
 remesh.f90\
 vel_ext.f90\
 vort_field.f90\
-write_restart.f90\
+write_restart.f\
 
 O = \
 box_1.o\

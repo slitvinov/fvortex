@@ -49,5 +49,5 @@ velocity_x.o: velocity_x.f90
 velocity_y.o: velocity_y.f90
 vort_field.o: vort_field.f90 main_dim.h part.h
 wheneq.o: wheneq.f main_dim.h
-write_restart.o: write_restart.f90
+write_restart.o: write_restart.f
 zeroall.o: zeroall.f90 tree_tmp.h main_dim.h tree9.h
