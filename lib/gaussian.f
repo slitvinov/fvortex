@@ -9,11 +9,11 @@
 
       include 'main_dim.h'
 
-      real :: gdelta, gauss(ngauss)
+      real gdelta, gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
-      integer :: i
-      real :: x
+      integer i
+      real x
 !------------------------------------------------------------------
 
       gdelta = gauss_cut/(ngauss - 1)
@@ -24,4 +24,4 @@
  1    end do
 
       return
-      end subroutine gaussian
+      end

@@ -7,10 +7,10 @@
 
       include 'main_dim.h'
 
-      integer :: npart, itoss, imatch, nmatch
-      integer :: ibox(nvort), idummy(nvort)
+      integer npart, itoss, imatch, nmatch
+      integer ibox(nvort), idummy(nvort)
 
-      integer :: i
+      integer i
 !----------------------------------------------------------
 
       nmatch = 0
@@ -23,4 +23,4 @@
  10   end do
 
       return
-      end subroutine wheneq
+      end
