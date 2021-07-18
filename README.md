@@ -4,8 +4,8 @@ make, Fortran 77 compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
 
 <h2>Build</h2>
 
-Compile using gfortran by default (edit [conf.mk](conf.mk) for other
-options).
+By default uses GNU Fortran (edit [conf.mk](conf.mk) for other
+compilers).
 
 <pre>
 ; (cd lib && make)

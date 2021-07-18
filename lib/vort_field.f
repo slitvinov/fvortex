@@ -21,8 +21,9 @@
       real pi, twopiinv, dx, dy, x0, y0, xx, s2inv2, s2piinv, dxinv,
      &     dyinv
       real g, x, y, r2s, c
-      real xg(nx*ny), yg(nx*ny), gg(nx*ny)
-      character(len=256) vortoutfile
+      real xg(nxmaxavg*nymaxavg), yg(nxmaxavg*nymaxavg),
+     &     gg(nxmaxavg*nymaxavg)
+      character*256 vortoutfile
 !----------------------------------------------------------------
       pi = 4.0*atan(1.0)
       twopiinv = 0.5/pi
