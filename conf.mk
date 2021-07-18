@@ -1,4 +1,4 @@
-PREFIX = $(HOME)
+PREFIX = $(HOME)/.local
 LINK = $(FC)
 FCFLAGS = -O3
 

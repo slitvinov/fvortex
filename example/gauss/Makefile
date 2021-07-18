@@ -1,19 +1,13 @@
 .POSIX:
 .SUFFIXES:
-.SUFFIXES: .o .f90
+.SUFFIXES: .f90
 include ../../conf.mk
 
-M_FCFLAGS = -I$(PREFIX)/include
-M_LDFLAGS = -L$(PREFIX)/lib -lfvortex -lm
+FVORTEX_FLAGS = -I$(PREFIX)/include -L$(PREFIX)/lib -lfvortex -lm
 
 M = \
 main\
 
 all: $M
-.f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $(M_FCFLAGS) $<
-.o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
-
-lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
-
-.PHONY: clean lint
+.f90:; $(LINK) $< -o $@ $(FCSTD) $(FCFLAGS) $(FVORTEX_FLAGS)
 clean:; rm -f -- $M
