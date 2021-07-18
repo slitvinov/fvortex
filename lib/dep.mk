@@ -38,7 +38,7 @@ mv_rk.o: mv_rk.f90 main_dim.h part.h
 near_far.o: near_far.f90 tree_tmp.h
 omega.o: omega.f90
 par_to_ch.o: par_to_ch.f90
-read_restart.o: read_restart.f90
+read_restart.o: read_restart.f
 remesh.o: remesh.f90 remesh_cartesian.h main_dim.h part.h
 str_box.o: str_box.f90 tree_tmp.h
 streamfunction.o: streamfunction.f tree_tmp.h
