@@ -7,15 +7,19 @@ make, fortran compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
 Compile using gfortran by default (edit [conf.mk](conf.mk) for other
 options).
 
-    (cd lib && make)
-    (cd example/gauss && make)
-    (cd example/omegaI && make)
+<pre>
+; (cd lib && make)
+; (cd example/gauss && make)
+; (cd example/omegaI && make)
+</pre>
 
 <h2>Unit tests</h2>
 
-  [example/unit](example/unit/)
+[example/unit](example/unit/)
 
-    ./make_box.gp data/points
+<pre>
+; ./make_box.gp data/points
+</pre>
 
 <p align="center"><img src="./img/make_box.svg"/></p>
 
@@ -23,14 +27,22 @@ options).
 
 Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lamb–Oseen vortex</a>:
 
-    cd example/gauss
-    ./main
+<pre>
+; cd example/gauss
+; ./main
+</pre>
 
 
 <a href="https://doi.org/10.1017/S0022112087001150">Melander,  McWilliams,  and  Zabusky vortex</a>:
 
     cd example/omegaI
     ./main
+
+<h2>Hacking<h2>
+
+<pre>
+; for i in *.f; do findent --indent_procedure=0 < $i > t && mv t $i; done
+</pre>
 
 <h2>Results</h2>
 
