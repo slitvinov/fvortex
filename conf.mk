@@ -6,7 +6,7 @@ FCFLAGS = -O3
 #FCSTD = 
 
 #FC = ifort
-#FCSTD = -stand f95
+#FCSTD =
 
 #FC = pgf95
 #FSTD =
