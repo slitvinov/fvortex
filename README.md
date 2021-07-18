@@ -26,7 +26,7 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
     cd example/gauss
     ./main
 
-MMZ vortex:
+<a href="https://doi.org/10.1017/S0022112087001150">Melander,  McWilliams,  and  Zabusky vortex</a>:
 
     cd example/omegaI
     ./main
