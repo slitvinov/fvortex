@@ -1,4 +1,5 @@
 .POSIX:
+.SUFFIXES:
 .SUFFIXES: .o .f90
 include ../../conf.mk
 
@@ -11,7 +12,6 @@ main\
 all: $M
 .f90.o:; $(FC) $(FCSTD) -c $(FCFLAGS) $(M_FCFLAGS) $<
 .o:; $(LINK) $< $(LDFLAGS) $(M_LDFLAGS) -o $@
-%: %.f90
 
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 

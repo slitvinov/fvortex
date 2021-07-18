@@ -1,4 +1,5 @@
 .POSIX:
+.SUFFIXES:
 .SUFFIXES: .o .f90
 .PHONY: clean lint install dep int
 include ../conf.mk
