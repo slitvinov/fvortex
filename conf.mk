@@ -13,4 +13,4 @@ FCFLAGS = -O3
 
 F77 = gfortran
 FC = gfortran
-FCSTD = -std=f95
+FCSTD =
