@@ -84,7 +84,7 @@ install: $L $H
 	mkdir -p -- "$(PREFIX)/lib" "$(PREFIX)/include"
 	cp -- $H "$(PREFIX)/include"
 	cp -- $L "$(PREFIX)/lib"
-$L: $O; ar rv $@ $O && ranlib $@
+$L: $O; $(AR) rv $@ $O && ranlib $@
 .f.o:; $(FC) -c $(FCSTD) $(FCFLAGS) $<
 include dep.mk
 lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'

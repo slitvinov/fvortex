@@ -1,6 +1,7 @@
 PREFIX = $(HOME)/.local
-FCFLAGS = -Ofast
-CFLAGS = -Ofast
+FCFLAGS = -O2 -g
+CFLAGS = -O2 -g
+AR = ar
 
 #FC = ftn
 #FCSTD =

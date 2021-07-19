@@ -61,6 +61,6 @@ zeroall.o\
 install: $L
 	mkdir -p -- "$(PREFIX)/lib"
 	cp -- $L "$(PREFIX)/lib"
-$L: $O; ar rv $@ $O && ranlib $@
+$L: $O; $(AR) rv $@ $O && ranlib $@
 .c.o:; $(CC) -c $(CFLAGS) $<
 clean:; rm -f -- $O $L
