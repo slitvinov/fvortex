@@ -12,6 +12,7 @@ main.o \
 M = main
 
 all: $M
+lib.c: lib.f
 .f.c:; f2c -I$(PREFIX)/include $<
 .c.o:; $(CC) $< -c -I$(PREFIX)/include
 main: $O; $(CC) $O -o $@ -L$(PREFIX)/lib -lfvortex_c -lf2c -lm -lgfortran
