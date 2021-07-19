@@ -1,4 +1,4 @@
-      program main
+      program go
       implicit none
 
       include 'main_dim.h'
@@ -12,7 +12,7 @@
       real time, dt
       common/params/n, time, dt
 
-      real vortlim, t1, t2
+      real vortlim
       common/rems/vortlim
 
       integer irk, ivalue, istepping

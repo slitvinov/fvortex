@@ -2,14 +2,17 @@
 .SUFFIXES:
 .SUFFIXES: .c
 .SUFFIXES: .f
+.SUFFIXES: .o
 include ../../conf.mk
 
-FVORTEX_FLAGS = -L$(PREFIX)/lib -lfvortex_c -lf2c -lm -lgfortran
+O = \
+lib.o \
+main.o \
 
-M = \
-main\
+M = main
 
 all: $M
 .f.c:; f2c -I$(PREFIX)/include $<
-.c:; $(CC) $< -o $@ $(FVORTEX_FLAGS)
-clean:; rm -f -- $M
+.c.o:; $(CC) $< -c -I$(PREFIX)/include
+main: $O; $(CC) $O -o $@ -L$(PREFIX)/lib -lfvortex_c -lf2c -lm -lgfortran
+clean:; rm -f -- $M $O
