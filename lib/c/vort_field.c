@@ -100,7 +100,7 @@ static integer c__1 = 1;
     static real s2inv2, dxinv, dyinv, s2piinv;
 
     /* Fortran I/O blocks */
-    static icilist io___28 = { 0, vortoutfile, 0, "(A,I0.5,A)", 256, 1 };
+    static icilist io___28 = { 0, vortoutfile, 0, "(A,I8.8,A)", 256, 1 };
     static cilist io___29 = { 0, 1, 0, "(A)", 0 };
     static cilist io___30 = { 0, 1, 0, "(A,I8,A,I8)", 0 };
     static cilist io___32 = { 0, 1, 0, "(3E17.9)", 0 };
