@@ -385,7 +385,7 @@
             endif
          endif
  20   end do
-      write (vortoutfile, '(A,I0.5,A)') 'w.', iframe, '.dat'
+      write (vortoutfile, '(A,I8.8,A)') 'w.', iframe, '.dat'
       open (1, file=vortoutfile, status='replace')
       write (1, '(A)') 'variables=x,y,w'
       write (1, '(A,I8,A,I8)') 'zone i=', nx, ', j=', ny
