@@ -1,14 +1,14 @@
+.POSIX:
+.SUFFIXES:
 .SUFFIXES: .c .o
-AR = emar
-CC = emcc
-CC99 = cc
+include ../conf.mk
 SHELL = /bin/sh
 CFLAGS = -O
 L = libf2c.wasm.a
 
 # compile, then strip unnecessary symbols
 .c.o:
-	$(CC) -c -DSkip_f2c_Undefs $(CFLAGS) -DNON_UNIX_STDIO $*.c
+	$(EMCC) -c -DSkip_f2c_Undefs $(EMCFLAGS) -DNON_UNIX_STDIO $*.c
 ## Under Solaris (and other systems that do not understand ld -x),
 ## omit -x in the ld line above.
 ## If your system does not have the ld command, comment out
@@ -56,19 +56,20 @@ TIME =	dtime_.o etime_.o
 OFILES = $(MISC) $(POW) $(CX) $(DCX) $(REAL) $(DBL) $(INT) \
 	$(HALF) $(CMP) $(EFL) $(CHAR) $(I77) $(TIME)
 
-all: f2c.h signal1.h sysdep1.h $L
-
+install: $L
+	mkdir -p -- "$(PREFIX)/lib"
+	cp -- $L "$(PREFIX)/lib"
+$(OFILES): f2c.h signal1.h sysdep1.h
 $L: $(OFILES)
-	$(AR) r $L $?
-	-ranlib $L
+	$(EMAR) rv $L $?
 
 ### If your system lacks ranlib, you don't need it; see README.
 
 f77vers.o: f77vers.c
-	$(CC) -c f77vers.c
+	$(EMCC) $(EMCFLAGS) -c f77vers.c
 
 i77vers.o: i77vers.c
-	$(CC) -c i77vers.c
+	$(EMCC) $(EMCFLAGS) -c i77vers.c
 
 # To get an "f2c.h" for use with "f2c -C++", first "make hadd"
 hadd: f2c.h0 f2ch.add
@@ -94,13 +95,8 @@ sysdep1.h: sysdep1.h0
 # uncomment the following two lines:
 #main.o: main.c
 #	$(CC) -c -Donexit=on_exit -DSkip_f2c_Undefs main.c
-
-install: libf2c.a
-	cp libf2c.a $(LIBDIR)
-	-ranlib $(LIBDIR)/libf2c.a
-
 clean:
-	rm -f libf2c.a *.o arith.h signal1.h sysdep1.h
+	rm -f $L *.o arith.h signal1.h sysdep1.h
 
 backspac.o:	fio.h
 close.o:	fio.h
@@ -157,8 +153,8 @@ xwsne.o:	lio.h
 xwsne.o:	fmt.h
 
 arith.h: arithchk.c
-	$(CC99) $(CFLAGS) -DNO_FPINIT arithchk.c -lm ||\
-	 $(CC99) -DNO_LONG_LONG $(CFLAGS) -DNO_FPINIT arithchk.c -lm
+	$(CC) $(CFLAGS) -DNO_FPINIT arithchk.c -lm ||\
+	 $(CC) -DNO_LONG_LONG $(CFLAGS) -DNO_FPINIT arithchk.c -lm
 	./a.out >arith.h
 	rm -f a.out arithchk.o
 

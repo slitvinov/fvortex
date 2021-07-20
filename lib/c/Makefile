@@ -2,8 +2,7 @@
 .SUFFIXES:
 .SUFFIXES: .c
 .SUFFIXES: .o
-CC = emcc
-AR = emar
+include ../../conf.mk
 F2C_CFLAGS = -I/usr/include
 L = libfvortex.wasm.a
 
@@ -62,7 +61,6 @@ zeroall.o\
 install: $L
 	mkdir -p -- "$(PREFIX)/lib"
 	cp -- $L "$(PREFIX)/lib"
-$L: $O; $(AR) rv $@ $O && ranlib $@
-.c.o:; $(CC) -c $(CFLAGS) $(F2C_CFLAGS) $<
+$L: $O; $(EMAR) rv $@ $O
+.c.o:; $(EMCC) -c $(EMCFLAGS) $(F2C_CFLAGS) $<
 clean:; rm -f -- $O $L
-
