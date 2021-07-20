@@ -4,6 +4,7 @@ CC = emcc
 CC99 = cc
 SHELL = /bin/sh
 CFLAGS = -O
+L = libf2c.wasm.a
 
 # compile, then strip unnecessary symbols
 .c.o:
@@ -55,11 +56,11 @@ TIME =	dtime_.o etime_.o
 OFILES = $(MISC) $(POW) $(CX) $(DCX) $(REAL) $(DBL) $(INT) \
 	$(HALF) $(CMP) $(EFL) $(CHAR) $(I77) $(TIME)
 
-all: f2c.h signal1.h sysdep1.h libf2c.wasm.a
+all: f2c.h signal1.h sysdep1.h $L
 
-libf2c.wasm.a: $(OFILES)
-	$(AR) r libf2c.wasm.a $?
-	-ranlib libf2c.wasm.a
+$L: $(OFILES)
+	$(AR) r $L $?
+	-ranlib $L
 
 ### If your system lacks ranlib, you don't need it; see README.
 

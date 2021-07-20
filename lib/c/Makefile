@@ -2,10 +2,11 @@
 .SUFFIXES:
 .SUFFIXES: .c
 .SUFFIXES: .o
-.PHONY: clean lint install dep int
-include ../../conf.mk
+CC = emcc
+AR = emar
+F2C_CFLAGS = -I/usr/include
+L = libfvortex.wasm.a
 
-L = libfvortex_c.a
 O = \
 box_1.o\
 box9_to_part.o\
@@ -62,5 +63,6 @@ install: $L
 	mkdir -p -- "$(PREFIX)/lib"
 	cp -- $L "$(PREFIX)/lib"
 $L: $O; $(AR) rv $@ $O && ranlib $@
-.c.o:; $(CC) -c $(CFLAGS) $<
+.c.o:; $(CC) -c $(CFLAGS) $(F2C_CFLAGS) $<
 clean:; rm -f -- $O $L
+
