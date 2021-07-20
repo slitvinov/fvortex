@@ -1,20 +1,33 @@
 !     gfortran -std=legacy ppm.f
       program main
       implicit none
-      integer m, n, k
-      integer x, y, ox, oy, r
+      integer k
+      integer m
+      integer n
+      integer ox
+      integer oy
+      integer r
+      integer x
+      integer x0
+      integer y
+      integer y0
       character zero
       parameter(m = 200, n = 100, k = 3 * m * n, zero = char(0))
       character a(3, m, n)
       data a/k * zero /
 
-      ox = m/2
-      oy = n/4
+      ox = 9*m/10
+      oy = 9*n/10
       r = 20
       do 10 x = -r, r
          do 20 y = -r, r
             if (x*x + y * y <= r * r) then
-               a(1, ox + x, oy + y) = char(255)
+               x0 = ox + x
+               y0 = oy + y
+               if (1 <= x0 .and. x0 <= m .and. 1 <= y0 .and. y0 <= n)
+     &              then
+                  a(1, x0, y0) = char(255)
+               end if
             end if
  20      end do
  10   end do
