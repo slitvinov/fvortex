@@ -1,25 +1,13 @@
-# Unix makefile: see README.
-# For C++, first "make hadd".
-# If your compiler does not recognize ANSI C, add
-#	-DKR_headers
-# to the CFLAGS = line below.
-# On Sun and other BSD systems that do not provide an ANSI sprintf, add
-#	-DUSE_STRLEN
-# to the CFLAGS = line below.
-# On Linux systems, add
-#	-DNON_UNIX_STDIO
-# to the CFLAGS = line below.  For libf2c.so under Linux, also add
-#	-fPIC
-# to the CFLAGS = line below.
-
 .SUFFIXES: .c .o
-CC = cc
+AR = emar
+CC = emcc
+CC99 = cc
 SHELL = /bin/sh
 CFLAGS = -O
 
 # compile, then strip unnecessary symbols
 .c.o:
-	$(CC) -c -DSkip_f2c_Undefs $(CFLAGS) $*.c
+	$(CC) -c -DSkip_f2c_Undefs $(CFLAGS) -DNON_UNIX_STDIO $*.c
 ## Under Solaris (and other systems that do not understand ld -x),
 ## omit -x in the ld line above.
 ## If your system does not have the ld command, comment out
@@ -67,24 +55,11 @@ TIME =	dtime_.o etime_.o
 OFILES = $(MISC) $(POW) $(CX) $(DCX) $(REAL) $(DBL) $(INT) \
 	$(HALF) $(CMP) $(EFL) $(CHAR) $(I77) $(TIME)
 
-all: f2c.h signal1.h sysdep1.h libf2c.a
+all: f2c.h signal1.h sysdep1.h libf2c.wasm.a
 
-libf2c.a: $(OFILES)
-	ar r libf2c.a $?
-	-ranlib libf2c.a
-
-## Shared-library variant: the following rule works on Linux
-## systems.  Details are system-dependent.  Under Linux, -fPIC
-## must appear in the CFLAGS assignment when making libf2c.so.
-## Under Solaris, use -Kpic in CFLAGS and use "ld -G" instead
-## of "$(CC) -shared".
-## For MacOSX 10.4 and 10.5 (and perhaps other versions >= 10.3), use
-## "MACOSX_DEPLOYMENT_TARGET=10.3 libtool -dynamic -undefined dynamic_lookup -single_module"
-## instead of "$(CC) -shared", and when running programs linked against libf2c.so,
-## arrange for $DYLD_LIBRARY_PATH to include the directory containing libf2c.so.
-
-libf2c.so: $(OFILES)
-	$(CC) -shared -o libf2c.so $(OFILES)
+libf2c.wasm.a: $(OFILES)
+	$(AR) r libf2c.wasm.a $?
+	-ranlib libf2c.wasm.a
 
 ### If your system lacks ranlib, you don't need it; see README.
 
@@ -181,8 +156,8 @@ xwsne.o:	lio.h
 xwsne.o:	fmt.h
 
 arith.h: arithchk.c
-	$(CC) $(CFLAGS) -DNO_FPINIT arithchk.c -lm ||\
-	 $(CC) -DNO_LONG_LONG $(CFLAGS) -DNO_FPINIT arithchk.c -lm
+	$(CC99) $(CFLAGS) -DNO_FPINIT arithchk.c -lm ||\
+	 $(CC99) -DNO_LONG_LONG $(CFLAGS) -DNO_FPINIT arithchk.c -lm
 	./a.out >arith.h
 	rm -f a.out arithchk.o
 
