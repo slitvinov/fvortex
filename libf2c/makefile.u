@@ -20,8 +20,6 @@ CFLAGS = -O
 # compile, then strip unnecessary symbols
 .c.o:
 	$(CC) -c -DSkip_f2c_Undefs $(CFLAGS) $*.c
-	ld -r -x -o $*.xxx $*.o
-	mv $*.xxx $*.o
 ## Under Solaris (and other systems that do not understand ld -x),
 ## omit -x in the ld line above.
 ## If your system does not have the ld command, comment out
