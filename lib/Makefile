@@ -2,7 +2,7 @@
 .SUFFIXES:
 .SUFFIXES: .f
 .SUFFIXES: .o
-.PHONY: clean lint install dep int
+.PHONY: clean install dep int
 include ../conf.mk
 
 H = \
@@ -87,7 +87,6 @@ install: $L $H
 $L: $O; $(AR) rv $@ $O && ranlib $@
 .f.o:; $(FC) -c $(FCSTD) $(FCFLAGS) $<
 include dep.mk
-lint:; make FCFLAGS='-Wall -Wimplicit-interface -Wimplicit-procedure -g -O2'
 int: $I; ../tool/fdeclarations $I > fvortex.h
 
 dep:; for i in *.f; do findent --deps < $$i | awk '/^inc/{print "'`basename $$i .f`'.o" ": " $$2}'; done | sort > dep.mk
