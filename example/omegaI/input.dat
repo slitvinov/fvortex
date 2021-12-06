@@ -3,7 +3,7 @@ dt,Nsteps,Nvort
 gnu
 0.0
 s2,ovrlp
-1e-5,0.9
+2e-5,0.9
 Limpar,vortlim
 1,1e-3
 Nrem,visc_rmax
