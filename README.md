@@ -18,6 +18,7 @@ compilers).
 [example/unit](example/unit/)
 
 <pre>
+; make
 ; ./make_box.gp data/points
 </pre>
 
@@ -41,6 +42,8 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 </pre>
 
 <h2>Hacking</h2>
+
+<p>Needs <a href="https://www.ratrabbit.nl/ratrabbit/findent/index.html">findent</a></p>
 
 <pre>
 ; for i in *.f; do findent -ofixed --indent_procedure=0 < $i > t && mv t $i; done
