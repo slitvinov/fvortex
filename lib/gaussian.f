@@ -21,7 +21,7 @@
       do 1 i = 1, ngauss
          x = (i - 1)*gdelta
          gauss(i) = exp(-x)
- 1    end do
+    1 end do
 
       return
       end

@@ -60,7 +60,7 @@
          do 1 i = 1, kp1
             kclose = kclose + 1
             Listclose(i) = liststart(i)
- 1       end do
+    1    end do
 
 !  Construct the interaction list with particles and boxes that belong
 !  to finer levels than the ** 1st **.
@@ -81,8 +81,8 @@
                xt(nns) = xn(np)
                yt(nns) = yn(np)
                gt(nns) = gn(np)
- 111        end do
- 11      end do
+  111       end do
+   11    end do
 
          if (nns > np_max) write (*, *) 'error in int_chless1', nns
          do 251 n = nb1, nb2
@@ -90,7 +90,7 @@
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
- 251     end do
+  251    end do
 
 ! ______________________________
          level = 2
@@ -123,7 +123,7 @@
             Pibox(kfp, 6) = Pi2(id, 6)
             Prbox(kfp, 7) = Pr2(id, 7)
             Pibox(kfp, 7) = Pi2(id, 7)
- 12      end do
+   12    end do
 
 !  Check the remaining level 2 boxes for childless boxes. Since they didn't
 !  interact as a box above and further subdivisions don't exist for the
@@ -144,8 +144,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 250        end do
- 25      end do
+  250       end do
+   25    end do
 
 ! All remaining boxes (those which have not yet interacted in some way) are
 ! parents, thus go to their level 3 children. Process of level 2 repeats
@@ -179,7 +179,7 @@
             Prbox(kfp, 7) = Pr3(id, 7)
             Pibox(kfp, 7) = Pi3(id, 7)
 
- 26      end do
+   26    end do
 
          call check_box(Nmax3, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar3Ch4, imark3)
@@ -194,8 +194,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 270        end do
- 27      end do
+  270       end do
+   27    end do
 
 ! ____________________
          level = 4
@@ -225,7 +225,7 @@
             Prbox(kfp, 7) = Pr4(id, 7)
             Pibox(kfp, 7) = Pi4(id, 7)
 
- 28      end do
+   28    end do
 
          call check_box(Nmax4, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -241,8 +241,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 290        end do
- 29      end do
+  290       end do
+   29    end do
 
 ! ____________________
          level = 5
@@ -272,7 +272,7 @@
             Prbox(kfp, 7) = Pr5(id, 7)
             Pibox(kfp, 7) = Pi5(id, 7)
 
- 30      end do
+   30    end do
 
          call check_box(Nmax5, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -288,8 +288,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 310        end do
- 31      end do
+  310       end do
+   31    end do
 
 ! ____________________
          level = 6
@@ -319,7 +319,7 @@
             Prbox(kfp, 7) = Pr6(id, 7)
             Pibox(kfp, 7) = Pi6(id, 7)
 
- 32      end do
+   32    end do
 
          call check_box(Nmax6, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -335,8 +335,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 330        end do
- 33      end do
+  330       end do
+   33    end do
 
 ! ____________________
          level = 7
@@ -365,7 +365,7 @@
             Pibox(kfp, 6) = Pi7(id, 6)
             Prbox(kfp, 7) = Pr7(id, 7)
             Pibox(kfp, 7) = Pi7(id, 7)
- 34      end do
+   34    end do
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -381,8 +381,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 350        end do
- 35      end do
+  350       end do
+   35    end do
 
 ! ____________________
          level = 8
@@ -411,7 +411,7 @@
             Pibox(kfp, 6) = Pi8(id, 6)
             Prbox(kfp, 7) = Pr8(id, 7)
             Pibox(kfp, 7) = Pi8(id, 7)
- 36      end do
+   36    end do
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -427,8 +427,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 370        end do
- 37      end do
+  370       end do
+   37    end do
 
 ! ____________________
          level = 9
@@ -483,9 +483,9 @@
             uu(n) = uu(n) + (up2 + ubox)*dyopiinv
             vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
             gdiff(n) = gdiff(n) + gp2
- 351     end do
+  351    end do
 
- 10   end do
+   10 end do
 
       return
       end

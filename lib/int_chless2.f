@@ -58,7 +58,7 @@
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
             kc = kc + 1
             Lclg(kc) = k
- 21      end do
+   21    end do
 
 ! now array LCLG contains the colleagues of this box
 ! Find the children of your parents colleagues.
@@ -70,8 +70,8 @@
                if (km == 0) goto 23
                kexam = kexam + 1
                listexam(kexam) = km
- 23         end do
- 22      end do
+   23       end do
+   22    end do
 
 ! the initial list to examine is now listexam.
          call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
@@ -89,8 +89,8 @@
                xt(nns) = xn(np)
                yt(nns) = yn(np) ! childless boxes same level
                gt(nns) = gn(np)
- 250        end do
- 25      end do
+  250       end do
+   25    end do
 
          if (nns > np_max) write (*, *) 'error in int_chless2', nns
          do 251 n = nb1, nb2
@@ -98,7 +98,7 @@
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
- 251     end do
+  251    end do
 
 ! _____________________________________
          level = 3
@@ -128,7 +128,7 @@
             Pibox(kfp, 6) = Pi3(id, 6)
             Prbox(kfp, 7) = Pr3(id, 7)
             Pibox(kfp, 7) = Pi3(id, 7)
- 26      end do
+   26    end do
 
          call check_box(Nmax3, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar3Ch4, imark3)
@@ -143,8 +143,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 270        end do
- 27      end do
+  270       end do
+   27    end do
 
 ! ____________________
          level = 4
@@ -174,7 +174,7 @@
             Pibox(kfp, 6) = Pi4(id, 6)
             Prbox(kfp, 7) = Pr4(id, 7)
             Pibox(kfp, 7) = Pi4(id, 7)
- 28      end do
+   28    end do
 
          call check_box(Nmax4, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar4Ch5, imark4)
@@ -189,8 +189,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 290        end do
- 29      end do
+  290       end do
+   29    end do
 
 ! ____________________
          level = 5
@@ -220,7 +220,7 @@
             Pibox(kfp, 6) = Pi5(id, 6)
             Prbox(kfp, 7) = Pr5(id, 7)
             Pibox(kfp, 7) = Pi5(id, 7)
- 30      end do
+   30    end do
 
          call check_box(Nmax5, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar5Ch6, imark5)
@@ -235,8 +235,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 310        end do
- 31      end do
+  310       end do
+   31    end do
 
 ! ____________________
          level = 6
@@ -266,7 +266,7 @@
             Pibox(kfp, 6) = Pi6(id, 6)
             Prbox(kfp, 7) = Pr6(id, 7)
             Pibox(kfp, 7) = Pi6(id, 7)
- 32      end do
+   32    end do
 
          call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar6Ch7, imark6)
@@ -281,8 +281,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 330        end do
- 33      end do
+  330       end do
+   33    end do
 
 ! ____________________
          level = 7
@@ -311,7 +311,7 @@
             Pibox(kfp, 6) = Pi7(id, 6)
             Prbox(kfp, 7) = Pr7(id, 7)
             Pibox(kfp, 7) = Pi7(id, 7)
- 34      end do
+   34    end do
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -327,8 +327,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 350        end do
- 35      end do
+  350       end do
+   35    end do
 
 ! ____________________
          level = 8
@@ -357,7 +357,7 @@
             Pibox(kfp, 6) = Pi8(id, 6)
             Prbox(kfp, 7) = Pr8(id, 7)
             Pibox(kfp, 7) = Pi8(id, 7)
- 36      end do
+   36    end do
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -373,8 +373,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 370        end do
- 37      end do
+  370       end do
+   37    end do
 
 ! ____________________
          level = 9
@@ -420,7 +420,7 @@
 
          if (nn > np_max) write (*, *) 'error in int_chless2p', nn
          if (kfp > nbox_max) write (*, *) 'error in int_chless2b', kfp
- 201     do 351 n = nb1, nb2
+  201    do 351 n = nb1, nb2
             xnn = xn(n)
             ynn = yn(n)
             gnn = gn(n)
@@ -429,9 +429,9 @@
             uu(n) = uu(n) + (up2 + ubox)*dyopiinv
             vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
             gdiff(n) = gdiff(n) + gp2
- 351     end do
+  351    end do
 
- 20   end do
+   20 end do
 
       return
       end

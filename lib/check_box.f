@@ -33,7 +33,7 @@
             kcheck = kcheck + 1
             icheck4(kcheck) = ks
          endif
- 2    end do
+    2 end do
 
       do 3 i = 1, 4
          do 30 k = 1, Kcheck
@@ -43,8 +43,8 @@
                kexam = kexam + 1
                listexam(kexam) = m
             endif
- 30      end do
- 3    end do
+   30    end do
+    3 end do
 
       return
       end

@@ -76,7 +76,7 @@
          Bi6 = Bi6 - t5
          Br7 = Br7 + s6
          Bi7 = Bi7 + t6
- 1    end do
+    1 end do
 
       Br(kb, 1) = Br(kb, 1) + br1
       Bi(kb, 1) = Bi(kb, 1) + bi1

@@ -93,7 +93,7 @@
 !  Calculate the velocity induced by the group "k" on particle "i"
          ubox = ubox - velr
          vbox = vbox + veli
- 2    end do
+    2 end do
 
       return
       end

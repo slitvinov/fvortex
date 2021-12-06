@@ -218,7 +218,7 @@
      &     ic8, jc8, npb8, iparent8, imark8, ipar8ch9, ich9par8,
      &     npb9, ic9, jc9, xc9, yc9, ichildless8)
 
- 1    ds2 = 0.5*ds1
+    1 ds2 = 0.5*ds1
       ds3 = 0.5*ds2
       ds4 = 0.5*ds3
       ds5 = 0.5*ds4
@@ -357,7 +357,7 @@
 !     finding the induced velocities and circulation exchange   C
 !     _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
 
- 107  format(f8.4, 2x, f8.4, 2x, f8.4)
+  107 format(f8.4, 2x, f8.4, 2x, f8.4)
 
       if (istats == 1) then
          write (*, *) '************TREE STATS*************'

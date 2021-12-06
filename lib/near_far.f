@@ -35,6 +35,6 @@
             kfar = kfar + 1
             Listfar(kfar) = ks  ! far away
          endif
- 2    end do
+    2 end do
       return
       end

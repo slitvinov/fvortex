@@ -37,7 +37,7 @@
          Vext = xni*Arn2 + y_vel
          uu(i) = uu(i) + Uext
          vv(i) = vv(i) + Vext
- 1    end do
+    1 end do
 
       return
       end

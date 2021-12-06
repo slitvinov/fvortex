@@ -52,7 +52,7 @@
          yp(i) = yn(i) + 0.5*dt*vv(i)
 
          gp(i) = gn(i) + 0.5*dt*const*gdiff(i)
- 1    end do
+    1 end do
 
 !--   If any free motion, need to update now
       if ((xfree == 1) .or. (yfree == 1) .or. (wfree == 1)) then
@@ -72,7 +72,7 @@
          yp(i) = yn(i) + dt*(vv(i) - 0.5*Vold(i))
 
          gp(i) = gn(i) + dt*const*(gdiff(i) - 0.5*gdold(i))
- 2    end do
+    2 end do
 
       return
       end

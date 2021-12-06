@@ -27,5 +27,5 @@
          stop
       endif
 
- 900  return
+  900 return
       end

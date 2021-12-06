@@ -66,7 +66,7 @@
          gpart = gpart + a
          Gdiff(n) = Gdiff(n) - a ! Strength of n
 !*         endif
- 4    end do
+    4 end do
 
       return
       end

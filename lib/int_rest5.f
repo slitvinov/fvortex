@@ -45,7 +45,7 @@
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
- 1       end do
+    1    end do
 
          call near_far(Nmax1, ipar, jpar, r41, ic1, jc1, kexam,
      &        listexam,
@@ -67,8 +67,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 210        end do
- 21      end do
+  210       end do
+   21    end do
 
          call near_far(Nmax2, ipar, jpar, r42, ic2, jc2, kexam,
      &        listexam,
@@ -89,8 +89,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 220        end do
- 22      end do
+  220       end do
+   22    end do
 
          call near_far(Nmax3, ipar, jpar, r43, ic3, jc3, kexam,
      &        listexam,
@@ -110,8 +110,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 230        end do
- 23      end do
+  230       end do
+   23    end do
 
 !--------------------------------------------------------------------------
 ! -> 4th level
@@ -141,14 +141,14 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 240        end do
- 24      end do
+  240       end do
+   24    end do
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest5b', n4
          call int_box_part(Nmax5, kb, xb, yb, n4, Br5, Bi5)
 
- 88      call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam,
+   88    call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP
@@ -172,11 +172,11 @@
             Pibox(kbb, 6) = Pi5(id, 6)
             Prbox(kbb, 7) = Pr5(id, 7)
             Pibox(kbb, 7) = Pi5(id, 7)
- 25      end do
+   25    end do
 
          if (kfar > nbox_max) write (*, *) 'error in rest5', kbb
          call int_box(Nmax5, kb, xb, yb, kfar, Br5, Bi5)
 
- 20   end do
+   20 end do
       return
       end

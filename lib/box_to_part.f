@@ -109,8 +109,8 @@
             uu(n) = uu(n) - ci*dyopiinv
             vv(n) = vv(n) + cr*dyopiinv
 
- 2       end do
- 90   end do
+    2    end do
+   90 end do
 
       return
       end

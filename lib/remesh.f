@@ -86,8 +86,8 @@
             yg(ig) = yy
             gg(ig) = 0.0
             indx(ix, iy) = ig   ! We can avoid this big array
- 11      end do
- 10   end do
+   11    end do
+   10 end do
 
       Nmesh = ig
 
@@ -104,7 +104,7 @@
       do 71 i = 1, Np
          cold = cold + gp(i)    ! total circulation
          cx = cx + gp(i)*yp(i)  ! x-impulse
- 71   end do
+   71 end do
       write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
 !--   set cutoff values to throw out particles
@@ -183,7 +183,7 @@
             gg(k21) = gg(k21) + Fx2*Fy1
             gg(k22) = gg(k22) + Fx2*Fy2
          endif
- 40   end do
+   40 end do
 
 !---  put remeshed particles into arrays, using cutoffs determined earlier
 
@@ -199,7 +199,7 @@
             yp(iback) = yg(i)
             gp(iback) = g
          endif
- 29   end do
+   29 end do
 
 !---  check diagnostics
 
@@ -210,13 +210,13 @@
          circ = gp(i)
          cnew = cnew + circ
          cx = cx + circ*yp(i)
- 72   end do
+   72 end do
       write (*, *) 'post-remesh, circulation:', cnew,
      &     '  x-impulse: ', cx
 
       write (*, 89) Np, iback - ifar, ifar
 
- 89   format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
+   89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
      &     'OUTSIDE :', i8, 2x)
 
       return

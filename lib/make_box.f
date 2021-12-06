@@ -99,7 +99,7 @@
                else if ((ibox == ich4) .and. (jbox == jch4)) then
                   ixy(jn) = 4
                end if
- 20         end do
+   20       end do
 
 !   Find  how  many  particles  are  in  each subbox
 !  and store  the  particles  in their new sorted  locations
@@ -117,7 +117,7 @@
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
- 211        end do
+  211       end do
 
             call wheneq(Npbox, ixy, 1, 2, idummy, nb2)
             nbx = nbx + nb1
@@ -131,7 +131,7 @@
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
- 212        end do
+  212       end do
 
             call wheneq(Npbox, ixy, 1, 3, idummy, nb3)
             nbx = nbx + nb2
@@ -145,7 +145,7 @@
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
- 213        end do
+  213       end do
 
             call wheneq(Npbox, ixy, 1, 4, idummy, nb4)
             nbx = nbx + nb3
@@ -159,7 +159,7 @@
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
- 214        end do
+  214       end do
 
 ! Box 1
             np = n1 - 1
@@ -239,11 +239,11 @@
                vv(i) = Vold(i)
                Gdiff(i) = Gdold(i)
                BF_marker(i) = BF_marker_temp(i)
- 22         end do
+   22       end do
 
          end if
 
- 2    end do
+    2 end do
 
       do i = 1, nvort
          xn(i) = xp(i)

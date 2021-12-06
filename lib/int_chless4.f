@@ -56,7 +56,7 @@
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
             kc = kc + 1
             Lclg(kc) = k
- 21      end do
+   21    end do
 
          kexam = 0
          do 22 m = 1, 4
@@ -66,8 +66,8 @@
                if (km == 0) goto 23
                kexam = kexam + 1
                listexam(kexam) = km
- 23         end do
- 22      end do
+   23       end do
+   22    end do
 
          call near_far(Nmax4, ib, jb, r44, ic4, jc4, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
@@ -84,8 +84,8 @@
                xt(nns) = xn(np)
                yt(nns) = yn(np) ! childless boxes same level
                gt(nns) = gn(np)
- 250        end do
- 25      end do
+  250       end do
+   25    end do
 
          if (nns > np_max) write (*, *) 'error in int_chless4', nns
          do 251 n = nb1, nb2
@@ -93,7 +93,7 @@
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
- 251     end do
+  251    end do
 
 ! ____________________
          level = 5
@@ -123,7 +123,7 @@
             Pibox(kfp, 6) = Pi5(id, 6)
             Prbox(kfp, 7) = Pr5(id, 7)
             Pibox(kfp, 7) = Pi5(id, 7)
- 30      end do
+   30    end do
 
          call check_box(Nmax5, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar5Ch6, imark5)
@@ -138,8 +138,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 310        end do
- 31      end do
+  310       end do
+   31    end do
 
 ! ____________________
          level = 6
@@ -168,7 +168,7 @@
             Pibox(kfp, 6) = Pi6(id, 6)
             Prbox(kfp, 7) = Pr6(id, 7)
             Pibox(kfp, 7) = Pi6(id, 7)
- 32      end do
+   32    end do
 
          call check_box(Nmax6, Kclose, Listclose, kexam, listexam, Kpart
      &     , Listpart, ipar6Ch7, imark6)
@@ -183,8 +183,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 330        end do
- 33      end do
+  330       end do
+   33    end do
 
 ! ____________________
          level = 7
@@ -215,7 +215,7 @@
             Prbox(kfp, 7) = Pr7(id, 7)
             Pibox(kfp, 7) = Pi7(id, 7)
 
- 34      end do
+   34    end do
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -231,8 +231,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 350        end do
- 35      end do
+  350       end do
+   35    end do
 
 ! ____________________
          level = 8
@@ -261,7 +261,7 @@
             Pibox(kfp, 6) = Pi8(id, 6)
             Prbox(kfp, 7) = Pr8(id, 7)
             Pibox(kfp, 7) = Pi8(id, 7)
- 36      end do
+   36    end do
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
      &        Kpart,
@@ -277,8 +277,8 @@
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
- 370        end do
- 37      end do
+  370       end do
+   37    end do
 
 ! ____________________
          level = 9
@@ -324,7 +324,7 @@
 
          if (nn > np_max) write (*, *) 'error in int_chless4p', nn
          if (kfp > nbox_max) write (*, *) 'error in int_chless4b', kfp
- 201     do 351 n = nb1, nb2
+  201    do 351 n = nb1, nb2
             xnn = xn(n)
             ynn = yn(n)
             gnn = gn(n)
@@ -333,9 +333,9 @@
             uu(n) = uu(n) + (up2 + ubox)*dyopiinv
             vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
             gdiff(n) = gdiff(n) + gp2
- 351     end do
+  351    end do
 
- 20   end do
+   20 end do
 
       return
       end

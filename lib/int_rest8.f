@@ -52,7 +52,7 @@
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
- 1       end do
+    1    end do
          call near_far(Nmax1, ipar, jpar, r71, ic1, jc1, kexam, listexam
      &   , kfar, Listfar, Kclose, Listclose)
 
@@ -72,8 +72,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 210        end do
- 21      end do
+  210       end do
+   21    end do
 
          call near_far(Nmax2, ipar, jpar, r72, ic2, jc2, kexam, listexam
      &    , kfar, Listfar, Kclose, Listclose)
@@ -93,8 +93,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 220        end do
- 22      end do
+  220       end do
+   22    end do
 
          call near_far(Nmax3, ipar, jpar, r73, ic3, jc3, kexam, listexam
      &   , kfar, Listfar, Kclose, Listclose)
@@ -114,8 +114,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 230        end do
- 23      end do
+  230       end do
+   23    end do
 
          call near_far(Nmax4, ipar, jpar, r74, ic4, jc4, kexam, listexam
      &   ,  kfar, Listfar, Kclose, Listclose)
@@ -135,8 +135,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 240        end do
- 24      end do
+  240       end do
+   24    end do
 
          call near_far(Nmax5, ipar, jpar, r75, ic5, jc5, kexam, listexam
      &    , kfar, Listfar, Kclose, Listclose)
@@ -156,8 +156,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 250        end do
- 25      end do
+  250       end do
+   25    end do
 
          call near_far(Nmax6, ipar, jpar, r76, ic6, jc6, Kexam, listexam
      &   , kfar, Listfar, kclose, Listclose)
@@ -177,8 +177,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 260        end do
- 26      end do
+  260       end do
+   26    end do
 
          call near_far(Nmax7, ipar, jpar, r77, ic7, jc7, Kexam, listexam
      &    , kfar, Listfar, kclose, Listclose)
@@ -198,14 +198,14 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 270        end do
- 27      end do
+  270       end do
+   27    end do
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest8b', n4
          call int_box_part(Nmax8, kb, xb, yb, n4, Br8, Bi8)
 
- 88      call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, listexam,
+   88    call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP
@@ -235,6 +235,6 @@
          if (kfar > nbox_max) write (*, *) 'error in rest8', kbb
          call int_box(Nmax8, kb, xb, yb, kfar, Br8, Bi8)
 
- 20   end do
+   20 end do
       return
       end

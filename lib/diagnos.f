@@ -35,7 +35,7 @@
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
          write (21, *) x, y
- 2    end do
+    2 end do
       close (21)
 
       write (10, 100) Time, xmom
@@ -45,7 +45,7 @@
       close(11)
       close(12)
 
- 100  format(f10.4, 2x, e13.6)
+  100 format(f10.4, 2x, e13.6)
 
       return
       end

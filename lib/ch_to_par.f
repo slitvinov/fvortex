@@ -143,7 +143,7 @@
 
 !     -  Contribution of 2nd Child (if any)
 
- 2       m = ipariChj(km, 2)    ! index of child (if any) box 2 at level i
+    2    m = ipariChj(km, 2)    ! index of child (if any) box 2 at level i
          if (m == 0) goto 3
 
 !     REAL VALUES
@@ -206,7 +206,7 @@
      &        - p17*(r6 + f6) + f7
 
 !     -  Contribution of 3rd Child (if any)
- 3       m = ipariChj(km, 3)    ! index of child (if any) box 3 at level i
+    3    m = ipariChj(km, 3)    ! index of child (if any) box 3 at level i
          if (m == 0) goto 4
 
 !     REAL VALUES
@@ -270,7 +270,7 @@
 
 !     -   Contribution of 4th Child (if any)
 
- 4       m = ipariChj(km, 4)    ! index of child (if any) box 4 at level 7
+    4    m = ipariChj(km, 4)    ! index of child (if any) box 4 at level 7
          if (m == 0) goto 20    ! Non-Empty box.
 
 !     REAL VALUES
@@ -332,7 +332,7 @@
      &        - p4140*f3 - p370*(r4 + f4) - p242*r5
      &        - p17*(r6 - f6) + f7
 
- 20   end do
+   20 end do
 
       do 30 k = 1, Kparent
          kb = iparent(k)
@@ -352,7 +352,7 @@
          Pgi(kb, 5) = Gi(k, 5)
          Pgi(kb, 6) = Gi(k, 6)
          Pgi(kb, 7) = Gi(k, 7)
- 30   end do
+   30 end do
 
       return
       end

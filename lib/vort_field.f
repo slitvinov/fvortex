@@ -38,8 +38,8 @@
          do 2 iy = 1, ny
             in = in + 1
             gg(in) = 0.
- 2       end do
- 1    end do
+    2    end do
+    1 end do
 
       in = 0
       do 10 ix = 1, nx
@@ -48,8 +48,8 @@
             in = in + 1
             xg(in) = xx
             yg(in) = y0 + (iy - 1)*dy
- 11      end do
- 10   end do
+   11    end do
+   10 end do
 
       Ngrid = nx*ny
 
@@ -384,7 +384,7 @@
                gg(m) = gg(m) + g*c
             endif
          endif
- 20   end do
+   20 end do
       write (vortoutfile, '(A,I8.8,A)') 'w.', iframe, '.dat'
       open (1, file=vortoutfile, status='replace')
       write (1, '(A)') 'variables=x,y,w'

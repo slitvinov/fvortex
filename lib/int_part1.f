@@ -56,7 +56,7 @@
 !* if(rad1.lt.visc_cutoff)then
          gpart = gpart + (gt(m) - gtest)*c
 !*         endif
- 4    end do
+    4 end do
 
       return
       end

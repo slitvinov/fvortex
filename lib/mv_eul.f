@@ -29,7 +29,7 @@
          xp(i) = xn(i) + dt*uu(i)
          yp(i) = yn(i) + dt*vv(i)
          gp(i) = gn(i) + dt*const*gdiff(i)
- 1    end do
+    1 end do
 
       return
       end

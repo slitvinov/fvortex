@@ -45,7 +45,7 @@
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
             kc = kc + 1
             Lclg(kc) = k
- 21      end do
+   21    end do
 
          kexam = 0
          do 22 m = 1, 4
@@ -55,8 +55,8 @@
                if (km == 0) goto 23
                kexam = kexam + 1
                listexam(kexam) = km
- 23         end do
- 22      end do
+   23       end do
+   22    end do
 
          call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, listexam
      &     , kfar, Listfar, Kclose, Listclose)
@@ -70,8 +70,8 @@
                xt(nns) = xn(np)
                yt(nns) = yn(np) ! childless boxes same level
                gt(nns) = gn(np)
- 250        end do
- 25      end do
+  250       end do
+   25    end do
 
          if (nns > np_max) write (*, *) 'error in int_chless8', nns
          do 251 n = nb1, nb2
@@ -79,8 +79,8 @@
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
- 251     end do
- 20   end do
+  251    end do
+   20 end do
 
       return
       end

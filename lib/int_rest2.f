@@ -40,7 +40,7 @@
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
- 1       end do
+    1    end do
 
 ! Step 2 : Find boxes adjacent to the parents
 !          ( Start at coarsest  level )
@@ -73,8 +73,8 @@
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
- 210        end do
- 21      end do
+  210       end do
+   21    end do
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest2b', n4
@@ -83,7 +83,7 @@
 !  Now at level of child (box kb), look for boxes far enough away to
 !  interact as box-box
 
- 88      call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
+   88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
      &     kfar, Listfar, Kclose, Listclose)
 
          do 24 kbb = 1, kfar
@@ -106,11 +106,11 @@
             Pibox(kbb, 6) = Pi2(id, 6)
             Prbox(kbb, 7) = Pr2(id, 7)
             Pibox(kbb, 7) = Pi2(id, 7)
- 24      end do
+   24    end do
 
          if (kfar > nbox_max) write (*, *) 'error in rest2', kbb
          call int_box(Nmax2, kb, xb, yb, kfar, Br2, Bi2)
 
- 20   end do
+   20 end do
       return
       end

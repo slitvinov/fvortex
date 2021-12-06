@@ -20,7 +20,7 @@
             nmatch = nmatch + 1
             idummy(nmatch) = i
          endif
- 10   end do
+   10 end do
 
       return
       end
