@@ -7,7 +7,6 @@
 !     four boxes, creating all the necessary indentification arrays to relate
 !     the levels.  It mostly parallels the BOX_1 subroutine.
 
-      implicit none
 
       include 'main_dim.h'
 

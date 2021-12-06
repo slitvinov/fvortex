@@ -3,7 +3,6 @@
 !     This subroutine calculates the velocities induced by a box
 !     on its own particles from the box's interactions (level 9).
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'

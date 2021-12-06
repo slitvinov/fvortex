@@ -3,7 +3,6 @@
 !     This routine adds the irrotational components of the velocity field
 !     (which are not represented by the vorticity field) such as a free stream.
 
-      implicit none
 
       include 'main_dim.h'
 

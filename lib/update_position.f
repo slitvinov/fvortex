@@ -5,7 +5,6 @@
 !     Signs get a bit messy becuase u,v,udot,vdot are for the freestream,
 !     which is (-) the body motion.
 
-      implicit none
 
       real last_cdp, last_cdf, last_clp, last_clf, last_cm
       common/force/last_cdp, last_cdf, last_clp, last_clf, last_cm

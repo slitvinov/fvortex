@@ -2,7 +2,6 @@
 
 !     Same idea as in int_chless1 but now for level 2 childless boxes.
 
-      implicit none
 
       include 'tree_tmp.h'
       include 'main_dim.h'

@@ -1,5 +1,4 @@
       program main
-      implicit none
       include 'main_dim.h'
       common/vort1/xp, yp
       integer npart

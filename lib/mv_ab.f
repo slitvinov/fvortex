@@ -3,7 +3,6 @@
 !     Advance the particle positions using an Adams Bashforth scheme
 !     based on velocities calculated in CONDIFF and VEL_EXT.
 
-      implicit none
 
       include 'main_dim.h'
 

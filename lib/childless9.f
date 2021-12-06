@@ -3,7 +3,6 @@
 !     This subroutine computes the MULTIPOLE EXPANSIONS of
 !     the childless boxes on level 9.
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'

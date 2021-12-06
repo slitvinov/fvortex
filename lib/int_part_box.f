@@ -3,7 +3,6 @@
 !     This  subroutine calculates the velocities induced by boxes
 !     on individual particles.
 
-      implicit none
 
       include 'tree_tmp.h'
 

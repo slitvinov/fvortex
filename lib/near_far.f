@@ -4,7 +4,6 @@
 !     This  subroutine finds all the far & close boxes at a certain
 !     level associated with a certain particle.
 
-      implicit none
 
       include 'tree_tmp.h'
 

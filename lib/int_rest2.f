@@ -4,7 +4,6 @@
 !     interacting with the particles at higher level childless boxes that
 !     interacted as particle-box previously.
 
-      implicit none
 
       include 'tree_tmp.h'
       include 'main_dim.h'

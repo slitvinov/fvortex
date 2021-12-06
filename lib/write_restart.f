@@ -3,7 +3,6 @@
 !     Write the files needed to restart the simulation.
 !     Values for u and v are freestream velocity, thus (-) body vel.
 
-      implicit none
       integer  np, nvort
       real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)
 !----------------------------------------------------------------------

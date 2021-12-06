@@ -1,6 +1,5 @@
 !     gfortran -std=legacy ppm.f
       program main
-      implicit none
       integer k
       integer m
       integer n

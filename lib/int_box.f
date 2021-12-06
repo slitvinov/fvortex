@@ -2,7 +2,6 @@
 
 !     This subroutine computes BOX-BOX interactions.
 
-      implicit none
 
       include 'tree_tmp.h'
 

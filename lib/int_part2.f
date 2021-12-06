@@ -7,7 +7,6 @@
 !     xtest,ytest on the particles XT,YT. Thus it is only used when xtest,
 !     ytest is in a higher level box than XT,YT to keep things straight.
 
-      implicit none
 
       include 'main_dim.h'
       include 'tree_tmp.h'

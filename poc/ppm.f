@@ -1,6 +1,5 @@
 !     gfortran -std=legacy ppm.f
       program main
-      implicit none
       integer m, n, k, i, j
       character zero
       parameter(m = 200, n = 100, k = 3 * m * n, zero = char(0))

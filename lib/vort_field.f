@@ -2,7 +2,6 @@
 
 !     outputs the vorticity field on a grid.
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'

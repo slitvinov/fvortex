@@ -5,7 +5,6 @@
 !     the PARENT boxes once the multipole expansions of their
 !     children has been computed.
 
-      implicit none
 
       integer nmax1, kparent
       real dch

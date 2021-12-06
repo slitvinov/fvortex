@@ -4,7 +4,6 @@
 !     by the vorticity field, sending back contributions from particle
 !     interactions (Sp) and box interactions (Sb).
 
-      implicit none
 
       include 'tree_tmp.h'
 

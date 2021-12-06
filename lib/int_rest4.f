@@ -2,7 +2,6 @@
 
 !     Same as int_rest2 for level 4 boxes.
 
-      implicit none
 
       include 'tree_tmp.h'
       include 'main_dim.h'

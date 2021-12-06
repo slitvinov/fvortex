@@ -8,7 +8,6 @@
 !     particle located at *xtest*,*ytest*, by the particles in its
 !     interaction list *XT,YT,GT*.
 
-      implicit none
 
       include 'main_dim.h'
       include 'tree_tmp.h'

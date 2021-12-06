@@ -3,7 +3,6 @@
 !  This subroutine finds the streamfunction value induced at (xtest,ytest)
 !  from the boxes in Xbox,Ybox,Pr.
 
-      implicit none
 
       include 'tree_tmp.h'
 

@@ -7,7 +7,6 @@
 !     If they are childless then their particles are placed in list
 !     *Listpart* so that they interact directly with the particle.
 
-      implicit none
 
       include 'tree_tmp.h'
 

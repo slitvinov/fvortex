@@ -4,7 +4,6 @@
 !     Must do after a remesh rather than Adams Bashforth because
 !     velocities from the previous step are not available.
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'

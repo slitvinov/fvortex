@@ -3,7 +3,6 @@
 !     This subroutine computes the influence of the particles of childless
 !     boxes on far boxes of a lower level, as these are particle-box interactions.
 
-      implicit none
 
       include 'tree_tmp.h'
 

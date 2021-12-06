@@ -1,5 +1,4 @@
       program go
-      implicit none
       include 'main_dim.h'
       include 'part.h'
 
@@ -133,7 +132,6 @@
 !     Initial time is shifted backwards for accurate discretization
 !     using initially point vortex diffused to desired core size.
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'
@@ -200,7 +198,6 @@
 !     In this subroutine parameters for the computation of the
 !     Lamb-Oseen (initially point) vortex are input.
 
-      implicit none
 
       include 'main_dim.h'
 
@@ -290,7 +287,6 @@
       end subroutine input
 
       function f(z, q)
-      implicit none
       real f
       real z
       real q

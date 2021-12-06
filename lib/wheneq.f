@@ -3,7 +3,6 @@
 !     This routine finds elements of an array which match some key and saves
 !     their indicies in a new array.
 
-      implicit none
 
       include 'main_dim.h'
 

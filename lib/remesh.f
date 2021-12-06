@@ -3,7 +3,6 @@
 !     This subroutine remeshes the vortex field onto a uniform Cartesian
 !     grid.
 
-      implicit none
 
       include 'remesh_cartesian.h'
       include 'main_dim.h'

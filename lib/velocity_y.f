@@ -2,7 +2,6 @@
 
 !     Gives  the freestream velocity in the y-direction at time
 
-      implicit none
 
       integer xfree, yfree, wfree
       real xmass, xdamp, xspring, xforce

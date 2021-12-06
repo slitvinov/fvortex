@@ -1,5 +1,4 @@
       program main
-      implicit none
       include 'main_dim.h'
       include 'tree9.h'
       common/vort1/xp, yp
@@ -108,7 +107,6 @@
       end program main
 
       subroutine print_box(n, x, y, s)
-      implicit none
       integer n
       real x(*)
       real y(*)
@@ -121,7 +119,6 @@
 
 
       subroutine print_box0(x, y, s)
-      implicit none
       real x
       real y
       real s

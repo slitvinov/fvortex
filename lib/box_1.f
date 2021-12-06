@@ -4,7 +4,6 @@
 !     This subroutine sorts the particles into four boxes and provides the
 !     necessary identification arrays for this top level of the interaction tree.
 
-      implicit none
 
       include 'main_dim.h'
       include 'part.h'

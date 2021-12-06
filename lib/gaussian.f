@@ -5,7 +5,6 @@
 !     has the Guassian for argument -r**2/s2, starting at 0 and going out
 !     to whatever cutoff value we choose for particle interactions.
 
-      implicit none
 
       include 'main_dim.h'
 

@@ -3,7 +3,6 @@
 !     Reads the files for restarting the simulation from a saved state.
 !     Values for u and v are freestream velocity, thus (-) body vel.
 
-      implicit none
 
       integer np, nvort
       real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)

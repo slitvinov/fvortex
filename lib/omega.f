@@ -2,7 +2,6 @@
 
 !     Gives the rotational velocity of the body at Time.
 
-      implicit none
 
       integer xfree, yfree, wfree
       real xmass, xdamp, xspring, xforce

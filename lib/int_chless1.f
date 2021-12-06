@@ -15,7 +15,6 @@
 !     bigger box). Box-box interactions cannot happen for a level 1 box and are
 !     handled by the int_rest arrays rather than int_chless.
 
-      implicit none
 
       include 'tree_tmp.h'
       include 'main_dim.h'

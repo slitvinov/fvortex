@@ -1,5 +1,4 @@
       program main
-      implicit none
       include 'main_dim.h'
       include 'tree9.h'
       common/vort1/xp, yp
