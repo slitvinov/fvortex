@@ -8,7 +8,6 @@ include ../conf.mk
 H = \
 main_dim.h\
 part.h\
-fvortex.h\
 tree9.h\
 
 L = libfvortex.a
@@ -87,7 +86,6 @@ install: $L $H
 $L: $O; $(AR) rv $@ $O && ranlib $@
 .f.o:; $(FC) -c $(FCSTD) $(FCFLAGS) $<
 include dep.mk
-int: $I; ../tool/fdeclarations $I > fvortex.h
 
 dep:; for i in *.f; do findent --deps < $$i | awk '/^inc/{print "'`basename $$i .f`'.o" ": " $$2}'; done | sort > dep.mk
 
