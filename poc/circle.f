@@ -29,8 +29,8 @@
                   a(1, x0, y0) = char(255)
                end if
             end if
- 20      end do
- 10   end do
+   20    end do
+   10 end do
 
 
       open(unit=2, file='a.ppm')

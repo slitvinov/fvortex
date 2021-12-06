@@ -104,7 +104,7 @@
      &  npb9, ic9, jc9, xc9, yc9, ichildless8)
       call print_box(kp9, xc9, yc9, ds9)
 
- 1    stop
+    1 stop
       end program main
 
       subroutine print_box(n, x, y, s)

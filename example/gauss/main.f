@@ -118,10 +118,10 @@
 
 !--   end of loop
 
- 1    end do
+    1 end do
 
- 102  format(10x, ' Time Step :', i9, 6x, 'Time :', f8.4)
- 103  format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
+  102 format(10x, ' Time Step :', i9, 6x, 'Time :', f8.4)
+  103 format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
 
       stop
       end program
@@ -164,8 +164,8 @@
             xp(in) = x
             yp(in) = y
             gp(in) = strength
- 102     end do
- 101  end do
+  102    end do
+  101 end do
 
       Np = in                   ! the initial number of particles
       write (*, *) 'initial number of Particles ', Np

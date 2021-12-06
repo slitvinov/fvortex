@@ -12,8 +12,8 @@
             a(1, i, j) = char(255)
             a(2, i + 10, j) = char(255)
             a(3, i + 20, j) = char(255)
- 20      end do
- 10   end do
+   20    end do
+   10 end do
 
       open(unit=2, file='a.ppm')
       write(2, '(A / I0 X I0 / A)') 'P6', m, n, '255'

@@ -95,7 +95,7 @@
 
          Sb = Sb + cr
 
-2     end do
+    2 end do
 
       return
       end
