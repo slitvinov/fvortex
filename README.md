@@ -51,4 +51,5 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 
 <h2>Results</h2>
 
-<p align="center"><img src="./img/gauss.gif"/></p>
+<p align="center"><img src="./img/gauss.gif"/></p><br/>
+<p align="center"><img src="./img/omegaI.gif"/></p>
