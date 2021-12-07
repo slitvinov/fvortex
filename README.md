@@ -41,6 +41,15 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 ; ./main
 </pre>
 
+<h2>Postprocessing</h2>
+
+<pre>
+; awk -f tool/heat.awk example/gauss/w.00000001.dat > heat.ppm
+; convert heat.ppm heat.png
+</pre>
+
+<p align="center"><img src="./img/heat.png"/></p><br/>
+
 <h2>Hacking</h2>
 
 <p>Needs <a href="https://www.ratrabbit.nl/ratrabbit/findent/index.html">findent</a></p>
