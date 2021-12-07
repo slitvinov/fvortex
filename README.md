@@ -15,7 +15,7 @@ compilers).
 
 <h2>Unit tests</h2>
 
-[example/unit](example/unit/)
+<p><a href="example/unit/">example/unit</a></p>
 
 <pre>
 ; make
