@@ -31,14 +31,31 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 <pre>
 ; cd example/gauss
 ; ./main
+ initial number of Particles        60025
+           Particles :    60025      Time :  0.3405
+           Time Step :        1      Time :  0.0010
+           Particles :    60025      Time :  0.3257
+           Time Step :        2      Time :  0.0020
+           Particles :    60025      Time :  0.3263
+           Time Step :        3      Time :  0.0030
+           Particles :    60025      Time :  0.3295
+           Time Step :        4      Time :  0.0040
+           Particles :    60025      Time :  0.3317
+           Time Step :        5      Time :  0.0050
+ nx_l,nx_r        -114         114
+ ny_t,ny_b         114        -114
+ Nmesh =        52441
+ ...
 </pre>
-
 
 <a href="https://doi.org/10.1017/S0022112087001150">Melander,  McWilliams,  and  Zabusky vortex</a>:
 
 <pre>
 ; cd example/omegaI
 ; ./main
+ initial number of Particles       672400
+           Particles :   672400      Time : 12.1381
+...
 </pre>
 
 <h2>Postprocessing</h2>
