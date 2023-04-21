@@ -2,7 +2,6 @@
 .SUFFIXES:
 .SUFFIXES: .f
 .SUFFIXES: .o
-.PHONY: clean install dep int
 include ../conf.mk
 
 H = \

@@ -226,7 +226,7 @@
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
-      open (1, file='input.dat', status='OLD')
+      open (1, file='input.dat', status='OLD', err = 101)
       read (1, *)
       read (1, *) dt, Nsteps, Nvf
       read (1, *)
@@ -284,6 +284,8 @@
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       return
+ 101  write (*, *) 'omegaI: error: needs input.dat file'
+
       end subroutine input
 
       function f(z, q)

@@ -207,7 +207,7 @@
 !---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
-      open (1, file='input.dat', status='OLD')
+      open (1, file='input.dat', status='OLD', err = 101)
       read (1, *)
       read (1, *) dt, Nsteps
       read (1, *)
@@ -267,4 +267,7 @@
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       return
+ 101  write (*, *) 'gauss: error: needs input.dat file'
+      call exit(1)
+
       end subroutine input

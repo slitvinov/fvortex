@@ -3,7 +3,7 @@
 .SUFFIXES: .f
 include ../../conf.mk
 
-FVORTEX_FLAGS = -I$(PREFIX)/include -L$(PREFIX)/lib -lfvortex -lm
+FVORTEX_FLAGS = -I$(PREFIX)/include -L$(PREFIX)/lib -lfvortex
 
 M = \
 main\
