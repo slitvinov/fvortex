@@ -1,5 +1,6 @@
-set -e
+#!/bin/sh
+
 for i in w.*.dat
 do o=`basename "$i" .dat`.png
-   awk -f ../../poc/heat.awk "$i" | convert - "$o"
+   awk -f ../../tool/heat.awk "$i" | convert - "$o"
 done

@@ -1,4 +1,5 @@
       program go
+
       include 'main_dim.h'
       include 'part.h'
 
@@ -13,12 +14,19 @@
       real vortlim, t1, t2
       common/rems/vortlim
 
-      integer irk, ivalue, istepping
-      integer icase, idiags
-      integer Nsteps, Nrem, Nrestart
-      integer Nvf, Ntree
-      real Rmax, visc_rmax
+      integer icase
+      integer idiags
+      integer irk
+      integer istepping
+      integer ivalue
+      integer Nrem
+      integer Nrestart
+      integer Nsteps
+      integer Ntree
+      integer Nvf
       logical  lremesh
+      real Rmax
+      real visc_rmax
 
 !---------------------------------------------------------------------------
 
@@ -285,6 +293,7 @@
 
       return
  101  write (*, *) 'omegaI: error: needs input.dat file'
+      call exit(1)
 
       end subroutine input
 

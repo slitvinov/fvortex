@@ -14,12 +14,21 @@
       real vortlim, t1, t2
       common/rems/vortlim
 
-      integer irk, ivalue, istepping
-      integer icase, idiags
-      integer Nsteps, Nrem, Nrestart
-      integer Nvf, Ntree
-      real Rmax, ell_x, ell_y, visc_rmax
+      integer icase
+      integer idiags
+      integer irk
+      integer istepping
+      integer ivalue
+      integer Nrem
+      integer Nrestart
+      integer Nsteps
+      integer Ntree
+      integer Nvf
       logical  lremesh
+      real ell_x
+      real ell_y
+      real Rmax
+      real visc_rmax
 
 !---------------------------------------------------------------------------
 
@@ -123,7 +132,7 @@
   103 format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
 
       stop
-      end program
+      end program go
 
       subroutine initial(Rmax, ell_x, ell_y)
 
@@ -137,12 +146,25 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer np
-      real s2, ovrlp, gnu
       common/part/Np, s2, ovrlp, gnu
-      real rmax, ell_x, ell_y, r_arg
-      integer Nmx, in, ix, iy
-      real h2, deltax, denom, x, y, strength
+      integer in
+      integer ix
+      integer iy
+      integer Nmx
+      integer np
+      real deltax
+      real denom
+      real ell_x
+      real ell_y
+      real gnu
+      real h2
+      real ovrlp
+      real r_arg
+      real rmax
+      real s2
+      real strength
+      real x
+      real y
 !-----------------------------------------------------------------------
       h2 = s2*ovrlp**2
       deltax = sqrt(h2)         ! grid spacing
