@@ -1,20 +1,18 @@
 #!/bin/sh
 
-me=make_box.gp
+: ${GNUPLOT=gnuplot}
 
-err () {
-    printf %s\\n "$me: $@"
-    exit 2
-}
-
-
-if test $# -ne 1; then err "FILE is missing"; fi
+case $# in
+     0) printf %s\\n "make_box.gp: FILE is missing"
+	exit 1
+	;;
+esac
 
 i=$1
 o=make_box.svg
 
-gnuplot <<!
-set term svg
+"$GNUPLOT" <<!
+set term svg background rgb 'white'
 set output "$o"
 set size sq
 unset key
@@ -29,5 +27,10 @@ plot \
 "<./make_box < $i" w l lw 3
 !
 
-printf %s\\n "$me: $o"
-
+rc=$?
+case $rc in
+    0) printf %s\\n "make_box.gp: $o" ;;
+    *) printf %s\\n "make_box.gp failed"
+       exit $rc
+       ;;
+esac

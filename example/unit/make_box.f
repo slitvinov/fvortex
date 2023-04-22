@@ -122,7 +122,6 @@
       real x
       real y
       real s
-
       real xh
       real xl
       real yh
@@ -132,10 +131,6 @@
       xh = x + s/2
       yl = y - s/2
       yh = y + s/2
-      print *, xl, yl
-      print *, xh, yl
-      print *, xh, yh
-      print *, xl, yh
-      print *, xl, yl
-      print *
+      write (*, '(5(E23.16, X, E23.16/))') xl, yl, xh, yl,
+     &     xh, yh, xl, yh, xl, yl
       end subroutine print_box0
