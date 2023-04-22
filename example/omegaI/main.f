@@ -11,7 +11,7 @@
       real time, dt
       common/params/n, time, dt
 
-      real vortlim, t1, t2
+      real vortlim
       common/rems/vortlim
 
       integer icase
@@ -57,22 +57,15 @@
       call vort_field(ivalue)
 
       call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
-
-!     call vel_error  ! absolute error in a vel. profile relative to exact
-
       do 1 n = 1, Nsteps
 
 !--   compute vortex interactions with the FAST MULTIPOLE METHOD
-         call cpu_time(t1)
-
          if (mod(n, Ntree) == 0) then
             call condiff(Np, 1, visc_rmax, 1)
          else
             call condiff(np, 1, visc_rmax, 0)
          endif
 
-         call cpu_time(t2)
-         write (*, 103) Np, t2 - t1
          call vel_ext(time)     ! Add irrotational velocities
 
 !---  Move the particles
@@ -112,11 +105,7 @@
          endif
 
 !--   take measurements if desired
-
          call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
-
-!     call vel_error  ! absolute error in a vel. profile relative to exact
-
          if (mod(n, Nvf) == 0) then
             ivalue = n/Nvf
             call vort_field(ivalue)
