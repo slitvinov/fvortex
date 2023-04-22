@@ -289,7 +289,7 @@
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       return
- 101  write (*, *) 'gauss: error: needs input.dat file'
-      call exit(1)
+ 101  write (*, '(A)') 'gauss: error: needs input.dat file'
+      stop 1
 
       end subroutine input
