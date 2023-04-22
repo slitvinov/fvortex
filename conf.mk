@@ -1,10 +1,5 @@
 PREFIX = $(HOME)/.local
 FCFLAGS = -O2 -g
-CFLAGS = -O2 -g
-CC = c99
-EMCC = emcc
-EMCFLAGS = -O
-EMAR = emar
 AR = ar
 
 #FC = ftn
@@ -14,7 +9,7 @@ AR = ar
 #FCSTD =
 
 #FC = pgf95
-#FSTD =
+#FCSTD =
 
 FC = gfortran
 FCSTD = -std=legacy

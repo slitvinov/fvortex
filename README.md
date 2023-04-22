@@ -8,9 +8,9 @@ By default uses GNU Fortran (edit [conf.mk](conf.mk) for other
 compilers).
 
 <pre>
-; (cd lib && make)
-; (cd example/gauss && make)
-; (cd example/omegaI && make)
+$ (cd lib && make)
+$ (cd example/gauss && make)
+$ (cd example/omegaI && make)
 </pre>
 
 <h2>Unit tests</h2>
@@ -18,8 +18,8 @@ compilers).
 <p><a href="example/unit/">example/unit</a></p>
 
 <pre>
-; make
-; ./make_box.gp data/points
+$ make
+$ ./make_box.gp data/points
 </pre>
 
 <p align="center"><img src="./img/make_box.svg"/></p>
@@ -29,8 +29,8 @@ compilers).
 Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ€“Oseen vortex</a>:
 
 <pre>
-; cd example/gauss
-; ./main
+$ cd example/gauss
+$ ./main
  initial number of Particles        60025
            Particles :    60025      Time :  0.3405
            Time Step :        1      Time :  0.0010
@@ -51,8 +51,8 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 <a href="https://doi.org/10.1017/S0022112087001150">Melander,  McWilliams,  and  Zabusky vortex</a>:
 
 <pre>
-; cd example/omegaI
-; ./main
+$ cd example/omegaI
+$ ./main
  initial number of Particles       672400
            Particles :   672400      Time : 12.1381
 ...
@@ -61,8 +61,8 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 <h2>Postprocessing</h2>
 
 <pre>
-; awk -f tool/heat.awk example/gauss/w.00000001.dat > heat.ppm
-; convert heat.ppm heat.png
+$ awk -f tool/heat.awk example/gauss/w.00000001.dat > heat.ppm
+$ convert heat.ppm heat.png
 </pre>
 
 <p align="center"><img src="./img/heat.png"/></p><br/>
@@ -72,7 +72,7 @@ Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lambâ
 <p>Needs <a href="https://www.ratrabbit.nl/ratrabbit/findent/index.html">findent</a></p>
 
 <pre>
-; for i in *.f; do findent -ofixed --indent_procedure=0 < $i > t && mv t $i; done
+$ for i in *.f; do findent -ofixed --indent_procedure=0 < $i > t && mv t $i; done
 </pre>
 
 <h2>Results</h2>
