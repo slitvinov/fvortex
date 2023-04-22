@@ -46,8 +46,8 @@
          jb = jc4(kb)
          nb1 = npb4(kb, 1)
          nb2 = npb4(kb, 2)
-         ipar = (xc4(kb) - x0)/ds3 + 1
-         jpar = (yc4(kb) - y0)/ds3 + 1
+         ipar = int((xc4(kb) - x0)/ds3 + 1)
+         jpar = int((yc4(kb) - y0)/ds3 + 1)
          kc = 0
          do 21 k = 1, Kp3       ! Loop over boxes in parents level.
             i = ic3(k)

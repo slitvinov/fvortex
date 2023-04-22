@@ -46,8 +46,8 @@
          nb1 = npb2(kb, 1)
          nb2 = npb2(kb, 2)
 ! get indicies of parent of kh
-         ipar = (xc2(kb) - x0)/ds1 + 1
-         jpar = (yc2(kb) - y0)/ds1 + 1
+         ipar = int((xc2(kb) - x0)/ds1 + 1)
+         jpar = int((yc2(kb) - y0)/ds1 + 1)
 ! For particle interactions, only need consider neighbors of your parent.
 ! All others are box interactions handled in int_rest at your parent's level.
          kc = 0

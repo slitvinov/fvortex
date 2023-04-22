@@ -39,8 +39,8 @@
          jb = jc7(kb)
          nb1 = npb7(kb, 1)
          nb2 = npb7(kb, 2)
-         ipar = (xc7(kb) - x0)/ds6 + 1
-         jpar = (yc7(kb) - y0)/ds6 + 1
+         ipar = int((xc7(kb) - x0)/ds6 + 1)
+         jpar = int((yc7(kb) - y0)/ds6 + 1)
          kc = 0
          do 21 k = 1, Kp6       ! Loop over boxes in parents level.
             i = ic6(k)

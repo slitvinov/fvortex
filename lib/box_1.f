@@ -42,8 +42,8 @@
       do 1 n = 1, npart
          lx = (xp(n) - x0)*ds1inv
          ly = (yp(n) - y0)*ds1inv
-         ibox = lx + 1          ! indices of the box where the particles
-         jbox = ly + 1          ! reside
+         ibox = int(lx + 1)          ! indices of the box where the particles
+         jbox = int(ly + 1)          ! reside
          ixy(n) = 1             ! IXY(n) has as value
          if ((ibox == 1) .and. (jbox == 2)) then ! the index (1,2,3,4)
             ixy(n) = 2          ! of the box that

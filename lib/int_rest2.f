@@ -34,8 +34,8 @@
          xb = xc2(kb)
          yb = yc2(kb)
 ! Step 1 : Find i,j of your parent.
-         ipar = (xb - x0)/ds1 + 1
-         jpar = (yb - y0)/ds1 + 1
+         ipar = int((xb - x0)/ds1 + 1)
+         jpar = int((yb - y0)/ds1 + 1)
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)

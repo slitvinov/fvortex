@@ -356,8 +356,6 @@
 !     finding the induced velocities and circulation exchange   C
 !     _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
 
-  107 format(f8.4, 2x, f8.4, 2x, f8.4)
-
       if (istats == 1) then
          write (*, *) '************TREE STATS*************'
          write (*, *) 'Level 1: total boxes=', kp1,

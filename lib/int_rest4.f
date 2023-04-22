@@ -35,8 +35,8 @@
          jb = jc4(kb)
          xb = xc4(kb)
          yb = yc4(kb)
-         ipar = (xb - x0)/ds3 + 1
-         jpar = (yb - y0)/ds3 + 1
+         ipar = int((xb - x0)/ds3 + 1)
+         jpar = int((yb - y0)/ds3 + 1)
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)

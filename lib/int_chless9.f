@@ -35,8 +35,8 @@
          jb = jc9(kb)
          nb1 = npb9(kb, 1)
          nb2 = npb9(kb, 2)
-         ipar = (xc9(kb) - x0)/ds8 + 1
-         jpar = (yc9(kb) - y0)/ds8 + 1
+         ipar = int((xc9(kb) - x0)/ds8 + 1)
+         jpar = int((yc9(kb) - y0)/ds8 + 1)
          kc = 0
          do 21 k = 1, Kp8       ! Loop over boxes in parents level.
             i = ic8(k)

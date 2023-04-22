@@ -40,8 +40,8 @@
          jb = jc6(kb)
          nb1 = npb6(kb, 1)
          nb2 = npb6(kb, 2)
-         ipar = (xc6(kb) - x0)/ds5 + 1
-         jpar = (yc6(kb) - y0)/ds5 + 1
+         ipar = int((xc6(kb) - x0)/ds5 + 1)
+         jpar = int((yc6(kb) - y0)/ds5 + 1)
          kc = 0
          do 21 k = 1, Kp5       ! Loop over boxes in parents level.
             i = ic5(k)
