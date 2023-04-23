@@ -2,27 +2,55 @@
 
 !     outputs the vorticity field on a grid.
 
-
       include 'main_dim.h'
       include 'part.h'
 
-      integer nx, ny
-      real xmax, xmin, ymax, ymin
-      common/vort_avg/nx, ny, xmax, xmin, ymax, ymin
-      integer n
-      real time, dt
-      common/params/n, Time, dt
-      integer np
-      real s2, ovrlp, gnu
-      common/part/Np, s2, ovrlp, gnu
-      integer iframe
-      integer in, ix, iy, ngrid, i, j, m0, m
-      real pi, twopiinv, dx, dy, x0, y0, xx, s2inv2, s2piinv, dxinv,
-     &     dyinv
-      real g, x, y, r2s, c
-      real xg(nxmaxavg*nymaxavg), yg(nxmaxavg*nymaxavg),
-     &     gg(nxmaxavg*nymaxavg)
       character*256 vortoutfile
+      integer i
+      integer iframe
+      integer in
+      integer ix
+      integer iy
+      integer j
+      integer m
+      integer m0
+      integer n
+      integer ngrid
+      integer np
+      integer nx
+      integer ny
+      real c
+      real dt
+      real dx
+      real dxinv
+      real dy
+      real dyinv
+      real g
+      real gg(nxmaxavg*nymaxavg)
+      real gnu
+      real ovrlp
+      real pi
+      real r2s
+      real s2
+      real s2inv2
+      real s2piinv
+      real time
+      real twopiinv
+      real x
+      real x0
+      real xg(nxmaxavg*nymaxavg)
+      real xmax
+      real xmin
+      real xx
+      real y
+      real y0
+      real yg(nxmaxavg*nymaxavg)
+      real ymax
+      real ymin
+      
+      common/vort_avg/nx, ny, xmax, xmin, ymax, ymin
+      common/part/Np, s2, ovrlp, gnu
+      common/params/n, Time, dt
 !----------------------------------------------------------------
       pi = 4.0*atan(1.0)
       twopiinv = 0.5/pi
