@@ -281,7 +281,7 @@
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       return
- 101  write (*, '(A)') 'omegaI: error: needs input.dat file'
+ 101  write (*, '(''omegaI: error: needs input.dat file'')')
       stop 1
 
       end subroutine input
