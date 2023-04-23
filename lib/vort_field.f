@@ -384,15 +384,16 @@
             endif
          endif
    20 end do
-      write (vortoutfile, '(A,I8.8,A)') 'w.', iframe, '.dat'
+      write (vortoutfile, '(A, I8.8, A)') 'w.', iframe, '.dat'
       open (1, file=vortoutfile, status='replace')
-      write (1, '(A)') 'variables=x,y,w'
-      write (1, '(A,I8,A,I8)') 'zone i=', nx, ', j=', ny
+      write (1, '(A, /, A, I8, A, I8)') 'variables=x,y,w',
+     &     'zone i=', nx, ', j=', ny
       in = 0
       do j = 1, nx
          do i = 1, ny
             in = in + 1
-            write (1, '(3E17.9)') xg(in), yg(in), gg(in)
+            write (1, '(SP, E23.16, X, E23.16, X, E23.16)') 
+     &           xg(in), yg(in), gg(in)
          end do
       end do
       close (1)
