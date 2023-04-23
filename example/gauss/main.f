@@ -53,7 +53,9 @@
          call initial(Rmax, ell_x, ell_y)
          time = 0.0
          irk = 0
-         call diagnos           ! get initial impulse and circulation
+         if (idiags == 1) then
+            call diagnos(ivalue) ! get initial impulse and circulation
+         endif
       endif
       ivalue = 0
       call vort_field(ivalue)
@@ -95,7 +97,7 @@
          endif
 
          if (idiags == 1) then
-            call diagnos        ! flow momentum and circulation
+            call diagnos(ivalue)      ! flow momentum and circulation
          endif
 
 !--   save data for restart, if desired

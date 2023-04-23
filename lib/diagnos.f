@@ -1,27 +1,35 @@
-      subroutine diagnos()
+      subroutine diagnos(iframe)
 
 !     Calculates the linear/angular impulse and circulation of the flow.
 !     Differentiation of the impulse will give drag and lift.
 
-
       include 'main_dim.h'
-
       include 'part.h'
 
-      integer n
-      real Time, dt
-      common/params/n, Time, dt
-
-      integer np
-      real s2, ovrlp, gnu
-      common/part/Np, s2, ovrlp, gnu
-
+      character*256 partfile
       integer i
-      real pi, circ, xmom, ymom, g, ang, x, y
+      integer iframe
+      integer n
+      integer np
+      real ang
+      real circ
+      real dt
+      real g
+      real gnu
+      real ovrlp
+      real s2
+      real Time
+      real x
+      real xmom
+      real y
+      real ymom
+
+      common/params/n, Time, dt
+      common/part/Np, s2, ovrlp, gnu
 !-----------------------------------------------------
 
-      pi = 4.*atan(1.)
-      circ = 0.
+      write (partfile, '(A, I8.8, A)') 'p.', iframe, '.dat'
+      open (1, file=partfile, status='replace')
       xmom = 0.
       ymom = 0.
       ang = 0.
@@ -33,9 +41,9 @@
          xmom = xmom - g*y
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
-         write (21, *) x, y
+         write (1, '(SP, 2P E23.16, X, E23.16, X, E23.16)') x, y, g
     2 end do
-      close (21)
+      close (1)
 
       write (10, 100) Time, xmom
       write (11, 100) Time, ymom
