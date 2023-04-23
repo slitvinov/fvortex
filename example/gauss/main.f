@@ -209,7 +209,7 @@
 
       integer nxavg, nyavg
       real xmaxavg, xminavg, ymaxavg, yminavg
-      common/vort_avg/nxavg, nyavg, xmaxavg, Xminavg, ymaxavg, yminavg
+      common/vort_avg/nxavg, nyavg, xmaxavg, xminavg, ymaxavg, yminavg
 
       integer icase, idiags, nsteps, nrem, nrestart, nvf
       integer ntree, istepping
