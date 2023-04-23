@@ -29,7 +29,9 @@
 !-----------------------------------------------------
 
       write (partfile, '(A, I8.8, A)') 'p.', iframe, '.dat'
-      open (1, file=partfile, status='replace')
+      open (1, file=partfile, status='REPLACE')
+      write (partfile, '(A, I8.8, A)') 'p.', iframe, '.raw'
+      open (2, file=partfile, status='REPLACE', access='STREAM')
       xmom = 0.
       ymom = 0.
       ang = 0.
@@ -42,8 +44,10 @@
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
          write (1, '(SP, 2P E23.16, X, E23.16, X, E23.16)') x, y, g
+         write (2) x, y, g
     2 end do
       close (1)
+      close (2)      
 
       write (10, 100) Time, xmom
       write (11, 100) Time, ymom
