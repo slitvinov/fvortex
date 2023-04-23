@@ -392,7 +392,7 @@
       do j = 1, nx
          do i = 1, ny
             in = in + 1
-            write (1, '(SP, E23.16, X, E23.16, X, E23.16)') 
+            write (1, '(SP, E23.16, X, E23.16, X, E23.16)')
      &           xg(in), yg(in), gg(in)
          end do
       end do
