@@ -46,18 +46,18 @@
 
 ! -> 1st level
          call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 ! Examine boxes that are close for being childless or not.
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
-     &        kpart,
-     &        Listpart, ipar1Ch2, imark1)
+     $        kpart,
+     $        Listpart, ipar1Ch2, imark1)
 ! Boxes that are childless and close to the parents are examined to see if
 ! they are close to the box itself.
 
          call near_far(Nmax1, ib, jb, r21, ic1, jc1, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
 ! Boxes that are far from the child had interacted particle-box earlier.
 ! Box kb now needs to interact with their particles.
@@ -83,7 +83,7 @@
 !  interact as box-box
 
    88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
          do 24 kbb = 1, kfar
             id = Listfar(kbb)

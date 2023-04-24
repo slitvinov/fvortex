@@ -1,5 +1,5 @@
       subroutine int_part2(gtest, xtest, ytest, upart, vpart, gpart,
-     &     kpart)
+     $     kpart)
 
 !     This  subroutine calculates the velocities induced on the
 !     particle located at *xtest*,*ytest*, by the particles in its

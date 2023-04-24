@@ -168,54 +168,54 @@
 !     Level 1
 !     Divide the domain into 4 squares and find the particles in them
       call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1,
-     &     kp1, liststart)
+     $     kp1, liststart)
 
 !     Level 2 - divide level 1 boxes into four squares
       call make_box(16, ds1, ds2, kp1, kp2, kparent1, kchildless1,
-     &     ic1, jc1, npb1, iparent1, imark1, ipar1ch2, ich2par1,
-     &     npb2, ic2, jc2, xc2, yc2, ichildless1)
+     $     ic1, jc1, npb1, iparent1, imark1, ipar1ch2, ich2par1,
+     $     npb2, ic2, jc2, xc2, yc2, ichildless1)
 
 !     Level 3
       if (kp2 == 0) goto 1
       call make_box(64, ds2, ds3, kp2, kp3, kparent2, kchildless2,
-     &     ic2, jc2, npb2, iparent2, imark2, ipar2ch3, ich3par2,
-     &     npb3, ic3, jc3, xc3, yc3, ichildless2)
+     $     ic2, jc2, npb2, iparent2, imark2, ipar2ch3, ich3par2,
+     $     npb3, ic3, jc3, xc3, yc3, ichildless2)
 
 !     Level 4
       if (kp3 == 0) goto 1
       call make_box(256, ds3, ds4, kp3, kp4, kparent3, kchildless3,
-     &     ic3, jc3, npb3, iparent3, imark3, ipar3ch4, ich4par3,
-     &     npb4, ic4, jc4, xc4, yc4, ichildless3)
+     $     ic3, jc3, npb3, iparent3, imark3, ipar3ch4, ich4par3,
+     $     npb4, ic4, jc4, xc4, yc4, ichildless3)
 
 !     Level 5
       if (kp4 == 0) goto 1
       call make_box(1024, ds4, ds5, kp4, kp5, kparent4, kchildless4,
-     &     ic4, jc4, npb4, iparent4, imark4, ipar4ch5, ich5par4,
-     &     npb5, ic5, jc5, xc5, yc5, ichildless4)
+     $     ic4, jc4, npb4, iparent4, imark4, ipar4ch5, ich5par4,
+     $     npb5, ic5, jc5, xc5, yc5, ichildless4)
 
 !     Level 6
       if (kp5 == 0) goto 1
       call make_box(4096, ds5, ds6, kp5, kp6, kparent5, kchildless5,
-     &     ic5, jc5, npb5, iparent5, imark5, ipar5ch6, ich6par5,
-     &     npb6, ic6, jc6, xc6, yc6, ichildless5)
+     $     ic5, jc5, npb5, iparent5, imark5, ipar5ch6, ich6par5,
+     $     npb6, ic6, jc6, xc6, yc6, ichildless5)
 
 !     Level 7
       if (kp6 == 0) goto 1
       call make_box(16384, ds6, ds7, kp6, kp7, kparent6, kchildless6,
-     &     ic6, jc6, npb6, iparent6, imark6, ipar6ch7, ich7par6,
-     &     npb7, ic7, jc7, xc7, yc7, ichildless6)
+     $     ic6, jc6, npb6, iparent6, imark6, ipar6ch7, ich7par6,
+     $     npb7, ic7, jc7, xc7, yc7, ichildless6)
 
 !     Level 8
       if (kp7 == 0) goto 1
       call make_box(65536, ds7, ds8, kp7, kp8, kparent7, kchildless7,
-     &     ic7, jc7, npb7, iparent7, imark7, ipar7ch8, ich8par7,
-     &     npb8, ic8, jc8, xc8, yc8, ichildless7)
+     $     ic7, jc7, npb7, iparent7, imark7, ipar7ch8, ich8par7,
+     $     npb8, ic8, jc8, xc8, yc8, ichildless7)
 
 !     Level 9 (finest boxes)
       if (kp8 == 0) goto 1
       call make_box(262144, ds8, ds9, kp8, kp9, kparent8, kchildless8,
-     &     ic8, jc8, npb8, iparent8, imark8, ipar8ch9, ich9par8,
-     &     npb9, ic9, jc9, xc9, yc9, ichildless8)
+     $     ic8, jc8, npb8, iparent8, imark8, ipar8ch9, ich9par8,
+     $     npb9, ic9, jc9, xc9, yc9, ichildless8)
 
     1 ds2 = 0.5*ds1
       ds3 = 0.5*ds2
@@ -237,49 +237,49 @@
 !     Level 1 (Coarsest)
       if (kchildless1 /= 0) then
          call exp_chdless(4, kchildless1, xc1, yc1, ichildless1,
-     &     Npb1, Pr1, Pi1)
+     $     Npb1, Pr1, Pi1)
       endif
 
 !     Level 2
       If (kchildless2 /= 0) then
          call exp_chdless(16, kchildless2, xc2, yc2, ichildless2,
-     &     Npb2, Pr2, Pi2)
+     $     Npb2, Pr2, Pi2)
       endif
 
 !     Level 3
       If (kchildless3 /= 0) then
          call exp_chdless(64, kchildless3, xc3, yc3, ichildless3,
-     &     Npb3, Pr3, Pi3)
+     $     Npb3, Pr3, Pi3)
       endif
 
 !     Level 4
       If (kchildless4 /= 0) then
          call exp_chdless(256, kchildless4, xc4, yc4, ichildless4,
-     &     Npb4, Pr4, Pi4)
+     $     Npb4, Pr4, Pi4)
       endif
 
 !     Level 5
       If (kchildless5 /= 0) then
          call exp_chdless(1024, kchildless5, xc5, yc5, ichildless5,
-     &     Npb5, Pr5, Pi5)
+     $     Npb5, Pr5, Pi5)
       endif
 
 !     Level 6
       If (kchildless6 /= 0) then
          call exp_chdless(4096, kchildless6, xc6, yc6, ichildless6,
-     &     Npb6, Pr6, Pi6)
+     $     Npb6, Pr6, Pi6)
       endif
 
 !     Level 7
       If (kchildless7 /= 0) then
          call exp_chdless(16384, kchildless7, xc7, yc7, ichildless7,
-     &     Npb7, Pr7, Pi7)
+     $     Npb7, Pr7, Pi7)
       endif
 
 !     Level 8
       If (kchildless8 /= 0) then
          call exp_chdless(65536, kchildless8, xc8, yc8, ichildless8,
-     &     Npb8, Pr8, Pi8)
+     $     Npb8, Pr8, Pi8)
       endif
 
 !     Level 9  (finest)
@@ -290,55 +290,55 @@
 !     Level 8
       if (kparent8 /= 0) then
          call ch_to_par(262144, ds9, kparent8, iparent8, ipar8Ch9, Pr9,
-     &        Pi9,
-     &        Pr8, Pi8, Gr8, Gi8)
+     $        Pi9,
+     $        Pr8, Pi8, Gr8, Gi8)
       endif
 
 !     Level 7
       if (kparent7 /= 0) then
          call ch_to_par(65536, ds8, kparent7, iparent7, ipar7Ch8, Pr8,
-     &        Pi8,
-     &        Pr7, Pi7, Gr7, Gi7)
+     $        Pi8,
+     $        Pr7, Pi7, Gr7, Gi7)
       endif
 
 !     Level 6
       if (kparent6 /= 0) then
          call ch_to_par(16384, ds7, kparent6, iparent6, ipar6Ch7, Pr7,
-     &        Pi7,
-     &        Pr6, Pi6, Gr6, Gi6)
+     $        Pi7,
+     $        Pr6, Pi6, Gr6, Gi6)
       endif
 
 !     Level 5
       if (kparent5 /= 0) then
          call ch_to_par(4096, ds6, kparent5, iparent5, ipar5Ch6, Pr6,
-     &        Pi6,
-     &        Pr5, Pi5, Gr5, Gi5)
+     $        Pi6,
+     $        Pr5, Pi5, Gr5, Gi5)
       endif
 
 !     Level 4
       if (kparent4 /= 0) then
          call ch_to_par(1024, ds5, kparent4, iparent4, ipar4Ch5, Pr5,
-     &        Pi5,
-     &        Pr4, Pi4, Gr4, Gi4)
+     $        Pi5,
+     $        Pr4, Pi4, Gr4, Gi4)
       endif
 
 !     Level 3
       if (kparent3 /= 0) then
          call ch_to_par(256, ds4, kparent3, iparent3, ipar3Ch4, Pr4,
-     &        Pi4,
-     &        Pr3, Pi3, Gr3, Gi3)
+     $        Pi4,
+     $        Pr3, Pi3, Gr3, Gi3)
       endif
 
 !     Level 2
       if (kparent2 /= 0) then
          call ch_to_par(64, ds3, kparent2, iparent2, ipar2Ch3, Pr3, Pi3,
-     &        Pr2, Pi2, Gr2, Gi2)
+     $        Pr2, Pi2, Gr2, Gi2)
       endif
 
 !     Level 1
       if (kparent1 /= 0) then
          call ch_to_par(16, ds2, kparent1, iparent1, ipar1Ch2, Pr2, Pi2,
-     &        Pr1, Pi1, Gr1, Gi1)
+     $        Pr1, Pi1, Gr1, Gi1)
       endif
 
 !--   stop here if only building the interaction tree
@@ -359,23 +359,23 @@
       if (istats == 1) then
          write (*, *) '************TREE STATS*************'
          write (*, *) 'Level 1: total boxes=', kp1,
-     &     ', childless=', kchildless1
+     $     ', childless=', kchildless1
          write (*, *) 'Level 2: total boxes=', kp2,
-     &     ', childless=', kchildless2
+     $     ', childless=', kchildless2
          write (*, *) 'Level 3: total boxes=', kp3,
-     &     ', childless=', kchildless3
+     $     ', childless=', kchildless3
          write (*, *) 'Level 4: total boxes=', kp4,
-     &     ', childless=', kchildless4
+     $     ', childless=', kchildless4
          write (*, *) 'Level 5: total boxes=', kp5,
-     &     ', childless=', kchildless5
+     $     ', childless=', kchildless5
          write (*, *) 'Level 6: total boxes=', kp6,
-     &     ', childless=', kchildless6
+     $     ', childless=', kchildless6
          write (*, *) 'Level 7: total boxes=', kp7,
-     &     ', childless=', kchildless7
+     $     ', childless=', kchildless7
          write (*, *) 'Level 8: total boxes=', kp8,
-     &     ', childless=', kchildless8
+     $     ', childless=', kchildless8
          write (*, *) 'Level 9: total boxes=', kp9,
-     &     ', childless=', kp9
+     $     ', childless=', kp9
       endif
 
 !     Level 1
@@ -424,49 +424,49 @@
 
       if (kp3 /= 0) then
          call par_to_ch(16, ds3, kp3, br2, bi2, br3, bi3, ich3par2,
-     &        ipar2ch3)
+     $        ipar2ch3)
       endif
 
 !***  Level 3 -> Level 4
 
       if (kp4 /= 0) then
          call par_to_ch(64, ds4, kp4, br3, bi3, br4, bi4, ich4par3,
-     &     ipar3ch4)
+     $     ipar3ch4)
       endif
 
 !***  Level 4 -> Level 5
 
       if (kp5 /= 0) then
          call par_to_ch(256, ds5, kp5, br4, bi4, br5, bi5, ich5par4,
-     &     ipar4ch5)
+     $     ipar4ch5)
       endif
 
 !***  Level 5 -> Level 6
 
       if (kp6 /= 0) then
          call par_to_ch(1024, ds6, kp6, br5, bi5, br6, bi6, ich6par5,
-     &     ipar5ch6)
+     $     ipar5ch6)
       endif
 
 !***  Level 6 -> Level 7
 
       if (kp7 /= 0) then
          call par_to_ch(4096, ds7, kp7, br6, bi6, br7, bi7, ich7par6,
-     &     ipar6ch7)
+     $     ipar6ch7)
       endif
 
 !***  Level 7 -> Level 8
 
       if (kp8 /= 0) then
          call par_to_ch(16384, ds8, kp8, br7, bi7, br8, bi8, ich8par7,
-     &     ipar7ch8)
+     $     ipar7ch8)
       endif
 
 !***  Level 8 -> Level 9
 
       if (kp9 /= 0) then
          call par_to_ch(65536, ds9, kp9, br8, bi8, br9, bi9, ich9par8,
-     &     ipar8ch9)
+     $     ipar8ch9)
       endif
 
 !     _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
@@ -478,43 +478,43 @@
 !***  Level 2
       if (kchildless2 /= 0) then
          call box_to_part(16, kchildless2, ichildless2, xc2, yc2,
-     &     npb2, br2, bi2)
+     $     npb2, br2, bi2)
       endif
 
 !***  Level 3
       if (kchildless3 /= 0) then
          call box_to_part(64, kchildless3, ichildless3, xc3, yc3,
-     &     npb3, br3, bi3)
+     $     npb3, br3, bi3)
       endif
 
 !***  Level 4
       if (kchildless4 /= 0) then
          call box_to_part(256, kchildless4, ichildless4, xc4, yc4,
-     &     npb4, br4, bi4)
+     $     npb4, br4, bi4)
       endif
 
 !***  Level 5
       if (kchildless5 /= 0) then
          call box_to_part(1024, kchildless5, ichildless5, xc5, yc5,
-     &     npb5, br5, bi5)
+     $     npb5, br5, bi5)
       endif
 
 !***  Level 6
       if (kchildless6 /= 0) then
          call box_to_part(4096, kchildless6, ichildless6, xc6, yc6,
-     &     npb6, br6, bi6)
+     $     npb6, br6, bi6)
       endif
 
 !***  Level 7
       if (kchildless7 /= 0) then
          call box_to_part(16384, kchildless7, ichildless7, xc7, yc7,
-     &     npb7, br7, bi7)
+     $     npb7, br7, bi7)
       endif
 
 !***  Level 8
       if (kchildless8 /= 0) then
          call box_to_part(65536, kchildless8, ichildless8, xc8, yc8,
-     &     npb8, br8, bi8)
+     $     npb8, br8, bi8)
       endif
 
 !***  Level 9

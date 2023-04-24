@@ -1,5 +1,5 @@
       subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam,
-     &     kpart, Listpart, ipar1Ch2, imark1)
+     $     kpart, Listpart, ipar1Ch2, imark1)
 
 !     This  subroutine examines the nearby boxes of a certain particle.
 !     If they are parents then their children are placed in the list

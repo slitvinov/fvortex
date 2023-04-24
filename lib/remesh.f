@@ -25,7 +25,7 @@
       integer k00, k10, k20, k01, k11, k21, k02, k12, k22
       real pi, twopi, twopiinv, dh, circ
       real xmax, xmin, ymax, ymin, xr, xl, yt, yb, dhhaf, xx, yy,
-     &     cold, cx
+     $     cold, cx
       real cutoff, cut_far, dhinv, g, x, y, ndist, sdist
       real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
       real xg(ngrid), yg(ngrid), gg(ngrid)
@@ -68,7 +68,7 @@
       end if
 
       if ((nx_r > NX_max) .or. (nx_l < NX_min) .or.
-     &  (ny_t > ny_max) .or. (ny_b < ny_min)) then
+     $  (ny_t > ny_max) .or. (ny_b < ny_min)) then
          stop
       end if
 
@@ -126,7 +126,7 @@
 ! ---- Do not remesh the particles outside the established grid
 
          if ((ix > nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or.
-     &     (iy < ny_b)) then
+     $     (iy < ny_b)) then
             if (abs(g) >= cut_far) then
                ifar = ifar + 1
                xp(ifar) = x
@@ -136,7 +136,7 @@
 
 !-- all other particles are in the inner grid
          else if ((ix == nx_r) .or. (ix == nx_l) .or.
-     &        (iy == ny_t) .or. (iy == ny_b)) then
+     $        (iy == ny_t) .or. (iy == ny_b)) then
 !----------------------------------------------------------------
 !- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
 !----------------------------------------------------------------
@@ -192,7 +192,7 @@
          ag = abs(g)
 !-- only cutoff if below threshold AND away from domain center
          if ((ag > cutoff) .or. ((abs(yg(i))*abs(yg(i)) +
-     &     abs(xg(i))*abs(xg(i))) < 1.)) then
+     $     abs(xg(i))*abs(xg(i))) < 1.)) then
             iback = iback + 1
             xp(iback) = xg(i)
             yp(iback) = yg(i)
@@ -211,12 +211,12 @@
          cx = cx + circ*yp(i)
    72 end do
       write (*, *) 'post-remesh, circulation:', cnew,
-     &     '  x-impulse: ', cx
+     $     '  x-impulse: ', cx
 
       write (*, 89) Np, iback - ifar, ifar
 
    89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
-     &     'OUTSIDE :', i8, 2x)
+     $     'OUTSIDE :', i8, 2x)
 
       return
       end

@@ -17,7 +17,7 @@
 
       integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
       integer Listpart(Nhlp), Lclg(10), nns, ipar, jpar, kc, j,
-     &     m, ks, km
+     $     m, ks, km
       integer kexam, kfar, kclose, i, kh, kb, ib, jb
       integer nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
       real r77, r78, r79, xnn, ynn, gnn, dyopiinv
@@ -62,10 +62,10 @@
    22    end do
 
          call near_far(Nmax7, ib, jb, r77, ic7, jc7, kexam, listexam
-     &     , kfar, Listfar, Kclose, Listclose)
+     $     , kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax7, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar7Ch8, imark7)
+     $     , Listpart, ipar7Ch8, imark7)
 
          do 25 k = 1, kpart
             id = Listpart(k)
@@ -92,7 +92,7 @@
          if (kexam == 0) goto 201
 
          call near_far(Nmax8, ib, jb, r78, ic8, jc8, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 34 k = 1, kfar
             kfp = kfp + 1
@@ -118,7 +118,7 @@
    34    end do
 
          call check_box(Nmax8, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar8Ch9, imark8)
+     $     , Listpart, ipar8Ch9, imark8)
 
          do 37 k = 1, kpart
             id = Listpart(k)
@@ -138,7 +138,7 @@
          if (kexam == 0) goto 201
 
          call near_far(Nmax9, ib, jb, r79, ic9, jc9, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do k = 1, kfar
             kfp = kfp + 1

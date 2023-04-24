@@ -1,7 +1,7 @@
       subroutine make_box(nmax, ds1, ds2, kp1, kp2, kparent1,
-     & kchildless1,
-     & ic1, jc1, npb1, iparent1, imark1, ipar1ch2,
-     &  ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
+     $ kchildless1,
+     $ ic1, jc1, npb1, iparent1, imark1, ipar1ch2,
+     $  ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
 
 !     This subroutine takes each box on the previous level and splits it into
 !     four boxes, creating all the necessary indentification arrays to relate

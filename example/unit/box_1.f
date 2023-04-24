@@ -41,7 +41,7 @@
       s0 = 1.02*s0
 
       call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1,
-     &     liststart)
+     $     liststart)
       write (stderr, *) 'xc = ', xc1
       write (stderr, *) 'yc = ', yc1
       write (stderr, *) 'ic = ', ic1

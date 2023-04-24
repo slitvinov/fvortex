@@ -1,5 +1,5 @@
       subroutine box_to_part(nmax, kchildless, ichildless, xc, yc,
-     &     npb, br, bi)
+     $     npb, br, bi)
 
 !     This subroutine calculates the velocities induced by a box
 !     on its own particles from the box's interactions.

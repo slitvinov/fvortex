@@ -1,5 +1,5 @@
       subroutine int_part1(xtest, ytest, gtest, upart, vpart, gpart,
-     &     kpart)
+     $     kpart)
 !     This set of subroutines performs the various types of interactions
 !     between particles and boxes that are called for in the tree routine.
 !     ---------------------------------------------------------------------

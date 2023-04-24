@@ -1,5 +1,5 @@
       subroutine par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3,
-     &  ich3par2, ipar2ch3)
+     $  ich3par2, ipar2ch3)
 
 !     This subroutine computes the MULTIPOLE EXPANSIONS of
 !     the CHILDREN boxes from the multipole expansions of their
@@ -8,7 +8,7 @@
 
       integer nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
       real dch, br2(nmax, 7), bi2(nmax, 7), br3(4*nmax, 7),
-     &     bi3(4*nmax, 7)
+     $     bi3(4*nmax, 7)
 
       integer nb, km, m1, m2, m3, m4
       real p1, p2, p3, p4, p5, p6, p7, p22, p32, p44, p54, p68, p78
@@ -106,39 +106,39 @@
 ! --------
 ! 1 - Order
             Br3(nb, 1) = Br3(nb, 1) - p68*f7
-     &        + p54*(r6 + f6) - p44*r5 + p32*(r4 - f4)
-     &        + p22*f3 - p1*(r2 + f2) + r1
+     $        + p54*(r6 + f6) - p44*r5 + p32*(r4 - f4)
+     $        + p22*f3 - p1*(r2 + f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) + p68*r7
-     &        + p54*(f6 - r6) - p44*f5 + p32*(f4 + r4)
-     &        - p22*r3 - p1*(f2 - r2) + f1
+     $        + p54*(f6 - r6) - p44*f5 + p32*(f4 + r4)
+     $        - p22*r3 - p1*(f2 - r2) + f1
 ! 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
-     &        + p524*(r7 + f7) - p420*r6 + p38*(r5 - f5)
-     &        + p26*f4 - p12*(r3 + f3) + r2
+     $        + p524*(r7 + f7) - p420*r6 + p38*(r5 - f5)
+     $        + p26*f4 - p12*(r3 + f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
-     &        + p524*(f7 - r7) - p420*f6 + p38*(f5 + r5)
-     &        - p26*r4 - p12*(f3 - r3) + f2
+     $        + p524*(f7 - r7) - p420*f6 + p38*(f5 + r5)
+     $        - p26*r4 - p12*(f3 - r3) + f2
 
 ! 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
-     &        + p320*(r6 - f6) + p212*f5 - p13*(r4 + f4) + r3
+     $        + p320*(r6 - f6) + p212*f5 - p13*(r4 + f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
-     &        + p320*(f6 + r6) - p212*r5 - p13*(f4 - r4) + f3
+     $        + p320*(f6 + r6) - p212*r5 - p13*(f4 - r4) + f3
 ! 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
-     &        + p340*(r7 - f7) + p220*f6 - p14*(r5 + f5) + r4
+     $        + p340*(r7 - f7) + p220*f6 - p14*(r5 + f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
-     &        + p340*(f7 + r7) - p220*r6 - p14*(f5 - r5) + f4
+     $        + p340*(f7 + r7) - p220*r6 - p14*(f5 - r5) + f4
 ! 5 - Order
             Br3(nb, 5) = Br3(nb, 5) + p230*f7
-     &        - p15*(r6 + f6) + r5
+     $        - p15*(r6 + f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) - p230*r7
-     &        - p15*(f6 - r6) + f5
+     $        - p15*(f6 - r6) + f5
 ! 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
-     &        - p16*(r7 + f7) + r6
+     $        - p16*(r7 + f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
-     &        - p16*(f7 - r7) + f6
+     $        - p16*(f7 - r7) + f6
 ! 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
@@ -156,39 +156,39 @@
 ! --------
 ! 1 - Order
             Br3(nb, 1) = Br3(nb, 1) + p68*f7
-     &        + p54*(r6 - f6) - p44*r5 + p32*(r4 + f4)
-     &        - p22*f3 - p1*(r2 - f2) + r1
+     $        + p54*(r6 - f6) - p44*r5 + p32*(r4 + f4)
+     $        - p22*f3 - p1*(r2 - f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) - p68*r7
-     &        + p54*(f6 + r6) - p44*f5 + p32*(f4 - r4)
-     &        + p22*r3 - p1*(f2 + r2) + f1
+     $        + p54*(f6 + r6) - p44*f5 + p32*(f4 - r4)
+     $        + p22*r3 - p1*(f2 + r2) + f1
 ! 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
-     &        + p524*(r7 - f7) - p420*r6 + p38*(r5 + f5)
-     &        - p26*f4 - p12*(r3 - f3) + r2
+     $        + p524*(r7 - f7) - p420*r6 + p38*(r5 + f5)
+     $        - p26*f4 - p12*(r3 - f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
-     &        + p524*(f7 + r7) - p420*f6 + p38*(f5 - r5)
-     &        + p26*r4 - p12*(f3 + r3) + f2
+     $        + p524*(f7 + r7) - p420*f6 + p38*(f5 - r5)
+     $        + p26*r4 - p12*(f3 + r3) + f2
 
 ! 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
-     &        + p320*(r6 + f6) - p212*f5 - p13*(r4 - f4) + r3
+     $        + p320*(r6 + f6) - p212*f5 - p13*(r4 - f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
-     &        + p320*(f6 - r6) + p212*r5 - p13*(f4 + r4) + f3
+     $        + p320*(f6 - r6) + p212*r5 - p13*(f4 + r4) + f3
 ! 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
-     &        + p340*(r7 + f7) - p220*f6 - p14*(r5 - f5) + r4
+     $        + p340*(r7 + f7) - p220*f6 - p14*(r5 - f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4) +
-     &        p340*(f7 - r7) + p220*r6 - p14*(f5 + r5) + f4
+     $        p340*(f7 - r7) + p220*r6 - p14*(f5 + r5) + f4
 ! 5 - Order
             Br3(nb, 5) = Br3(nb, 5) - p230*f7
-     &        - p15*(r6 - f6) + r5
+     $        - p15*(r6 - f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) + p230*r7
-     &        - p15*(f6 + r6) + f5
+     $        - p15*(f6 + r6) + f5
 ! 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
-     &        - p16*(r7 - f7) + r6
+     $        - p16*(r7 - f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
-     &        - p16*(f7 + r7) + f6
+     $        - p16*(f7 + r7) + f6
 ! 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
@@ -205,38 +205,38 @@
 ! --------
 ! 1 - Order
             Br3(nb, 1) = Br3(nb, 1) + p68*f7
-     &        - p54*(r6 - f6) - p44*r5 - p32*(r4 + f4)
-     &        - p22*f3 + p1*(r2 - f2) + r1
+     $        - p54*(r6 - f6) - p44*r5 - p32*(r4 + f4)
+     $        - p22*f3 + p1*(r2 - f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) - p68*r7
-     &        - p54*(f6 + r6) - p44*f5 - p32*(f4 - r4)
-     &        + p22*r3 + p1*(f2 + r2) + f1
+     $        - p54*(f6 + r6) - p44*f5 - p32*(f4 - r4)
+     $        + p22*r3 + p1*(f2 + r2) + f1
 ! 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
-     &        - p524*(r7 - f7) - p420*r6 - p38*(r5 + f5)
-     &        - p26*f4 + p12*(r3 - f3) + r2
+     $        - p524*(r7 - f7) - p420*r6 - p38*(r5 + f5)
+     $        - p26*f4 + p12*(r3 - f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
-     &        - p524*(f7 + r7) - p420*f6 - p38*(f5 - r5)
-     &        + p26*r4 + p12*(f3 + r3) + f2
+     $        - p524*(f7 + r7) - p420*f6 - p38*(f5 - r5)
+     $        + p26*r4 + p12*(f3 + r3) + f2
 ! 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
-     &        - p320*(r6 + f6) - p212*f5 + p13*(r4 - f4) + r3
+     $        - p320*(r6 + f6) - p212*f5 + p13*(r4 - f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
-     &        - p320*(f6 - r6) + p212*r5 + p13*(f4 + r4) + f3
+     $        - p320*(f6 - r6) + p212*r5 + p13*(f4 + r4) + f3
 ! 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
-     &        - p340*(r7 + f7) - p220*f6 + p14*(r5 - f5) + r4
+     $        - p340*(r7 + f7) - p220*f6 + p14*(r5 - f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
-     &        - p340*(f7 - r7) + p220*r6 + p14*(f5 + r5) + f4
+     $        - p340*(f7 - r7) + p220*r6 + p14*(f5 + r5) + f4
 ! 5 - Order
             Br3(nb, 5) = Br3(nb, 5) - p230*f7
-     &        + p15*(r6 - f6) + r5
+     $        + p15*(r6 - f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) + p230*r7
-     &        + p15*(f6 + r6) + f5
+     $        + p15*(f6 + r6) + f5
 ! 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
-     &        + p16*(r7 - f7) + r6
+     $        + p16*(r7 - f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
-     &        + p16*(f7 + r7) + f6
+     $        + p16*(f7 + r7) + f6
 ! 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
@@ -254,38 +254,38 @@
 ! --------
 ! 1 - Order
             Br3(nb, 1) = Br3(nb, 1) - p68*f7
-     &        - p54*(r6 + f6) - p44*r5 - p32*(r4 - f4)
-     &        + p22*f3 + p1*(r2 + f2) + r1
+     $        - p54*(r6 + f6) - p44*r5 - p32*(r4 - f4)
+     $        + p22*f3 + p1*(r2 + f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) + p68*r7
-     &        - p54*(f6 - r6) - p44*f5 - p32*(f4 + r4)
-     &        - p22*r3 + p1*(f2 - r2) + f1
+     $        - p54*(f6 - r6) - p44*f5 - p32*(f4 + r4)
+     $        - p22*r3 + p1*(f2 - r2) + f1
 ! 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
-     &        - p524*(r7 + f7) - p420*r6 - p38*(r5 - f5)
-     &        + p26*f4 + p12*(r3 + f3) + r2
+     $        - p524*(r7 + f7) - p420*r6 - p38*(r5 - f5)
+     $        + p26*f4 + p12*(r3 + f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
-     &        - p524*(f7 - r7) - p420*f6 - p38*(f5 + r5)
-     &        - p26*r4 + p12*(f3 - r3) + f2
+     $        - p524*(f7 - r7) - p420*f6 - p38*(f5 + r5)
+     $        - p26*r4 + p12*(f3 - r3) + f2
 ! 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
-     &        - p320*(r6 - f6) + p212*f5 + p13*(r4 + f4) + r3
+     $        - p320*(r6 - f6) + p212*f5 + p13*(r4 + f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
-     &        - p320*(f6 + r6) - p212*r5 + p13*(f4 - r4) + f3
+     $        - p320*(f6 + r6) - p212*r5 + p13*(f4 - r4) + f3
 ! 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
-     &        - p340*(r7 - f7) + p220*f6 + p14*(r5 + f5) + r4
+     $        - p340*(r7 - f7) + p220*f6 + p14*(r5 + f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
-     &        - p340*(f7 + r7) - p220*r6 + p14*(f5 - r5) + f4
+     $        - p340*(f7 + r7) - p220*r6 + p14*(f5 - r5) + f4
 ! 5 - Order
             Br3(nb, 5) = Br3(nb, 5) + p230*f7
-     &        + p15*(r6 + f6) + r5
+     $        + p15*(r6 + f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) - p230*r7
-     &        + p15*(f6 - r6) + f5
+     $        + p15*(f6 - r6) + f5
 ! 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
-     &        + p16*(r7 + f7) + r6
+     $        + p16*(r7 + f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
-     &        + p16*(f7 - r7) + f6
+     $        + p16*(f7 - r7) + f6
 ! 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7

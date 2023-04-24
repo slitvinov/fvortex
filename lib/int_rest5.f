@@ -18,7 +18,7 @@
       integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r41, r42, r43, r44, r51, r52, r53, r54,
-     &     r55, xb, yb
+     $     r55, xb, yb
 !---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
@@ -47,14 +47,14 @@
     1    end do
 
          call near_far(Nmax1, ipar, jpar, r41, ic1, jc1, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar1Ch2, imark1)
+     $     , Listpart, ipar1Ch2, imark1)
 
          call near_far(Nmax1, ib, jb, r51, ic1, jc1, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
          n4 = 0
          do 21 k = 1, kfar
@@ -70,14 +70,14 @@
    21    end do
 
          call near_far(Nmax2, ipar, jpar, r42, ic2, jc2, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar2Ch3, imark2) ! NT
+     $     , Listpart, ipar2Ch3, imark2) ! NT
 
          call near_far(Nmax2, ib, jb, r52, ic2, jc2, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
             id = Listfar(k)
@@ -92,14 +92,14 @@
    22    end do
 
          call near_far(Nmax3, ipar, jpar, r43, ic3, jc3, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar3Ch4, imark3) ! NT
+     $     , Listpart, ipar3Ch4, imark3) ! NT
 
          call near_far(Nmax3, ib, jb, r53, ic3, jc3, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
          do 23 k = 1, kfar
             id = Listfar(k)
             n1 = npb3(id, 1)
@@ -117,16 +117,16 @@
 
 ! Close to parents(?)
          call near_far(Nmax4, ipar, jpar, r44, ic4, jc4, Kexam,
-     &        listexam,
-     &        kfar, Listfar, kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, kclose, Listclose)
 
 ! Close to parents - Childless(?)
          call check_box(Nmax4, kclose, Listclose,
-     &     kexam, listexam, kpart, Listpart, ipar4Ch5, imark4)
+     $     kexam, listexam, kpart, Listpart, ipar4Ch5, imark4)
 
 ! Close to parents & childless - close to box(?)
          call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
 !  Boxes that are far from the child now belong to list 4 of the box
 
@@ -148,7 +148,7 @@
          call int_box_part(Nmax5, kb, xb, yb, n4, Br5, Bi5)
 
    88    call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP
          do 25 kbb = 1, kfar

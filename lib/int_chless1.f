@@ -26,9 +26,9 @@
       integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
       integer Listpart(Nhlp), kexam, kfar, kclose, i, kh, kb, ib, jb
       integer nb1, nb2, nns, k, id, n1, n2, np, level, kfp, nn,
-     &     kpart, n
+     $     kpart, n
       real r12, r13, r14, r15, r16, r17, r18, r19, xnn, ynn, gnn,
-     &     dyopiinv
+     $     dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
 !-------------------------------------------------------------------------
 
@@ -67,8 +67,8 @@
 !  Note that the box will find and interact with itself (as particles)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
-     &        kpart,
-     &        Listpart, ipar1Ch2, imark1)
+     $        kpart,
+     $        Listpart, ipar1Ch2, imark1)
 
          nns = 0
          do 11 k = 1, Kpart
@@ -98,7 +98,7 @@
 !  level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
 
          call near_far(Nmax2, ib, jb, r12, ic2, jc2, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          kfp = 0
          do 12 k = 1, Kfar
@@ -129,8 +129,8 @@
 !  box, it must now interact as particles.
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam,
-     &        kpart,
-     &        Listpart, ipar2Ch3, imark2)
+     $        kpart,
+     $        Listpart, ipar2Ch3, imark2)
 
          nn = 0
          do 25 k = 1, kpart
@@ -154,7 +154,7 @@
          level = 3
 
          call near_far(Nmax3, ib, jb, r13, ic3, jc3, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 26 k = 1, kfar
             kfp = kfp + 1
@@ -181,7 +181,7 @@
    26    end do
 
          call check_box(Nmax3, Kclose, Listclose, kexam, listexam, Kpart
-     &     , Listpart, ipar3Ch4, imark3)
+     $     , Listpart, ipar3Ch4, imark3)
 
          do 27 k = 1, kpart
             id = Listpart(k)
@@ -200,7 +200,7 @@
          level = 4
 
          call near_far(Nmax4, ib, jb, r14, ic4, jc4, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 28 k = 1, kfar
             kfp = kfp + 1
@@ -227,8 +227,8 @@
    28    end do
 
          call check_box(Nmax4, Kclose, Listclose, kexam, listexam,
-     &        Kpart,
-     &        Listpart, ipar4Ch5, imark4)
+     $        Kpart,
+     $        Listpart, ipar4Ch5, imark4)
 
          do 29 k = 1, kpart
             id = Listpart(k)
@@ -247,7 +247,7 @@
          level = 5
 
          call near_far(Nmax5, ib, jb, r15, ic5, jc5, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 30 k = 1, kfar
             kfp = kfp + 1
@@ -274,8 +274,8 @@
    30    end do
 
          call check_box(Nmax5, Kclose, Listclose, kexam, listexam,
-     &        Kpart,
-     &        Listpart, ipar5Ch6, imark5)
+     $        Kpart,
+     $        Listpart, ipar5Ch6, imark5)
 
          do 31 k = 1, kpart
             id = Listpart(k)
@@ -294,7 +294,7 @@
          level = 6
 
          call near_far(Nmax6, ib, jb, r16, ic6, jc6, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 32 k = 1, kfar
             kfp = kfp + 1
@@ -321,8 +321,8 @@
    32    end do
 
          call check_box(Nmax6, Kclose, Listclose, kexam, listexam,
-     &        Kpart,
-     &        Listpart, ipar6Ch7, imark6)
+     $        Kpart,
+     $        Listpart, ipar6Ch7, imark6)
 
          do 33 k = 1, kpart
             id = Listpart(k)
@@ -341,7 +341,7 @@
          level = 7
 
          call near_far(Nmax7, ib, jb, r17, ic7, jc7, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 34 k = 1, kfar
             kfp = kfp + 1
@@ -367,8 +367,8 @@
    34    end do
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
-     &        Kpart,
-     &        Listpart, ipar7Ch8, imark7)
+     $        Kpart,
+     $        Listpart, ipar7Ch8, imark7)
 
          do 35 k = 1, kpart
             id = Listpart(k)
@@ -387,7 +387,7 @@
          level = 8
 
          call near_far(Nmax8, ib, jb, r18, ic8, jc8, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 36 k = 1, kfar
             kfp = kfp + 1
@@ -413,8 +413,8 @@
    36    end do
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
-     &        Kpart,
-     &        Listpart, ipar8Ch9, imark8)
+     $        Kpart,
+     $        Listpart, ipar8Ch9, imark8)
 
          do 37 k = 1, kpart
             id = Listpart(k)
@@ -433,7 +433,7 @@
          level = 9
 
          call near_far(Nmax9, ib, jb, r19, ic9, jc9, kexam, listexam,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do k = 1, kfar
             kfp = kfp + 1

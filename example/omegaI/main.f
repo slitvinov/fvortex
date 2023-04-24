@@ -34,9 +34,9 @@
       lremesh = .false.
 
       call input(icase, idiags, istepping,
-     &     Nsteps, Nrem, Nrestart,
-     &     Nvf, Ntree,
-     &     Rmax, visc_rmax)
+     $     Nsteps, Nrem, Nrestart,
+     $     Nvf, Ntree,
+     $     Rmax, visc_rmax)
 
 !---  tabulate the gaussian for use as diffusion kernel
 
@@ -190,9 +190,9 @@
       end subroutine initial
 
       subroutine input(icase, idiags, istepping,
-     &     Nsteps, Nrem, Nrestart,
-     &     Nvf, Ntree,
-     &     Rmax, visc_rmax)
+     $     Nsteps, Nrem, Nrestart,
+     $     Nvf, Ntree,
+     $     Rmax, visc_rmax)
 
 !     In this subroutine parameters for the computation of the
 !     Lamb-Oseen (initially point) vortex are input.

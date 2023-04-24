@@ -43,14 +43,14 @@
     1    end do
 
          call near_far(Nmax1, ipar, jpar, r31, ic1, jc1, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar1Ch2, imark1) !NT
+     $     , Listpart, ipar1Ch2, imark1) !NT
 
          call near_far(Nmax1, ib, jb, r41, ic1, jc1, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
          n4 = 0
          do 21 k = 1, kfar
@@ -66,14 +66,14 @@
    21    end do
 
          call near_far(Nmax2, ipar, jpar, r32, ic2, jc2, kexam,
-     &        listexam,
-     &        kfar, Listfar, Kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
-     &     , Listpart, ipar2Ch3, imark2) ! NT
+     $     , Listpart, ipar2Ch3, imark2) ! NT
 
          call near_far(Nmax2, ib, jb, r42, ic2, jc2, kpart, Listpart,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
          do 22 k = 1, kfar
             id = Listfar(k)
@@ -88,14 +88,14 @@
    22    end do
 
          call near_far(Nmax3, ipar, jpar, r33, ic3, jc3, Kexam,
-     &        listexam,
-     &        kfar, Listfar, kclose, Listclose)
+     $        listexam,
+     $        kfar, Listfar, kclose, Listclose)
 
          call check_box(Nmax3, kclose, Listclose,
-     &     kexam, listexam, kpart, Listpart, ipar3Ch4, imark3)
+     $     kexam, listexam, kpart, Listpart, ipar3Ch4, imark3)
 
          call near_far(Nmax3, ib, jb, r43, ic3, jc3, Kpart, Listpart,
-     &     kfar, Listfar, kclose, Listclose)
+     $     kfar, Listfar, kclose, Listclose)
 
          do 23 k = 1, kfar
             id = Listfar(k)
@@ -114,7 +114,7 @@
          call int_box_part(Nmax4, kb, xb, yb, n4, Br4, Bi4)
 
    88    call near_far(Nmax4, ib, jb, r44, ic4, jc4, kexam, listexam,
-     &     kfar, Listfar, Kclose, Listclose)
+     $     kfar, Listfar, Kclose, Listclose)
 
 ! CDIR$SHORTLOOP
          do 25 kbb = 1, kfar

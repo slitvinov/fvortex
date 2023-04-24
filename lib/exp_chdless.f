@@ -1,5 +1,5 @@
       subroutine exp_chdless(nmax, kchildless, xc, yc, ichildless,
-     &  npb, Pr, Pi)
+     $  npb, Pr, Pi)
 
 !     This subroutine computes the MULTIPOLE EXPANSIONS of
 !     the childless boxes at a level.

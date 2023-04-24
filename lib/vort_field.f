@@ -93,7 +93,7 @@
          ix = nint((x - x0)*dxinv) + 1
          iy = nint((y - y0)*dyinv) + 1
          if ((ix > -3) .and. (iy > -3) .and. (ix < (nx + 3)) .and.
-     &     (iy < (ny + 3))) then
+     $     (iy < (ny + 3))) then
 
 !--   loop over grid in expnaded code in order to vectorize
 !     ---- Points on column IX
@@ -415,13 +415,13 @@
       write (vortoutfile, '(A, I8.8, A)') 'w.', iframe, '.dat'
       open (1, file=vortoutfile, status='replace')
       write (1, '(A, /, A, I8, A, I8)') 'variables=x,y,w',
-     &     'zone i=', nx, ', j=', ny
+     $     'zone i=', nx, ', j=', ny
       in = 0
       do j = 1, nx
          do i = 1, ny
             in = in + 1
             write (1, '(SP, E23.16, X, E23.16, X, E23.16)')
-     &           xg(in), yg(in), gg(in)
+     $           xg(in), yg(in), gg(in)
          end do
       end do
       close (1)
