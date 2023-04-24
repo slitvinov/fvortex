@@ -1,19 +1,14 @@
       subroutine condiff(npart, islip, visc_rmax, istats)
 
-C This subroutine is the driver of an implementation of an O(N) method for
-C fast computation of velocities and diffusion of a field of vortex blobs
-C using a box-box scheme.
+C This subroutine is the driver of an implementation of an O(N) method
+C for fast computation of velocities and diffusion of a field of vortex
+C blobs using a box-box scheme.
 
-C 
-C Coming in, data should be in XP,YP,GP,UU,VV.
-C At the end the particles have locations at XN,YN, GN                      *
-C and the initial velocity field is stored in: Uold,Vold.                 *
-C The new velocity field is placed in: UU,VV.                               *
-C The changed to the circulations due to diffusion are put in Gdiff.        *
-C The minimum number of particles for a box is given by limpar.             *
-C *
-C 
-
+C Coming in, data should be in XP,YP,GP,UU,VV.  At the end the particles
+C have locations at XN,YN, GN and the initial velocity field is stored
+C in: Uold,Vold.  The new velocity field is placed in: UU,VV.  The
+C changed to the circulations due to diffusion are put in Gdiff.  The
+C minimum number of particles for a box is given by limpar.
 
       include 'main_dim.h'
       include 'part.h'
