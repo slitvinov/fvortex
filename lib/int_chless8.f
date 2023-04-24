@@ -142,6 +142,4 @@ C ____________________
   351    end do
 
    20 end do
-
-      return
       end

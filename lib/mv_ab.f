@@ -38,6 +38,4 @@ C based on velocities calculated in CONDIFF and VEL_EXT.
 
          gp(i) = gn(i) + dt*const*(c1*gdiff(i) - c2*gdold(i))
       enddo
-
-      return
       end

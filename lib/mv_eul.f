@@ -28,6 +28,4 @@ C based on velocities calculated in CONDIFF and VEL_EXT.
          yp(i) = yn(i) + dt*vv(i)
          gp(i) = gn(i) + dt*const*gdiff(i)
     1 end do
-
-      return
       end

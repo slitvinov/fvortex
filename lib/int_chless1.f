@@ -483,6 +483,4 @@ C ____________________
   351    end do
 
    10 end do
-
-      return
       end

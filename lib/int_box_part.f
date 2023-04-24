@@ -91,5 +91,4 @@ C level = 7
       Bi(kb, 6) = Bi(kb, 6) + Bi6
       Br(kb, 7) = Br(kb, 7) + Br7
       Bi(kb, 7) = Bi(kb, 7) + Bi7
-      return
       end

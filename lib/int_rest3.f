@@ -119,5 +119,4 @@ C CDIR$SHORTLOOP
          call int_box(Nmax3, kb, xb, yb, kfar, Br3, Bi3)
 
    20 end do
-      return
       end

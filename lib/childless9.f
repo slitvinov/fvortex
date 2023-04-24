@@ -91,6 +91,4 @@ C the childless boxes on level 9.
          Pi9(nb, 7) = Ti7
 
    10 end do
-
-      return
       end

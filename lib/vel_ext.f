@@ -36,6 +36,4 @@ C stream.
          uu(i) = uu(i) + Uext
          vv(i) = vv(i) + Vext
     1 end do
-
-      return
       end

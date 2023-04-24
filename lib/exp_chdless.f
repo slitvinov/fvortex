@@ -94,6 +94,4 @@ C the childless boxes at a level.
          Pr(nb, 7) = Tr7
          Pi(nb, 7) = Ti7
    10 end do
-
-      return
       end

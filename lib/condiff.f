@@ -500,6 +500,4 @@ C   Level 9
       if (kp9 /= 0) then
          call box9_to_part(262144, kp9, xc9, yc9, npb9, br9, bi9)
       endif
-
-      return
       end

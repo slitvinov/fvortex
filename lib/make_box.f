@@ -249,6 +249,4 @@ C Box 4
          Vold(i) = vv(i)
          Gdold(i) = Gdiff(i)
       enddo
-
-      return
       end

@@ -64,7 +64,5 @@ C which is (-) the body motion.
          last_w = last_w + delta_t*last_wdot
          last_th = last_th + delta_t*last_w
       endif
-
-      return
       end
 

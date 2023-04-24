@@ -56,6 +56,4 @@ C Differentiation of the impulse will give drag and lift.
       close(12)
 
   100 format(f10.4, 2x, e13.6)
-
-      return
       end

@@ -66,6 +66,4 @@ C           if((rad1.lt.visc_cutoff).and.(rad2.lt.visc_cutoff))then
          Gdiff(n) = Gdiff(n) - a ! Strength of n
 C          endif
     4 end do
-
-      return
       end

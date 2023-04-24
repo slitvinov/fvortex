@@ -108,6 +108,4 @@ C Calculate the velocity induced by the group "k" on particle "i"
 
     2    end do
    90 end do
-
-      return
       end

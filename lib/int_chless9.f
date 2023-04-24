@@ -79,6 +79,4 @@ C For descriptive comments, go back to int_chless1&2
             gdiff(n) = gdiff(n) + gp1
   251    end do
    20 end do
-
-      return
       end

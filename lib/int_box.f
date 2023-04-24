@@ -164,6 +164,4 @@ C This subroutine computes BOX-BOX interactions.
       Bi(id, 6) = Bi(id, 6) - bi6
       Br(id, 7) = Br(id, 7) + br7
       Bi(id, 7) = Bi(id, 7) + bi7
-
-      return
       end

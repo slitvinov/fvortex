@@ -25,5 +25,5 @@ C interactions (Sp) and box interactions (Sb).
          stop
       endif
 
-  900 return
+  900 continue
       end

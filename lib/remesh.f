@@ -214,6 +214,4 @@ C check diagnostics
 
    89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
      $     'OUTSIDE :', i8, 2x)
-
-      return
       end

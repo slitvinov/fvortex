@@ -226,6 +226,4 @@ C This subroutine zeroes the various arrays used in identifying the tree
             Bi9(j, i) = 0.0
          enddo
       enddo
-
-      return
       end

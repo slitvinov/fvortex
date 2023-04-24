@@ -34,5 +34,4 @@ C level associated with a certain particle.
             Listfar(kfar) = ks  ! far away
          endif
     2 end do
-      return
       end

@@ -355,6 +355,4 @@ C 7 - Order
          Pgi(kb, 6) = Gi(k, 6)
          Pgi(kb, 7) = Gi(k, 7)
    30 end do
-
-      return
       end

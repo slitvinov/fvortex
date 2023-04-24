@@ -25,7 +25,5 @@ C Values for u and v are freestream velocity, thus (-) body vel.
       open (1, file='g.cont', status='old', form='unformatted')
       read (1) gp
       close (1)
-
-      return
       end
 

@@ -30,6 +30,4 @@ C Gives  the freestream velocity in the y-direction at time
       else
          velocity_y = y_amp*sin(y_freq*Time + y_phase)
       endif
-
-      return
       end

@@ -424,5 +424,4 @@ C ---- Points on column IX + 3
          end do
       end do
       close (1)
-      return
       end

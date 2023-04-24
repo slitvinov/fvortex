@@ -19,6 +19,4 @@ C their indicies in a new array.
             idummy(nmatch) = i
          endif
    10 end do
-
-      return
       end

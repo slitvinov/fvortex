@@ -174,6 +174,4 @@ C Box 4
          xc1(kp1) = Xst + 2.*ds1
          yc1(kp1) = Yst + 2.*ds1
       end if
-
-      return
       end

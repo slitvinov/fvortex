@@ -71,6 +71,4 @@ C Need to rebuild the interaction tree
 
          gp(i) = gn(i) + dt*const*(gdiff(i) - 0.5*gdold(i))
     2 end do
-
-      return
       end

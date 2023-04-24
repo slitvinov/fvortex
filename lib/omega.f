@@ -30,6 +30,4 @@ C Gives the rotational velocity of the body at Time.
       else
          omega = w_const + w_amp*sin(w_freq*Time + w_phase)
       endif
-
-      return
       end

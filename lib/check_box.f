@@ -43,6 +43,4 @@ C *Listpart* so that they interact directly with the particle.
             endif
    30    end do
     3 end do
-
-      return
       end

@@ -20,6 +20,4 @@ C to whatever cutoff value we choose for particle interactions.
          x = (i - 1)*gdelta
          gauss(i) = exp(-x)
     1 end do
-
-      return
       end

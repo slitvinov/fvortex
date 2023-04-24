@@ -110,5 +110,4 @@ C interact as box-box
          call int_box(Nmax2, kb, xb, yb, kfar, Br2, Bi2)
 
    20 end do
-      return
       end
