@@ -7,7 +7,6 @@ C *listexam* so that they are eaxmined at the lower level.
 C If they are childless then their particles are placed in list
 C *Listpart* so that they interact directly with the particle.
 
-
       include 'tree_tmp.h'
 
       integer nmax1, kclose, kexam, kpart

@@ -4,7 +4,6 @@
 C This  subroutine finds all the far & close boxes at a certain
 C level associated with a certain particle.
 
-
       include 'tree_tmp.h'
 
       integer nmax, ib, jb, ic(nmax), jc(nmax), kexam, kfar, kclose

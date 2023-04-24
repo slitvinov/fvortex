@@ -4,7 +4,6 @@ C This subroutine finds the streamfunction value at (xbc,ybc) induced
 C by the vorticity field, sending back contributions from particle
 C interactions (Sp) and box interactions (Sb).
 
-
       include 'tree_tmp.h'
 
       real  xbc, ybc, sp, sb

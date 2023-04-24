@@ -3,7 +3,6 @@
 C This subroutine computes the MULTIPOLE EXPANSIONS of
 C the childless boxes on level 9.
 
-
       include 'main_dim.h'
       include 'part.h'
       include 'tree9.h'

@@ -15,7 +15,6 @@ C as particles for the smaller box in this case but smaller box as a box
 C to bigger box). Box-box interactions cannot happen for a level 1 box
 C and are handled by the int_rest arrays rather than int_chless.
 
-
       include 'tree_tmp.h'
       include 'main_dim.h'
       include 'part.h'

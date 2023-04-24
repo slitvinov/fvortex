@@ -3,7 +3,6 @@
 C This  subroutine calculates the velocities induced by boxes
 C on individual particles.
 
-
       include 'tree_tmp.h'
 
       integer kbox

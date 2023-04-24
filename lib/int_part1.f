@@ -8,7 +8,6 @@ C This  subroutine calculates the velocities induced on the
 C particle located at *xtest*,*ytest*, by the particles in its
 C interaction list *XT,YT,GT*.
 
-
       include 'main_dim.h'
       include 'tree_tmp.h'
 

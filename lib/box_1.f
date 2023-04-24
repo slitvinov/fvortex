@@ -5,7 +5,6 @@ C This subroutine sorts the particles into four boxes and provides the
 C necessary identification arrays for this top level of the interaction
 C tree.
 
-
       include 'main_dim.h'
       include 'part.h'
 

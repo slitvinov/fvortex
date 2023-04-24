@@ -4,7 +4,6 @@ C Advance the particle positions using a Runge-Kutta scheme.
 C Must do after a remesh rather than Adams Bashforth because
 C velocities from the previous step are not available.
 
-
       include 'main_dim.h'
       include 'part.h'
 

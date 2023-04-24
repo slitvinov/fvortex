@@ -2,7 +2,6 @@
 
 C Gives  the freestream velocity in the y-direction at time
 
-
       integer xfree, yfree, wfree
       real xmass, xdamp, xspring, xforce
       real x_const, x_amp, x_freq, x_phase

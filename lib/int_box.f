@@ -2,7 +2,6 @@
 
 C This subroutine computes BOX-BOX interactions.
 
-
       include 'tree_tmp.h'
 
       integer nmax, id, kbb

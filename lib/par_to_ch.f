@@ -5,7 +5,6 @@ C This subroutine computes the MULTIPOLE EXPANSIONS of
 C the CHILDREN boxes from the multipole expansions of their
 C parents.
 
-
       integer nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
       real dch, br2(nmax, 7), bi2(nmax, 7), br3(4*nmax, 7),
      $     bi3(4*nmax, 7)

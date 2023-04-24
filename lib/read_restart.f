@@ -3,7 +3,6 @@
 C Reads the files for restarting the simulation from a saved state.
 C Values for u and v are freestream velocity, thus (-) body vel.
 
-
       integer np, nvort
       real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)
 

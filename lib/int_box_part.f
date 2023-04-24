@@ -4,7 +4,6 @@ C This subroutine computes the influence of the particles of childless
 C boxes on far boxes of a lower level, as these are particle-box
 C interactions.
 
-
       include 'tree_tmp.h'
 
       integer nmax, kb, k4

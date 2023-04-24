@@ -5,7 +5,6 @@ C This subroutine computes the MULTIPOLE EXPANSIONS of
 C the PARENT boxes once the multipole expansions of their
 C children has been computed.
 
-
       integer nmax1, kparent
       real dch
       integer IPARiCHj(Nmax1/4, 4), iparent(Nmax1/4)

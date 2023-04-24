@@ -2,7 +2,6 @@
 
 C Same as int_rest2 for level 6 boxes.
 
-
       include 'tree_tmp.h'
       include 'main_dim.h'
       include 'part.h'

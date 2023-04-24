@@ -2,7 +2,6 @@
 
 C Gives the rotational velocity of the body at Time.
 
-
       integer xfree, yfree, wfree
       real xmass, xdamp, xspring, xforce
       real x_const, x_amp, x_freq, x_phase

@@ -3,7 +3,6 @@
 C This subroutine remeshes the vortex field onto a uniform Cartesian
 C grid.
 
-
       include 'remesh_cartesian.h'
       include 'main_dim.h'
       include 'part.h'
@@ -29,7 +28,6 @@ C grid.
       real cutoff, cut_far, dhinv, g, x, y, ndist, sdist
       real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
       real xg(ngrid), yg(ngrid), gg(ngrid)
-
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi

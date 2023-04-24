@@ -5,7 +5,6 @@ C formulas for convection and diffusion between particles. Table just
 C has the Guassian for argument -r**2/s2, starting at 0 and going out
 C to whatever cutoff value we choose for particle interactions.
 
-
       include 'main_dim.h'
 
       real gdelta, gauss(ngauss)

@@ -4,7 +4,6 @@
 C This subroutine computes the MULTIPOLE EXPANSIONS of
 C the childless boxes at a level.
 
-
       include 'main_dim.h'
       include 'part.h'
 

@@ -3,7 +3,6 @@
 C Advance the particle positions using an Euler step
 C based on velocities calculated in CONDIFF and VEL_EXT.
 
-
       include 'main_dim.h'
 
       include 'part.h'

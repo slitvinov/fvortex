@@ -4,7 +4,6 @@ C This routine figures box-box interactions for level 2 boxes as well as
 C interacting with the particles at higher level childless boxes that
 C interacted as particle-box previously.
 
-
       include 'tree_tmp.h'
       include 'main_dim.h'
       include 'part.h'
