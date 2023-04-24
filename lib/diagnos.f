@@ -6,7 +6,7 @@ C     Differentiation of the impulse will give drag and lift.
       include 'main_dim.h'
       include 'part.h'
 
-      character*256 partfile
+      character partfile*256
       integer i
       integer iframe
       integer n
@@ -43,7 +43,7 @@ C-----------------------------------------------------
          xmom = xmom - g*y
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
-         write (1, '(SP, 2P E23.16, X, E23.16, X, E23.16)') x, y, g
+         write (1, '(SP, 2P E23.16, 1X, E23.16, 1X, E23.16)') x, y, g
          write (2) x, y, g
     2 end do
       close (1)

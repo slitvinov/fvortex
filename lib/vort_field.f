@@ -5,7 +5,7 @@ C     outputs the vorticity field on a grid.
       include 'main_dim.h'
       include 'part.h'
 
-      character*256 vortoutfile
+      character vortoutfile*256
       integer i
       integer iframe
       integer in
