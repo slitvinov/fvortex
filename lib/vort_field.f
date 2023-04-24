@@ -51,7 +51,6 @@ C     outputs the vorticity field on a grid.
       common/vort_avg/nx, ny, xmax, xmin, ymax, ymin
       common/part/Np, s2, ovrlp, gnu
       common/params/n, Time, dt
-C----------------------------------------------------------------
       pi = 4.0*atan(1.0)
       twopiinv = 0.5/pi
 

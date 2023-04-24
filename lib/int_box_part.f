@@ -15,7 +15,6 @@ C     boxes on far boxes of a lower level, as these are particle-box interaction
       real br5, bi5, br6, bi6, br7, bi7
       real s0, t0, s1, t1, s2, t2, s3, t3, s4, t4, s5, t5, s6, t6
       real g, xx, yy, p, f, r2inv
-C-----------------------------------------------------------
       Br1 = 0.
       Bi1 = 0.
       Br2 = 0.

@@ -24,7 +24,6 @@ C     Gives  the freestream velocity in the y-direction at time
      $  last_th, last_w, last_wdot
 
       real velocity_y, time
-C------------------------------------------------------
 
       if (yfree == 1) then
          velocity_y = last_v

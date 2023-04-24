@@ -24,7 +24,6 @@ C     Gives the freestream velocity in the x-direction at time
      $  last_th, last_w, last_wdot
 
       real velocity_x, time
-C-----------------------------------------------
 
       if (xfree == 1) then
          velocity_x = last_u

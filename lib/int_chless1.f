@@ -5,7 +5,6 @@ C     as they only happen for childless boxes (otherwise you go to the next leve
 C     in hopes of geting some box interactions). Box interactions are taken care
 C     of by the int_rest routines. Particle-box interactions occur in both, with
 C     the particle end of these interactions in int_rest and box in int_chless.
-C-------------------------------------------------------------------------
 
 C     This subroutine figures out the interactions for childless boxes at
 C     level 1 (the highest level of the tree).  They can interact as
@@ -30,7 +29,6 @@ C     handled by the int_rest arrays rather than int_chless.
       real r12, r13, r14, r15, r16, r17, r18, r19, xnn, ynn, gnn,
      $     dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-C-------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
       r12 = 2.0

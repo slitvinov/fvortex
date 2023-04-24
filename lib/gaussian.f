@@ -13,7 +13,6 @@ C     to whatever cutoff value we choose for particle interactions.
 
       integer i
       real x
-C------------------------------------------------------------------
 
       gdelta = gauss_cut/(ngauss - 1)
 

@@ -20,7 +20,6 @@ C     interacted as particle-box previously.
       integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r21, r11, r22, xb, yb
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

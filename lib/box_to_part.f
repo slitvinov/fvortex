@@ -16,7 +16,6 @@ C     on its own particles from the box's interactions.
       real r1, r2, r3, r4, r5, r6, f1, f2, f3, f4, f5, f6
       real cr, c1r, c2r, c3r, c4r, c5r, c6r, c7r
       real ci, c1i, c2i, c3i, c4i, c5i, c6i, c7i
-C-----------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
       do 90 k = 1, kchildless   ! all childless boxes on level

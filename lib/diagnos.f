@@ -26,7 +26,6 @@ C     Differentiation of the impulse will give drag and lift.
 
       common/params/n, Time, dt
       common/part/Np, s2, ovrlp, gnu
-C-----------------------------------------------------
 
       write (partfile, '(A, I8.8, A)') 'p.', iframe, '.dat'
       open (1, file=partfile, status='REPLACE')

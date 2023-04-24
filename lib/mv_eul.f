@@ -18,7 +18,6 @@ C     based on velocities calculated in CONDIFF and VEL_EXT.
 
       integer in, i
       real pi, const
-C--------------------------------------------------------------------
 
       in = 0
       pi = 4.*atan(1.)

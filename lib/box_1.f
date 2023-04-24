@@ -26,7 +26,6 @@ C     necessary identification arrays for this top level of the interaction tree
       real xst, yst, ds1inv, lx, ly
 
       integer ixy(nvort), idummy(nvort)
-C------------------------------------------------------------------------
 
       do i = 1, nvort
          ixy(i) = 0

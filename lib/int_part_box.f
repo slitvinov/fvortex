@@ -15,7 +15,6 @@ C     on individual particles.
      $     r8, f8
       real c0r, c0i, c1r, c1i, c2r, c2i, c3r, c3i, c4r, c4i
       real c5r, c5i, c6r, c6i, c7r, c7i
-C-----------------------------------------------------------
       ubox = 0.
       vbox = 0.
       do 2 ks = 1, kbox

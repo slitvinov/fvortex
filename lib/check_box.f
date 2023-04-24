@@ -16,7 +16,6 @@ C     *Listpart* so that they interact directly with the particle.
 
       integer k, ks, i, m, kcheck
       integer icheck4(Nhlp)
-C------------------------------------------------------
 
       if (kclose > nhlp) write (*, *) 'error in check_box,', kclose
       kexam = 0

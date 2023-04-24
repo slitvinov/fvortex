@@ -30,7 +30,6 @@ C     interaction list *XT,YT,GT*.
 
       integer m, i
       real s2inv2, xx, yy, r2, arg, c, fc
-C------------------------------------------------------------------------------
 
       s2inv2 = 0.5/s2
       Upart = 0.0

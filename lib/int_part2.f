@@ -28,7 +28,6 @@ C     ytest is in a higher level box than XT,YT to keep things straight.
       integer m, i, n
       real s2inv2, gg, xx, yy, r2, arg, c, svl, fm, fn
       real a, dyopiinv
-C------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
       s2inv2 = 0.5/s2

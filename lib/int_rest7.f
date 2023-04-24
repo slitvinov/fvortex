@@ -20,7 +20,6 @@ C     Same as int_rest2 for level 7 boxes.
       real xb, yb, dyopiinv
       real r61, r62, r63, r64, r65, r66, r71, r72,
      $     r73, r74, r75, r76, r77
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

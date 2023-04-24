@@ -30,7 +30,6 @@ C     grid.
       real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
       real xg(ngrid), yg(ngrid), gg(ngrid)
 
-C----------------------------------------------------------------
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi
@@ -137,17 +136,13 @@ C ---- Do not remesh the particles outside the established grid
 C-- all other particles are in the inner grid
          else if ((ix == nx_r) .or. (ix == nx_l) .or.
      $        (iy == ny_t) .or. (iy == ny_b)) then
-C----------------------------------------------------------------
 C- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
-C----------------------------------------------------------------
             in = in + 1
             ig = indx(ix, iy)
             gg(ig) = gg(ig) + g    ! NGP   Interpolation
 
          else
-C----------------------------------------------------------------
 C- Category 0_1 : ALL other PARTICLES in the domain
-C----------------------------------------------------------------
             in = in + 1
             ix0 = ix
             ix1 = ix - 1

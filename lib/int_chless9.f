@@ -21,7 +21,6 @@ C     For descriptive comments, go back to int_chless1&2
       integer nb1, nb2, k, id, n1, n2, np, kfp, nn, n
       real r99, dyopiinv
       real up1, vp1, gp1
-C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

@@ -18,7 +18,6 @@ C     This subroutine computes BOX-BOX interactions.
       real cr0, ci0, cr1, ci1, cr2, ci2, cr3, ci3, cr4, ci4
       real cr5, ci5, cr6, ci6, cr7, ci7
       real a, b, xx, yy, r2inv
-C-----------------------------------------------------------
 
       br0 = 0.
       bi0 = 0.

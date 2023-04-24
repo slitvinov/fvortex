@@ -15,7 +15,6 @@ C     on its own particles from the box's interactions (level 9).
       real c1r, c1i, r1, f1, c2r, c2i, r2, f2, c3r, c3i, r3, f3, c4r,
      $     c4i
       real r4, f4, c5r, c5i, r5, f5, c6r, c6i, r6, f6, c7r, c7i
-C-----------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

@@ -13,7 +13,6 @@ C     level associated with a certain particle.
 
       integer k, ks
       real fi, fj, cr, si, sj
-C------------------------------------------------------------------------------
 
       if (kexam > nhlp) write (*, *) 'error in near_far,', kexam
 

@@ -33,7 +33,6 @@ C     which is (-) the body motion.
 
       real cd, cl, old_sheet, pi
       real x_tilde, u_tilde, y_tilde, v_tilde, th_tilde, w_tilde
-C----------------------------------------
 
       pi = 4.*atan(1.)
 

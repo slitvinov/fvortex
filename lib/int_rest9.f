@@ -20,7 +20,6 @@ C     Same as int_rest2 for level 9 boxes.
       real xb, yb, dyopiinv
       real r81, r82, r83, r84, r85, r86, r87, r88
       real r91, r92, r93, r94, r95, r96, r97, r98, r99
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

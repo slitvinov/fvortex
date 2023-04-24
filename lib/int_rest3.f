@@ -18,7 +18,6 @@ C     Same as int_rest2 for level 3 boxes.
       integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r21, r22, r31, r32, r33, xb, yb
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

@@ -35,7 +35,6 @@ C     the levels.  It mostly parallels the BOX_1 subroutine.
       integer ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
       real ds2inv, xst, yst
       real si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
-C---------------------------------------------------------------------
 
       do i = 1, nvort
          ixy(i) = 0

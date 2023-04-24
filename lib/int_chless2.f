@@ -22,7 +22,6 @@ C     Same idea as in int_chless1 but now for level 2 childless boxes.
       real r21, r22, r23, r24, r25, r26, r27, r28, r29, xnn, ynn,
      $     gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

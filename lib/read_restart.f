@@ -6,7 +6,6 @@ C     Values for u and v are freestream velocity, thus (-) body vel.
 
       integer np, nvort
       real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)
-C----------------------------------------------------------------------
 
       open (1, file='params.cont', status='old')
       read (1, *) time

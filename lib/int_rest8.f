@@ -21,7 +21,6 @@ C     Same as int_rest2 for level 8 boxes.
       real r71, r72, r73, r74, r75, r76, r77,
      $     r81, r82, r83, r84, r85, r86
       real r87, r88
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

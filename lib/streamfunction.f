@@ -10,7 +10,6 @@ C     interactions (Sp) and box interactions (Sb).
       real  xbc, ybc, sp, sb
 
       integer  nn, kfp
-C---------------------------------------------------------------------------
 
       call build_tree(0, xbc, ybc, nn, kfp)
 

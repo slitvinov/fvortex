@@ -23,7 +23,6 @@ C     For descriptive comments, go back to int_chless1&2
       real r31, r32, r33, r34, r35, r36, r37, r38, r39, xnn, ynn,
      $     gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

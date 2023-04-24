@@ -19,7 +19,6 @@ C     Same as int_rest2 for level 6 boxes.
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r51, r52, r53, r54, r55, r61, r62, r63,
      $     r64, r65, r66, xb, yb
-C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

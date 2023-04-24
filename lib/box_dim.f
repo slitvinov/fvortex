@@ -13,7 +13,6 @@ C     This subroutine finds the bounding x and y coordinates in the domain.
       real x
       real y
       integer i
-C------------------------------------------------------------------
 
       xmin = xp(1)
       xmax = xp(1)

@@ -10,7 +10,6 @@ C     their indicies in a new array.
       integer ibox(nvort), idummy(nvort)
 
       integer i
-C----------------------------------------------------------
 
       nmatch = 0
 

@@ -22,7 +22,6 @@ C     (which are not represented by the vorticity field) such as a free stream.
       real alpha, x_vel, y_vel, xni, yni, arn2, uext, vext
 
       real velocity_x, velocity_y, omega
-C----------------------------------------
 
       alpha = omega(tm)
       x_vel = velocity_x(tm)
