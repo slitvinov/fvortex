@@ -3,11 +3,9 @@
      $ ic1, jc1, npb1, iparent1, imark1, ipar1ch2,
      $  ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
 
-C This subroutine takes each box on the previous level and splits it into
-C four boxes, creating all the necessary indentification arrays to relate
-C the levels.  It mostly parallels the BOX_1 subroutine.
-
-
+C This subroutine takes each box on the previous level and splits it
+C into four boxes, creating all the necessary indentification arrays to
+C relate the levels.  It mostly parallels the BOX_1 subroutine.
       include 'main_dim.h'
 
       include 'part.h'

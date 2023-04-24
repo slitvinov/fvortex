@@ -80,7 +80,8 @@ C 7-order
 
 C Contribution of 1st Child (if any)
          km = iparent(nb)
-         m = ipariChj(km, 1)    ! index of child (if any) box 1 at level i
+         m = ipariChj(km, 1)    ! index of child (if any) box 1 at level
+                                ! i
          if (m == 0) goto 2
 
 C REAL VALUES
@@ -141,7 +142,8 @@ C 7 - Order
 
 C -  Contribution of 2nd Child (if any)
 
-    2    m = ipariChj(km, 2)    ! index of child (if any) box 2 at level i
+    2    m = ipariChj(km, 2)    ! index of child (if any) box 2 at level
+                                ! i
          if (m == 0) goto 3
 
 C REAL VALUES
@@ -204,7 +206,8 @@ C 7 - Order
      $        - p17*(r6 + f6) + f7
 
 C -  Contribution of 3rd Child (if any)
-    3    m = ipariChj(km, 3)    ! index of child (if any) box 3 at level i
+    3    m = ipariChj(km, 3)    ! index of child (if any) box 3 at level
+                                ! i
          if (m == 0) goto 4
 
 C REAL VALUES
@@ -268,7 +271,8 @@ C 7 - Order
 
 C -   Contribution of 4th Child (if any)
 
-    4    m = ipariChj(km, 4)    ! index of child (if any) box 4 at level 7
+    4    m = ipariChj(km, 4)    ! index of child (if any) box 4 at level
+                                ! 7
          if (m == 0) goto 20    ! Non-Empty box.
 
 C REAL VALUES

@@ -1,7 +1,8 @@
       subroutine int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
 
 C This subroutine computes the influence of the particles of childless
-C boxes on far boxes of a lower level, as these are particle-box interactions.
+C boxes on far boxes of a lower level, as these are particle-box
+C interactions.
 
 
       include 'tree_tmp.h'

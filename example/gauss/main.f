@@ -30,8 +30,6 @@
       real Rmax
       real visc_rmax
 
-!---------------------------------------------------------------------------
-
       irk = 0
       lremesh = .false.
 
@@ -73,7 +71,8 @@
 
 !---  Move the particles
 
-         if ((n == 1) .or. (lremesh)) then ! first step or first after remesh
+         if ((n == 1) .or. (lremesh)) then ! first step or first after
+                                           ! remesh
             lremesh = .false.
             if (istepping == 2) then
                call mv_rk(visc_rmax)
@@ -216,7 +215,6 @@
       integer icase, idiags, nsteps, nrem, nrestart, nvf
       integer ntree, istepping
       real Rmax, ell_x, ell_y, visc_rmax
-!---------------------------------------------------------------------------
 !-----read in various parameters for the computation
 
       open (1, file='input.dat', status='OLD', err = 101)
@@ -246,8 +244,6 @@
       read (1, *) icase, Nrestart
       close (1)
 
-!~~~~~~~~~~~~~~~~~~~~GLOSSARY OF INPUT PARAMETERS ~~~~~~~~~~~~~~~~~~~~~~~~
-
 !     dt = time step length   Nsteps = # of time steps
 !     gnu = kinematic viscosity
 !     s2 = particle core area
@@ -275,9 +271,6 @@
 !
 !     icase = 0 for a continuation run
 !     Nrestart = frequency with which to write restart files
-
-!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
       return
   101 write (*, '(''gauss: error: needs input.dat file'')')
       stop 1

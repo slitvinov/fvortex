@@ -43,7 +43,8 @@ C interaction list *XT,YT,GT*.
          arg = r2*s2inv2
          if (arg < gauss_cut) then
             i = int(arg/gdelta + 1)
-            c = gauss(i)*(1 + i*gdelta - arg) ! includes first error term
+            c = gauss(i)*(1 + i*gdelta - arg) ! includes first error
+                                              ! term
          else
             c = 0.
          endif

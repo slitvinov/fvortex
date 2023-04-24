@@ -92,10 +92,10 @@ C IMAGINARY VALUES
 
 C Contribution to 1st Child (if any)
 
-         m1 = ipar2ch3(km, 1)   ! index of child (if any) box 1 at level i
-         m2 = ipar2ch3(km, 2)   ! index of child (if any) box 2 at level i
-         m3 = ipar2ch3(km, 3)   ! index of child (if any) box 3 at level i
-         m4 = ipar2ch3(km, 4)   ! index of child (if any) box 4 at level i
+         m1 = ipar2ch3(km, 1) ! index of child (if any) box 1 at level i
+         m2 = ipar2ch3(km, 2) ! index of child (if any) box 2 at level i
+         m3 = ipar2ch3(km, 3) ! index of child (if any) box 3 at level i
+         m4 = ipar2ch3(km, 4) ! index of child (if any) box 4 at level i
 
          if (nb == m1) then
 C z

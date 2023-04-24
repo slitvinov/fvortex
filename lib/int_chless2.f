@@ -47,8 +47,9 @@ C Same idea as in int_chless1 but now for level 2 childless boxes.
 C get indicies of parent of kh
          ipar = int((xc2(kb) - x0)/ds1 + 1)
          jpar = int((yc2(kb) - y0)/ds1 + 1)
-C For particle interactions, only need consider neighbors of your parent.
-C All others are box interactions handled in int_rest at your parent's level.
+C For particle interactions, only need consider neighbors of your
+C parent.  All others are box interactions handled in int_rest at your
+C parent's level.
          kc = 0
          do 21 k = 1, Kp1       ! Loop over boxes in parents level.
             i = ic1(k)

@@ -1,18 +1,19 @@
       subroutine int_chless1(kchildless1)
-C These subroutines determine the hierarchy of interactions and call for the
-C interactions. Particle interactions are assigned in the int_chless routines
-C as they only happen for childless boxes (otherwise you go to the next level
-C in hopes of geting some box interactions). Box interactions are taken care
-C of by the int_rest routines. Particle-box interactions occur in both, with
-C the particle end of these interactions in int_rest and box in int_chless.
+C These subroutines determine the hierarchy of interactions and call for
+C the interactions. Particle interactions are assigned in the int_chless
+C routines as they only happen for childless boxes (otherwise you go to
+C the next level in hopes of geting some box interactions). Box
+C interactions are taken care of by the int_rest routines. Particle-box
+C interactions occur in both, with the particle end of these
+C interactions in int_rest and box in int_chless.
 
 C This subroutine figures out the interactions for childless boxes at
 C level 1 (the highest level of the tree).  They can interact as
 C particle-particle with nearby childless boxes and particle-box with
-C finer boxes which are far enough away (bigger box must be considered as
-C particles for the smaller box in this case but smaller box as a box to
-C bigger box). Box-box interactions cannot happen for a level 1 box and are
-C handled by the int_rest arrays rather than int_chless.
+C finer boxes which are far enough away (bigger box must be considered
+C as particles for the smaller box in this case but smaller box as a box
+C to bigger box). Box-box interactions cannot happen for a level 1 box
+C and are handled by the int_rest arrays rather than int_chless.
 
 
       include 'tree_tmp.h'
@@ -93,7 +94,8 @@ C ______________________________
          level = 2
 
 C Find which level 2 boxes are far enough away to interact as a box with
-C level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
+C level 1 particles (level 2 boxes are the 4 subdivisions of a level 1
+C box).
 
          call near_far(Nmax2, ib, jb, r12, ic2, jc2, kexam, listexam,
      $     kfar, Listfar, kclose, Listclose)
@@ -122,9 +124,9 @@ C level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
             Pibox(kfp, 7) = Pi2(id, 7)
    12    end do
 
-C Check the remaining level 2 boxes for childless boxes. Since they didn't
-C interact as a box above and further subdivisions don't exist for the
-C box, it must now interact as particles.
+C Check the remaining level 2 boxes for childless boxes. Since they
+C didn't interact as a box above and further subdivisions don't exist
+C for the box, it must now interact as particles.
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam,
      $        kpart,
@@ -144,11 +146,9 @@ C box, it must now interact as particles.
   250       end do
    25    end do
 
-C All remaining boxes (those which have not yet interacted in some way) are
-C parents, thus go to their level 3 children. Process of level 2 repeats
-C for all subsequent levels.
-
-C _____________________________________
+C All remaining boxes (those which have not yet interacted in some way)
+C are parents, thus go to their level 3 children. Process of level 2
+C repeats for all subsequent levels.
          level = 3
 
          call near_far(Nmax3, ib, jb, r13, ic3, jc3, kexam, listexam,

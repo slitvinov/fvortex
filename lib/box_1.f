@@ -2,7 +2,8 @@
      $     liststart)
 
 C This subroutine sorts the particles into four boxes and provides the
-C necessary identification arrays for this top level of the interaction tree.
+C necessary identification arrays for this top level of the interaction
+C tree.
 
 
       include 'main_dim.h'
@@ -41,7 +42,8 @@ C Identify each particle with one of the boxes
       do 1 n = 1, npart
          lx = (xp(n) - x0)*ds1inv
          ly = (yp(n) - y0)*ds1inv
-         ibox = int(lx + 1)          ! indices of the box where the particles
+         ibox = int(lx + 1)          ! indices of the box where the
+                                     ! particles
          jbox = int(ly + 1)          ! reside
          ixy(n) = 1             ! IXY(n) has as value
          if ((ibox == 1) .and. (jbox == 2)) then ! the index (1,2,3,4)

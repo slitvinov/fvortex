@@ -95,7 +95,8 @@ C Establish the new grid for the remeshed field
          stop
       endif
 
-C check diagnostics, pre-remesh - they should be conserved through remesh
+C check diagnostics, pre-remesh - they should be conserved through
+C remesh
 
       cold = 0.0
       cx = 0.0
@@ -113,7 +114,8 @@ C NEW GRID IN PLACE, REMESH OLD FIELD NOW
 
       in = 0
       ifar = 0
-      do 40 i = 1, Np           ! loop through, mapping particles to mesh
+      do 40 i = 1, Np           ! loop through, mapping particles to
+                                ! mesh
          g = gp(i)
          x = xp(i)
          y = yp(i)

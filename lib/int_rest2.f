@@ -52,8 +52,8 @@ C Examine boxes that are close for being childless or not.
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
      $        kpart,
      $        Listpart, ipar1Ch2, imark1)
-C Boxes that are childless and close to the parents are examined to see if
-C they are close to the box itself.
+C Boxes that are childless and close to the parents are examined to see
+C if they are close to the box itself.
 
          call near_far(Nmax1, ib, jb, r21, ic1, jc1, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)

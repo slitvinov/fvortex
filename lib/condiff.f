@@ -220,13 +220,9 @@ C Level 9 (finest boxes)
       ds8 = 0.5*ds7
       ds9 = 0.5*ds8
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C C
-C STAGE 2 : FORM THE MULTIPOLE EXPANSIONS  FOR EVERY  BOX             C
-C AT EACH  LEVEL                                            C
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
-
-C Form the expansions of the childless boxes first as these are finest levels
+C STAGE 2 : FORM THE MULTIPOLE EXPANSIONS FOR EVERY BOX AT EACH LEVEL
+C Form the expansions of the childless boxes first as these are finest
+C levels
 
 C Level 1 (Coarsest)
       if (kchildless1 /= 0) then
@@ -344,11 +340,8 @@ C stop here if only building the interaction tree
          Gdiff(i) = 0.
       enddo
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C C
-C STAGE 3 : Now allow the particles and boxes to interact,            C
-C finding the induced velocities and circulation exchange   C
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
+C STAGE 3 : Now allow the particles and boxes to interact, finding the
+C induced velocities and circulation exchange
 
       if (istats == 1) then
          write (*, *) '************TREE STATS*************'
@@ -407,12 +400,8 @@ C 9th level (finest)
       if (kp9 /= 0) call int_chless9(kp8, kp9)
       if (kp9 /= 0) call int_rest9(kp9)
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C C
-C STAGE 4 : TRANSFER THE EXPANSIONS OF BOXES FROM                     C
-C COARSER TO FINER LEVELS                                   C
-C C
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
+C STAGE 4 : TRANSFER THE EXPANSIONS OF BOXES FROM COARSER TO FINER
+C LEVELS
 
 C   Level 2 -> Level 3
 
@@ -463,12 +452,8 @@ C   Level 8 -> Level 9
      $     ipar8ch9)
       endif
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C C
-C STAGE 5 : FOR EACH PARTCLE IN A CHILDLESS BOX                       C
-C COMPUTE THE INDUCED VELOCITY FROM THE BOX EXPANSIONS      C
-C C
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._C
+C STAGE 5 : FOR EACH PARTCLE IN A CHILDLESS BOX COMPUTE THE INDUCED
+C VELOCITY FROM THE BOX EXPANSIONS
 C   Level 2
       if (kchildless2 /= 0) then
          call box_to_part(16, kchildless2, ichildless2, xc2, yc2,
