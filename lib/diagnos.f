@@ -1,7 +1,7 @@
       subroutine diagnos(iframe)
 
-C     Calculates the linear/angular impulse and circulation of the flow.
-C     Differentiation of the impulse will give drag and lift.
+C Calculates the linear/angular impulse and circulation of the flow.
+C Differentiation of the impulse will give drag and lift.
 
       include 'main_dim.h'
       include 'part.h'

@@ -1,9 +1,9 @@
       subroutine par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3,
      $  ich3par2, ipar2ch3)
 
-C     This subroutine computes the MULTIPOLE EXPANSIONS of
-C     the CHILDREN boxes from the multipole expansions of their
-C     parents.
+C This subroutine computes the MULTIPOLE EXPANSIONS of
+C the CHILDREN boxes from the multipole expansions of their
+C parents.
 
 
       integer nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
@@ -25,7 +25,7 @@ C     parents.
       p6 = p3*p3
       p7 = p3*p4
 
-C     Other constants
+C Other constants
 
       p78 = 8.*p7
       p68 = 8.*p6
@@ -143,11 +143,11 @@ C 7 - Order
 
          else if (nb == m2) then
 
-C*****************************************************************************
-C                                                                            *
-C                    Contribution to 2nd Child (if any)                      *
-C                                                                            *
-C*****************************************************************************
+C 
+C *
+C Contribution to 2nd Child (if any)                      *
+C *
+C 
 
 C --------
 C REAL and IMAGINARY PART OF EXPANSIONS
@@ -192,11 +192,11 @@ C 7 - Order
             Bi3(nb, 7) = Bi3(nb, 7) + f7
 
          else if (nb == m3) then
-C*****************************************************************************
-C                                                                            *
-C                    Contribution to 3rd Child (if any)                      *
-C                                                                            *
-C*****************************************************************************
+C 
+C *
+C Contribution to 3rd Child (if any)                      *
+C *
+C 
 
 C --------
 C REAL and IMAGINARY PART OF EXPANSIONS
@@ -241,11 +241,11 @@ C 7 - Order
 
          else if (nb == m4) then
 
-C*****************************************************************************
-C                                                                            *
-C                    Contribution to 4th Child (if any)                      *
-C                                                                            *
-C*****************************************************************************
+C 
+C *
+C Contribution to 4th Child (if any)                      *
+C *
+C 
 
 C --------
 C REAL and IMAGINARY PART OF EXPANSIONS

@@ -1,12 +1,12 @@
       subroutine int_part1(xtest, ytest, gtest, upart, vpart, gpart,
      $     kpart)
-C     This set of subroutines performs the various types of interactions
-C     between particles and boxes that are called for in the tree routine.
-C     ---------------------------------------------------------------------
+C This set of subroutines performs the various types of interactions
+C between particles and boxes that are called for in the tree routine.
+C ---------------------------------------------------------------------
 
-C     This  subroutine calculates the velocities induced on the
-C     particle located at *xtest*,*ytest*, by the particles in its
-C     interaction list *XT,YT,GT*.
+C This  subroutine calculates the velocities induced on the
+C particle located at *xtest*,*ytest*, by the particles in its
+C interaction list *XT,YT,GT*.
 
 
       include 'main_dim.h'
@@ -50,10 +50,10 @@ C     interaction list *XT,YT,GT*.
          fc = gt(m)*(1.0 - c)/(r2 + eps)
          Upart = Upart + yy*fc
          Vpart = Vpart + xx*fc
-C* rad1 = xtest*xtest + ytest*ytest
-C* if(rad1.lt.visc_cutoff)then
+C  rad1 = xtest*xtest + ytest*ytest
+C  if(rad1.lt.visc_cutoff)then
          gpart = gpart + (gt(m) - gtest)*c
-C*         endif
+C          endif
     4 end do
 
       return

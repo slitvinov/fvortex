@@ -1,6 +1,6 @@
       subroutine int_chless2(kchildless2)
 
-C     Same idea as in int_chless1 but now for level 2 childless boxes.
+C Same idea as in int_chless1 but now for level 2 childless boxes.
 
 
       include 'tree_tmp.h'

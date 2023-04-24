@@ -1,5 +1,5 @@
       subroutine box_dim(npart, xmin, xmax, ymin, ymax)
-C     This subroutine finds the bounding x and y coordinates in the domain.
+C This subroutine finds the bounding x and y coordinates in the domain.
 
       include 'main_dim.h'
       real xp(nvort), yp(nvort)

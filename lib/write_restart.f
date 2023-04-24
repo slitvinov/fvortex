@@ -1,7 +1,7 @@
       subroutine write_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
 
-C     Write the files needed to restart the simulation.
-C     Values for u and v are freestream velocity, thus (-) body vel.
+C Write the files needed to restart the simulation.
+C Values for u and v are freestream velocity, thus (-) body vel.
 
       integer  np, nvort
       real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)

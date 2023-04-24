@@ -1,7 +1,7 @@
       subroutine read_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
 
-C     Reads the files for restarting the simulation from a saved state.
-C     Values for u and v are freestream velocity, thus (-) body vel.
+C Reads the files for restarting the simulation from a saved state.
+C Values for u and v are freestream velocity, thus (-) body vel.
 
 
       integer np, nvort

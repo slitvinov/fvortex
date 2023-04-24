@@ -1,6 +1,6 @@
       function velocity_y(time)
 
-C     Gives  the freestream velocity in the y-direction at time
+C Gives  the freestream velocity in the y-direction at time
 
 
       integer xfree, yfree, wfree

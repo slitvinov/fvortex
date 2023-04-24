@@ -1,6 +1,6 @@
       subroutine int_rest8(kp8)
 
-C     Same as int_rest2 for level 8 boxes.
+C Same as int_rest2 for level 8 boxes.
 
 
       include 'tree_tmp.h'

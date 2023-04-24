@@ -1,11 +1,11 @@
       subroutine int_part2(gtest, xtest, ytest, upart, vpart, gpart,
      $     kpart)
 
-C     This  subroutine calculates the velocities induced on the
-C     particle located at *xtest*,*ytest*, by the particles in its
-C     interaction list *XT,YT,GT*; it also does the reverse influence of
-C     xtest,ytest on the particles XT,YT. Thus it is only used when xtest,
-C     ytest is in a higher level box than XT,YT to keep things straight.
+C This  subroutine calculates the velocities induced on the
+C particle located at *xtest*,*ytest*, by the particles in its
+C interaction list *XT,YT,GT*; it also does the reverse influence of
+C xtest,ytest on the particles XT,YT. Thus it is only used when xtest,
+C ytest is in a higher level box than XT,YT to keep things straight.
 
 
       include 'main_dim.h'
@@ -36,7 +36,7 @@ C     ytest is in a higher level box than XT,YT to keep things straight.
       gg = gtest*dyopiinv
       gpart = 0.0
 
-C     FPP$PERMUTATION(IT)
+C FPP$PERMUTATION(IT)
       do 4 m = 1, kpart
          xx = xtest - xt(m)
          yy = yt(m) - ytest
@@ -57,13 +57,13 @@ C Calculation is made symmetric here
          fn = gg*svl
          uu(n) = uu(n) - yy*fn
          vv(n) = vv(n) - xx*fn
-C*          rad1 = xtest*xtest + ytest*ytest
-C*          rad2 = xt(m)*xt(m) + yt(m)*yt(m)
-C*          if((rad1.lt.visc_cutoff).and.(rad2.lt.visc_cutoff))then
+C           rad1 = xtest*xtest + ytest*ytest
+C           rad2 = xt(m)*xt(m) + yt(m)*yt(m)
+C           if((rad1.lt.visc_cutoff).and.(rad2.lt.visc_cutoff))then
          a = (gt(m) - gtest)*c
          gpart = gpart + a
          Gdiff(n) = Gdiff(n) - a ! Strength of n
-C*         endif
+C          endif
     4 end do
 
       return

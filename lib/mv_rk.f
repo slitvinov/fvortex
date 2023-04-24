@@ -1,8 +1,8 @@
       subroutine mv_rk(visc_rmax)
 
-C     Advance the particle positions using a Runge-Kutta scheme.
-C     Must do after a remesh rather than Adams Bashforth because
-C     velocities from the previous step are not available.
+C Advance the particle positions using a Runge-Kutta scheme.
+C Must do after a remesh rather than Adams Bashforth because
+C velocities from the previous step are not available.
 
 
       include 'main_dim.h'
@@ -44,7 +44,7 @@ C     velocities from the previous step are not available.
       pi = 4.*atan(1.)
       const = gnu*ovrlp**2/(pi*s2)
 
-C---  1st Substep, predictor step, goes to dt/2
+C 1st Substep, predictor step, goes to dt/2
       do 1 i = 1, Np
          xp(i) = xn(i) + 0.5*dt*uu(i)
          yp(i) = yn(i) + 0.5*dt*vv(i)
@@ -52,17 +52,17 @@ C---  1st Substep, predictor step, goes to dt/2
          gp(i) = gn(i) + 0.5*dt*const*gdiff(i)
     1 end do
 
-C--   If any free motion, need to update now
+C If any free motion, need to update now
       if ((xfree == 1) .or. (yfree == 1) .or. (wfree == 1)) then
-C-- Rebuild the tree
+C Rebuild the tree
          call condiff(Np, 0, 9999., 0)
          call update_position(0.5*dt)
       endif
 
-C---  2nd Substep, corrector step, uses dt/2 values to get to dt
+C 2nd Substep, corrector step, uses dt/2 values to get to dt
 
       in = 0
-C--   Need to rebuild the interaction tree
+C Need to rebuild the interaction tree
       call condiff(Np, 1, visc_rmax, 0)
       call vel_ext(time + 0.5*dt)
       do 2 i = 1, Np

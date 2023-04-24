@@ -1,8 +1,8 @@
       subroutine exp_chdless(nmax, kchildless, xc, yc, ichildless,
      $  npb, Pr, Pi)
 
-C     This subroutine computes the MULTIPOLE EXPANSIONS of
-C     the childless boxes at a level.
+C This subroutine computes the MULTIPOLE EXPANSIONS of
+C the childless boxes at a level.
 
 
       include 'main_dim.h'

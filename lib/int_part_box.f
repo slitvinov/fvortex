@@ -1,7 +1,7 @@
       subroutine int_part_box(xtest, ytest, ubox, vbox, kbox)
 
-C     This  subroutine calculates the velocities induced by boxes
-C     on individual particles.
+C This  subroutine calculates the velocities induced by boxes
+C on individual particles.
 
 
       include 'tree_tmp.h'
@@ -84,11 +84,11 @@ C     on individual particles.
          c7r = f8*prl + r8*pil
          c7i = r8*prl - f8*pil
 
-C   Sum all the terms in the series
+C Sum all the terms in the series
          velr = c0r + c1r + c2r + c3r + c4r + c5r + c6r + c7r
          veli = c0i + c1i + c2i + c3i + c4i + c5i + c6i + c7i
 
-C  Calculate the velocity induced by the group "k" on particle "i"
+C Calculate the velocity induced by the group "k" on particle "i"
          ubox = ubox - velr
          vbox = vbox + veli
     2 end do

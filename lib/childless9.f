@@ -1,7 +1,7 @@
       subroutine childless9(kp9)
 
-C     This subroutine computes the MULTIPOLE EXPANSIONS of
-C     the childless boxes on level 9.
+C This subroutine computes the MULTIPOLE EXPANSIONS of
+C the childless boxes on level 9.
 
 
       include 'main_dim.h'

@@ -1,7 +1,7 @@
       subroutine int_chless9(kp8, kp9)
 
-C     Same idea as in int_chless2 but now for level 9 childless boxes.
-C     For descriptive comments, go back to int_chless1&2
+C Same idea as in int_chless2 but now for level 9 childless boxes.
+C For descriptive comments, go back to int_chless1&2
 
 
       include 'tree_tmp.h'

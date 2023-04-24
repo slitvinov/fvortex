@@ -1,18 +1,18 @@
       subroutine int_chless1(kchildless1)
-C     These subroutines determine the hierarchy of interactions and call for the
-C     interactions. Particle interactions are assigned in the int_chless routines
-C     as they only happen for childless boxes (otherwise you go to the next level
-C     in hopes of geting some box interactions). Box interactions are taken care
-C     of by the int_rest routines. Particle-box interactions occur in both, with
-C     the particle end of these interactions in int_rest and box in int_chless.
+C These subroutines determine the hierarchy of interactions and call for the
+C interactions. Particle interactions are assigned in the int_chless routines
+C as they only happen for childless boxes (otherwise you go to the next level
+C in hopes of geting some box interactions). Box interactions are taken care
+C of by the int_rest routines. Particle-box interactions occur in both, with
+C the particle end of these interactions in int_rest and box in int_chless.
 
-C     This subroutine figures out the interactions for childless boxes at
-C     level 1 (the highest level of the tree).  They can interact as
-C     particle-particle with nearby childless boxes and particle-box with
-C     finer boxes which are far enough away (bigger box must be considered as
-C     particles for the smaller box in this case but smaller box as a box to
-C     bigger box). Box-box interactions cannot happen for a level 1 box and are
-C     handled by the int_rest arrays rather than int_chless.
+C This subroutine figures out the interactions for childless boxes at
+C level 1 (the highest level of the tree).  They can interact as
+C particle-particle with nearby childless boxes and particle-box with
+C finer boxes which are far enough away (bigger box must be considered as
+C particles for the smaller box in this case but smaller box as a box to
+C bigger box). Box-box interactions cannot happen for a level 1 box and are
+C handled by the int_rest arrays rather than int_chless.
 
 
       include 'tree_tmp.h'
@@ -59,10 +59,10 @@ C     handled by the int_rest arrays rather than int_chless.
             Listclose(i) = liststart(i)
     1    end do
 
-C  Construct the interaction list with particles and boxes that belong
-C  to finer levels than the ** 1st **.
-C  First find all childless boxes on level 1.
-C  Note that the box will find and interact with itself (as particles)
+C Construct the interaction list with particles and boxes that belong
+C to finer levels than the ** 1st **.
+C First find all childless boxes on level 1.
+C Note that the box will find and interact with itself (as particles)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
      $        kpart,
@@ -92,8 +92,8 @@ C  Note that the box will find and interact with itself (as particles)
 C ______________________________
          level = 2
 
-C  Find which level 2 boxes are far enough away to interact as a box with
-C  level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
+C Find which level 2 boxes are far enough away to interact as a box with
+C level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
 
          call near_far(Nmax2, ib, jb, r12, ic2, jc2, kexam, listexam,
      $     kfar, Listfar, kclose, Listclose)
@@ -122,9 +122,9 @@ C  level 1 particles (level 2 boxes are the 4 subdivisions of a level 1 box).
             Pibox(kfp, 7) = Pi2(id, 7)
    12    end do
 
-C  Check the remaining level 2 boxes for childless boxes. Since they didn't
-C  interact as a box above and further subdivisions don't exist for the
-C  box, it must now interact as particles.
+C Check the remaining level 2 boxes for childless boxes. Since they didn't
+C interact as a box above and further subdivisions don't exist for the
+C box, it must now interact as particles.
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam,
      $        kpart,

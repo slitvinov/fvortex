@@ -1,7 +1,7 @@
       subroutine wheneq(npart, ibox, itoss, imatch, idummy, nmatch)
 
-C     This routine finds elements of an array which match some key and saves
-C     their indicies in a new array.
+C This routine finds elements of an array which match some key and saves
+C their indicies in a new array.
 
 
       include 'main_dim.h'

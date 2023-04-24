@@ -1,8 +1,8 @@
       subroutine int_rest2(kp2)
 
-C     This routine figures box-box interactions for level 2 boxes as well as
-C     interacting with the particles at higher level childless boxes that
-C     interacted as particle-box previously.
+C This routine figures box-box interactions for level 2 boxes as well as
+C interacting with the particles at higher level childless boxes that
+C interacted as particle-box previously.
 
 
       include 'tree_tmp.h'
@@ -41,7 +41,7 @@ C Step 1 : Find i,j of your parent.
     1    end do
 
 C Step 2 : Find boxes adjacent to the parents
-C          ( Start at coarsest  level )
+C ( Start at coarsest  level )
 
 C -> 1st level
          call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam,
@@ -78,8 +78,8 @@ C Box kb now needs to interact with their particles.
          if (n4 > np_max) write (*, *) 'error in rest2b', n4
          call int_box_part(Nmax2, kb, xb, yb, n4, Br2, Bi2)
 
-C  Now at level of child (box kb), look for boxes far enough away to
-C  interact as box-box
+C Now at level of child (box kb), look for boxes far enough away to
+C interact as box-box
 
    88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)

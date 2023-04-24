@@ -1,6 +1,6 @@
       function omega(Time)
 
-C     Gives the rotational velocity of the body at Time.
+C Gives the rotational velocity of the body at Time.
 
 
       integer xfree, yfree, wfree

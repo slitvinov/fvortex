@@ -1,7 +1,7 @@
       subroutine vel_ext(tm)
 
-C     This routine adds the irrotational components of the velocity field
-C     (which are not represented by the vorticity field) such as a free stream.
+C This routine adds the irrotational components of the velocity field
+C (which are not represented by the vorticity field) such as a free stream.
 
 
       include 'main_dim.h'

@@ -1,8 +1,8 @@
       subroutine box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1,
      $     liststart)
 
-C     This subroutine sorts the particles into four boxes and provides the
-C     necessary identification arrays for this top level of the interaction tree.
+C This subroutine sorts the particles into four boxes and provides the
+C necessary identification arrays for this top level of the interaction tree.
 
 
       include 'main_dim.h'
@@ -37,7 +37,7 @@ C     necessary identification arrays for this top level of the interaction tree
       Yst = y0 - 0.5*ds1
       ds1inv = 1.0/ds1
 
-C--   Identify each particle with one of the boxes
+C Identify each particle with one of the boxes
       do 1 n = 1, npart
          lx = (xp(n) - x0)*ds1inv
          ly = (yp(n) - y0)*ds1inv
@@ -53,8 +53,8 @@ C--   Identify each particle with one of the boxes
          end if
     1 end do
 
-C     Find  how  many  particles  are  in  each subbox
-C     and store  the  particles  in their new sorted  locations
+C Find  how  many  particles  are  in  each subbox
+C and store  the  particles  in their new sorted  locations
 
       call wheneq(npart, ixy, 1, 1, idummy, nb1)
       do 211 i = 1, nb1
@@ -110,13 +110,13 @@ C     and store  the  particles  in their new sorted  locations
          BF_marker(ix) = BF_marker_temp(inew)
   214 end do
 
-C     NPBk(kp1,1)  -> index of first particle in box kp1 at level k
-C     NPBk(kp1,2)  -> index of last particle in box kp1 at level k
+C NPBk(kp1,1)  -> index of first particle in box kp1 at level k
+C NPBk(kp1,2)  -> index of last particle in box kp1 at level k
 
-C     kpi is the number of boxes that contain particles at level i
+C kpi is the number of boxes that contain particles at level i
 
-C     Now make necessary identification arrays for the boxes
-C     Box 1
+C Now make necessary identification arrays for the boxes
+C Box 1
       kp1 = 0
       do i = 1, 4
          liststart(i) = 0
@@ -134,7 +134,7 @@ C     Box 1
          yc1(kp1) = Yst + ds1
       end if
 
-C     Box 2
+C Box 2
       if (nb2 > 0) then
          kp1 = kp1 + 1
          liststart(kp1) = kp1
@@ -147,7 +147,7 @@ C     Box 2
          yc1(kp1) = Yst + 2.*ds1
       end if
 
-C     Box 3
+C Box 3
       if (nb3 > 0) then
          kp1 = kp1 + 1
          liststart(kp1) = kp1
@@ -160,7 +160,7 @@ C     Box 3
          yc1(kp1) = Yst + ds1
       end if
 
-C     Box 4
+C Box 4
       if (nb4 > 0) then
          kp1 = kp1 + 1
          liststart(kp1) = kp1

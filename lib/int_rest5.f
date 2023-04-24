@@ -1,6 +1,6 @@
       subroutine int_rest5(kp5)
 
-C     Same as int_rest2 for level 5 boxes.
+C Same as int_rest2 for level 5 boxes.
 
 
       include 'tree_tmp.h'
@@ -126,7 +126,7 @@ C Close to parents & childless - close to box(?)
          call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart,
      $     kfar, Listfar, kclose, Listclose)
 
-C  Boxes that are far from the child now belong to list 4 of the box
+C Boxes that are far from the child now belong to list 4 of the box
 
          do 24 k = 1, kfar
 

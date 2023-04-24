@@ -1,6 +1,6 @@
       subroutine int_box(Nmax, id, xtest, ytest, kbb, Br, Bi)
 
-C     This subroutine computes BOX-BOX interactions.
+C This subroutine computes BOX-BOX interactions.
 
 
       include 'tree_tmp.h'

@@ -3,9 +3,9 @@
      $ ic1, jc1, npb1, iparent1, imark1, ipar1ch2,
      $  ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
 
-C     This subroutine takes each box on the previous level and splits it into
-C     four boxes, creating all the necessary indentification arrays to relate
-C     the levels.  It mostly parallels the BOX_1 subroutine.
+C This subroutine takes each box on the previous level and splits it into
+C four boxes, creating all the necessary indentification arrays to relate
+C the levels.  It mostly parallels the BOX_1 subroutine.
 
 
       include 'main_dim.h'
@@ -42,8 +42,8 @@ C     the levels.  It mostly parallels the BOX_1 subroutine.
          BF_marker_temp(i) = BF_marker(i)
       enddo
 
-C     Find childless & parent boxes. Subdivide parent boxes in 4 squares.
-C     (Parent boxes  are those  that contain more than LIMPAR particles )
+C Find childless & parent boxes. Subdivide parent boxes in 4 squares.
+C (Parent boxes  are those  that contain more than LIMPAR particles )
       ds2 = 0.5*ds1
       ds2inv = 1.0/ds2
       Xst = x0 - 0.5*ds2
@@ -99,8 +99,8 @@ C     (Parent boxes  are those  that contain more than LIMPAR particles )
                end if
    20       end do
 
-C   Find  how  many  particles  are  in  each subbox
-C  and store  the  particles  in their new sorted  locations
+C Find  how  many  particles  are  in  each subbox
+C and store  the  particles  in their new sorted  locations
             n1m1 = n1 - 1
             nbx = n1m1
 
