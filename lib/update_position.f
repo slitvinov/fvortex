@@ -1,9 +1,9 @@
       subroutine update_position(delta_t)
 
-!     This routine updates the motion of the body in all directions in
-!     which it is not considered fixed.
-!     Signs get a bit messy becuase u,v,udot,vdot are for the freestream,
-!     which is (-) the body motion.
+C     This routine updates the motion of the body in all directions in
+C     which it is not considered fixed.
+C     Signs get a bit messy becuase u,v,udot,vdot are for the freestream,
+C     which is (-) the body motion.
 
 
       real last_cdp, last_cdf, last_clp, last_clf, last_cm
@@ -33,7 +33,7 @@
 
       real cd, cl, old_sheet, pi
       real x_tilde, u_tilde, y_tilde, v_tilde, th_tilde, w_tilde
-!----------------------------------------
+C----------------------------------------
 
       pi = 4.*atan(1.)
 

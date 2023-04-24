@@ -1,8 +1,8 @@
       subroutine int_rest2(kp2)
 
-!     This routine figures box-box interactions for level 2 boxes as well as
-!     interacting with the particles at higher level childless boxes that
-!     interacted as particle-box previously.
+C     This routine figures box-box interactions for level 2 boxes as well as
+C     interacting with the particles at higher level childless boxes that
+C     interacted as particle-box previously.
 
 
       include 'tree_tmp.h'
@@ -20,7 +20,7 @@
       integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r21, r11, r22, xb, yb
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -33,7 +33,7 @@
          jb = jc2(kb)
          xb = xc2(kb)
          yb = yc2(kb)
-! Step 1 : Find i,j of your parent.
+C Step 1 : Find i,j of your parent.
          ipar = int((xb - x0)/ds1 + 1)
          jpar = int((yb - y0)/ds1 + 1)
          do 1 i = 1, kp1
@@ -41,26 +41,26 @@
             listexam(i) = liststart(i)
     1    end do
 
-! Step 2 : Find boxes adjacent to the parents
-!          ( Start at coarsest  level )
+C Step 2 : Find boxes adjacent to the parents
+C          ( Start at coarsest  level )
 
-! -> 1st level
+C -> 1st level
          call near_far(Nmax1, ipar, jpar, r11, ic1, jc1, kexam,
      $        listexam,
      $        kfar, Listfar, Kclose, Listclose)
-! Examine boxes that are close for being childless or not.
+C Examine boxes that are close for being childless or not.
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam,
      $        kpart,
      $        Listpart, ipar1Ch2, imark1)
-! Boxes that are childless and close to the parents are examined to see if
-! they are close to the box itself.
+C Boxes that are childless and close to the parents are examined to see if
+C they are close to the box itself.
 
          call near_far(Nmax1, ib, jb, r21, ic1, jc1, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
 
-! Boxes that are far from the child had interacted particle-box earlier.
-! Box kb now needs to interact with their particles.
+C Boxes that are far from the child had interacted particle-box earlier.
+C Box kb now needs to interact with their particles.
 
          n4 = 0
          do 21 k = 1, kfar
@@ -79,8 +79,8 @@
          if (n4 > np_max) write (*, *) 'error in rest2b', n4
          call int_box_part(Nmax2, kb, xb, yb, n4, Br2, Bi2)
 
-!  Now at level of child (box kb), look for boxes far enough away to
-!  interact as box-box
+C  Now at level of child (box kb), look for boxes far enough away to
+C  interact as box-box
 
    88    call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)

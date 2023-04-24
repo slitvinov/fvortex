@@ -1,8 +1,8 @@
       subroutine streamfunction(Xbc, Ybc, Sp, Sb)
 
-!     This subroutine finds the streamfunction value at (xbc,ybc) induced
-!     by the vorticity field, sending back contributions from particle
-!     interactions (Sp) and box interactions (Sb).
+C     This subroutine finds the streamfunction value at (xbc,ybc) induced
+C     by the vorticity field, sending back contributions from particle
+C     interactions (Sp) and box interactions (Sb).
 
 
       include 'tree_tmp.h'
@@ -10,7 +10,7 @@
       real  xbc, ybc, sp, sb
 
       integer  nn, kfp
-!---------------------------------------------------------------------------
+C---------------------------------------------------------------------------
 
       call build_tree(0, xbc, ybc, nn, kfp)
 

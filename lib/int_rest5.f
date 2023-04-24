@@ -1,6 +1,6 @@
       subroutine int_rest5(kp5)
 
-!     Same as int_rest2 for level 5 boxes.
+C     Same as int_rest2 for level 5 boxes.
 
 
       include 'tree_tmp.h'
@@ -19,7 +19,7 @@
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r41, r42, r43, r44, r51, r52, r53, r54,
      $     r55, xb, yb
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -112,23 +112,23 @@
   230       end do
    23    end do
 
-!--------------------------------------------------------------------------
-! -> 4th level
+C--------------------------------------------------------------------------
+C -> 4th level
 
-! Close to parents(?)
+C Close to parents(?)
          call near_far(Nmax4, ipar, jpar, r44, ic4, jc4, Kexam,
      $        listexam,
      $        kfar, Listfar, kclose, Listclose)
 
-! Close to parents - Childless(?)
+C Close to parents - Childless(?)
          call check_box(Nmax4, kclose, Listclose,
      $     kexam, listexam, kpart, Listpart, ipar4Ch5, imark4)
 
-! Close to parents & childless - close to box(?)
+C Close to parents & childless - close to box(?)
          call near_far(Nmax4, ib, jb, r54, ic4, jc4, Kpart, Listpart,
      $     kfar, Listfar, kclose, Listclose)
 
-!  Boxes that are far from the child now belong to list 4 of the box
+C  Boxes that are far from the child now belong to list 4 of the box
 
          do 24 k = 1, kfar
 
@@ -150,7 +150,7 @@
    88    call near_far(Nmax5, ib, jb, r55, ic5, jc5, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)
 
-! CDIR$SHORTLOOP
+C CDIR$SHORTLOOP
          do 25 kbb = 1, kfar
             id = Listfar(kbb)
             Xbox(kbb) = xc5(id)

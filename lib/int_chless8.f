@@ -1,7 +1,7 @@
       subroutine int_chless8(kp7, kchildless8)
 
-!     Same idea as in int_chless2 but now for level 8 childless boxes.
-!     For descriptive comments, go back to int_chless1&2
+C     Same idea as in int_chless2 but now for level 8 childless boxes.
+C     For descriptive comments, go back to int_chless1&2
 
 
       include 'tree_tmp.h'
@@ -22,7 +22,7 @@
       integer nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
       real r88, r89, xnn, ynn, gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-!----------------------------------------------------------------------------
+C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -86,7 +86,7 @@
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-! ____________________
+C ____________________
          level = 9
          if (kexam == 0) goto 201
 

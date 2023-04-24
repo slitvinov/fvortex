@@ -1,7 +1,7 @@
       subroutine diagnos(iframe)
 
-!     Calculates the linear/angular impulse and circulation of the flow.
-!     Differentiation of the impulse will give drag and lift.
+C     Calculates the linear/angular impulse and circulation of the flow.
+C     Differentiation of the impulse will give drag and lift.
 
       include 'main_dim.h'
       include 'part.h'
@@ -26,7 +26,7 @@
 
       common/params/n, Time, dt
       common/part/Np, s2, ovrlp, gnu
-!-----------------------------------------------------
+C-----------------------------------------------------
 
       write (partfile, '(A, I8.8, A)') 'p.', iframe, '.dat'
       open (1, file=partfile, status='REPLACE')

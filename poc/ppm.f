@@ -1,4 +1,4 @@
-!     gfortran -std=legacy ppm.f
+C     gfortran -std=legacy ppm.f
       program main
       integer m, n, k, i, j
       character zero

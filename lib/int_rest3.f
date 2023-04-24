@@ -1,6 +1,6 @@
       subroutine int_rest3(kp3)
 
-!     Same as int_rest2 for level 3 boxes.
+C     Same as int_rest2 for level 3 boxes.
 
 
       include 'tree_tmp.h'
@@ -18,7 +18,7 @@
       integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r21, r22, r31, r32, r33, xb, yb
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -93,7 +93,7 @@
    88    call near_far(Nmax3, ib, jb, r33, ic3, jc3, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)
 
-! CDIR$SHORTLOOP
+C CDIR$SHORTLOOP
          do 25 kbb = 1, kfar
             id = Listfar(kbb)
             Xbox(kbb) = xc3(id)

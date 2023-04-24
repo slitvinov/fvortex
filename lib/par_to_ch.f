@@ -1,9 +1,9 @@
       subroutine par_to_ch(nmax, dch, kp, br2, bi2, br3, bi3,
      $  ich3par2, ipar2ch3)
 
-!     This subroutine computes the MULTIPOLE EXPANSIONS of
-!     the CHILDREN boxes from the multipole expansions of their
-!     parents.
+C     This subroutine computes the MULTIPOLE EXPANSIONS of
+C     the CHILDREN boxes from the multipole expansions of their
+C     parents.
 
 
       integer nmax, kp, ich3par2(4*nmax), ipar2ch3(nmax, 4)
@@ -17,7 +17,7 @@
       real p14, p220, p340, p4140, p5224
       real p15, p230, p370, p4280, p16, p242, p3112, p17, p256, p18
       real r1, r2, r3, r4, r5, r6, r7, f1, f2, f3, f4, f5, f6, f7
-!---------------------------------------------------------------
+C---------------------------------------------------------------
       p1 = 0.5*dch
       p2 = p1*p1
       p3 = p1*p2
@@ -26,7 +26,7 @@
       p6 = p3*p3
       p7 = p3*p4
 
-!     Other constants
+C     Other constants
 
       p78 = 8.*p7
       p68 = 8.*p6
@@ -69,12 +69,12 @@
       p17 = 7.*p1
 
       p18 = 8.*p1
-!-----------------------------------------------------------------------------
+C-----------------------------------------------------------------------------
 
       do 20 nb = 1, kp
 
          km = ich3par2(nb)
-! REAL VALUES
+C REAL VALUES
          r1 = Br2(km, 1)
          r2 = Br2(km, 2)
          r3 = Br2(km, 3)
@@ -83,7 +83,7 @@
          r6 = Br2(km, 6)
          r7 = Br2(km, 7)
 
-! IMAGINARY VALUES
+C IMAGINARY VALUES
          f1 = Bi2(km, 1)
          f2 = Bi2(km, 2)
          f3 = Bi2(km, 3)
@@ -92,7 +92,7 @@
          f6 = Bi2(km, 6)
          f7 = Bi2(km, 7)
 
-! Contribution to 1st Child (if any)
+C Contribution to 1st Child (if any)
 
          m1 = ipar2ch3(km, 1)   ! index of child (if any) box 1 at level i
          m2 = ipar2ch3(km, 2)   ! index of child (if any) box 2 at level i
@@ -100,18 +100,18 @@
          m4 = ipar2ch3(km, 4)   ! index of child (if any) box 4 at level i
 
          if (nb == m1) then
-! z
-! --------
-! REAL and IMAGINARY PART OF EXPANSIONS
-! --------
-! 1 - Order
+C z
+C --------
+C REAL and IMAGINARY PART OF EXPANSIONS
+C --------
+C 1 - Order
             Br3(nb, 1) = Br3(nb, 1) - p68*f7
      $        + p54*(r6 + f6) - p44*r5 + p32*(r4 - f4)
      $        + p22*f3 - p1*(r2 + f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) + p68*r7
      $        + p54*(f6 - r6) - p44*f5 + p32*(f4 + r4)
      $        - p22*r3 - p1*(f2 - r2) + f1
-! 2 - Order
+C 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
      $        + p524*(r7 + f7) - p420*r6 + p38*(r5 - f5)
      $        + p26*f4 - p12*(r3 + f3) + r2
@@ -119,49 +119,49 @@
      $        + p524*(f7 - r7) - p420*f6 + p38*(f5 + r5)
      $        - p26*r4 - p12*(f3 - r3) + f2
 
-! 3 - Order
+C 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
      $        + p320*(r6 - f6) + p212*f5 - p13*(r4 + f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
      $        + p320*(f6 + r6) - p212*r5 - p13*(f4 - r4) + f3
-! 4 - Order
+C 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
      $        + p340*(r7 - f7) + p220*f6 - p14*(r5 + f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
      $        + p340*(f7 + r7) - p220*r6 - p14*(f5 - r5) + f4
-! 5 - Order
+C 5 - Order
             Br3(nb, 5) = Br3(nb, 5) + p230*f7
      $        - p15*(r6 + f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) - p230*r7
      $        - p15*(f6 - r6) + f5
-! 6 - Order
+C 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
      $        - p16*(r7 + f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
      $        - p16*(f7 - r7) + f6
-! 7 - Order
+C 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
 
          else if (nb == m2) then
 
-!*****************************************************************************
-!                                                                            *
-!                    Contribution to 2nd Child (if any)                      *
-!                                                                            *
-!*****************************************************************************
+C*****************************************************************************
+C                                                                            *
+C                    Contribution to 2nd Child (if any)                      *
+C                                                                            *
+C*****************************************************************************
 
-! --------
-! REAL and IMAGINARY PART OF EXPANSIONS
-! --------
-! 1 - Order
+C --------
+C REAL and IMAGINARY PART OF EXPANSIONS
+C --------
+C 1 - Order
             Br3(nb, 1) = Br3(nb, 1) + p68*f7
      $        + p54*(r6 - f6) - p44*r5 + p32*(r4 + f4)
      $        - p22*f3 - p1*(r2 - f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) - p68*r7
      $        + p54*(f6 + r6) - p44*f5 + p32*(f4 - r4)
      $        + p22*r3 - p1*(f2 + r2) + f1
-! 2 - Order
+C 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
      $        + p524*(r7 - f7) - p420*r6 + p38*(r5 + f5)
      $        - p26*f4 - p12*(r3 - f3) + r2
@@ -169,124 +169,124 @@
      $        + p524*(f7 + r7) - p420*f6 + p38*(f5 - r5)
      $        + p26*r4 - p12*(f3 + r3) + f2
 
-! 3 - Order
+C 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
      $        + p320*(r6 + f6) - p212*f5 - p13*(r4 - f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
      $        + p320*(f6 - r6) + p212*r5 - p13*(f4 + r4) + f3
-! 4 - Order
+C 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
      $        + p340*(r7 + f7) - p220*f6 - p14*(r5 - f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4) +
      $        p340*(f7 - r7) + p220*r6 - p14*(f5 + r5) + f4
-! 5 - Order
+C 5 - Order
             Br3(nb, 5) = Br3(nb, 5) - p230*f7
      $        - p15*(r6 - f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) + p230*r7
      $        - p15*(f6 + r6) + f5
-! 6 - Order
+C 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
      $        - p16*(r7 - f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
      $        - p16*(f7 + r7) + f6
-! 7 - Order
+C 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
 
          else if (nb == m3) then
-!*****************************************************************************
-!                                                                            *
-!                    Contribution to 3rd Child (if any)                      *
-!                                                                            *
-!*****************************************************************************
+C*****************************************************************************
+C                                                                            *
+C                    Contribution to 3rd Child (if any)                      *
+C                                                                            *
+C*****************************************************************************
 
-! --------
-! REAL and IMAGINARY PART OF EXPANSIONS
-! --------
-! 1 - Order
+C --------
+C REAL and IMAGINARY PART OF EXPANSIONS
+C --------
+C 1 - Order
             Br3(nb, 1) = Br3(nb, 1) + p68*f7
      $        - p54*(r6 - f6) - p44*r5 - p32*(r4 + f4)
      $        - p22*f3 + p1*(r2 - f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) - p68*r7
      $        - p54*(f6 + r6) - p44*f5 - p32*(f4 - r4)
      $        + p22*r3 + p1*(f2 + r2) + f1
-! 2 - Order
+C 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
      $        - p524*(r7 - f7) - p420*r6 - p38*(r5 + f5)
      $        - p26*f4 + p12*(r3 - f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
      $        - p524*(f7 + r7) - p420*f6 - p38*(f5 - r5)
      $        + p26*r4 + p12*(f3 + r3) + f2
-! 3 - Order
+C 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
      $        - p320*(r6 + f6) - p212*f5 + p13*(r4 - f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
      $        - p320*(f6 - r6) + p212*r5 + p13*(f4 + r4) + f3
-! 4 - Order
+C 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
      $        - p340*(r7 + f7) - p220*f6 + p14*(r5 - f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
      $        - p340*(f7 - r7) + p220*r6 + p14*(f5 + r5) + f4
-! 5 - Order
+C 5 - Order
             Br3(nb, 5) = Br3(nb, 5) - p230*f7
      $        + p15*(r6 - f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) + p230*r7
      $        + p15*(f6 + r6) + f5
-! 6 - Order
+C 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
      $        + p16*(r7 - f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
      $        + p16*(f7 + r7) + f6
-! 7 - Order
+C 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
 
          else if (nb == m4) then
 
-!*****************************************************************************
-!                                                                            *
-!                    Contribution to 4th Child (if any)                      *
-!                                                                            *
-!*****************************************************************************
+C*****************************************************************************
+C                                                                            *
+C                    Contribution to 4th Child (if any)                      *
+C                                                                            *
+C*****************************************************************************
 
-! --------
-! REAL and IMAGINARY PART OF EXPANSIONS
-! --------
-! 1 - Order
+C --------
+C REAL and IMAGINARY PART OF EXPANSIONS
+C --------
+C 1 - Order
             Br3(nb, 1) = Br3(nb, 1) - p68*f7
      $        - p54*(r6 + f6) - p44*r5 - p32*(r4 - f4)
      $        + p22*f3 + p1*(r2 + f2) + r1
             Bi3(nb, 1) = Bi3(nb, 1) + p68*r7
      $        - p54*(f6 - r6) - p44*f5 - p32*(f4 + r4)
      $        - p22*r3 + p1*(f2 - r2) + f1
-! 2 - Order
+C 2 - Order
             Br3(nb, 2) = Br3(nb, 2)
      $        - p524*(r7 + f7) - p420*r6 - p38*(r5 - f5)
      $        + p26*f4 + p12*(r3 + f3) + r2
             Bi3(nb, 2) = Bi3(nb, 2)
      $        - p524*(f7 - r7) - p420*f6 - p38*(f5 + r5)
      $        - p26*r4 + p12*(f3 - r3) + f2
-! 3 - Order
+C 3 - Order
             Br3(nb, 3) = Br3(nb, 3) - p460*r7
      $        - p320*(r6 - f6) + p212*f5 + p13*(r4 + f4) + r3
             Bi3(nb, 3) = Bi3(nb, 3) - p460*f7
      $        - p320*(f6 + r6) - p212*r5 + p13*(f4 - r4) + f3
-! 4 - Order
+C 4 - Order
             Br3(nb, 4) = Br3(nb, 4)
      $        - p340*(r7 - f7) + p220*f6 + p14*(r5 + f5) + r4
             Bi3(nb, 4) = Bi3(nb, 4)
      $        - p340*(f7 + r7) - p220*r6 + p14*(f5 - r5) + f4
-! 5 - Order
+C 5 - Order
             Br3(nb, 5) = Br3(nb, 5) + p230*f7
      $        + p15*(r6 + f6) + r5
             Bi3(nb, 5) = Bi3(nb, 5) - p230*r7
      $        + p15*(f6 - r6) + f5
-! 6 - Order
+C 6 - Order
             Br3(nb, 6) = Br3(nb, 6)
      $        + p16*(r7 + f7) + r6
             Bi3(nb, 6) = Bi3(nb, 6)
      $        + p16*(f7 - r7) + f6
-! 7 - Order
+C 7 - Order
             Br3(nb, 7) = Br3(nb, 7) + r7
             Bi3(nb, 7) = Bi3(nb, 7) + f7
 

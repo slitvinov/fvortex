@@ -1,6 +1,6 @@
       function velocity_y(time)
 
-!     Gives  the freestream velocity in the y-direction at time
+C     Gives  the freestream velocity in the y-direction at time
 
 
       integer xfree, yfree, wfree
@@ -24,7 +24,7 @@
      $  last_th, last_w, last_wdot
 
       real velocity_y, time
-!------------------------------------------------------
+C------------------------------------------------------
 
       if (yfree == 1) then
          velocity_y = last_v

@@ -1,6 +1,6 @@
       subroutine vort_field(iframe)
 
-!     outputs the vorticity field on a grid.
+C     outputs the vorticity field on a grid.
 
       include 'main_dim.h'
       include 'part.h'
@@ -51,7 +51,7 @@
       common/vort_avg/nx, ny, xmax, xmin, ymax, ymin
       common/part/Np, s2, ovrlp, gnu
       common/params/n, Time, dt
-!----------------------------------------------------------------
+C----------------------------------------------------------------
       pi = 4.0*atan(1.0)
       twopiinv = 0.5/pi
 
@@ -80,7 +80,7 @@
 
       Ngrid = nx*ny
 
-!     Determination of  the  circulation  of each particle
+C     Determination of  the  circulation  of each particle
 
       s2inv2 = 0.5/s2
       s2piinv = twopiinv/s2
@@ -95,8 +95,8 @@
          if ((ix > -3) .and. (iy > -3) .and. (ix < (nx + 3)) .and.
      $     (iy < (ny + 3))) then
 
-!--   loop over grid in expnaded code in order to vectorize
-!     ---- Points on column IX
+C--   loop over grid in expnaded code in order to vectorize
+C     ---- Points on column IX
             m0 = (ix - 1)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -141,7 +141,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX - 3
+C     ---- Points on column IX - 3
             m0 = (ix - 4)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -186,7 +186,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX - 2
+C     ---- Points on column IX - 2
             m0 = (ix - 3)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -231,7 +231,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX - 1
+C     ---- Points on column IX - 1
             m0 = (ix - 2)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -276,7 +276,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX + 1
+C     ---- Points on column IX + 1
             m0 = (ix)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -321,7 +321,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX + 2
+C     ---- Points on column IX + 2
             m0 = (ix + 1)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then
@@ -366,7 +366,7 @@
                gg(m) = gg(m) + g*c
             endif
 
-!     ---- Points on column IX + 3
+C     ---- Points on column IX + 3
             m0 = (ix + 2)*ny + iy
             m = m0
             if ((m > 0) .and. (m < (ngrid + 1))) then

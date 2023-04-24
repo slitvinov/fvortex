@@ -1,6 +1,6 @@
       subroutine int_rest6(kp6)
 
-!     Same as int_rest2 for level 6 boxes.
+C     Same as int_rest2 for level 6 boxes.
 
 
       include 'tree_tmp.h'
@@ -19,7 +19,7 @@
       integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
       real dyopiinv, r51, r52, r53, r54, r55, r61, r62, r63,
      $     r64, r65, r66, xb, yb
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -166,7 +166,7 @@
    88    call near_far(Nmax6, ib, jb, r66, ic6, jc6, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)
 
-! CDIR$SHORTLOOP
+C CDIR$SHORTLOOP
          do 26 kbb = 1, kfar
             id = Listfar(kbb)
             Xbox(kbb) = xc6(id)

@@ -1,7 +1,7 @@
       subroutine mv_eul()
 
-!     Advance the particle positions using an Euler step
-!     based on velocities calculated in CONDIFF and VEL_EXT.
+C     Advance the particle positions using an Euler step
+C     based on velocities calculated in CONDIFF and VEL_EXT.
 
 
       include 'main_dim.h'
@@ -18,7 +18,7 @@
 
       integer in, i
       real pi, const
-!--------------------------------------------------------------------
+C--------------------------------------------------------------------
 
       in = 0
       pi = 4.*atan(1.)

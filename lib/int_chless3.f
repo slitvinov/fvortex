@@ -1,7 +1,7 @@
       subroutine int_chless3(kp2, kchildless3)
 
-!     Same idea as in int_chless2 but now for level 3 childless boxes.
-!     For descriptive comments, go back to int_chless1&2
+C     Same idea as in int_chless2 but now for level 3 childless boxes.
+C     For descriptive comments, go back to int_chless1&2
 
 
       include 'tree_tmp.h'
@@ -23,7 +23,7 @@
       real r31, r32, r33, r34, r35, r36, r37, r38, r39, xnn, ynn,
      $     gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-!----------------------------------------------------------------------------
+C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -93,7 +93,7 @@
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-! _____________________________________
+C _____________________________________
          level = 4
          if (kexam == 0) goto 201
 
@@ -139,7 +139,7 @@
   290       end do
    29    end do
 
-! ____________________
+C ____________________
          level = 5
          if (kexam == 0) goto 201
 
@@ -185,7 +185,7 @@
   310       end do
    31    end do
 
-! ____________________
+C ____________________
          level = 6
          if (kexam == 0) goto 201
 
@@ -232,7 +232,7 @@
   330       end do
    33    end do
 
-! ____________________
+C ____________________
          level = 7
          if (kexam == 0) goto 201
 
@@ -279,7 +279,7 @@
   350       end do
    35    end do
 
-! ____________________
+C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r38, ic8, jc8, kexam, listexam,
@@ -325,7 +325,7 @@
   370       end do
    37    end do
 
-! ____________________
+C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r39, ic9, jc9, kexam, listexam,

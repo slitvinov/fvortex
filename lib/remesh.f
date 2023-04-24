@@ -1,7 +1,7 @@
       subroutine remesh()
 
-!     This subroutine remeshes the vortex field onto a uniform Cartesian
-!     grid.
+C     This subroutine remeshes the vortex field onto a uniform Cartesian
+C     grid.
 
 
       include 'remesh_cartesian.h'
@@ -30,7 +30,7 @@
       real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
       real xg(ngrid), yg(ngrid), gg(ngrid)
 
-!----------------------------------------------------------------
+C----------------------------------------------------------------
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi
@@ -38,9 +38,9 @@
       dh = 2.*ovrlp*sqrt(s2/pi)
       dhinv = 1./dh
 
-!---  FIRST ESTABLISH THE NEW GRID TO BE MAPPED INTO
+C---  FIRST ESTABLISH THE NEW GRID TO BE MAPPED INTO
 
-!---  Find the edge of the grid of particles
+C---  Find the edge of the grid of particles
 
       call box_dim(np, xmin, xmax, ymin, ymax)
       xr = xmax + 5.*dh
@@ -72,7 +72,7 @@
          stop
       end if
 
-!---  Establish the new grid for the remeshed field
+C---  Establish the new grid for the remeshed field
 
       dhhaf = 0.5*dh
       ig = 0
@@ -96,7 +96,7 @@
          stop
       endif
 
-!---  check diagnostics, pre-remesh - they should be conserved through remesh
+C---  check diagnostics, pre-remesh - they should be conserved through remesh
 
       cold = 0.0
       cx = 0.0
@@ -106,11 +106,11 @@
    71 end do
       write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
-!--   set cutoff values to throw out particles
+C--   set cutoff values to throw out particles
 
       cutoff = vortlim*s2*ovrlp**2
       cut_far = 10.*cutoff
-!---  NEW GRID IN PLACE, REMESH OLD FIELD NOW
+C---  NEW GRID IN PLACE, REMESH OLD FIELD NOW
 
       in = 0
       ifar = 0
@@ -123,7 +123,7 @@
          ix = nint(sdist*dhinv - 0.5)
          iy = nint(ndist*dhinv - 0.5)
 
-! ---- Do not remesh the particles outside the established grid
+C ---- Do not remesh the particles outside the established grid
 
          if ((ix > nx_r) .or. (ix < nx_l) .or. (iy > ny_t) .or.
      $     (iy < ny_b)) then
@@ -134,20 +134,20 @@
                gp(ifar) = g
             endif
 
-!-- all other particles are in the inner grid
+C-- all other particles are in the inner grid
          else if ((ix == nx_r) .or. (ix == nx_l) .or.
      $        (iy == ny_t) .or. (iy == ny_b)) then
-!----------------------------------------------------------------
-!- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
-!----------------------------------------------------------------
+C----------------------------------------------------------------
+C- Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
+C----------------------------------------------------------------
             in = in + 1
             ig = indx(ix, iy)
             gg(ig) = gg(ig) + g    ! NGP   Interpolation
 
          else
-!----------------------------------------------------------------
-!- Category 0_1 : ALL other PARTICLES in the domain
-!----------------------------------------------------------------
+C----------------------------------------------------------------
+C- Category 0_1 : ALL other PARTICLES in the domain
+C----------------------------------------------------------------
             in = in + 1
             ix0 = ix
             ix1 = ix - 1
@@ -184,13 +184,13 @@
          endif
    40 end do
 
-!---  put remeshed particles into arrays, using cutoffs determined earlier
+C---  put remeshed particles into arrays, using cutoffs determined earlier
 
       iback = ifar
       do 29 i = 1, Nmesh
          g = gg(i)
          ag = abs(g)
-!-- only cutoff if below threshold AND away from domain center
+C-- only cutoff if below threshold AND away from domain center
          if ((ag > cutoff) .or. ((abs(yg(i))*abs(yg(i)) +
      $     abs(xg(i))*abs(xg(i))) < 1.)) then
             iback = iback + 1
@@ -200,7 +200,7 @@
          endif
    29 end do
 
-!---  check diagnostics
+C---  check diagnostics
 
       Np = iback
       cnew = 0.0

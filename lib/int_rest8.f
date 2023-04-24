@@ -1,6 +1,6 @@
       subroutine int_rest8(kp8)
 
-!     Same as int_rest2 for level 8 boxes.
+C     Same as int_rest2 for level 8 boxes.
 
 
       include 'tree_tmp.h'
@@ -21,7 +21,7 @@
       real r71, r72, r73, r74, r75, r76, r77,
      $     r81, r82, r83, r84, r85, r86
       real r87, r88
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -207,7 +207,7 @@
    88    call near_far(Nmax8, ib, jb, r88, ic8, jc8, kexam, listexam,
      $     kfar, Listfar, Kclose, Listclose)
 
-! CDIR$SHORTLOOP
+C CDIR$SHORTLOOP
          do kbb = 1, kfar
             id = Listfar(kbb)
             Xbox(kbb) = xc8(id)

@@ -1,7 +1,7 @@
       subroutine mv_ab(irk)
 
-!     Advance the particle positions using an Adams Bashforth scheme
-!     based on velocities calculated in CONDIFF and VEL_EXT.
+C     Advance the particle positions using an Adams Bashforth scheme
+C     based on velocities calculated in CONDIFF and VEL_EXT.
 
 
       include 'main_dim.h'
@@ -20,7 +20,7 @@
 
       integer in, i
       real pi, const, c1, c2
-!--------------------------------------------------------------------
+C--------------------------------------------------------------------
 
       in = 0
       pi = 4.*atan(1.)

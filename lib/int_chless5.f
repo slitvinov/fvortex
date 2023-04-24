@@ -1,7 +1,7 @@
       subroutine int_chless5(kp4, kchildless5)
 
-!     Same idea as in int_chless2 but now for level 5 childless boxes.
-!     For descriptive comments, go back to int_chless1&2
+C     Same idea as in int_chless2 but now for level 5 childless boxes.
+C     For descriptive comments, go back to int_chless1&2
 
 
       include 'tree_tmp.h'
@@ -22,7 +22,7 @@
       integer nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
       real r55, r56, r57, r58, r59, xnn, ynn, gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-!----------------------------------------------------------------------------
+C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -90,7 +90,7 @@
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-! ____________________
+C ____________________
          level = 6
          if (kexam == 0) goto 201
 
@@ -137,7 +137,7 @@
   330       end do
    33    end do
 
-! ____________________
+C ____________________
          level = 7
          if (kexam == 0) goto 201
 
@@ -184,7 +184,7 @@
   350       end do
    35    end do
 
-! ____________________
+C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r58, ic8, jc8, kexam, listexam,
@@ -230,7 +230,7 @@
   370       end do
    37    end do
 
-! ____________________
+C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r59, ic9, jc9, kexam, listexam,

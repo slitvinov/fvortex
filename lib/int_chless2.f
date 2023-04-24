@@ -1,6 +1,6 @@
       subroutine int_chless2(kchildless2)
 
-!     Same idea as in int_chless1 but now for level 2 childless boxes.
+C     Same idea as in int_chless1 but now for level 2 childless boxes.
 
 
       include 'tree_tmp.h'
@@ -22,7 +22,7 @@
       real r21, r22, r23, r24, r25, r26, r27, r28, r29, xnn, ynn,
      $     gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-!----------------------------------------------------------------------------
+C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -45,11 +45,11 @@
          jb = jc2(kb)
          nb1 = npb2(kb, 1)
          nb2 = npb2(kb, 2)
-! get indicies of parent of kh
+C get indicies of parent of kh
          ipar = int((xc2(kb) - x0)/ds1 + 1)
          jpar = int((yc2(kb) - y0)/ds1 + 1)
-! For particle interactions, only need consider neighbors of your parent.
-! All others are box interactions handled in int_rest at your parent's level.
+C For particle interactions, only need consider neighbors of your parent.
+C All others are box interactions handled in int_rest at your parent's level.
          kc = 0
          do 21 k = 1, Kp1       ! Loop over boxes in parents level.
             i = ic1(k)
@@ -59,8 +59,8 @@
             Lclg(kc) = k
    21    end do
 
-! now array LCLG contains the colleagues of this box
-! Find the children of your parents colleagues.
+C now array LCLG contains the colleagues of this box
+C Find the children of your parents colleagues.
          kexam = 0
          do 22 m = 1, 4
             do 23 k = 1, kc
@@ -72,7 +72,7 @@
    23       end do
    22    end do
 
-! the initial list to examine is now listexam.
+C the initial list to examine is now listexam.
          call near_far(Nmax2, ib, jb, r22, ic2, jc2, kexam, listexam,
      $        kfar
      $        , Listfar, Kclose, Listclose)
@@ -99,7 +99,7 @@
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-! _____________________________________
+C _____________________________________
          level = 3
          if (kexam == 0) goto 201
 
@@ -145,7 +145,7 @@
   270       end do
    27    end do
 
-! ____________________
+C ____________________
          level = 4
          if (kexam == 0) goto 201
 
@@ -191,7 +191,7 @@
   290       end do
    29    end do
 
-! ____________________
+C ____________________
          level = 5
          if (kexam == 0) goto 201
 
@@ -237,7 +237,7 @@
   310       end do
    31    end do
 
-! ____________________
+C ____________________
          level = 6
          if (kexam == 0) goto 201
 
@@ -283,7 +283,7 @@
   330       end do
    33    end do
 
-! ____________________
+C ____________________
          level = 7
          if (kexam == 0) goto 201
 
@@ -329,7 +329,7 @@
   350       end do
    35    end do
 
-! ____________________
+C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r28, ic8, jc8, kexam, listexam,
@@ -375,7 +375,7 @@
   370       end do
    37    end do
 
-! ____________________
+C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r29, ic9, jc9, kexam, listexam,

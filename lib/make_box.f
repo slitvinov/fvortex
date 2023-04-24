@@ -3,9 +3,9 @@
      $ ic1, jc1, npb1, iparent1, imark1, ipar1ch2,
      $  ich2par1, npb2, ic2, jc2, xc2, yc2, ichildless1)
 
-!     This subroutine takes each box on the previous level and splits it into
-!     four boxes, creating all the necessary indentification arrays to relate
-!     the levels.  It mostly parallels the BOX_1 subroutine.
+C     This subroutine takes each box on the previous level and splits it into
+C     four boxes, creating all the necessary indentification arrays to relate
+C     the levels.  It mostly parallels the BOX_1 subroutine.
 
 
       include 'main_dim.h'
@@ -35,7 +35,7 @@
       integer ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
       real ds2inv, xst, yst
       real si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       do i = 1, nvort
          ixy(i) = 0
@@ -43,8 +43,8 @@
          BF_marker_temp(i) = BF_marker(i)
       enddo
 
-!     Find childless & parent boxes. Subdivide parent boxes in 4 squares.
-!     (Parent boxes  are those  that contain more than LIMPAR particles )
+C     Find childless & parent boxes. Subdivide parent boxes in 4 squares.
+C     (Parent boxes  are those  that contain more than LIMPAR particles )
       ds2 = 0.5*ds1
       ds2inv = 1.0/ds2
       Xst = x0 - 0.5*ds2
@@ -100,8 +100,8 @@
                end if
    20       end do
 
-!   Find  how  many  particles  are  in  each subbox
-!  and store  the  particles  in their new sorted  locations
+C   Find  how  many  particles  are  in  each subbox
+C  and store  the  particles  in their new sorted  locations
             n1m1 = n1 - 1
             nbx = n1m1
 
@@ -160,7 +160,7 @@
                BF_marker(ix) = BF_marker_temp(inew)
   214       end do
 
-! Box 1
+C Box 1
             np = n1 - 1
             if (nb1 > 0) then
                kp2 = kp2 + 1
@@ -177,7 +177,7 @@
                IPAR1Ch2(kbox, 1) = 0
             end if
 
-! Box 2
+C Box 2
             if (nb2 > 0) then
                kp2 = kp2 + 1
                ipar1ch2(kbox, 2) = kp2
@@ -193,7 +193,7 @@
                IPAR1Ch2(kbox, 2) = 0
             end if
 
-! Box 3
+C Box 3
             if (nb3 > 0) then
                kp2 = kp2 + 1
                ipar1ch2(kbox, 3) = kp2
@@ -209,7 +209,7 @@
                IPAR1Ch2(kbox, 3) = 0
             end if
 
-! Box 4
+C Box 4
             if (nb4 > 0) then
                kp2 = kp2 + 1
                ipar1ch2(kbox, 4) = kp2

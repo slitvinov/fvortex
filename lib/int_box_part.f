@@ -1,7 +1,7 @@
       subroutine int_box_part(Nmax, kb, xb, yb, k4, Br, Bi)
 
-!     This subroutine computes the influence of the particles of childless
-!     boxes on far boxes of a lower level, as these are particle-box interactions.
+C     This subroutine computes the influence of the particles of childless
+C     boxes on far boxes of a lower level, as these are particle-box interactions.
 
 
       include 'tree_tmp.h'
@@ -15,7 +15,7 @@
       real br5, bi5, br6, bi6, br7, bi7
       real s0, t0, s1, t1, s2, t2, s3, t3, s4, t4, s5, t5, s6, t6
       real g, xx, yy, p, f, r2inv
-!-----------------------------------------------------------
+C-----------------------------------------------------------
       Br1 = 0.
       Bi1 = 0.
       Br2 = 0.
@@ -39,25 +39,25 @@
          p = xx*r2inv
          f = yy*r2inv
 
-! level = 1
+C level = 1
          s0 = p*g
          t0 = f*g
-! level = 2
+C level = 2
          s1 = s0*p - t0*f
          t1 = s0*f + t0*p
-! level = 3
+C level = 3
          s2 = s1*p - t1*f
          t2 = s1*f + t1*p
-! level = 4
+C level = 4
          s3 = s2*p - t2*f
          t3 = s2*f + t2*p
-! level = 5
+C level = 5
          s4 = s3*p - t3*f
          t4 = s3*f + t3*p
-! level = 6
+C level = 6
          s5 = s4*p - t4*f
          t5 = s4*f + t4*p
-! level = 7
+C level = 7
          s6 = s5*p - t5*f
          t6 = s5*f + t5*p
 

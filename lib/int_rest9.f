@@ -1,6 +1,6 @@
       subroutine int_rest9(kp9)
 
-!     Same as int_rest2 for level 9 boxes.
+C     Same as int_rest2 for level 9 boxes.
 
 
       include 'tree_tmp.h'
@@ -20,7 +20,7 @@
       real xb, yb, dyopiinv
       real r81, r82, r83, r84, r85, r86, r87, r88
       real r91, r92, r93, r94, r95, r96, r97, r98, r99
-!---------------------------------------------------------------------
+C---------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 
@@ -229,7 +229,7 @@
    88    call near_far(Nmax9, ib, jb, r99, ic9, jc9, kexam, listexam
      $     , kfar, Listfar, Kclose, Listclose)
 
-! CDIR$SHORTLOOP
+C CDIR$SHORTLOOP
          do 27 kbb = 1, kfar
             id = Listfar(kbb)
             Xbox(kbb) = xc9(id)

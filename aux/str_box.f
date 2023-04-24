@@ -1,7 +1,7 @@
       subroutine str_box(xtest, ytest, kbox, Sb)
 
-!  This subroutine finds the streamfunction value induced at (xtest,ytest)
-!  from the boxes in Xbox,Ybox,Pr.
+C  This subroutine finds the streamfunction value induced at (xtest,ytest)
+C  from the boxes in Xbox,Ybox,Pr.
 
 
       include 'tree_tmp.h'
@@ -13,7 +13,7 @@
       real t2, t3, t4, t5, t6, t7, t8, t9, xx, yy, x0, y0, r2d, r2inv, cr, rpt, fpt
       real c0, r1, c1, f1, r2, c2, f2, r3, c3, f3, r4, c4, f4
       real r5, c5, f5, r6, c6, f6, r7, c7, f7
-!-----------------------------------------------------------
+C-----------------------------------------------------------
 
       t2 = 1./2.
       t3 = 1./3.

@@ -1,7 +1,7 @@
       subroutine int_chless9(kp8, kp9)
 
-!     Same idea as in int_chless2 but now for level 9 childless boxes.
-!     For descriptive comments, go back to int_chless1&2
+C     Same idea as in int_chless2 but now for level 9 childless boxes.
+C     For descriptive comments, go back to int_chless1&2
 
 
       include 'tree_tmp.h'
@@ -21,7 +21,7 @@
       integer nb1, nb2, k, id, n1, n2, np, kfp, nn, n
       real r99, dyopiinv
       real up1, vp1, gp1
-!----------------------------------------------------------------------------
+C----------------------------------------------------------------------------
 
       dyopiinv = 1./(8.*atan(1.))
 

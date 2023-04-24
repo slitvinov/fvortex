@@ -1,6 +1,6 @@
       function omega(Time)
 
-!     Gives the rotational velocity of the body at Time.
+C     Gives the rotational velocity of the body at Time.
 
 
       integer xfree, yfree, wfree
@@ -24,7 +24,7 @@
      $  last_th, last_w, last_wdot
 
       real omega, time
-!---------------------------------------------------------
+C---------------------------------------------------------
 
       if (wfree == 1) then
          omega = last_w

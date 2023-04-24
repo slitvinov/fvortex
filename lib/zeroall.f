@@ -1,15 +1,15 @@
       subroutine zeroall
-!-----------------------------------------------------------------------
-!     This subroutine zeroes the various arrays used in identifying the tree
+C-----------------------------------------------------------------------
+C     This subroutine zeroes the various arrays used in identifying the tree
 
-!     This subroutine zeroes the various arrays used in identifying the tree
+C     This subroutine zeroes the various arrays used in identifying the tree
 
       include 'tree_tmp.h'
       include 'main_dim.h'
       include 'tree9.h'
 
       integer i, j
-!-----------------------------------------------------------------------
+C-----------------------------------------------------------------------
 
       do i = 1, nbox_max
          Xbox(i) = 0.0

@@ -1,11 +1,11 @@
       subroutine check_box(Nmax1, kclose, Listclose, kexam, listexam,
      $     kpart, Listpart, ipar1Ch2, imark1)
 
-!     This  subroutine examines the nearby boxes of a certain particle.
-!     If they are parents then their children are placed in the list
-!     *listexam* so that they are eaxmined at the lower level.
-!     If they are childless then their particles are placed in list
-!     *Listpart* so that they interact directly with the particle.
+C     This  subroutine examines the nearby boxes of a certain particle.
+C     If they are parents then their children are placed in the list
+C     *listexam* so that they are eaxmined at the lower level.
+C     If they are childless then their particles are placed in list
+C     *Listpart* so that they interact directly with the particle.
 
 
       include 'tree_tmp.h'
@@ -16,7 +16,7 @@
 
       integer k, ks, i, m, kcheck
       integer icheck4(Nhlp)
-!------------------------------------------------------
+C------------------------------------------------------
 
       if (kclose > nhlp) write (*, *) 'error in check_box,', kclose
       kexam = 0

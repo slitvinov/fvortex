@@ -1,8 +1,8 @@
       subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, listexam,
      $  kfar, Listfar, kclose, Listclose)
 
-!     This  subroutine finds all the far & close boxes at a certain
-!     level associated with a certain particle.
+C     This  subroutine finds all the far & close boxes at a certain
+C     level associated with a certain particle.
 
 
       include 'tree_tmp.h'
@@ -13,7 +13,7 @@
 
       integer k, ks
       real fi, fj, cr, si, sj
-!------------------------------------------------------------------------------
+C------------------------------------------------------------------------------
 
       if (kexam > nhlp) write (*, *) 'error in near_far,', kexam
 
