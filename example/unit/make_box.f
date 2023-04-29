@@ -38,7 +38,7 @@
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      end do
+      continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
       x0 = xmin - 0.01*s0
@@ -114,7 +114,7 @@
       integer i
       do i = 1, n
          call print_box0(x(i), y(i), s)
-      end do
+      continue
       end subroutine print_box
 
 

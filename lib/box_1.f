@@ -52,7 +52,7 @@ C Identify each particle with one of the boxes
          else if ((ibox == 2) .and. (jbox == 2)) then
             ixy(n) = 4
          end if
-    1 end do
+    1 continue
 
 C Find  how  many  particles  are  in  each subbox
 C and store  the  particles  in their new sorted  locations
@@ -67,7 +67,7 @@ C and store  the  particles  in their new sorted  locations
          Vold(i) = vv(inew)
          Gdold(i) = Gdiff(inew)
          BF_marker(i) = BF_marker_temp(inew)
-  211 end do
+  211 continue
 
       call wheneq(npart, ixy, 1, 2, idummy, nb2)
       nbx = nb1
@@ -81,7 +81,7 @@ C and store  the  particles  in their new sorted  locations
          Vold(ix) = vv(inew)
          Gdold(ix) = Gdiff(inew)
          BF_marker(ix) = BF_marker_temp(inew)
-  212 end do
+  212 continue
 
       call wheneq(npart, ixy, 1, 3, idummy, nb3)
       nbx = nbx + nb2
@@ -95,7 +95,7 @@ C and store  the  particles  in their new sorted  locations
          Vold(ix) = vv(inew)
          Gdold(ix) = Gdiff(inew)
          BF_marker(ix) = BF_marker_temp(inew)
-  213 end do
+  213 continue
 
       call wheneq(npart, ixy, 1, 4, idummy, nb4)
       nbx = nbx + nb3
@@ -109,7 +109,7 @@ C and store  the  particles  in their new sorted  locations
          Vold(ix) = vv(inew)
          Gdold(ix) = Gdiff(inew)
          BF_marker(ix) = BF_marker_temp(inew)
-  214 end do
+  214 continue
 
 C NPBk(kp1,1)  -> index of first particle in box kp1 at level k
 C NPBk(kp1,2)  -> index of last particle in box kp1 at level k

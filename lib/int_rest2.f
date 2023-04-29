@@ -37,7 +37,7 @@ C Step 1 : Find i,j of your parent.
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
-    1    end do
+    1    continue
 
 C Step 2 : Find boxes adjacent to the parents
 C ( Start at coarsest  level )
@@ -70,8 +70,8 @@ C Box kb now needs to interact with their particles.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  210       end do
-   21    end do
+  210       continue
+   21    continue
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest2b', n4
@@ -103,10 +103,10 @@ C interact as box-box
             Pibox(kbb, 6) = Pi2(id, 6)
             Prbox(kbb, 7) = Pr2(id, 7)
             Pibox(kbb, 7) = Pi2(id, 7)
-   24    end do
+   24    continue
 
          if (kfar > nbox_max) write (*, *) 'error in rest2', kbb
          call int_box(Nmax2, kb, xb, yb, kfar, Br2, Bi2)
 
-   20 end do
+   20 continue
       end

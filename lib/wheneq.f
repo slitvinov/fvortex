@@ -17,5 +17,5 @@ C their indicies in a new array.
             nmatch = nmatch + 1
             idummy(nmatch) = i
          endif
-   10 end do
+   10 continue
       end

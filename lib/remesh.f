@@ -82,8 +82,8 @@ C Establish the new grid for the remeshed field
             yg(ig) = yy
             gg(ig) = 0.0
             indx(ix, iy) = ig   ! We can avoid this big array
-   11    end do
-   10 end do
+   11    continue
+   10 continue
 
       Nmesh = ig
 
@@ -101,7 +101,7 @@ C remesh
       do 71 i = 1, Np
          cold = cold + gp(i)    ! total circulation
          cx = cx + gp(i)*yp(i)  ! x-impulse
-   71 end do
+   71 continue
       write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
 C set cutoff values to throw out particles
@@ -177,7 +177,7 @@ C Category 0_1 : ALL other PARTICLES in the domain
             gg(k21) = gg(k21) + Fx2*Fy1
             gg(k22) = gg(k22) + Fx2*Fy2
          endif
-   40 end do
+   40 continue
 
 C put remeshed particles into arrays, using cutoffs determined earlier
 
@@ -193,7 +193,7 @@ C only cutoff if below threshold AND away from domain center
             yp(iback) = yg(i)
             gp(iback) = g
          endif
-   29 end do
+   29 continue
 
 C check diagnostics
 
@@ -204,7 +204,7 @@ C check diagnostics
          circ = gp(i)
          cnew = cnew + circ
          cx = cx + circ*yp(i)
-   72 end do
+   72 continue
       write (*, *) 'post-remesh, circulation:', cnew,
      $     '  x-impulse: ', cx
 

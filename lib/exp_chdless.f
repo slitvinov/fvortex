@@ -75,7 +75,7 @@ C the childless boxes at a level.
             Ti6 = Ti6 + fa6
             Tr7 = Tr7 + re7
             Ti7 = Ti7 + fa7
-  100    end do
+  100    continue
          Pr(nb, 0) = Tr0
          Pi(nb, 0) = Ti0
          Pr(nb, 1) = Tr1
@@ -92,5 +92,5 @@ C the childless boxes at a level.
          Pi(nb, 6) = Ti6
          Pr(nb, 7) = Tr7
          Pi(nb, 7) = Ti7
-   10 end do
+   10 continue
       end

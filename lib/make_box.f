@@ -95,7 +95,7 @@ C (Parent boxes  are those  that contain more than LIMPAR particles )
                else if ((ibox == ich4) .and. (jbox == jch4)) then
                   ixy(jn) = 4
                end if
-   20       end do
+   20       continue
 
 C Find  how  many  particles  are  in  each subbox
 C and store  the  particles  in their new sorted  locations
@@ -113,7 +113,7 @@ C and store  the  particles  in their new sorted  locations
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
-  211       end do
+  211       continue
 
             call wheneq(Npbox, ixy, 1, 2, idummy, nb2)
             nbx = nbx + nb1
@@ -127,7 +127,7 @@ C and store  the  particles  in their new sorted  locations
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
-  212       end do
+  212       continue
 
             call wheneq(Npbox, ixy, 1, 3, idummy, nb3)
             nbx = nbx + nb2
@@ -141,7 +141,7 @@ C and store  the  particles  in their new sorted  locations
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
-  213       end do
+  213       continue
 
             call wheneq(Npbox, ixy, 1, 4, idummy, nb4)
             nbx = nbx + nb3
@@ -155,7 +155,7 @@ C and store  the  particles  in their new sorted  locations
                vv(ix) = Vold(inew)
                Gdiff(ix) = Gdold(inew)
                BF_marker(ix) = BF_marker_temp(inew)
-  214       end do
+  214       continue
 
 C Box 1
             np = n1 - 1
@@ -235,11 +235,11 @@ C Box 4
                vv(i) = Vold(i)
                Gdiff(i) = Gdold(i)
                BF_marker(i) = BF_marker_temp(i)
-   22       end do
+   22       continue
 
          end if
 
-    2 end do
+    2 continue
 
       do i = 1, nvort
          xn(i) = xp(i)

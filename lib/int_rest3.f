@@ -36,7 +36,7 @@ C Same as int_rest2 for level 3 boxes.
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
-    1    end do
+    1    continue
 
          call near_far(Nmax1, ipar, jpar, r21, ic1, jc1, kexam,
      $        listexam,
@@ -59,8 +59,8 @@ C Same as int_rest2 for level 3 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  210       end do
-   21    end do
+  210       continue
+   21    continue
 
          call near_far(Nmax2, ipar, jpar, r22, ic2, jc2, kexam,
      $        listexam,
@@ -81,8 +81,8 @@ C Same as int_rest2 for level 3 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  220       end do
-   22    end do
+  220       continue
+   22    continue
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest3b', n4
@@ -112,10 +112,10 @@ C CDIR$SHORTLOOP
             Pibox(kbb, 6) = Pi3(id, 6)
             Prbox(kbb, 7) = Pr3(id, 7)
             Pibox(kbb, 7) = Pi3(id, 7)
-   25    end do
+   25    continue
 
          if (kfar > nbox_max) write (*, *) 'error in rest3', kbb
          call int_box(Nmax3, kb, xb, yb, kfar, Br3, Bi3)
 
-   20 end do
+   20 continue
       end

@@ -54,6 +54,6 @@ C  rad1 = xtest*xtest + ytest*ytest
 C  if(rad1.lt.visc_cutoff)then
          gpart = gpart + (gt(m) - gtest)*c
 C          endif
-    4 end do
+    4 continue
       end
 

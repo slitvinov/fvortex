@@ -106,6 +106,6 @@ C Calculate the velocity induced by the group "k" on particle "i"
             uu(n) = uu(n) - ci*dyopiinv
             vv(n) = vv(n) + cr*dyopiinv
 
-    2    end do
-   90 end do
+    2    continue
+   90 continue
       end

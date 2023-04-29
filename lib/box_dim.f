@@ -25,5 +25,5 @@ C This subroutine finds the bounding x and y coordinates in the domain.
          xmax = amax1(xmax, x)
          ymin = amin1(ymin, y)
          ymax = amax1(ymax, y)
-   10 end do
+   10 continue
       end

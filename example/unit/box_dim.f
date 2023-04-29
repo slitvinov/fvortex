@@ -19,7 +19,7 @@
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      end do
+      continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       print *, xmin, ymin
       print *, xmax, ymin

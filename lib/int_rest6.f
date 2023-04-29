@@ -43,7 +43,7 @@ C Same as int_rest2 for level 6 boxes.
          do 1 i = 1, kp1
             kexam = kp1
             listexam(i) = liststart(i)
-    1    end do
+    1    continue
 
          call near_far(Nmax1, ipar, jpar, r51, ic1, jc1, kexam,
      $        listexam,
@@ -65,8 +65,8 @@ C Same as int_rest2 for level 6 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  210       end do
-   21    end do
+  210       continue
+   21    continue
 
          call near_far(Nmax2, ipar, jpar, r52, ic2, jc2, kexam,
      $        listexam,
@@ -88,8 +88,8 @@ C Same as int_rest2 for level 6 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  220       end do
-   22    end do
+  220       continue
+   22    continue
 
          call near_far(Nmax3, ipar, jpar, r53, ic3, jc3, kexam,
      $        listexam,
@@ -110,8 +110,8 @@ C Same as int_rest2 for level 6 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  230       end do
-   23    end do
+  230       continue
+   23    continue
 
          call near_far(Nmax4, ipar, jpar, r54, ic4, jc4, kexam,
      $        listexam,
@@ -132,8 +132,8 @@ C Same as int_rest2 for level 6 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  240       end do
-   24    end do
+  240       continue
+   24    continue
 
          call near_far(Nmax5, ipar, jpar, r55, ic5, jc5, Kexam,
      $        listexam,
@@ -154,8 +154,8 @@ C Same as int_rest2 for level 6 boxes.
                xt(n4) = xn(np)
                yt(n4) = yn(np)
                gt(n4) = gn(np)
-  250       end do
-   25    end do
+  250       continue
+   25    continue
 
          if (n4 == 0) goto 88
          if (n4 > np_max) write (*, *) 'error in rest6b', n4
@@ -185,10 +185,10 @@ C CDIR$SHORTLOOP
             Pibox(kbb, 6) = Pi6(id, 6)
             Prbox(kbb, 7) = Pr6(id, 7)
             Pibox(kbb, 7) = Pi6(id, 7)
-   26    end do
+   26    continue
 
          if (kfar > nbox_max) write (*, *) 'error in rest6', kbb
          call int_box(Nmax6, kb, xb, yb, kfar, Br6, Bi6)
 
-   20 end do
+   20 continue
       end

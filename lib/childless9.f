@@ -71,7 +71,7 @@ C the childless boxes on level 9.
             Ti6 = Ti6 + fa6
             Tr7 = Tr7 + re7
             Ti7 = Ti7 + fa7
-  100    end do
+  100    continue
          Pr9(nb, 0) = Tr0
          Pi9(nb, 0) = Ti0
          Pr9(nb, 1) = Tr1
@@ -89,5 +89,5 @@ C the childless boxes on level 9.
          Pr9(nb, 7) = Tr7
          Pi9(nb, 7) = Ti7
 
-   10 end do
+   10 continue
       end

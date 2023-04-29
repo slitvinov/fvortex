@@ -49,7 +49,7 @@ C 1st Substep, predictor step, goes to dt/2
          yp(i) = yn(i) + 0.5*dt*vv(i)
 
          gp(i) = gn(i) + 0.5*dt*const*gdiff(i)
-    1 end do
+    1 continue
 
 C If any free motion, need to update now
       if ((xfree == 1) .or. (yfree == 1) .or. (wfree == 1)) then
@@ -69,5 +69,5 @@ C Need to rebuild the interaction tree
          yp(i) = yn(i) + dt*(vv(i) - 0.5*Vold(i))
 
          gp(i) = gn(i) + dt*const*(gdiff(i) - 0.5*gdold(i))
-    2 end do
+    2 continue
       end

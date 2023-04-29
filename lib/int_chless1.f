@@ -57,7 +57,7 @@ C and are handled by the int_rest arrays rather than int_chless.
          do 1 i = 1, kp1
             kclose = kclose + 1
             Listclose(i) = liststart(i)
-    1    end do
+    1    continue
 
 C Construct the interaction list with particles and boxes that belong
 C to finer levels than the ** 1st **.
@@ -78,8 +78,8 @@ C Note that the box will find and interact with itself (as particles)
                xt(nns) = xn(np)
                yt(nns) = yn(np)
                gt(nns) = gn(np)
-  111       end do
-   11    end do
+  111       continue
+   11    continue
 
          if (nns > np_max) write (*, *) 'error in int_chless1', nns
          do 251 n = nb1, nb2
@@ -87,7 +87,7 @@ C Note that the box will find and interact with itself (as particles)
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
-  251    end do
+  251    continue
 
          level = 2
 
@@ -120,7 +120,7 @@ C box).
             Pibox(kfp, 6) = Pi2(id, 6)
             Prbox(kfp, 7) = Pr2(id, 7)
             Pibox(kfp, 7) = Pi2(id, 7)
-   12    end do
+   12    continue
 
 C Check the remaining level 2 boxes for childless boxes. Since they
 C didn't interact as a box above and further subdivisions don't exist
@@ -141,8 +141,8 @@ C for the box, it must now interact as particles.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  250       end do
-   25    end do
+  250       continue
+   25    continue
 
 C All remaining boxes (those which have not yet interacted in some way)
 C are parents, thus go to their level 3 children. Process of level 2
@@ -174,7 +174,7 @@ C repeats for all subsequent levels.
             Prbox(kfp, 7) = Pr3(id, 7)
             Pibox(kfp, 7) = Pi3(id, 7)
 
-   26    end do
+   26    continue
 
          call check_box(Nmax3, Kclose, Listclose, kexam, listexam, Kpart
      $     , Listpart, ipar3Ch4, imark3)
@@ -189,8 +189,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  270       end do
-   27    end do
+  270       continue
+   27    continue
 
          level = 4
 
@@ -219,7 +219,7 @@ C repeats for all subsequent levels.
             Prbox(kfp, 7) = Pr4(id, 7)
             Pibox(kfp, 7) = Pi4(id, 7)
 
-   28    end do
+   28    continue
 
          call check_box(Nmax4, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -235,8 +235,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  290       end do
-   29    end do
+  290       continue
+   29    continue
 
          level = 5
 
@@ -265,7 +265,7 @@ C repeats for all subsequent levels.
             Prbox(kfp, 7) = Pr5(id, 7)
             Pibox(kfp, 7) = Pi5(id, 7)
 
-   30    end do
+   30    continue
 
          call check_box(Nmax5, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -281,8 +281,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  310       end do
-   31    end do
+  310       continue
+   31    continue
 
          level = 6
 
@@ -311,7 +311,7 @@ C repeats for all subsequent levels.
             Prbox(kfp, 7) = Pr6(id, 7)
             Pibox(kfp, 7) = Pi6(id, 7)
 
-   32    end do
+   32    continue
 
          call check_box(Nmax6, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -327,8 +327,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  330       end do
-   33    end do
+  330       continue
+   33    continue
 
          level = 7
 
@@ -356,7 +356,7 @@ C repeats for all subsequent levels.
             Pibox(kfp, 6) = Pi7(id, 6)
             Prbox(kfp, 7) = Pr7(id, 7)
             Pibox(kfp, 7) = Pi7(id, 7)
-   34    end do
+   34    continue
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -372,8 +372,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  350       end do
-   35    end do
+  350       continue
+   35    continue
 
          level = 8
 
@@ -401,7 +401,7 @@ C repeats for all subsequent levels.
             Pibox(kfp, 6) = Pi8(id, 6)
             Prbox(kfp, 7) = Pr8(id, 7)
             Pibox(kfp, 7) = Pi8(id, 7)
-   36    end do
+   36    continue
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -417,8 +417,8 @@ C repeats for all subsequent levels.
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  370       end do
-   37    end do
+  370       continue
+   37    continue
 
          level = 9
 
@@ -472,7 +472,7 @@ C repeats for all subsequent levels.
             uu(n) = uu(n) + (up2 + ubox)*dyopiinv
             vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
             gdiff(n) = gdiff(n) + gp2
-  351    end do
+  351    continue
 
-   10 end do
+   10 continue
       end

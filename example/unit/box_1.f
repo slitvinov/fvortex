@@ -33,7 +33,7 @@
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      end do
+      continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
       x0 = xmin - 0.01*s0       ! Coords. of lower
@@ -54,7 +54,7 @@
       do j = 1, kp1
          do i = npb1(j, 1), npb1(j, 2)
             print *, xn(i), yn(i), j
-         end do
-      end do
+         continue
+      continue
 
       end program main

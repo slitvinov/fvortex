@@ -32,5 +32,5 @@ C level associated with a certain particle.
             kfar = kfar + 1
             Listfar(kfar) = ks  ! far away
          endif
-    2 end do
+    2 continue
       end

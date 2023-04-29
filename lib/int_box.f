@@ -147,7 +147,7 @@ C This subroutine computes BOX-BOX interactions.
      $     + 924.*ci6 + 1716.*ci7
          br7 = br7 + s7*a - t7*b
          bi7 = bi7 + s7*b + t7*a
-    2 end do
+    2 continue
 
       Br(id, 1) = Br(id, 1) + br1
       Bi(id, 1) = Bi(id, 1) + bi1

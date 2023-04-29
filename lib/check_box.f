@@ -30,7 +30,7 @@ C *Listpart* so that they interact directly with the particle.
             kcheck = kcheck + 1
             icheck4(kcheck) = ks
          endif
-    2 end do
+    2 continue
 
       do 3 i = 1, 4
          do 30 k = 1, Kcheck
@@ -40,6 +40,6 @@ C *Listpart* so that they interact directly with the particle.
                kexam = kexam + 1
                listexam(kexam) = m
             endif
-   30    end do
-    3 end do
+   30    continue
+    3 continue
       end

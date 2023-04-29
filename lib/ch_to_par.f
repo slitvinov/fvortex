@@ -333,7 +333,7 @@ C 7 - Order
      $        - p4140*f3 - p370*(r4 + f4) - p242*r5
      $        - p17*(r6 - f6) + f7
 
-   20 end do
+   20 continue
 
       do 30 k = 1, Kparent
          kb = iparent(k)
@@ -353,5 +353,5 @@ C 7 - Order
          Pgi(kb, 5) = Gi(k, 5)
          Pgi(kb, 6) = Gi(k, 6)
          Pgi(kb, 7) = Gi(k, 7)
-   30 end do
+   30 continue
       end

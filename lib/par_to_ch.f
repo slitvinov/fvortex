@@ -289,5 +289,5 @@ C 7 - Order
 
          end if
 
-   20 end do
+   20 continue
       end

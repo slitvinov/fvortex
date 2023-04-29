@@ -42,7 +42,7 @@ C Differentiation of the impulse will give drag and lift.
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
          write (1) x, y, g
-    2 end do
+    2 continue
       close (1)
 
       write (xdmf, '(A, I8.8, A)') 'p.', iframe, '.xdmf2'

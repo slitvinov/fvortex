@@ -18,5 +18,5 @@ C to whatever cutoff value we choose for particle interactions.
       do 1 i = 1, ngauss
          x = (i - 1)*gdelta
          gauss(i) = exp(-x)
-    1 end do
+    1 continue
       end

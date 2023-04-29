@@ -90,5 +90,5 @@ C Sum all the terms in the series
 C Calculate the velocity induced by the group "k" on particle "i"
          ubox = ubox - velr
          vbox = vbox + veli
-    2 end do
+    2 continue
       end

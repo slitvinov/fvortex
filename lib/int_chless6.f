@@ -21,7 +21,7 @@ C For descriptive comments, go back to int_chless1&2
       integer nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
       real r66, r67, r68, r69, xnn, ynn, gnn, dyopiinv
       real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
-
+      
       dyopiinv = 1./(8.*atan(1.))
 
       r66 = 1.0
@@ -47,7 +47,7 @@ C For descriptive comments, go back to int_chless1&2
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
             kc = kc + 1
             Lclg(kc) = k
-   21    end do
+   21    continue
 
          kexam = 0
          do 22 m = 1, 4
@@ -57,8 +57,8 @@ C For descriptive comments, go back to int_chless1&2
                if (km == 0) goto 23
                kexam = kexam + 1
                listexam(kexam) = km
-   23       end do
-   22    end do
+   23       continue
+   22    continue
 
          call near_far(Nmax6, ib, jb, r66, ic6, jc6, kexam, listexam
      $     , kfar, Listfar, Kclose, Listclose)
@@ -75,8 +75,8 @@ C For descriptive comments, go back to int_chless1&2
                xt(nns) = xn(np)
                yt(nns) = yn(np) ! childless boxes same level
                gt(nns) = gn(np)
-  250       end do
-   25    end do
+  250       continue
+   25    continue
 
          if (nns > np_max) write (*, *) 'error in int_chless6', nns
          do 251 n = nb1, nb2
@@ -84,7 +84,7 @@ C For descriptive comments, go back to int_chless1&2
             uu(n) = uu(n) + up1*dyopiinv
             vv(n) = vv(n) + vp1*dyopiinv
             gdiff(n) = gdiff(n) + gp1
-  251    end do
+  251    continue
 
          level = 7
          if (kexam == 0) goto 201
@@ -113,7 +113,7 @@ C For descriptive comments, go back to int_chless1&2
             Pibox(kfp, 6) = Pi7(id, 6)
             Prbox(kfp, 7) = Pr7(id, 7)
             Pibox(kfp, 7) = Pi7(id, 7)
-   34    end do
+   34    continue
 
          call check_box(Nmax7, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -129,8 +129,8 @@ C For descriptive comments, go back to int_chless1&2
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  350       end do
-   35    end do
+  350       continue
+   35    continue
 
          level = 8
 
@@ -158,7 +158,7 @@ C For descriptive comments, go back to int_chless1&2
             Pibox(kfp, 6) = Pi8(id, 6)
             Prbox(kfp, 7) = Pr8(id, 7)
             Pibox(kfp, 7) = Pi8(id, 7)
-   36    end do
+   36    continue
 
          call check_box(Nmax8, Kclose, Listclose, kexam, listexam,
      $        Kpart,
@@ -174,8 +174,8 @@ C For descriptive comments, go back to int_chless1&2
                yt(nn) = yn(np)
                gt(nn) = gn(np)
                it(nn) = np
-  370       end do
-   37    end do
+  370       continue
+   37    continue
 
          level = 9
 
@@ -229,7 +229,7 @@ C For descriptive comments, go back to int_chless1&2
             uu(n) = uu(n) + (up2 + ubox)*dyopiinv
             vv(n) = vv(n) + (vp2 + vbox)*dyopiinv
             gdiff(n) = gdiff(n) + gp2
-  351    end do
+  351    continue
 
-   20 end do
+   20 continue
       end
