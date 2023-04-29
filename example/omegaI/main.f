@@ -36,15 +36,15 @@
      $     Nvf, Ntree,
      $     Rmax, visc_rmax)
 
-!---  tabulate the gaussian for use as diffusion kernel
+c---  tabulate the gaussian for use as diffusion kernel
 
       call gaussian
 
-!---  old data for continuation run
+c---  old data for continuation run
       if (icase == 0) then
          call read_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
 
-!     -- NEW run
+c     -- NEW run
       else
          call initial(Rmax)
          time = 0.0
@@ -59,7 +59,7 @@
       call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
       do 1 n = 1, Nsteps
 
-!--   compute vortex interactions with the FAST MULTIPOLE METHOD
+c--   compute vortex interactions with the FAST MULTIPOLE METHOD
          if (mod(n, Ntree) == 0) then
             call condiff(Np, 1, visc_rmax, 1)
          else
@@ -68,7 +68,7 @@
 
          call vel_ext(time)     ! Add irrotational velocities
 
-!---  Move the particles
+c---  Move the particles
 
          if ((n == 1) .or. (lremesh)) then ! first step or first after
                                            ! remesh
@@ -87,7 +87,7 @@
 
          time = time + dt
          write (*, 102) n, time
-!--   remesh every few steps to regularize particle locations
+c--   remesh every few steps to regularize particle locations
 
          if (mod(n, Nrem) == 0) then
             call remesh
@@ -98,21 +98,21 @@
             call diagnos(ivalue) ! flow momentum and circulation
          endif
 
-!--   save data for restart, if desired
+c--   save data for restart, if desired
 
          if (mod(n, Nrestart) == 0) then
             ivalue = n/Nrestart
             call write_restart(time, np, s2, ovrlp, nvort, xp, yp, gp)
          endif
 
-!--   take measurements if desired
+c--   take measurements if desired
          call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
          if (mod(n, Nvf) == 0) then
             ivalue = n/Nvf
             call vort_field(ivalue)
          endif
 
-!--   end of loop
+c--   end of loop
 
     1 continue
 
@@ -124,11 +124,11 @@
 
       subroutine initial(Rmax)
 
-!     Computes the initial positions for the particles in a new run and
-!     assigns circulation based on initial time desired.
-!     Rmax is used as the half-width of the square grid.
-!     Initial time is shifted backwards for accurate discretization
-!     using initially point vortex diffused to desired core size.
+c     Computes the initial positions for the particles in a new run and
+c     assigns circulation based on initial time desired.
+c     Rmax is used as the half-width of the square grid.
+c     Initial time is shifted backwards for accurate discretization
+c     using initially point vortex diffused to desired core size.
 
 
       include 'main_dim.h'
@@ -193,8 +193,8 @@
      $     Nvf, Ntree,
      $     Rmax, visc_rmax)
 
-!     In this subroutine parameters for the computation of the
-!     Lamb-Oseen (initially point) vortex are input.
+c     In this subroutine parameters for the computation of the
+c     Lamb-Oseen (initially point) vortex are input.
 
 
       include 'main_dim.h'
@@ -221,7 +221,7 @@
       integer icase, idiags, nsteps, nrem, nrestart, nvf
       integer ntree, istepping
       real Rmax, visc_rmax
-!-----read in various parameters for the computation
+c-----read in various parameters for the computation
 
       open (1, file='input.dat', status='OLD', err = 101)
       read (1, *)
@@ -248,33 +248,33 @@
       read (1, *) icase, Nrestart
       close (1)
 
-!     dt = time step length   Nsteps = # of time steps
-!     gnu = kinematic viscosity
-!     s2 = particle core area
-!     ovrlp = ratio of grid to particle core size
+c     dt = time step length   Nsteps = # of time steps
+c     gnu = kinematic viscosity
+c     s2 = particle core area
+c     ovrlp = ratio of grid to particle core size
 
-!     Limpar = minimum particles per box in tree decompositions
-!     vortlim = cutoff vorticity for a particle
+c     Limpar = minimum particles per box in tree decompositions
+c     vortlim = cutoff vorticity for a particle
 
-!     Nrem = frequency of remeshing
-!     visc_rmax = maximum radius at which do account for diffusion
+c     Nrem = frequency of remeshing
+c     visc_rmax = maximum radius at which do account for diffusion
 
-!     Rmax = outer radius of remesh grid
-!
-!     istepping = type of time stepping after remesh
-!     (1=Euler (1st order), 2=Runge Kutta 2nd order)
-!
-!     Nvf = frequency of vorticity field measurement
-!
-!     nxavg,nyavg = points in grid for vorticity time averaging
-!     xmaxavg,xminavg,ymaxavg,yminavg = boundaries of this grid
-!
-!     idiags = 0 for no force measurement, 1 for momentum, 2 for both
-!
-!     ntree = frequency for tree stats output
-!
-!     icase = 0 for a continuation run
-!     Nrestart = frequency with which to write restart files
+c     Rmax = outer radius of remesh grid
+c
+c     istepping = type of time stepping after remesh
+c     (1=Euler (1st order), 2=Runge Kutta 2nd order)
+c
+c     Nvf = frequency of vorticity field measurement
+c
+c     nxavg,nyavg = points in grid for vorticity time averaging
+c     xmaxavg,xminavg,ymaxavg,yminavg = boundaries of this grid
+c
+c     idiags = 0 for no force measurement, 1 for momentum, 2 for both
+c
+c     ntree = frequency for tree stats output
+c
+c     icase = 0 for a continuation run
+c     Nrestart = frequency with which to write restart files
 
       return
   101 write (*, '(''omegaI: error: needs input.dat file'')')
