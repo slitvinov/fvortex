@@ -15,20 +15,35 @@ C interaction list *XT,YT,GT*.
       parameter(eps=1.e-09)
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real gdelta, gauss(ngauss)
+      real gdelta
+      real gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
       real visc_cutoff
       common/cutoff/visc_cutoff
 
       integer kpart
-      real xtest, ytest, gtest, upart, vpart, gpart
+      real xtest
+      real ytest
+      real gtest
+      real upart
+      real vpart
+      real gpart
 
-      integer m, i
-      real s2inv2, xx, yy, r2, arg, c, fc
+      integer m
+      integer i
+      real s2inv2
+      real xx
+      real yy
+      real r2
+      real arg
+      real c
+      real fc
 
       s2inv2 = 0.5/s2
       Upart = 0.0

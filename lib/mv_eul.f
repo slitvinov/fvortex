@@ -8,15 +8,20 @@ C based on velocities calculated in CONDIFF and VEL_EXT.
       include 'part.h'
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, Time, dt
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer in, i
-      real pi, const
+      integer in
+      integer i
+      real pi
+      real const
 
       in = 0
       pi = 4.*atan(1.)

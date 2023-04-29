@@ -9,19 +9,31 @@ C stream.
       include 'part.h'
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, Time, dt
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
       real tm
 
       integer i
-      real alpha, x_vel, y_vel, xni, yni, arn2, uext, vext
+      real alpha
+      real x_vel
+      real y_vel
+      real xni
+      real yni
+      real arn2
+      real uext
+      real vext
 
-      real velocity_x, velocity_y, omega
+      real velocity_x
+      real velocity_y
+      real omega
 
       alpha = omega(tm)
       x_vel = velocity_x(tm)

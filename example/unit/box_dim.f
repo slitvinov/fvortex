@@ -13,13 +13,13 @@
       real yp(nvort)
 
       npart = 0
-      do
+      do 1
          read(5, *, iostat = stat) x, y
          if (stat /= 0) exit
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      continue
+ 1    continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       print *, xmin, ymin
       print *, xmax, ymin

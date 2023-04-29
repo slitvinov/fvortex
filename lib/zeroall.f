@@ -7,7 +7,8 @@ C This subroutine zeroes the various arrays used in identifying the tree
       include 'main_dim.h'
       include 'tree9.h'
 
-      integer i, j
+      integer i
+      integer j
 
       do i = 1, nbox_max
          Xbox(i) = 0.0

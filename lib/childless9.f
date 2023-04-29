@@ -9,11 +9,45 @@ C the childless boxes on level 9.
 
       integer kp9
 
-      integer nb, n1, n2, j
-      real xm, ym, x, y
-      real tr0, ti0, re0, tr1, ti1, re1, fa1, tr2, ti2, re2, fa2
-      real tr3, ti3, re3, fa3, tr4, ti4, re4, fa4, tr5, ti5, re5, fa5
-      real tr6, ti6, re6, fa6, tr7, ti7, re7, fa7
+      integer nb
+      integer n1
+      integer n2
+      integer j
+      real xm
+      real ym
+      real x
+      real y
+      real tr0
+      real ti0
+      real re0
+      real tr1
+      real ti1
+      real re1
+      real fa1
+      real tr2
+      real ti2
+      real re2
+      real fa2
+      real tr3
+      real ti3
+      real re3
+      real fa3
+      real tr4
+      real ti4
+      real re4
+      real fa4
+      real tr5
+      real ti5
+      real re5
+      real fa5
+      real tr6
+      real ti6
+      real re6
+      real fa6
+      real tr7
+      real ti7
+      real re7
+      real fa7
 
       do 10 nb = 1, kp9
          n1 = npb9(nb, 1)

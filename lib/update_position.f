@@ -5,19 +5,48 @@ C which it is not considered fixed.
 C Signs get a bit messy becuase u,v,udot,vdot are for the freestream,
 C which is (-) the body motion.
 
-      real last_cdp, last_cdf, last_clp, last_clf, last_cm
+      real last_cdp
+      real last_cdf
+      real last_clp
+      real last_clf
+      real last_cm
       common/force/last_cdp, last_cdf, last_clp, last_clf, last_cm
 
-      integer xfree, yfree, wfree
-      real xmass, xdamp, xspring, xforce
-      real x_const, x_amp, x_freq, x_phase
-      real ymass, ydamp, yspring, yforce
-      real y_amp, y_freq, y_phase
-      real wmass, wdamp, wspring
-      real w_fixed, w_const, w_amp, w_freq, w_phase
-      real last_x, last_u, last_udot
-      real last_y, last_v, last_vdot
-      real last_th, last_w, last_wdot
+      integer xfree
+      integer yfree
+      integer wfree
+      real xmass
+      real xdamp
+      real xspring
+      real xforce
+      real x_const
+      real x_amp
+      real x_freq
+      real x_phase
+      real ymass
+      real ydamp
+      real yspring
+      real yforce
+      real y_amp
+      real y_freq
+      real y_phase
+      real wmass
+      real wdamp
+      real wspring
+      real w_fixed
+      real w_const
+      real w_amp
+      real w_freq
+      real w_phase
+      real last_x
+      real last_u
+      real last_udot
+      real last_y
+      real last_v
+      real last_vdot
+      real last_th
+      real last_w
+      real last_wdot
       common/motion/xfree, xmass, xdamp, xspring, xforce,
      $  x_const, x_amp, x_freq, x_phase,
      $  yfree, ymass, ydamp, yspring, yforce,
@@ -30,8 +59,16 @@ C which is (-) the body motion.
 
       real delta_t
 
-      real cd, cl, old_sheet, pi
-      real x_tilde, u_tilde, y_tilde, v_tilde, th_tilde, w_tilde
+      real cd
+      real cl
+      real old_sheet
+      real pi
+      real x_tilde
+      real u_tilde
+      real y_tilde
+      real v_tilde
+      real th_tilde
+      real w_tilde
 
       pi = 4.*atan(1.)
 

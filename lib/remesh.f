@@ -8,26 +8,86 @@ C grid.
       include 'part.h'
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, Time, dt
 
       real vortlim
       common/rems/vortlim
 
-      integer nx_r, nx_l, ny_t, ny_b, ig, ix, iy, i, in, ifar, iback
-      integer ix0, ix1, ix2, iy0, iy1, iy2, nmesh
-      integer indx(nx_min:nx_max, ny_min:ny_max)
-      integer k00, k10, k20, k01, k11, k21, k02, k12, k22
-      real pi, twopi, twopiinv, dh, circ
-      real xmax, xmin, ymax, ymin, xr, xl, yt, yb, dhhaf, xx, yy,
-     $     cold, cx
-      real cutoff, cut_far, dhinv, g, x, y, ndist, sdist
-      real u, v, fy0, fy1, fy2, fx0, fx1, fx2, ag, cnew
-      real xg(ngrid), yg(ngrid), gg(ngrid)
+      integer nx_r
+      integer nx_l
+      integer ny_t
+      integer ny_b
+      integer ig
+      integer ix
+      integer iy
+      integer i
+      integer in
+      integer ifar
+      integer iback
+      integer ix0
+      integer ix1
+      integer ix2
+      integer iy0
+      integer iy1
+      integer iy2
+      integer nmesh
+      integer indx(nx_min:nx_max,ny_min:ny_max)
+      integer k00
+      integer k10
+      integer k20
+      integer k01
+      integer k11
+      integer k21
+      integer k02
+      integer k12
+      integer k22
+      real pi
+      real twopi
+      real twopiinv
+      real dh
+      real circ
+      real xmax
+      real xmin
+      real ymax
+      real ymin
+      real xr
+      real xl
+      real yt
+      real yb
+      real dhhaf
+      real xx
+      real yy
+      real cold
+      real cx
+      real cutoff
+      real cut_far
+      real dhinv
+      real g
+      real x
+      real y
+      real ndist
+      real sdist
+      real u
+      real v
+      real fy0
+      real fy1
+      real fy2
+      real fx0
+      real fx1
+      real fx2
+      real ag
+      real cnew
+      real xg(ngrid)
+      real yg(ngrid)
+      real gg(ngrid)
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi

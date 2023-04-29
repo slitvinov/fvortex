@@ -6,12 +6,26 @@ C level associated with a certain particle.
 
       include 'tree_tmp.h'
 
-      integer nmax, ib, jb, ic(nmax), jc(nmax), kexam, kfar, kclose
-      integer Listclose(Nhlp), listexam(Nhlp), Listfar(Nhlp)
+      integer nmax
+      integer ib
+      integer jb
+      integer ic(nmax)
+      integer jc(nmax)
+      integer kexam
+      integer kfar
+      integer kclose
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Listfar(Nhlp)
       real r
 
-      integer k, ks
-      real fi, fj, cr, si, sj
+      integer k
+      integer ks
+      real fi
+      real fj
+      real cr
+      real si
+      real sj
 
       if (kexam > nhlp) write (*, *) 'error in near_far,', kexam
 

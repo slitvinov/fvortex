@@ -19,26 +19,49 @@
       real ymin
       real yn(nvort)
       real yp(nvort)
-      integer ich2Par1(nmax2), ich3Par2(nmax3), ich4Par3(nmax4)
-      integer ich5Par4(nmax5), ich6Par5(nmax6), ich7par6(nmax7)
-      integer ich8par7(nmax8), ich9par8(nmax9)
-      integer kparent1, kparent2, kparent3, kparent4
-      integer kparent5, kparent6, kparent7, kparent8
-      integer kp2, kp3, kp4, kp5, kp6, kp7, kp8, kp9
-      integer kchildless1, kchildless2, kchildless3
-      integer kchildless4, kchildless5, kchildless6
-      integer kchildless7, kchildless8
+      integer ich2Par1(nmax2)
+      integer ich3Par2(nmax3)
+      integer ich4Par3(nmax4)
+      integer ich5Par4(nmax5)
+      integer ich6Par5(nmax6)
+      integer ich7par6(nmax7)
+      integer ich8par7(nmax8)
+      integer ich9par8(nmax9)
+      integer kparent1
+      integer kparent2
+      integer kparent3
+      integer kparent4
+      integer kparent5
+      integer kparent6
+      integer kparent7
+      integer kparent8
+      integer kp2
+      integer kp3
+      integer kp4
+      integer kp5
+      integer kp6
+      integer kp7
+      integer kp8
+      integer kp9
+      integer kchildless1
+      integer kchildless2
+      integer kchildless3
+      integer kchildless4
+      integer kchildless5
+      integer kchildless6
+      integer kchildless7
+      integer kchildless8
       integer limpar
 
       limpar = 8
       npart = 0
-      do
+      do 100
          read(5, *, iostat = stat) x, y
          if (stat /= 0) exit
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      continue
+ 100  continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
       x0 = xmin - 0.01*s0
@@ -104,7 +127,7 @@ c     Level 9 (finest boxes)
       call print_box(kp9, xc9, yc9, ds9)
 
     1 stop
-      end program main
+      end
 
       subroutine print_box(n, x, y, s)
       integer n
@@ -112,10 +135,10 @@ c     Level 9 (finest boxes)
       real y(*)
       real s
       integer i
-      do i = 1, n
+      do 110 i = 1, n
          call print_box0(x(i), y(i), s)
-      continue
-      end subroutine print_box
+ 110  continue
+      end
 
 
       subroutine print_box0(x, y, s)
@@ -133,4 +156,4 @@ c     Level 9 (finest boxes)
       yh = y + s/2
       write (*, '(1P, SP, 5(E23.16, 1X, E23.16/))') xl, yl, xh, yl,
      $     xh, yh, xl, yh, xl, yl
-      end subroutine print_box0
+      end subroutine

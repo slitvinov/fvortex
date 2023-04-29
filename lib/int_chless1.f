@@ -22,13 +22,51 @@ C and are handled by the int_rest arrays rather than int_chless.
 
       integer kchildless1
 
-      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer Listpart(Nhlp), kexam, kfar, kclose, i, kh, kb, ib, jb
-      integer nb1, nb2, nns, k, id, n1, n2, np, level, kfp, nn,
-     $     kpart, n
-      real r12, r13, r14, r15, r16, r17, r18, r19, xnn, ynn, gnn,
-     $     dyopiinv
-      real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
+      integer Listfar(Nhlp)
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Listpart(Nhlp)
+      integer kexam
+      integer kfar
+      integer kclose
+      integer i
+      integer kh
+      integer kb
+      integer ib
+      integer jb
+      integer nb1
+      integer nb2
+      integer nns
+      integer k
+      integer id
+      integer n1
+      integer n2
+      integer np
+      integer level
+      integer kfp
+      integer nn
+      integer kpart
+      integer n
+      real r12
+      real r13
+      real r14
+      real r15
+      real r16
+      real r17
+      real r18
+      real r19
+      real xnn
+      real ynn
+      real gnn
+      real dyopiinv
+      real up1
+      real vp1
+      real gp1
+      real up2
+      real vp2
+      real gp2
+      real ubox
+      real vbox
 
       dyopiinv = 1./(8.*atan(1.))
       r12 = 2.0

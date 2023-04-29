@@ -8,17 +8,49 @@ C Same as int_rest2 for level 7 boxes.
       include 'tree9.h'
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, limpar
 
       integer kp7
 
-      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer Listpart(Nhlp), kb, ib, jb, ipar, jpar, i, kexam
-      integer n4, k, id, n1, n2, np, kbb, kclose, kfar, kpart
-      real xb, yb, dyopiinv
-      real r61, r62, r63, r64, r65, r66, r71, r72,
-     $     r73, r74, r75, r76, r77
+      integer Listfar(Nhlp)
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Listpart(Nhlp)
+      integer kb
+      integer ib
+      integer jb
+      integer ipar
+      integer jpar
+      integer i
+      integer kexam
+      integer n4
+      integer k
+      integer id
+      integer n1
+      integer n2
+      integer np
+      integer kbb
+      integer kclose
+      integer kfar
+      integer kpart
+      real xb
+      real yb
+      real dyopiinv
+      real r61
+      real r62
+      real r63
+      real r64
+      real r65
+      real r66
+      real r71
+      real r72
+      real r73
+      real r74
+      real r75
+      real r76
+      real r77
 
       dyopiinv = 1./(8.*atan(1.))
 

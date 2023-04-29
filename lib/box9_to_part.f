@@ -6,14 +6,55 @@ C on its own particles from the box's interactions (level 9).
       include 'main_dim.h'
       include 'part.h'
 
-      integer nmax, kchildless, npb(nmax, 2)
-      real xc(nmax), yc(nmax), br(nmax, 7), bi(nmax, 7)
+      integer nmax
+      integer kchildless
+      integer npb(nmax,2)
+      real xc(nmax)
+      real yc(nmax)
+      real br(nmax,7)
+      real bi(nmax,7)
 
-      integer id, n1, n2, n
-      real dyopiinv, xb, yb, xx, yy, p, f, cr, ci, brb(7), bib(7)
-      real c1r, c1i, r1, f1, c2r, c2i, r2, f2, c3r, c3i, r3, f3, c4r,
-     $     c4i
-      real r4, f4, c5r, c5i, r5, f5, c6r, c6i, r6, f6, c7r, c7i
+      integer id
+      integer n1
+      integer n2
+      integer n
+      real dyopiinv
+      real xb
+      real yb
+      real xx
+      real yy
+      real p
+      real f
+      real cr
+      real ci
+      real brb(7)
+      real bib(7)
+      real c1r
+      real c1i
+      real r1
+      real f1
+      real c2r
+      real c2i
+      real r2
+      real f2
+      real c3r
+      real c3i
+      real r3
+      real f3
+      real c4r
+      real c4i
+      real r4
+      real f4
+      real c5r
+      real c5i
+      real r5
+      real f5
+      real c6r
+      real c6i
+      real r6
+      real f6
+      real c7r
+      real c7i
 
       dyopiinv = 1./(8.*atan(1.))
 

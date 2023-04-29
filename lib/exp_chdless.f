@@ -7,16 +7,55 @@ C the childless boxes at a level.
       include 'main_dim.h'
       include 'part.h'
 
-      integer nmax, kchildless
-      integer ichildless(nmax), npb(nmax, 2)
-      real xc(nmax), yc(nmax), pr(nmax, 0:7), pi(nmax, 0:7)
+      integer nmax
+      integer kchildless
+      integer ichildless(nmax)
+      integer npb(nmax,2)
+      real xc(nmax)
+      real yc(nmax)
+      real pr(nmax,0:7)
+      real pi(nmax,0:7)
 
-      integer k, nb, n1, n2, j
-      real xm, ym, x, y
-      real tr0, ti0, tr1, ti1, tr2, ti2, tr3, ti3, tr4, ti4
-      real tr5, ti5, tr6, ti6, tr7, ti7
-      real re0, re1, fa1, re2, fa2, re3, fa3, re4, fa4
-      real re5, fa5, re6, fa6, re7, fa7
+      integer k
+      integer nb
+      integer n1
+      integer n2
+      integer j
+      real xm
+      real ym
+      real x
+      real y
+      real tr0
+      real ti0
+      real tr1
+      real ti1
+      real tr2
+      real ti2
+      real tr3
+      real ti3
+      real tr4
+      real ti4
+      real tr5
+      real ti5
+      real tr6
+      real ti6
+      real tr7
+      real ti7
+      real re0
+      real re1
+      real fa1
+      real re2
+      real fa2
+      real re3
+      real fa3
+      real re4
+      real fa4
+      real re5
+      real fa5
+      real re6
+      real fa6
+      real re7
+      real fa7
 
       do 10 k = 1, kchildless
          nb = ichildless(k)

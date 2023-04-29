@@ -7,7 +7,8 @@ C to whatever cutoff value we choose for particle interactions.
 
       include 'main_dim.h'
 
-      real gdelta, gauss(ngauss)
+      real gdelta
+      real gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
       integer i

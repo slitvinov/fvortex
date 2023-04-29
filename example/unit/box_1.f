@@ -27,13 +27,13 @@
       stderr = 0
       stdin = 5
       npart = 0
-      do
+      do 100
          read(stdin, *, iostat = stat) x, y
          if (stat /= 0) exit
          npart = npart + 1
          xp(npart) = x
          yp(npart) = y
-      continue
+ 100  continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
       x0 = xmin - 0.01*s0       ! Coords. of lower
@@ -51,10 +51,10 @@
       write (stderr, *) 'npb1(:, 2) = ', npb1(:, 2)
       write (stderr, *) 'ds1 = ', ds1
       write (stderr, *) 'kp1 = ', kp1
-      do j = 1, kp1
-         do i = npb1(j, 1), npb1(j, 2)
+      do 10 j = 1, kp1
+         do 20 i = npb1(j, 1), npb1(j, 2)
             print *, xn(i), yn(i), j
-         continue
-      continue
+ 20      continue
+ 10   continue
 
-      end program main
+      end program

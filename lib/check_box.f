@@ -9,11 +9,21 @@ C *Listpart* so that they interact directly with the particle.
 
       include 'tree_tmp.h'
 
-      integer nmax1, kclose, kexam, kpart
-      integer Listclose(Nhlp), listexam(Nhlp), Listpart(Nhlp)
-      integer ipar1Ch2(Nmax1, 4), imark1(Nmax1)
+      integer nmax1
+      integer kclose
+      integer kexam
+      integer kpart
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Listpart(Nhlp)
+      integer ipar1Ch2(Nmax1,4)
+      integer imark1(Nmax1)
 
-      integer k, ks, i, m, kcheck
+      integer k
+      integer ks
+      integer i
+      integer m
+      integer kcheck
       integer icheck4(Nhlp)
 
       if (kclose > nhlp) write (*, *) 'error in check_box,', kclose

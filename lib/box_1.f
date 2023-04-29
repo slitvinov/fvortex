@@ -9,23 +9,51 @@ C tree.
       include 'part.h'
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, limpar
 
       integer BF_marker(nvort)
-      real dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
+      real dragBF
+      real liftBF
+      real momBF
+      real xsumBF
+      real ysumBF
+      real rsumBF
       common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
-      integer npart, kp1, BF_marker_temp(nvort)
-      integer ic1(4), jc1(4), npb1(4, 2), liststart(4)
-      real s0, ds1
-      real xc1(4), yc1(4)
+      integer npart
+      integer kp1
+      integer BF_marker_temp(nvort)
+      integer ic1(4)
+      integer jc1(4)
+      integer npb1(4,2)
+      integer liststart(4)
+      real s0
+      real ds1
+      real xc1(4)
+      real yc1(4)
 
-      integer i, n, np, ibox, jbox, inew, ix
-      integer nbx, nb1, nb2, nb3, nb4
-      real xst, yst, ds1inv, lx, ly
+      integer i
+      integer n
+      integer np
+      integer ibox
+      integer jbox
+      integer inew
+      integer ix
+      integer nbx
+      integer nb1
+      integer nb2
+      integer nb3
+      integer nb4
+      real xst
+      real yst
+      real ds1inv
+      real lx
+      real ly
 
-      integer ixy(nvort), idummy(nvort)
+      integer ixy(nvort)
+      integer idummy(nvort)
 
       do i = 1, nvort
          ixy(i) = 0

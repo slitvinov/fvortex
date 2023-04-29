@@ -5,8 +5,12 @@ C their indicies in a new array.
 
       include 'main_dim.h'
 
-      integer npart, itoss, imatch, nmatch
-      integer ibox(nvort), idummy(nvort)
+      integer npart
+      integer itoss
+      integer imatch
+      integer nmatch
+      integer ibox(nvort)
+      integer idummy(nvort)
 
       integer i
 

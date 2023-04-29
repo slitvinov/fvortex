@@ -4,11 +4,14 @@
       include 'part.h'
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, time, dt
 
       real vortlim
@@ -200,27 +203,42 @@ c     Lamb-Oseen (initially point) vortex are input.
       include 'main_dim.h'
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, Time, dt
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
       real vortlim
       common/rems/vortlim
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, Limpar
 
-      integer nxavg, nyavg
-      real xmaxavg, xminavg, ymaxavg, yminavg
+      integer nxavg
+      integer nyavg
+      real xmaxavg
+      real xminavg
+      real ymaxavg
+      real yminavg
       common/vort_avg/nxavg, nyavg, xmaxavg, xminavg, ymaxavg, yminavg
 
-      integer icase, idiags, nsteps, nrem, nrestart, nvf
-      integer ntree, istepping
-      real Rmax, visc_rmax
+      integer icase
+      integer idiags
+      integer nsteps
+      integer nrem
+      integer nrestart
+      integer nvf
+      integer ntree
+      integer istepping
+      real Rmax
+      real visc_rmax
 c-----read in various parameters for the computation
 
       open (1, file='input.dat', status='OLD', err = 101)

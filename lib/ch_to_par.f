@@ -5,21 +5,71 @@ C This subroutine computes the MULTIPOLE EXPANSIONS of
 C the PARENT boxes once the multipole expansions of their
 C children has been computed.
 
-      integer nmax1, kparent
+      integer nmax1
+      integer kparent
       real dch
-      integer IPARiCHj(Nmax1/4, 4), iparent(Nmax1/4)
-      real pr(Nmax1, 0:7), pi(Nmax1, 0:7)
-      real pgr(Nmax1/4, 0:7), pgi(Nmax1/4, 0:7)
-      real gr(Nmax1/4, 0:7), gi(Nmax1/4, 0:7)
+      integer IPARiCHj(Nmax1/4,4)
+      integer iparent(Nmax1/4)
+      real pr(Nmax1,0:7)
+      real pi(Nmax1,0:7)
+      real pgr(Nmax1/4,0:7)
+      real pgi(Nmax1/4,0:7)
+      real gr(Nmax1/4,0:7)
+      real gi(Nmax1/4,0:7)
 
-      integer km, m, k, kb, nb
-      real p1, p2, p3, p4, p5, p6, p7, p32, p26, p13, p44, p38,
-     $     p212, p14
-      real p54, p420, p320, p220, p15, p68, p524, p460, p340,
-     $     p230, p16
-      real p78, p656, p584, p4140, p370, p242, p17
-      real r0, r1, r2, r3, r4, r5, r6, r7, f0, f1, f2, f3, f4,
-     $     f5, f6, f7
+      integer km
+      integer m
+      integer k
+      integer kb
+      integer nb
+      real p1
+      real p2
+      real p3
+      real p4
+      real p5
+      real p6
+      real p7
+      real p32
+      real p26
+      real p13
+      real p44
+      real p38
+      real p212
+      real p14
+      real p54
+      real p420
+      real p320
+      real p220
+      real p15
+      real p68
+      real p524
+      real p460
+      real p340
+      real p230
+      real p16
+      real p78
+      real p656
+      real p584
+      real p4140
+      real p370
+      real p242
+      real p17
+      real r0
+      real r1
+      real r2
+      real r3
+      real r4
+      real r5
+      real r6
+      real r7
+      real f0
+      real f1
+      real f2
+      real f3
+      real f4
+      real f5
+      real f6
+      real f7
       p1 = 0.5*dch
       p2 = p1*p1
       p3 = p1*p2

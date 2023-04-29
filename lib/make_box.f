@@ -11,28 +11,86 @@ C relate the levels.  It mostly parallels the BOX_1 subroutine.
       include 'part.h'
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, Limpar
 
       integer BF_marker(Nvort)
-      real dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF
+      real dragBF
+      real liftBF
+      real momBF
+      real xsumBF
+      real ysumBF
+      real rsumBF
       common/bf/dragBF, liftBF, momBF, xsumBF, ysumBF, rsumBF, BF_marker
 
-      integer nmax, kp1, kp2, kparent1, kchildless1
-      integer ic1(nmax/4), jc1(nmax/4), npb1(nmax/4, 2)
-      integer iparent1(nmax/4), imark1(nmax/4)
-      integer ipar1ch2(nmax/4, 4), npb2(nmax, 2), ich2par1(nmax)
-      integer ic2(nmax), jc2(nmax), ichildless1(nmax/4)
-      real ds1, ds2
-      real xc2(nmax), yc2(nmax)
+      integer nmax
+      integer kp1
+      integer kp2
+      integer kparent1
+      integer kchildless1
+      integer ic1(nmax/4)
+      integer jc1(nmax/4)
+      integer npb1(nmax/4,2)
+      integer iparent1(nmax/4)
+      integer imark1(nmax/4)
+      integer ipar1ch2(nmax/4,4)
+      integer npb2(nmax,2)
+      integer ich2par1(nmax)
+      integer ic2(nmax)
+      integer jc2(nmax)
+      integer ichildless1(nmax/4)
+      real ds1
+      real ds2
+      real xc2(nmax)
+      real yc2(nmax)
 
-      integer i, np, kbox, ip, jp, n1, n2, npbox, ipar, jpar, n
-      integer ich1, jch1, ich2, jch2, ich3, jch3, ich4, jch4
-      integer lx, ly, ibox, jbox, jn, n1m1, nbx, ix, inew
-      integer nb1, nb2, nb3, nb4
-      integer ixy(Nvort), idummy(Nvort), BF_marker_temp(Nvort)
-      real ds2inv, xst, yst
-      real si1d, sj1d, si2d, sj2d, si3d, sj3d, si4d, sj4d
+      integer i
+      integer np
+      integer kbox
+      integer ip
+      integer jp
+      integer n1
+      integer n2
+      integer npbox
+      integer ipar
+      integer jpar
+      integer n
+      integer ich1
+      integer jch1
+      integer ich2
+      integer jch2
+      integer ich3
+      integer jch3
+      integer ich4
+      integer jch4
+      integer lx
+      integer ly
+      integer ibox
+      integer jbox
+      integer jn
+      integer n1m1
+      integer nbx
+      integer ix
+      integer inew
+      integer nb1
+      integer nb2
+      integer nb3
+      integer nb4
+      integer ixy(Nvort)
+      integer idummy(Nvort)
+      integer BF_marker_temp(Nvort)
+      real ds2inv
+      real xst
+      real yst
+      real si1d
+      real sj1d
+      real si2d
+      real sj2d
+      real si3d
+      real sj3d
+      real si4d
+      real sj4d
 
       do i = 1, nvort
          ixy(i) = 0

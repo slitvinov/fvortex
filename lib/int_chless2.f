@@ -8,19 +8,66 @@ C Same idea as in int_chless1 but now for level 2 childless boxes.
       include 'tree9.h'
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, limpar
 
       integer kchildless2
 
-      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer Listpart(Nhlp), Lclg(10), nns, ipar, jpar, kc,
-     $     j, m, ks, km
-      integer kexam, kfar, kclose, i, kh, kb, ib, jb
-      integer nb1, nb2, k, id, n1, n2, np, level, kfp, nn, kpart, n
-      real r21, r22, r23, r24, r25, r26, r27, r28, r29, xnn, ynn,
-     $     gnn, dyopiinv
-      real up1, vp1, gp1, up2, vp2, gp2, ubox, vbox
+      integer Listfar(Nhlp)
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Listpart(Nhlp)
+      integer Lclg(10)
+      integer nns
+      integer ipar
+      integer jpar
+      integer kc
+      integer j
+      integer m
+      integer ks
+      integer km
+      integer kexam
+      integer kfar
+      integer kclose
+      integer i
+      integer kh
+      integer kb
+      integer ib
+      integer jb
+      integer nb1
+      integer nb2
+      integer k
+      integer id
+      integer n1
+      integer n2
+      integer np
+      integer level
+      integer kfp
+      integer nn
+      integer kpart
+      integer n
+      real r21
+      real r22
+      real r23
+      real r24
+      real r25
+      real r26
+      real r27
+      real r28
+      real r29
+      real xnn
+      real ynn
+      real gnn
+      real dyopiinv
+      real up1
+      real vp1
+      real gp1
+      real up2
+      real vp2
+      real gp2
+      real ubox
+      real vbox
 
       dyopiinv = 1./(8.*atan(1.))
 

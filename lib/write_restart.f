@@ -3,8 +3,14 @@
 C Write the files needed to restart the simulation.
 C Values for u and v are freestream velocity, thus (-) body vel.
 
-      integer  np, nvort
-      real time, s2, ovrlp, xp(nvort), yp(nvort), gp(nvort)
+      integer np
+      integer nvort
+      real time
+      real s2
+      real ovrlp
+      real xp(nvort)
+      real yp(nvort)
+      real gp(nvort)
       open (1, file='params.cont', status='replace')
       write (1, *) time
       write (1, *) np

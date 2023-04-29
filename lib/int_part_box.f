@@ -6,14 +6,52 @@ C on individual particles.
       include 'tree_tmp.h'
 
       integer kbox
-      real xtest, ytest, ubox, vbox
+      real xtest
+      real ytest
+      real ubox
+      real vbox
 
-      integer ks, level
-      real xx, yy, r2inv, velr, veli, prl, pil
-      real r1, f1, r2, f2, r3, f3, r4, f4, r5, f5, r6, f6, r7, f7,
-     $     r8, f8
-      real c0r, c0i, c1r, c1i, c2r, c2i, c3r, c3i, c4r, c4i
-      real c5r, c5i, c6r, c6i, c7r, c7i
+      integer ks
+      integer level
+      real xx
+      real yy
+      real r2inv
+      real velr
+      real veli
+      real prl
+      real pil
+      real r1
+      real f1
+      real r2
+      real f2
+      real r3
+      real f3
+      real r4
+      real f4
+      real r5
+      real f5
+      real r6
+      real f6
+      real r7
+      real f7
+      real r8
+      real f8
+      real c0r
+      real c0i
+      real c1r
+      real c1i
+      real c2r
+      real c2i
+      real c3r
+      real c3i
+      real c4r
+      real c4i
+      real c5r
+      real c5i
+      real c6r
+      real c6i
+      real c7r
+      real c7i
       ubox = 0.
       vbox = 0.
       do 2 ks = 1, kbox

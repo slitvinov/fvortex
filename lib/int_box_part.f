@@ -6,15 +6,49 @@ C interactions.
 
       include 'tree_tmp.h'
 
-      integer nmax, kb, k4
-      real Br(nmax, 7), Bi(Nmax, 7)
-      real xb, yb
+      integer nmax
+      integer kb
+      integer k4
+      real Br(nmax,7)
+      real Bi(Nmax,7)
+      real xb
+      real yb
 
       integer nb
-      real br1, bi1, br2, bi2, br3, bi3, br4, bi4
-      real br5, bi5, br6, bi6, br7, bi7
-      real s0, t0, s1, t1, s2, t2, s3, t3, s4, t4, s5, t5, s6, t6
-      real g, xx, yy, p, f, r2inv
+      real br1
+      real bi1
+      real br2
+      real bi2
+      real br3
+      real bi3
+      real br4
+      real bi4
+      real br5
+      real bi5
+      real br6
+      real bi6
+      real br7
+      real bi7
+      real s0
+      real t0
+      real s1
+      real t1
+      real s2
+      real t2
+      real s3
+      real t3
+      real s4
+      real t4
+      real s5
+      real t5
+      real s6
+      real t6
+      real g
+      real xx
+      real yy
+      real p
+      real f
+      real r2inv
       Br1 = 0.
       Bi1 = 0.
       Br2 = 0.

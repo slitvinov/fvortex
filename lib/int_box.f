@@ -4,19 +4,69 @@ C This subroutine computes BOX-BOX interactions.
 
       include 'tree_tmp.h'
 
-      integer nmax, id, kbb
-      real xtest, ytest
-      real Br(nmax, 7), Bi(Nmax, 7)
+      integer nmax
+      integer id
+      integer kbb
+      real xtest
+      real ytest
+      real Br(nmax,7)
+      real Bi(Nmax,7)
 
-      integer ni, level
-      real br0, bi0, br1, bi1, br2, bi2, br3, bi3, br4, bi4
-      real br5, bi5, br6, bi6, br7, bi7
-      real s1, t1, s2, t2, s3, t3, s4, t4
-      real s5, t5, s6, t6, s7, t7
-      real prl, pil
-      real cr0, ci0, cr1, ci1, cr2, ci2, cr3, ci3, cr4, ci4
-      real cr5, ci5, cr6, ci6, cr7, ci7
-      real a, b, xx, yy, r2inv
+      integer ni
+      integer level
+      real br0
+      real bi0
+      real br1
+      real bi1
+      real br2
+      real bi2
+      real br3
+      real bi3
+      real br4
+      real bi4
+      real br5
+      real bi5
+      real br6
+      real bi6
+      real br7
+      real bi7
+      real s1
+      real t1
+      real s2
+      real t2
+      real s3
+      real t3
+      real s4
+      real t4
+      real s5
+      real t5
+      real s6
+      real t6
+      real s7
+      real t7
+      real prl
+      real pil
+      real cr0
+      real ci0
+      real cr1
+      real ci1
+      real cr2
+      real ci2
+      real cr3
+      real ci3
+      real cr4
+      real ci4
+      real cr5
+      real ci5
+      real cr6
+      real ci6
+      real cr7
+      real ci7
+      real a
+      real b
+      real xx
+      real yy
+      real r2inv
 
       br0 = 0.
       bi0 = 0.

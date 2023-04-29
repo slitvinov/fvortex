@@ -8,23 +8,51 @@ C velocities from the previous step are not available.
       include 'part.h'
 
       integer n
-      real time, dt
+      real time
+      real dt
       common/params/n, Time, dt
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
-      integer xfree, yfree, wfree
-      real xmass, xdamp, xspring, xforce
-      real x_const, x_amp, x_freq, x_phase
-      real ymass, ydamp, yspring, yforce
-      real y_amp, y_freq, y_phase
-      real wmass, wdamp, wspring
-      real w_fixed, w_const, w_amp, w_freq, w_phase
-      real last_x, last_u, last_udot
-      real last_y, last_v, last_vdot
-      real last_th, last_w, last_wdot
+      integer xfree
+      integer yfree
+      integer wfree
+      real xmass
+      real xdamp
+      real xspring
+      real xforce
+      real x_const
+      real x_amp
+      real x_freq
+      real x_phase
+      real ymass
+      real ydamp
+      real yspring
+      real yforce
+      real y_amp
+      real y_freq
+      real y_phase
+      real wmass
+      real wdamp
+      real wspring
+      real w_fixed
+      real w_const
+      real w_amp
+      real w_freq
+      real w_phase
+      real last_x
+      real last_u
+      real last_udot
+      real last_y
+      real last_v
+      real last_vdot
+      real last_th
+      real last_w
+      real last_wdot
       common/motion/xfree, xmass, xdamp, xspring, xforce,
      $  x_const, x_amp, x_freq, x_phase,
      $  yfree, ymass, ydamp, yspring, yforce,
@@ -37,8 +65,10 @@ C velocities from the previous step are not available.
 
       real visc_rmax
 
-      integer in, i
-      real pi, const
+      integer in
+      integer i
+      real pi
+      real const
       in = 0
       pi = 4.*atan(1.)
       const = gnu*ovrlp**2/(pi*s2)

@@ -12,21 +12,41 @@ C ytest is in a higher level box than XT,YT to keep things straight.
       include 'part.h'
 
       integer np
-      real s2, ovrlp, gnu
+      real s2
+      real ovrlp
+      real gnu
       common/part/Np, s2, ovrlp, gnu
 
-      real gdelta, gauss(ngauss)
+      real gdelta
+      real gauss(ngauss)
       common/gauss_table/gdelta, gauss
 
       real visc_cutoff
       common/cutoff/visc_cutoff
 
       integer kpart
-      real gtest, xtest, ytest, upart, vpart, gpart
+      real gtest
+      real xtest
+      real ytest
+      real upart
+      real vpart
+      real gpart
 
-      integer m, i, n
-      real s2inv2, gg, xx, yy, r2, arg, c, svl, fm, fn
-      real a, dyopiinv
+      integer m
+      integer i
+      integer n
+      real s2inv2
+      real gg
+      real xx
+      real yy
+      real r2
+      real arg
+      real c
+      real svl
+      real fm
+      real fn
+      real a
+      real dyopiinv
 
       dyopiinv = 1./(8.*atan(1.))
       s2inv2 = 0.5/s2

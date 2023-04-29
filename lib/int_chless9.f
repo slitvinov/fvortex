@@ -9,17 +9,47 @@ C For descriptive comments, go back to int_chless1&2
       include 'tree9.h'
 
       integer limpar
-      real x0, y0
+      real x0
+      real y0
       common/geom/x0, y0, limpar
 
-      integer kp8, kp9
+      integer kp8
+      integer kp9
 
-      integer Listfar(Nhlp), Listclose(Nhlp), listexam(Nhlp)
-      integer Lclg(10), nns, ipar, jpar, kc, j, m, ks, km
-      integer kexam, kfar, kclose, i, kb, ib, jb
-      integer nb1, nb2, k, id, n1, n2, np, kfp, nn, n
-      real r99, dyopiinv
-      real up1, vp1, gp1
+      integer Listfar(Nhlp)
+      integer Listclose(Nhlp)
+      integer listexam(Nhlp)
+      integer Lclg(10)
+      integer nns
+      integer ipar
+      integer jpar
+      integer kc
+      integer j
+      integer m
+      integer ks
+      integer km
+      integer kexam
+      integer kfar
+      integer kclose
+      integer i
+      integer kb
+      integer ib
+      integer jb
+      integer nb1
+      integer nb2
+      integer k
+      integer id
+      integer n1
+      integer n2
+      integer np
+      integer kfp
+      integer nn
+      integer n
+      real r99
+      real dyopiinv
+      real up1
+      real vp1
+      real gp1
 
       dyopiinv = 1./(8.*atan(1.))
 
