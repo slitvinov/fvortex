@@ -60,12 +60,12 @@ C outputs the vorticity field on a grid.
       y0 = ymin
 
       in = 0
-      do 1 ix = 1, nx
-         do 2 iy = 1, ny
+      do 01 ix = 1, nx
+         do 02 iy = 1, ny
             in = in + 1
             gg(in) = 0.
-    2    continue
-    1 continue
+ 02      continue
+ 01   continue
 
       in = 0
       do 10 ix = 1, nx
@@ -416,12 +416,12 @@ C ---- Points on column IX + 3
       write (1, '(A, /, A, I8, A, I8)') 'variables=x,y,w',
      $     'zone i=', nx, ', j=', ny
       in = 0
-      do j = 1, nx
-         do i = 1, ny
+      do 21 j = 1, nx
+         do 22 i = 1, ny
             in = in + 1
             write (1, '(SP, E23.16, 1X, E23.16, 1X, E23.16)')
      $           xg(in), yg(in), gg(in)
-         continue
-      continue
+ 22      continue
+ 21   continue
       close (1)
       end
