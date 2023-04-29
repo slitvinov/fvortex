@@ -92,7 +92,6 @@ C For descriptive comments, go back to int_chless1&2
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-C ____________________
          level = 5
          if (kexam == 0) goto 201
 
@@ -138,7 +137,6 @@ C ____________________
   310       end do
    31    end do
 
-C ____________________
          level = 6
          if (kexam == 0) goto 201
 
@@ -231,7 +229,6 @@ C ____________________
   350       end do
    35    end do
 
-C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r48, ic8, jc8, kexam, listexam,
@@ -277,7 +274,6 @@ C ____________________
   370       end do
    37    end do
 
-C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r49, ic9, jc9, kexam, listexam,

@@ -45,11 +45,7 @@ C minimum number of particles for a box is given by limpar.
       real gr8(nmax8, 0:7), gi8(nmax8, 0:7)
       real gr9(nmax9, 0:7), gi9(nmax9, 0:7)
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C _.
 C STAGE 0 : Zero all relevant arrays.                        _.
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-
       visc_cutoff = visc_rmax*visc_rmax
       call zeroall              ! handles common blocks
 
@@ -145,11 +141,8 @@ C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
          enddo
       enddo
 
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
-C _.
-C STAGE 1 : Divide the domain containing particles           _.
-C into a hierarchy of cells.                       _.
-C _._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
+C STAGE 1 : Divide the domain containing particles into a hierarchy of
+C cells.
 
 C Determine the  region  of  the main square
 

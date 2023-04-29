@@ -85,7 +85,6 @@ C For descriptive comments, go back to int_chless1&2
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-C ____________________
          level = 8
          if (kexam == 0) goto 201
 
@@ -131,7 +130,6 @@ C ____________________
   370       end do
    37    end do
 
-C ____________________
          level = 9
          if (kexam == 0) goto 201
 

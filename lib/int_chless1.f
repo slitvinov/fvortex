@@ -89,7 +89,6 @@ C Note that the box will find and interact with itself (as particles)
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-C ______________________________
          level = 2
 
 C Find which level 2 boxes are far enough away to interact as a box with
@@ -193,7 +192,6 @@ C repeats for all subsequent levels.
   270       end do
    27    end do
 
-C ____________________
          level = 4
 
          call near_far(Nmax4, ib, jb, r14, ic4, jc4, kexam, listexam,
@@ -240,7 +238,6 @@ C ____________________
   290       end do
    29    end do
 
-C ____________________
          level = 5
 
          call near_far(Nmax5, ib, jb, r15, ic5, jc5, kexam, listexam,
@@ -287,7 +284,6 @@ C ____________________
   310       end do
    31    end do
 
-C ____________________
          level = 6
 
          call near_far(Nmax6, ib, jb, r16, ic6, jc6, kexam, listexam,
@@ -334,7 +330,6 @@ C ____________________
   330       end do
    33    end do
 
-C ____________________
          level = 7
 
          call near_far(Nmax7, ib, jb, r17, ic7, jc7, kexam, listexam,
@@ -380,7 +375,6 @@ C ____________________
   350       end do
    35    end do
 
-C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r18, ic8, jc8, kexam, listexam,
@@ -426,7 +420,6 @@ C ____________________
   370       end do
    37    end do
 
-C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r19, ic9, jc9, kexam, listexam,

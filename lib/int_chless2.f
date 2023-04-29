@@ -98,7 +98,6 @@ C the initial list to examine is now listexam.
             gdiff(n) = gdiff(n) + gp1
   251    end do
 
-C _____________________________________
          level = 3
          if (kexam == 0) goto 201
 
@@ -144,7 +143,6 @@ C _____________________________________
   270       end do
    27    end do
 
-C ____________________
          level = 4
          if (kexam == 0) goto 201
 
@@ -190,7 +188,6 @@ C ____________________
   290       end do
    29    end do
 
-C ____________________
          level = 5
          if (kexam == 0) goto 201
 
@@ -236,7 +233,6 @@ C ____________________
   310       end do
    31    end do
 
-C ____________________
          level = 6
          if (kexam == 0) goto 201
 
@@ -282,7 +278,6 @@ C ____________________
   330       end do
    33    end do
 
-C ____________________
          level = 7
          if (kexam == 0) goto 201
 
@@ -328,7 +323,6 @@ C ____________________
   350       end do
    35    end do
 
-C ____________________
          level = 8
 
          call near_far(Nmax8, ib, jb, r28, ic8, jc8, kexam, listexam,
@@ -374,7 +368,6 @@ C ____________________
   370       end do
    37    end do
 
-C ____________________
          level = 9
 
          call near_far(Nmax9, ib, jb, r29, ic9, jc9, kexam, listexam,
