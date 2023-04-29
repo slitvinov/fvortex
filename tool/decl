@@ -1,0 +1,68 @@
+#!/usr/bin/awk -f
+
+BEGIN {
+    while (get() == 1) {
+	if (comment())
+	    print line
+	else if (line ~ /^      real/)
+	    repl("      real")
+	else if (line ~ /^      integer/)
+	    repl("      integer")
+	else
+	    print line
+    }
+}
+
+function repl(pat) {
+	    line0 = line
+	    while ((rc = get()) == 1 && cont())
+		line0 = line0 " " substr(line, 7)
+	    if (rc == 1)
+		unget(line)
+	    sub("^" pat, "", line0)
+	    gsub(/ /, "", line0)
+	    n = length(line0)
+	    su = 0
+	    for (i = 1; i <= n; i++) {
+		ch = substr(line0, i, 1)
+		if (ch == "(") {
+		    su ++
+		    var = var ch
+		}
+		else if (ch == ")") {
+		    su --
+		    var = var ch
+		}
+		else if (ch == "," && su == 0) {
+		    printf "%s %s\n", pat, var
+		    var = ""
+		} else
+		    var = var ch
+	    }
+	    printf "%s %s\n", pat, var
+	    var = ""
+}
+
+function get() {
+    if (BUFFER) {
+	BUFFER = 0
+	line = buffer
+	return 1
+    } else
+	return getline line
+}
+
+function unget(line) {
+    BUFFER = 1
+    buffer = line
+}
+
+function comment() {
+    return substr(line, 1, 1) == "c" ||
+	substr(line, 1, 1) == "C" ||
+	substr(line, 1, 1) == "*"
+}
+
+function cont() {
+    return !comment() && length(line) >= 6 && substr(line, 6, 1) != " "
+}
