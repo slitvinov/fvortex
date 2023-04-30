@@ -19,21 +19,22 @@ C Differentiation of the impulse will give drag and lift.
       real gnu
       real ovrlp
       real s2
-      real Time
+      real time
       real x
       real xmom
       real y
       real ymom
 
-      common/params/n, Time, dt
-      common/part/Np, s2, ovrlp, gnu
+      common/params/n, time, dt
+      common/part/np, s2, ovrlp, gnu
 
       write (raw, '(A, I8.8, A)') 'p.', iframe, '.raw'
-      open (1, file=raw, status='REPLACE', access='STREAM')
+      open (1, file = raw, status = 'REPLACE', form = 'UNFORMATTED', err
+     $     = 101, access = 'DIRECT', recl = 12)
       xmom = 0.
       ymom = 0.
       ang = 0.
-      do 2 i = 1, Np
+      do 2 i = 1, np
          x = xp(i)
          y = yp(i)
          g = gp(i)
@@ -41,7 +42,7 @@ C Differentiation of the impulse will give drag and lift.
          xmom = xmom - g*y
          ymom = ymom + g*x
          ang = ang + 0.5*(x*x + y*y + s2)*g
-         write (1) x, y, g
+         write (1, rec = i) x, y, g
     2 continue
       close (1)
 
@@ -58,16 +59,16 @@ C Differentiation of the impulse will give drag and lift.
       write(1, '(A)') '     GeometryType="XY">'
       write(1, '(A)') '    <DataItem'
       write(1, '(A)') '      ItemType="HyperSlab"'
-      write(1, '(    ''      Dimensions="'', I8, I8, ''">'')') Np, 2
+      write(1, '(    ''      Dimensions="'', I8, I8, ''">'')') np, 2
       write(1, '(A)') '     <DataItem'
       write(1, '(A)') '       Dimensions="3 2"'
       write(1, '(A)') '       Format="XML">'
       write(1, '(    ''        '', I8, I8)') 0, 0
       write(1, '(    ''        '', I8, I8)') 1, 1
-      write(1, '(    ''        '', I8, I8)') Np, 2
+      write(1, '(    ''        '', I8, I8)') np, 2
       write(1, '(A)') '      </DataItem>'
       write(1, '(A)') '     <DataItem'
-      write(1, '(    ''       Dimensions="'', I8, I8, ''"'')') Np, 3
+      write(1, '(    ''       Dimensions="'', I8, I8, ''"'')') np, 3
       write(1, '(A)') '       Format="Binary">'
       write(1, '(    ''        '', A)') raw
       write(1, '(A)') '     </DataItem>'
@@ -77,14 +78,14 @@ C Differentiation of the impulse will give drag and lift.
       write(1, '(A)') '    Name="circ">'
       write(1, '(A)') '   <DataItem'
       write(1, '(A)') '     ItemType="HyperSlab"'
-      write(1, '(    ''     Dimensions="'', I8, ''">'')') Np
+      write(1, '(    ''     Dimensions="'', I8, ''">'')') np
       write(1, '(A)') '    <DataItem'
       write(1, '(A)') '      Dimensions="3"'
       write(1, '(A)') '      Format="XML">'
-      write(1, '(    ''       '', 3I8)') 2, 3, Np
+      write(1, '(    ''       '', 3I8)') 2, 3, np
       write(1, '(A)') '    </DataItem>'
       write(1, '(A)') '    <DataItem'
-      write(1, '(    ''      Dimensions="'', I8, ''"'')') Np
+      write(1, '(    ''      Dimensions="'', I8, ''"'')') np
       write(1, '(A)') '      Format="Binary">'
       write(1, '(    ''       '', A)') raw
       write(1, '(A)') '    </DataItem>'
@@ -95,12 +96,11 @@ C Differentiation of the impulse will give drag and lift.
       write(1, '(A)') '</Xdmf>'
       close(1)
 
-      write (10, 100) Time, xmom
-      write (11, 100) Time, ymom
-      write (12, 100) Time, Circ
+      write (10, '(SP, 2P, E23.16, 4(1X, E23.16))') time, xmom, ymom,
+     $     Circ, ang
       close(10)
-      close(11)
-      close(12)
 
-  100 format(f10.4, 2x, e13.6)
+      return
+ 101  write (*, '(''fvortex: error: fail to write output'')')
+      stop 1
       end
