@@ -32,10 +32,8 @@
 
       irk = 0
       lremesh = .false.
-      call input(icase, idiags, istepping,
-     $     Nsteps, Nrem, Nrestart,
-     $     Nvf, Ntree,
-     $     Rmax, ell_x, ell_y, visc_rmax)
+      call input(icase, idiags, istepping, Nsteps, Nrem, Nrestart, Nvf,
+     $     Ntree, Rmax, ell_x, ell_y, visc_rmax)
 
 c---  tabulate the gaussian for use as diffusion kernel
 
@@ -51,13 +49,13 @@ c     -- NEW run
          time = 0.0
          irk = 0
          if (idiags == 1) then
-            call diagnos(ivalue) ! get initial impulse and circulation
+            call diagnos(ivalue)
          endif
       endif
       ivalue = 0
       call vort_field(ivalue)
 
-      call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
+      call condiff(Np, 0, 9999., 0)
       do 1 n = 1, Nsteps
 
 c--   compute vortex interactions with the FAST MULTIPOLE METHOD
@@ -66,12 +64,11 @@ c--   compute vortex interactions with the FAST MULTIPOLE METHOD
          else
             call condiff(np, 1, visc_rmax, 0)
          endif
-         call vel_ext(time)     ! Add irrotational velocities
+         call vel_ext(time)
 
 c---  Move the particles
 
-         if ((n == 1) .or. (lremesh)) then ! first step or first after
-                                           ! remesh
+         if ((n == 1) .or. (lremesh)) then
             lremesh = .false.
             if (istepping == 2) then
                call mv_rk(visc_rmax)
@@ -95,7 +92,7 @@ c--   remesh every few steps to regularize particle locations
          endif
 
          if (idiags == 1) then
-            call diagnos(ivalue)      ! flow momentum and circulation
+            call diagnos(ivalue)
          endif
 
 c--   save data for restart, if desired
@@ -106,7 +103,7 @@ c--   save data for restart, if desired
          endif
 
 c--   take measurements if desired
-         call condiff(Np, 0, 9999., 0) ! rebuild the interaction tree
+         call condiff(Np, 0, 9999., 0)
          if (mod(n, Nvf) == 0) then
             ivalue = n/Nvf
             call vort_field(ivalue)
@@ -152,10 +149,9 @@ c     using initially point vortex diffused to desired core size.
       real strength
       real x
       real y
-c-----------------------------------------------------------------------
       h2 = s2*ovrlp**2
-      deltax = sqrt(h2)         ! grid spacing
-      h2 = deltax*deltax        ! actual cell area
+      deltax = sqrt(h2)
+      h2 = deltax*deltax
       Nmx = 2*Rmax/deltax + 1
       denom = 1.0/(0.1*Rmax)**2
 
@@ -165,7 +161,7 @@ c---  generate the grid
          do 102 iy = 1, Nmx
             x = -Rmax + deltax*(ix - 0.5)
             y = -Rmax + deltax*(iy - 0.5)
-            r_arg = (x/ell_x)**2 + (y/ell_y)**2 ! elliptic vortex
+            r_arg = (x/ell_x)**2 + (y/ell_y)**2
             strength = denom*h2*exp(-r_arg*denom)
             in = in + 1
             xp(in) = x
@@ -174,14 +170,12 @@ c---  generate the grid
   102    continue
   101 continue
 
-      Np = in                   ! the initial number of particles
+      Np = in
       write (*, *) 'initial number of Particles ', Np
       end
 
-      subroutine input(icase, idiags, istepping,
-     $     Nsteps, Nrem, Nrestart,
-     $     Nvf, Ntree,
-     $     Rmax, ell_x, ell_y, visc_rmax)
+      subroutine input(icase, idiags, istepping, Nsteps, Nrem, Nrestart,
+     $     Nvf, Ntree, Rmax, ell_x, ell_y, visc_rmax)
 
 c     In this subroutine parameters for the computation of the
 c     Lamb-Oseen (initially point) vortex are input.
