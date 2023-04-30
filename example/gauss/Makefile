@@ -9,5 +9,5 @@ M = \
 main\
 
 all: $M
-.f:; $(FC) $< -o $@ $(FCSTD) $(FCFLAGS) $(FVORTEX_FLAGS)
+.f:; $(FC) $< -o $@ $(FCSTD) $(FCFLAGS) $(FVORTEX_FLAGS) $(LDFLAGS)
 clean:; rm -f -- $M

@@ -4,7 +4,8 @@ C This subroutine finds the bounding x and y coordinates in the domain.
       include 'main_dim.h'
       real xp(nvort)
       real yp(nvort)
-      common/vort1/xp, yp
+      real gp(nvort)
+      common/vort1/xp, yp, gp
       integer npart
       real xmax
       real xmin
