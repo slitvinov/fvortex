@@ -30,10 +30,8 @@
       common/part/Np, s2, ovrlp, gnu
       common/rems/vortlim
 
-
       irk = 0
       lremesh = .false.
-
       call input(icase, idiags, istepping,
      $     Nsteps, Nrem, Nrestart,
      $     Nvf, Ntree,
@@ -41,7 +39,7 @@
 
 c---  tabulate the gaussian for use as diffusion kernel
 
-      call gaussian
+      call gaussian()
 
 c---  old data for continuation run
       if (icase == 0) then
@@ -121,8 +119,7 @@ c--   end of loop
   102 format(10x, ' Time Step :', i9, 6x, 'Time :', f8.4)
   103 format(10x, ' Particles :', i9, 6x, 'Time :', f8.4)
 
-      stop
-      end program go
+      end
 
       subroutine initial(Rmax, ell_x, ell_y)
 
