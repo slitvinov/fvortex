@@ -1,12 +1,8 @@
       subroutine zeroall
 C This subroutine zeroes the various arrays used in identifying the tree
-
-C This subroutine zeroes the various arrays used in identifying the tree
-
       include 'tree_tmp.h'
       include 'main_dim.h'
       include 'tree9.h'
-
       integer i
       integer j
 

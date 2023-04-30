@@ -1,29 +1,28 @@
       subroutine near_far(Nmax, ib, jb, r, ic, jc, kexam, listexam,
      $  kfar, Listfar, kclose, Listclose)
 
-C This  subroutine finds all the far & close boxes at a certain
-C level associated with a certain particle.
+C This subroutine finds all the far & close boxes at a certain level
+C associated with a certain particle.
 
       include 'tree_tmp.h'
 
-      integer nmax
       integer ib
-      integer jb
       integer ic(nmax)
+      integer jb
       integer jc(nmax)
+      integer k
+      integer kclose
       integer kexam
       integer kfar
-      integer kclose
+      integer ks
       integer Listclose(Nhlp)
       integer listexam(Nhlp)
       integer Listfar(Nhlp)
-      real r
-
-      integer k
-      integer ks
+      integer nmax
+      real cr
       real fi
       real fj
-      real cr
+      real r
       real si
       real sj
 
@@ -41,10 +40,10 @@ C level associated with a certain particle.
          sj = jc(ks)
          if ((abs(fi - si) < cr) .and. (abs(fj - sj) < cr)) then
             kclose = kclose + 1
-            Listclose(kclose) = ks ! close
+            Listclose(kclose) = ks
          else
             kfar = kfar + 1
-            Listfar(kfar) = ks  ! far away
+            Listfar(kfar) = ks
          endif
     2 continue
       end
