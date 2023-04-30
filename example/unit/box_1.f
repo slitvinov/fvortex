@@ -1,9 +1,6 @@
       program main
       include 'main_dim.h'
       include 'tree9.h'
-      common/vort1/xp, yp
-      common/vort2/xn, yn
-      common/geom/x0, y0
       integer i
       integer j
       integer npart
@@ -23,6 +20,9 @@
       real yp(nvort)
       integer stderr
       integer stdin
+      common/vort1/xp, yp
+      common/vort2/xn, yn
+      common/geom/x0, y0
 
       stderr = 0
       stdin = 5

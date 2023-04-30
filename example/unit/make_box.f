@@ -1,9 +1,39 @@
       program main
       include 'main_dim.h'
       include 'tree9.h'
-      common/vort1/xp, yp
-      common/vort2/xn, yn
-      common/geom/x0, y0, limpar
+      integer ich2Par1(nmax2)
+      integer ich3Par2(nmax3)
+      integer ich4Par3(nmax4)
+      integer ich5Par4(nmax5)
+      integer ich6Par5(nmax6)
+      integer ich7par6(nmax7)
+      integer ich8par7(nmax8)
+      integer ich9par8(nmax9)
+      integer kchildless1
+      integer kchildless2
+      integer kchildless3
+      integer kchildless4
+      integer kchildless5
+      integer kchildless6
+      integer kchildless7
+      integer kchildless8
+      integer kp2
+      integer kp3
+      integer kp4
+      integer kp5
+      integer kp6
+      integer kp7
+      integer kp8
+      integer kp9
+      integer kparent1
+      integer kparent2
+      integer kparent3
+      integer kparent4
+      integer kparent5
+      integer kparent6
+      integer kparent7
+      integer kparent8
+      integer limpar
       integer npart
       integer stat
       real s0
@@ -19,39 +49,9 @@
       real ymin
       real yn(nvort)
       real yp(nvort)
-      integer ich2Par1(nmax2)
-      integer ich3Par2(nmax3)
-      integer ich4Par3(nmax4)
-      integer ich5Par4(nmax5)
-      integer ich6Par5(nmax6)
-      integer ich7par6(nmax7)
-      integer ich8par7(nmax8)
-      integer ich9par8(nmax9)
-      integer kparent1
-      integer kparent2
-      integer kparent3
-      integer kparent4
-      integer kparent5
-      integer kparent6
-      integer kparent7
-      integer kparent8
-      integer kp2
-      integer kp3
-      integer kp4
-      integer kp5
-      integer kp6
-      integer kp7
-      integer kp8
-      integer kp9
-      integer kchildless1
-      integer kchildless2
-      integer kchildless3
-      integer kchildless4
-      integer kchildless5
-      integer kchildless6
-      integer kchildless7
-      integer kchildless8
-      integer limpar
+      common/vort1/xp, yp
+      common/vort2/xn, yn
+      common/geom/x0, y0, limpar
 
       limpar = 8
       npart = 0

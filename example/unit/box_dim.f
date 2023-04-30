@@ -1,6 +1,5 @@
       program main
       include 'main_dim.h'
-      common/vort1/xp, yp
       integer npart
       integer stat
       real x
@@ -11,6 +10,7 @@
       real ymax
       real ymin
       real yp(nvort)
+      common/vort1/xp, yp
 
       npart = 0
       do 1

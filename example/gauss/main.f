@@ -3,35 +3,33 @@
       include 'main_dim.h'
       include 'part.h'
 
-      integer np
-      real s2
-      real ovrlp
-      real gnu
-      common/part/Np, s2, ovrlp, gnu
-
-      integer n
-      real time
-      real dt
-      common/params/n, time, dt
-
-      real vortlim
-      common/rems/vortlim
-
       integer icase
       integer idiags
       integer irk
       integer istepping
       integer ivalue
+      integer n
+      integer np
       integer Nrem
       integer Nrestart
       integer Nsteps
       integer Ntree
       integer Nvf
       logical  lremesh
+      real dt
       real ell_x
       real ell_y
+      real gnu
+      real ovrlp
       real Rmax
+      real s2
+      real time
       real visc_rmax
+      real vortlim
+      common/params/n, time, dt
+      common/part/Np, s2, ovrlp, gnu
+      common/rems/vortlim
+
 
       irk = 0
       lremesh = .false.
@@ -181,9 +179,7 @@ c---  generate the grid
 
       Np = in                   ! the initial number of particles
       write (*, *) 'initial number of Particles ', Np
-
-      return
-      end subroutine initial
+      end
 
       subroutine input(icase, idiags, istepping,
      $     Nsteps, Nrem, Nrestart,
@@ -295,4 +291,4 @@ c     Nrestart = frequency with which to write restart files
   101 write (*, '(''gauss: error: needs input.dat file'')')
       stop 1
 
-      end subroutine input
+      end
