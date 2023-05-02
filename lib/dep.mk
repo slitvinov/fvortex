@@ -105,7 +105,6 @@ near_far.o: tree_tmp.h
 remesh.o: main_dim.h
 remesh.o: part.h
 remesh.o: remesh_cartesian.h
-streamfunction.o: tree_tmp.h
 vel_ext.o: main_dim.h
 vel_ext.o: part.h
 vort_field.o: main_dim.h

@@ -82,10 +82,18 @@ install: $L $H
 	mkdir -p -- '$(PREFIX)/lib' '$(PREFIX)/include'
 	cp -- $H '$(PREFIX)/include'
 	cp -- $L '$(PREFIX)/lib'
-$L: $O; $(AR) rv $@ $O && ranlib $@
-.f.o:; $(FC) -c $(FCSTD) $(FCFLAGS) $<
+$L: $O; '$(AR)' rv $@ $O && ranlib $@
+.f.o:; '$(FC)' -c $(FCSTD) $(FCFLAGS) $<
 include dep.mk
 
-dep:; for i in *.f; do findent --deps < $$i | awk '/^inc/{print "'`basename $$i .f`'.o" ": " $$2}'; done | sort > dep.mk
+dep:
+	awk ' \
+	!/^[cC\*]/ && sub(/^ *include */, "") { \
+	    sub(/\.f$$/, ".o", FILENAME); \
+	    sub(/^'\''/, "");  \
+	    sub(/'\'' *$$/, ""); \
+	    print FILENAME ":", $$0 \
+	} \
+	' *.f | sort > dep.mk
 
 clean:; rm -f -- $O $L
