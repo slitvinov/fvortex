@@ -67,14 +67,6 @@ $ convert heat.ppm heat.png
 
 <p align="center"><img src="./img/heat.png"/></p><br/>
 
-<h2>Hacking</h2>
-
-<p>Needs <a href="https://www.ratrabbit.nl/ratrabbit/findent/index.html">findent</a></p>
-
-<pre>
-$ for i in *.f; do findent -ofixed --indent_procedure=0 < $i > t && mv t $i; done
-</pre>
-
 <h2>Results</h2>
 
 <p align="center"><img src="./img/gauss.gif"/></p><br/>
