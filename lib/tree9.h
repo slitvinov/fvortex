@@ -7,9 +7,15 @@
       integer nmax7
       integer nmax8
       integer nmax9
-      parameter(Nmax1=4, Nmax2=16, Nmax3=64, Nmax4=256,
-     $     Nmax5=1024, Nmax6=4096, Nmax7=16384,
-     $     Nmax8=65536, Nmax9=262144)
+      parameter(Nmax1=4)
+      parameter(Nmax2=16)
+      parameter(Nmax3=64)
+      parameter(Nmax4=256)
+      parameter(Nmax5=1024)
+      parameter(Nmax6=4096)
+      parameter(Nmax7=16384)
+      parameter(Nmax8=65536)
+      parameter(Nmax9=262144)
 
       integer kp1
       real ds1

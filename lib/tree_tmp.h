@@ -2,7 +2,8 @@
       integer np_max
       integer nbox_max
       parameter(Nhlp=5000000)
-      parameter(np_max=3450000, nbox_max=60001)
+      parameter(np_max=3450000)
+      parameter(nbox_max=60001)
       integer it(np_max)
       real Xbox(nbox_max)
       real Ybox(nbox_max)
