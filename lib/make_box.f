@@ -115,19 +115,19 @@ C (Parent boxes  are those  that contain more than LIMPAR particles )
          n1 = npb1(kbox, 1)
          n2 = npb1(kbox, 2)
          Npbox = n2 - n1 + 1
-         if (Npbox > limpar) then ! *  Parent Box
+         if (Npbox > limpar) then
             kparent1 = kparent1 + 1
-            iparent1(kparent1) = kbox ! index of parent box
+            iparent1(kparent1) = kbox
             imark1(kbox) = 1
             ipar = (ip - 1)*2
             jpar = (jp - 1)*2
-            ich1 = 1 + ipar     ! 1st subbox
+            ich1 = 1 + ipar
             jch1 = 1 + jpar
-            ich2 = ich1         ! 2nd subbox
+            ich2 = ich1
             jch2 = 2 + jpar
-            ich3 = 2 + ipar     ! 3rd  subbox
+            ich3 = 2 + ipar
             jch3 = jch1
-            ich4 = ich3         ! 4th  subbox
+            ich4 = ich3
             jch4 = jch2
             si1d = ich1*ds2
             sj1d = jch1*ds2
@@ -280,7 +280,7 @@ C Box 4
                IPAR1Ch2(kbox, 4) = 0
             end if
 
-         else                   !  * Box is childless
+         else
             kchildless1 = Kchildless1 + 1
             ichildless1(kchildless1) = kbox
             imark1(kbox) = 0

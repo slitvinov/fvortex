@@ -63,14 +63,14 @@ C FPP$PERMUTATION(IT)
          arg = r2*s2inv2
          if (arg < gauss_cut) then
             i = int(arg/gdelta + 1)
-            c = gauss(i)*(1 + i*gdelta - arg) ! includes first error
-                                              ! term
+            c = gauss(i)*(1 + i*gdelta - arg)
+
          else
             c = 0.
          endif
          svl = (1.-c)/r2
          fm = gt(m)*svl
-         Upart = Upart + yy*fm  ! velocity on particle LP
+         Upart = Upart + yy*fm
          Vpart = Vpart + xx*fm
 C Calculation is made symmetric here
          n = it(m)
@@ -82,7 +82,7 @@ C           rad2 = xt(m)*xt(m) + yt(m)*yt(m)
 C           if((rad1.lt.visc_cutoff).and.(rad2.lt.visc_cutoff))then
          a = (gt(m) - gtest)*c
          gpart = gpart + a
-         Gdiff(n) = Gdiff(n) - a ! Strength of n
+         Gdiff(n) = Gdiff(n) - a
 C          endif
     4 continue
       end

@@ -74,10 +74,10 @@ C For descriptive comments, go back to int_chless1&2
       r69 = 8.0
 
       do 20 kh = 1, Kchildless6
-         nns = 0                ! List 1 (same level)
-         nn = 0                 ! List 1 (finer levels)
-         kfp = 0                ! List 3
-         kb = ichildless6(kh)   ! box b index
+         nns = 0
+         nn = 0
+         kfp = 0
+         kb = ichildless6(kh)
          ib = ic6(kb)
          jb = jc6(kb)
          nb1 = npb6(kb, 1)
@@ -85,7 +85,7 @@ C For descriptive comments, go back to int_chless1&2
          ipar = int((xc6(kb) - x0)/ds5 + 1)
          jpar = int((yc6(kb) - y0)/ds5 + 1)
          kc = 0
-         do 21 k = 1, Kp5       ! Loop over boxes in parents level.
+         do 21 k = 1, Kp5
             i = ic5(k)
             j = jc5(k)
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
@@ -117,7 +117,7 @@ C For descriptive comments, go back to int_chless1&2
             do 250 np = n1, n2
                nns = nns + 1
                xt(nns) = xn(np)
-               yt(nns) = yn(np) ! childless boxes same level
+               yt(nns) = yn(np)
                gt(nns) = gn(np)
   250       continue
    25    continue
@@ -208,7 +208,7 @@ C For descriptive comments, go back to int_chless1&2
      $        Kpart,
      $        Listpart, ipar8Ch9, imark8)
 
-         do 37 k = 1, kpart     ! All close boxes are now childless
+         do 37 k = 1, kpart
             id = Listpart(k)
             n1 = npb8(id, 1)
             n2 = npb8(id, 2)
@@ -249,7 +249,7 @@ C For descriptive comments, go back to int_chless1&2
             Pibox(kfp, 7) = Pi9(id, 7)
          enddo
 
-         do k = 1, kclose       ! All close boxes are now childless
+         do k = 1, kclose
             id = Listclose(k)
             n1 = npb9(id, 1)
             n2 = npb9(id, 2)

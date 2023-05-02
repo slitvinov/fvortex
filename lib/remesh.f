@@ -141,14 +141,14 @@ C Establish the new grid for the remeshed field
             xg(ig) = xx
             yg(ig) = yy
             gg(ig) = 0.0
-            indx(ix, iy) = ig   ! We can avoid this big array
+            indx(ix, iy) = ig
    11    continue
    10 continue
 
       Nmesh = ig
 
       write (*, *) 'Nmesh = ', Nmesh
-      if (nmesh > ngrid) then   ! overran array dimensions
+      if (nmesh > ngrid) then
          write (*, *) 'nmesh too large in remesh, stopping'
          stop
       endif
@@ -159,8 +159,8 @@ C remesh
       cold = 0.0
       cx = 0.0
       do 71 i = 1, Np
-         cold = cold + gp(i)    ! total circulation
-         cx = cx + gp(i)*yp(i)  ! x-impulse
+         cold = cold + gp(i)
+         cx = cx + gp(i)*yp(i)
    71 continue
       write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
@@ -172,8 +172,8 @@ C NEW GRID IN PLACE, REMESH OLD FIELD NOW
 
       in = 0
       ifar = 0
-      do 40 i = 1, Np           ! loop through, mapping particles to
-                                ! mesh
+      do 40 i = 1, Np
+
          g = gp(i)
          x = xp(i)
          y = yp(i)
@@ -199,7 +199,7 @@ C all other particles are in the inner grid
 C Category 0_1 : PARTICLES at the FAR interface (NGP remeshing)
             in = in + 1
             ig = indx(ix, iy)
-            gg(ig) = gg(ig) + g    ! NGP   Interpolation
+            gg(ig) = gg(ig) + g
 
          else
 C Category 0_1 : ALL other PARTICLES in the domain

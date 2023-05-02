@@ -87,7 +87,7 @@ C minimum number of particles for a box is given by limpar.
 
 C STAGE 0 : Zero all relevant arrays.                        _.
       visc_cutoff = visc_rmax*visc_rmax
-      call zeroall              ! handles common blocks
+      call zeroall
 
       kp1 = 0.
       kp2 = 0.
@@ -187,9 +187,9 @@ C cells.
 C Determine the  region  of  the main square
 
       call box_dim(npart, Xmin, xmax, ymin, ymax)
-      s0 = max(abs(xmax - Xmin), abs(ymax - ymin)) ! Side of square
-      x0 = xmin - 0.01*s0       ! Coords. of lower
-      y0 = ymin - 0.01*s0       ! left corner of square (origin)
+      s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
+      x0 = xmin - 0.01*s0
+      y0 = ymin - 0.01*s0
       s0 = 1.02*s0
 
 C Level 1

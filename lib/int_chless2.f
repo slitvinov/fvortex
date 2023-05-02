@@ -97,7 +97,7 @@ C For particle interactions, only need consider neighbors of your
 C parent.  All others are box interactions handled in int_rest at your
 C parent's level.
          kc = 0
-         do 21 k = 1, Kp1       ! Loop over boxes in parents level.
+         do 21 k = 1, Kp1
             i = ic1(k)
             j = jc1(k)
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
@@ -132,7 +132,7 @@ C the initial list to examine is now listexam.
             do 250 np = n1, n2
                nns = nns + 1
                xt(nns) = xn(np)
-               yt(nns) = yn(np) ! childless boxes same level
+               yt(nns) = yn(np)
                gt(nns) = gn(np)
   250       continue
    25    continue
@@ -402,7 +402,7 @@ C the initial list to examine is now listexam.
      $        Kpart,
      $        Listpart, ipar8Ch9, imark8)
 
-         do 37 k = 1, kpart     ! All close boxes are now childless
+         do 37 k = 1, kpart
             id = Listpart(k)
             n1 = npb8(id, 1)
             n2 = npb8(id, 2)
@@ -443,7 +443,7 @@ C the initial list to examine is now listexam.
             Pibox(kfp, 7) = Pi9(id, 7)
          enddo
 
-         do k = 1, kclose       ! All close boxes are now childless
+         do k = 1, kclose
             id = Listclose(k)
             n1 = npb9(id, 1)
             n2 = npb9(id, 2)

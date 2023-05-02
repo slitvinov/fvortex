@@ -486,7 +486,7 @@ C repeats for all subsequent levels.
             Pibox(kfp, 7) = Pi9(id, 7)
          enddo
 
-         do k = 1, kclose       ! All close boxes are now childless
+         do k = 1, kclose
             id = Listclose(k)
             n1 = npb9(id, 1)
             n2 = npb9(id, 2)

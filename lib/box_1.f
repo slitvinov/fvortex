@@ -69,13 +69,13 @@ C Identify each particle with one of the boxes
       do 1 n = 1, npart
          lx = (xp(n) - x0)*ds1inv
          ly = (yp(n) - y0)*ds1inv
-         ibox = int(lx + 1)          ! indices of the box where the
-                                     ! particles
-         jbox = int(ly + 1)          ! reside
-         ixy(n) = 1             ! IXY(n) has as value
-         if ((ibox == 1) .and. (jbox == 2)) then ! the index (1,2,3,4)
-            ixy(n) = 2          ! of the box that
-         else if ((ibox == 2) .and. (jbox == 1)) then ! particle n is in
+         ibox = int(lx + 1)
+
+         jbox = int(ly + 1)
+         ixy(n) = 1
+         if ((ibox == 1) .and. (jbox == 2)) then
+            ixy(n) = 2
+         else if ((ibox == 2) .and. (jbox == 1)) then
             ixy(n) = 3
          else if ((ibox == 2) .and. (jbox == 2)) then
             ixy(n) = 4

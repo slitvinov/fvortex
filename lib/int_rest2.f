@@ -50,7 +50,7 @@ C interacted as particle-box previously.
       r11 = 1.0
       r22 = 1.0
 
-      do 20 kb = 1, kp2         ! All level 2 boxes, Childless & Parents
+      do 20 kb = 1, kp2
          ib = ic2(kb)
          jb = jc2(kb)
          xb = xc2(kb)

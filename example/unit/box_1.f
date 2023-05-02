@@ -36,8 +36,8 @@
  100  continue
       call box_dim(npart, xmin, xmax, ymin, ymax)
       s0 = max(abs(xmax - Xmin), abs(ymax - ymin))
-      x0 = xmin - 0.01*s0       ! Coords. of lower
-      y0 = ymin - 0.01*s0       ! left corner of square (origin)
+      x0 = xmin - 0.01*s0
+      y0 = ymin - 0.01*s0
       s0 = 1.02*s0
 
       call box_1(npart, s0, xc1, yc1, ic1, jc1, npb1, ds1, kp1,

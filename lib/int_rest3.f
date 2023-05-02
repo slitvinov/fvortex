@@ -52,7 +52,7 @@ C Same as int_rest2 for level 3 boxes.
       r32 = 0.50
       r33 = 1.0
 
-      do 20 kb = 1, kp3         ! All boxes Childless & Parents
+      do 20 kb = 1, kp3
          ib = ic3(kb)
          jb = jc3(kb)
          xb = xc3(kb)

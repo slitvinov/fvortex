@@ -72,10 +72,10 @@ C For descriptive comments, go back to int_chless1&2
       r79 = 4.0
 
       do 20 kh = 1, Kchildless7
-         nns = 0                ! List 1 (same level)
-         nn = 0                 ! List 1 (finer levels)
-         kfp = 0                ! List 3
-         kb = ichildless7(kh)   ! box b index
+         nns = 0
+         nn = 0
+         kfp = 0
+         kb = ichildless7(kh)
          ib = ic7(kb)
          jb = jc7(kb)
          nb1 = npb7(kb, 1)
@@ -83,7 +83,7 @@ C For descriptive comments, go back to int_chless1&2
          ipar = int((xc7(kb) - x0)/ds6 + 1)
          jpar = int((yc7(kb) - y0)/ds6 + 1)
          kc = 0
-         do 21 k = 1, Kp6       ! Loop over boxes in parents level.
+         do 21 k = 1, Kp6
             i = ic6(k)
             j = jc6(k)
             if ((iabs(i - ipar) > 1) .or. (iabs(j - jpar) > 1)) goto 21
@@ -115,7 +115,7 @@ C For descriptive comments, go back to int_chless1&2
             do 250 np = n1, n2
                nns = nns + 1
                xt(nns) = xn(np)
-               yt(nns) = yn(np) ! childless boxes same level
+               yt(nns) = yn(np)
                gt(nns) = gn(np)
   250       continue
    25    continue
@@ -202,7 +202,7 @@ C For descriptive comments, go back to int_chless1&2
             Pibox(kfp, 7) = Pi9(id, 7)
          enddo
 
-         do k = 1, kclose       ! All close boxes are now childless
+         do k = 1, kclose
             id = Listclose(k)
             n1 = npb9(id, 1)
             n2 = npb9(id, 2)

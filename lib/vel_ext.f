@@ -42,7 +42,7 @@ C stream.
       do 1 i = 1, Np
          xni = xn(i)
          yni = yn(i)
-         Arn2 = alpha/(xni*xni + yni*yni) ! from rotation
+         Arn2 = alpha/(xni*xni + yni*yni)
          Uext = -yni*Arn2 + x_vel
          Vext = xni*Arn2 + y_vel
          uu(i) = uu(i) + Uext

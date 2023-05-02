@@ -72,7 +72,7 @@ C Same as int_rest2 for level 8 boxes.
       r87 = 0.50000
       r88 = 1.0
 
-      do 20 kb = 1, kp8         ! All boxes Childless & Parents
+      do 20 kb = 1, kp8
          ib = ic8(kb)
          jb = jc8(kb)
          xb = xc8(kb)
@@ -87,7 +87,7 @@ C Same as int_rest2 for level 8 boxes.
      $   , kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar1Ch2, imark1) !NT
+     $     , Listpart, ipar1Ch2, imark1)
 
          call near_far(Nmax1, ib, jb, r81, ic1, jc1, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
@@ -109,7 +109,7 @@ C Same as int_rest2 for level 8 boxes.
      $    , kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar2Ch3, imark2) ! NT
+     $     , Listpart, ipar2Ch3, imark2)
 
          call near_far(Nmax2, ib, jb, r82, ic2, jc2, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
@@ -130,7 +130,7 @@ C Same as int_rest2 for level 8 boxes.
      $   , kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax3, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar3Ch4, imark3) ! NT
+     $     , Listpart, ipar3Ch4, imark3)
 
          call near_far(Nmax3, ib, jb, r83, ic3, jc3, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
@@ -151,7 +151,7 @@ C Same as int_rest2 for level 8 boxes.
      $   ,  kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax4, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar4Ch5, imark4) ! NT
+     $     , Listpart, ipar4Ch5, imark4)
 
          call near_far(Nmax4, ib, jb, r84, ic4, jc4, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
@@ -172,7 +172,7 @@ C Same as int_rest2 for level 8 boxes.
      $    , kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax5, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar5Ch6, imark5) ! NT
+     $     , Listpart, ipar5Ch6, imark5)
 
          call near_far(Nmax5, ib, jb, r85, ic5, jc5, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)

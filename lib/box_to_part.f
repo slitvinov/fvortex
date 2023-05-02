@@ -60,7 +60,7 @@ C on its own particles from the box's interactions.
       real c7i
 
       dyopiinv = 1./(8.*atan(1.))
-      do 90 k = 1, kchildless   ! all childless boxes on level
+      do 90 k = 1, kchildless
          id = ichildless(k)
          xb = xc(id)
          yb = yc(id)
@@ -81,7 +81,7 @@ C on its own particles from the box's interactions.
          Brb(7) = Br(id, 7)
          Bib(7) = Bi(id, 7)
 
-         do 2 n = n1, n2        ! all particles in each box
+         do 2 n = n1, n2
             xx = xn(n) - xb
             yy = yb - yn(n)
 

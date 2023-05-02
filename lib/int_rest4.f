@@ -56,7 +56,7 @@ C Same as int_rest2 for level 4 boxes.
       r43 = 0.50
       r44 = 1.0
 
-      do 20 kb = 1, kp4         ! All boxes Childless & Parents
+      do 20 kb = 1, kp4
          ib = ic4(kb)
          jb = jc4(kb)
          xb = xc4(kb)
@@ -73,7 +73,7 @@ C Same as int_rest2 for level 4 boxes.
      $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax1, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar1Ch2, imark1) !NT
+     $     , Listpart, ipar1Ch2, imark1)
 
          call near_far(Nmax1, ib, jb, r41, ic1, jc1, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)
@@ -96,7 +96,7 @@ C Same as int_rest2 for level 4 boxes.
      $        kfar, Listfar, Kclose, Listclose)
 
          call check_box(Nmax2, kclose, Listclose, kexam, listexam, kpart
-     $     , Listpart, ipar2Ch3, imark2) ! NT
+     $     , Listpart, ipar2Ch3, imark2)
 
          call near_far(Nmax2, ib, jb, r42, ic2, jc2, kpart, Listpart,
      $     kfar, Listfar, Kclose, Listclose)

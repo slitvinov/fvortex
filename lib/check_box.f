@@ -33,7 +33,7 @@ C *Listpart* so that they interact directly with the particle.
 
       do 2 k = 1, kclose
          ks = Listclose(k)
-         if (imark1(ks) == 0) then ! childless
+         if (imark1(ks) == 0) then
             kpart = kpart + 1
             Listpart(kpart) = ks
          else
@@ -46,7 +46,7 @@ C *Listpart* so that they interact directly with the particle.
          do 30 k = 1, Kcheck
             ks = icheck4(k)
             m = ipar1Ch2(ks, i)
-            if (m /= 0) then    ! box not empty, examine at lower
+            if (m /= 0) then
                kexam = kexam + 1
                listexam(kexam) = m
             endif
