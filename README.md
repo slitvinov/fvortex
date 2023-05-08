@@ -86,3 +86,8 @@ $ convert heat.ppm heat.png
 
 <p align="center"><img src="./img/gauss.gif"/></p><br/>
 <p align="center"><img src="./img/omegaI.gif"/></p>
+
+<h2>References</h2>
+
+Cottet, G. H., & Koumoutsakos, P. D. (2000). Vortex methods: theory
+and practice (Vol. 8). Cambridge: Cambridge university press.</br>
