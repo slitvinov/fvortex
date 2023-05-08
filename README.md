@@ -1,11 +1,19 @@
+<h2>Introduction</h2>
+
+This is a Fortran implementation of the vortex method, a numerical
+technique for simulating fluid flow. The code solves the
+two-dimensional incompressible Euler and Navier-Stokes equations using
+a Lagrangian particle-based approach, where the fluid is represented
+by a collection of discrete vortices.
+
 <h2>Dependencies</h2>
 
-make, Fortran 77 compiler (tested with GNU Fortran, Intel, PGI, and HPE/Cray)
+To run this program, you need a Fortran 77 compiler (tested with GNU
+Fortran, Intel, PGI, and HPE/Cray) and make.
 
 <h2>Build</h2>
 
-By default uses GNU Fortran (edit [conf.mk](conf.mk) for other
-compilers).
+By default, the program uses GNU Fortran. To build the program, run:
 
 <pre>
 $ (cd lib && make)
@@ -13,18 +21,32 @@ $ (cd example/gauss && make)
 $ (cd example/omegaI && make)
 </pre>
 
+Edit the
+<a href="conf.mk">conf.mk</a>
+file to use a different Fortran compiler,
+
 <h2>Unit tests</h2>
 
-<p><a href="example/unit/">example/unit</a></p>
+Navigate to the
+<a href="example/unit/">example/unit</a>
+directory and run the following command (you will need to have
+<a href="http://www.gnuplot.info/">gnuplot</a>
+installed)
 
 <pre>
 $ make
 $ ./make_box.gp data/points
 </pre>
 
+This will create a box for paritcles in
+<a href="example/unit/data/points">data/points</a>
+
 <p align="center"><img src="./img/make_box.svg"/></p>
 
 <h2>Run</h2>
+
+To run the program, navigate to one of the example directories and run
+the main executable. Here are two examples:
 
 Elliptic <a href="https://en.wikipedia.org/wiki/Lamb%E2%80%93Oseen_vortex">Lamb–Oseen vortex</a>:
 
@@ -33,19 +55,7 @@ $ cd example/gauss
 $ ./main
  initial number of Particles        60025
            Particles :    60025      Time :  0.3405
-           Time Step :        1      Time :  0.0010
-           Particles :    60025      Time :  0.3257
-           Time Step :        2      Time :  0.0020
-           Particles :    60025      Time :  0.3263
-           Time Step :        3      Time :  0.0030
-           Particles :    60025      Time :  0.3295
-           Time Step :        4      Time :  0.0040
-           Particles :    60025      Time :  0.3317
-           Time Step :        5      Time :  0.0050
- nx_l,nx_r        -114         114
- ny_t,ny_b         114        -114
- Nmesh =        52441
- ...
+...	   
 </pre>
 
 <a href="https://doi.org/10.1017/S0022112087001150">Melander,  McWilliams,  and  Zabusky vortex</a>:
@@ -59,6 +69,11 @@ $ ./main
 </pre>
 
 <h2>Postprocessing</h2>
+
+You can use the
+<a href="tool/heat.awk">tool/heat.awk</a>
+script to generate a heatmap from the
+simulation data. Here's an example:
 
 <pre>
 $ awk -f tool/heat.awk example/gauss/w.00000001.dat > heat.ppm
