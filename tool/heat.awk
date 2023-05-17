@@ -43,7 +43,7 @@ BEGIN {
                     mi = w[k]
             }
         }
-    M = 65535
+    M = 2^16 - 1
     print "P3"
     printf "%d %d\n", m, n
     print M

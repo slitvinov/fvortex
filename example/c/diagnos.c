@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "def.h"
 
 void diagnos_(int *);
 
@@ -16,9 +17,9 @@ extern struct {
 } params_;
 
 extern struct {
-  float xp[5000000];
-  float yp[5000000];
-  float gp[5000000];
+  float xp[nvort];
+  float yp[nvort];
+  float gp[nvort];
 } vort1_;
 
 int main() {
@@ -37,5 +38,6 @@ int main() {
 }
 
 /*
-c99 diagnos.c ../../lib/libfvortex.a -lgfortran
+../../tool/def ../../lib/*.[fh] > def.h
+c99 -g3 diagnos.c ../../lib/libfvortex.a -lgfortran
 */

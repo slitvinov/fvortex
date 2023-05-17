@@ -1,0 +1,13 @@
+awk '
+/^[cC\*]/ { next }
+sub(/      [ ]*parameter/, "") {
+    sub(/^[(]/, "")
+    sub(/[)]$/, "")
+
+    var = val = $0
+    sub(/[ ]*=.*/, "", var)
+    sub(/^.*=[ ]*/, "", val)
+
+    printf "#define %s (%s)\n", var, val
+}
+' "$@"
