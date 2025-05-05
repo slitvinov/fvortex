@@ -250,11 +250,4 @@ C only cutoff if below threshold AND away from domain center
          cnew = cnew + circ
          cx = cx + circ*yp(i)
    72 continue
-      write (*, *) 'post-remesh, circulation:', cnew,
-     $     '  x-impulse: ', cx
-
-      write (*, 89) Np, iback - ifar, ifar
-
-   89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
-     $     'OUTSIDE :', i8, 2x)
       end
