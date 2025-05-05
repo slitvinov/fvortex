@@ -13,14 +13,8 @@
       parameter(ny_min=-800)
       parameter(ngrid=(nx_max - nx_min + 1)*(ny_max - ny_min + 1))
 
-      integer ngauss
       integer nvort
-      integer nxmaxavg
-      integer nymaxavg
-      parameter(ngauss=15001)
       parameter(nvort=5000000)
-      parameter(nxmaxavg=512)
-      parameter(nymaxavg=512)
 
       real xp(nvort)
       real yp(nvort)
@@ -171,12 +165,6 @@ C Establish the new grid for the remeshed field
  110  continue
 
       Nmesh = ig
-
-      write (*, *) 'Nmesh = ', Nmesh
-      if (nmesh > ngrid) then
-         write (*, *) 'nmesh too large in remesh, stopping'
-         stop
-      endif
 
 C set cutoff values to throw out particles
 
