@@ -1,129 +1,95 @@
-      call remesh
-      end
+call remesh end
 
-      subroutine remesh
-      integer nx_max
-      integer ny_max
-      integer nx_min
-      integer ny_min
-      integer ngrid
-      parameter(nx_max=800)
-      parameter(nx_min=-800)
-      parameter(ny_max=800)
-      parameter(ny_min=-800)
-      parameter(ngrid=(nx_max - nx_min + 1)*(ny_max - ny_min + 1))
+    subroutine remesh integer nx_max integer ny_max integer nx_min integer
+        ny_min integer ngrid
+        parameter(nx_max = 800) parameter(nx_min = -800) parameter(ny_max = 800)
+            parameter(ny_min = -800)
+                parameter(ngrid = (nx_max - nx_min + 1) * (ny_max - ny_min + 1))
 
-      integer nvort
-      parameter(nvort=5000000)
+                    integer nvort parameter(nvort = 5000000)
 
-      real xp(nvort)
-      real yp(nvort)
-      real gp(nvort)
-      common/vort1/xp, yp, gp
+                        real xp(nvort)
+real yp(nvort)
+real gp(nvort) common / vort1 / xp, yp,
+    gp
 
-      integer np
-      real s2
-      real ovrlp
-      common/part/Np, s2, ovrlp
+        integer np real s2 real ovrlp common
+        / part / Np,
+    s2,
+    ovrlp
 
-      integer n
-      real time
-      real dt
-      common/params/n, Time, dt
+        integer n real time real dt common
+        / params / n,
+    Time,
+    dt
 
-      real vortlim
-      common/rems/vortlim
+        real vortlim common
+        / rems /
+        vortlim
 
-      integer nx_r
-      integer nx_l
-      integer ny_t
-      integer ny_b
-      integer ig
-      integer ix
-      integer iy
-      integer i
-      integer in
-      integer ifar
-      integer iback
-      integer ix0
-      integer ix1
-      integer ix2
-      integer iy0
-      integer iy1
-      integer iy2
-      integer nmesh
-      integer indx(nx_min:nx_max,ny_min:ny_max)
-      integer k00
-      integer k10
-      integer k20
-      integer k01
-      integer k11
-      integer k21
-      integer k02
-      integer k12
-      integer k22
-      real pi
-      real twopi
-      real twopiinv
-      real dh
-      real circ
-      real xmax
-      real xmin
-      real ymax
-      real ymin
-      real xr
-      real xl
-      real yt
-      real yb
-      real dhhaf
-      real xx
-      real yy
-      real cold
-      real cx
-      real cutoff
-      real cut_far
-      real dhinv
-      real g
-      real x
-      real y
-      real ndist
-      real sdist
-      real u
-      real v
-      real fy0
-      real fy1
-      real fy2
-      real fx0
-      real fx1
-      real fx2
-      real ag
-      real cnew
-      real xg(ngrid)
-      real yg(ngrid)
-      real gg(ngrid)
+        integer nx_r integer nx_l integer ny_t integer ny_b integer ig integer
+        ix integer iy integer i integer in integer ifar integer iback integer
+        ix0 integer ix1 integer ix2 integer iy0 integer iy1 integer iy2 integer
+        nmesh integer indx(nx_min : nx_max, ny_min : ny_max) integer k00 integer
+        k10 integer k20 integer k01 integer k11 integer k21 integer k02 integer
+        k12 integer k22 real pi real twopi real twopiinv real dh real circ real
+        xmax real xmin real ymax real ymin real xr real xl real yt real yb real
+        dhhaf real xx real yy real cold real cx real cutoff real cut_far real
+        dhinv real g real x real y real ndist real sdist real u real v real fy0
+        real fy1 real fy2 real fx0 real fx1 real fx2 real ag real cnew real
+        xg(ngrid)
+real yg(ngrid)
+real gg(ngrid)
+      real strength
+      real deltax
+      real denom
+      real ell_x
+      real ell_y
+      real h2
+      real r_arg
+      real rmax
+      integer Nmx
+      
+
+      Rmax = 1.1
+      ell_x = 6.0
+      ell_y = 1.0
+      s2 = 1e-4
+      ovrlp = 0.9
+
+      h2 = s2*ovrlp**2
+      deltax = sqrt(h2)
+      h2 = deltax*deltax
+      Nmx = 2*Rmax/deltax + 1
+      denom = 1.0/(0.1*Rmax)**2
+      in = 0
+      do 101 ix = 1, Nmx
+         do 102 iy = 1, Nmx
+            x = -Rmax + deltax*(ix - 0.5)
+            y = -Rmax + deltax*(iy - 0.5)
+            r_arg = (x/ell_x)**2 + (y/ell_y)**2
+            strength = denom*h2*exp(-r_arg*denom)
+            in = in + 1
+            xp(in) = x
+            yp(in) = y
+            gp(in) = strength
+  102    continue
+ 101  continue
+
+      Np = in
+      write (*, *) 'initial number of Particles ', Np
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi
       twopiinv = 1./twopi
       dh = 2.*ovrlp*sqrt(s2/pi)
       dhinv = 1./dh
+      
 
-C FIRST ESTABLISH THE NEW GRID TO BE MAPPED INTO
-
-C     Find the edge of the grid of particles
-
-      xmin = xp(1)
-      xmax = xp(1)
-      ymin = yp(1)
-      ymax = yp(1)
-      do 10 i = 1, np
-         x = xp(i)
-         y = yp(i)
-         xmin = amin1(xmin, x)
-         xmax = amax1(xmax, x)
-         ymin = amin1(ymin, y)
-         ymax = amax1(ymax, y)
-   10 continue
+      xmin = 0
+      xmax = 1
+      ymin = 0
+      ymax = 1
 
       xr = xmax + 5.*dh
       xl = xmin - 5.*dh
@@ -249,5 +215,12 @@ C only cutoff if below threshold AND away from domain center
          circ = gp(i)
          cnew = cnew + circ
          cx = cx + circ*yp(i)
-   72 continue
+ 72   continue
+      write (*, *) 'post-remesh, circulation:', cnew,
+     $     '  x-impulse: ', cx
+
+      write (*, 89) Np, iback - ifar, ifar
+
+   89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
+     $     'OUTSIDE :', i8, 2x)
       end
