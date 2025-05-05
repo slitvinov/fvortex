@@ -130,9 +130,21 @@
 
 C FIRST ESTABLISH THE NEW GRID TO BE MAPPED INTO
 
-C Find the edge of the grid of particles
+C     Find the edge of the grid of particles
 
-      call box_dim(np, xmin, xmax, ymin, ymax)
+      xmin = xp(1)
+      xmax = xp(1)
+      ymin = yp(1)
+      ymax = yp(1)
+      do 10 i = 1, np
+         x = xp(i)
+         y = yp(i)
+         xmin = amin1(xmin, x)
+         xmax = amax1(xmax, x)
+         ymin = amin1(ymin, y)
+         ymax = amax1(ymax, y)
+   10 continue
+
       xr = xmax + 5.*dh
       xl = xmin - 5.*dh
       yt = ymax + 5.*dh
@@ -166,17 +178,17 @@ C Establish the new grid for the remeshed field
 
       dhhaf = 0.5*dh
       ig = 0
-      do 10 ix = nx_l, nx_r, 1
+      do 110 ix = nx_l, nx_r, 1
          xx = dhhaf + ix*dh
-         do 11 iy = ny_b, ny_t, 1
+         do 111 iy = ny_b, ny_t, 1
             yy = dhhaf + iy*dh
             ig = ig + 1
             xg(ig) = xx
             yg(ig) = yy
             gg(ig) = 0.0
             indx(ix, iy) = ig
-   11    continue
-   10 continue
+ 111     continue
+ 110  continue
 
       Nmesh = ig
 
@@ -302,47 +314,5 @@ C only cutoff if below threshold AND away from domain center
 
    89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
      $     'OUTSIDE :', i8, 2x)
-      end
-
-      subroutine box_dim(npart, xmin, xmax, ymin, ymax)
-C     This subroutine finds the bounding x and y coordinates in the domain.
-
-      integer ngauss
-      integer nvort
-      integer nxmaxavg
-      integer nymaxavg
-      real gauss_cut
-      parameter(gauss_cut=16.)
-      parameter(ngauss=15001)
-      parameter(nvort=5000000)
-      parameter(nxmaxavg=512)
-      parameter(nymaxavg=512)
-
-      real xp(nvort)
-      real yp(nvort)
-      real gp(nvort)
-      common/vort1/xp, yp, gp
-      integer npart
-      real xmax
-      real xmin
-      real ymax
-      real ymin
-
-      real x
-      real y
-      integer i
-
-      xmin = xp(1)
-      xmax = xp(1)
-      ymin = yp(1)
-      ymax = yp(1)
-      do 10 i = 1, npart
-         x = xp(i)
-         y = yp(i)
-         xmin = amin1(xmin, x)
-         xmax = amax1(xmax, x)
-         ymin = amin1(ymin, y)
-         ymax = amax1(ymax, y)
-   10 continue
       end
       
