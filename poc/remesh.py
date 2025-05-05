@@ -37,7 +37,6 @@ xmax = max(xp)
 ymin = min(yp)
 ymax = max(yp)
 
-
 xr = xmax + 5 * dh
 xl = xmin - 5 * dh
 yt = ymax + 5 * dh
@@ -61,7 +60,6 @@ cold = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
 print(f"{cold=:.16g} {cx=:.16g} {cy=:.16g}")
-
 for g, x, y in zip(gp, xp, yp):
     ix = int(round(x * dhinv - 0.5))
     iy = int(round(y * dhinv - 0.5))
