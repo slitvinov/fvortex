@@ -5,7 +5,6 @@ ell_x = 6.0
 ell_y = 1.0
 s2 = 1e-4
 ovrlp = 0.9
-vortlim = 1e-03
 
 h2 = s2 * ovrlp**2
 deltax = sqrt(h2)
@@ -18,9 +17,6 @@ twopiinv = 1. / twopi
 dh = 2. * ovrlp * sqrt(s2 / pi)
 dhinv = 1. / dh
 
-cutoff = vortlim * s2 * ovrlp**2
-cut_far = 10. * cutoff
-
 xp = []
 yp = []
 gp = []
@@ -28,29 +24,28 @@ xg = []
 yg = []
 gg = []
 
-for ix in range(1, Nmx + 1):
-    for iy in range(1, Nmx + 1):
-        x = -Rmax + deltax * (ix - 0.5)
-        y = -Rmax + deltax * (iy - 0.5)
+for ix in range(Nmx):
+    for iy in range(Nmx):
+        x = -Rmax + deltax * (ix + 0.5)
+        y = -Rmax + deltax * (iy + 0.5)
         r_arg = (x / ell_x)**2 + (y / ell_y)**2
-        strength = denom * h2 * exp(-r_arg * denom)
         xp.append(x)
         yp.append(y)
-        gp.append(strength)
+        gp.append(denom * h2 * exp(-r_arg * denom))
 xmin = min(xp)
 xmax = max(xp)
 ymin = min(yp)
 ymax = max(yp)
 
-xr = xmax + 5. * dh
-xl = xmin - 5. * dh
-yt = ymax + 5. * dh
-yb = ymin - 5. * dh
+
+xr = xmax + 5 * dh
+xl = xmin - 5 * dh
+yt = ymax + 5 * dh
+yb = ymin - 5 * dh
 nx_r = round(xr / dh)
 nx_l = round(xl / dh)
 ny_t = round(yt / dh)
 ny_b = round(yb / dh) - 1
-
 dhhaf = 0.5 * dh
 indx = {}
 for ix in range(nx_l, nx_r + 1):
@@ -62,22 +57,14 @@ for ix in range(nx_l, nx_r + 1):
         yg.append(yy)
         gg.append(0.0)
 
-nmesh = len(xg)
-
 cold = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
 print(f"{cold=:.16g} {cx=:.16g} {cy=:.16g}")
 
-in_count = 0
-ifar = 0
-
 for g, x, y in zip(gp, xp, yp):
-    sdist = x
-    ndist = y
-    ix = int(round(sdist * dhinv - 0.5))
-    iy = int(round(ndist * dhinv - 0.5))
-    in_count += 1
+    ix = int(round(x * dhinv - 0.5))
+    iy = int(round(y * dhinv - 0.5))
     ix0, ix1, ix2 = ix, ix - 1, ix + 1
     iy0, iy1, iy2 = iy, iy - 1, iy + 1
 
@@ -91,8 +78,8 @@ for g, x, y in zip(gp, xp, yp):
     k21 = indx[ix2, iy1]
     k22 = indx[ix2, iy2]
 
-    u = (sdist - xg[k00]) * dhinv
-    v = (ndist - yg[k00]) * dhinv
+    u = (x - xg[k00]) * dhinv
+    v = (y - yg[k00]) * dhinv
 
     Fy0 = 1.0 - v * v
     Fy1 = 0.5 * v * (v - 1.0)
@@ -115,8 +102,7 @@ xp = xg
 yp = yg
 gp = gg
 
-# Diagnostics: circulation and impulse
-cnew = sum(gp[1:])
+cnew = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
 print(f"{cold=:.16g} {cx=:.16g} {cy=:.16g}")
