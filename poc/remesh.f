@@ -154,26 +154,6 @@ C     Find the edge of the grid of particles
       ny_t = nint(Yt/dh)
       ny_b = nint(Yb/dh) - 1
 
-      write (*, *) 'nx_l,nx_r', nx_l, nx_r
-      write (*, *) 'ny_t,ny_b', ny_t, ny_b
-      if (nx_r > NX_max) then
-         write (*, *) 'PROBLEM :nx_right =', nx_r, ' nx_max = ', nx_max
-      end if
-      if (nx_l < NX_min) then
-         write (*, *) 'PROBLEM :nx_left =', nx_l, ' nx_min=', nx_min
-      end if
-      if (ny_t > ny_max) then
-         write (*, *) 'PROBLEM :ny_top =', ny_t, 'ny_max=', ny_max
-      end if
-      if (ny_b < ny_min) then
-         write (*, *) 'PROBLEM :ny_bottom =', ny_b, 'ny_min=', ny_min
-      end if
-
-      if ((nx_r > NX_max) .or. (nx_l < NX_min) .or.
-     $  (ny_t > ny_max) .or. (ny_b < ny_min)) then
-         stop
-      end if
-
 C Establish the new grid for the remeshed field
 
       dhhaf = 0.5*dh
@@ -197,17 +177,6 @@ C Establish the new grid for the remeshed field
          write (*, *) 'nmesh too large in remesh, stopping'
          stop
       endif
-
-C check diagnostics, pre-remesh - they should be conserved through
-C remesh
-
-      cold = 0.0
-      cx = 0.0
-      do 71 i = 1, Np
-         cold = cold + gp(i)
-         cx = cx + gp(i)*yp(i)
-   71 continue
-      write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
 C set cutoff values to throw out particles
 
@@ -315,4 +284,3 @@ C only cutoff if below threshold AND away from domain center
    89 format(3x, 'New Total :', i8, 3x, 'INSIDE :', i8, 2x,
      $     'OUTSIDE :', i8, 2x)
       end
-      
