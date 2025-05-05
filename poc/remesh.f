@@ -145,12 +145,19 @@
       twopiinv = 1./twopi
       dh = 2.*ovrlp*sqrt(s2/pi)
       dhinv = 1./dh
-      
 
-      xmin = 0
-      xmax = 1
-      ymin = 0
-      ymax = 1
+      xmin = xp(1)
+      xmax = xp(1)
+      ymin = yp(1)
+      ymax = yp(1)
+      do 1001 i = 1, np
+         x = xp(i)
+         y = yp(i)
+         xmin = amin1(xmin, x)
+         xmax = amax1(xmax, x)
+         ymin = amin1(ymin, y)
+         ymax = amax1(ymax, y)
+ 1001 continue
 
       xr = xmax + 5.*dh
       xl = xmin - 5.*dh
@@ -178,6 +185,17 @@ C Establish the new grid for the remeshed field
  110  continue
 
       Nmesh = ig
+
+C check diagnostics, pre-remesh - they should be conserved through
+C remesh
+
+      cold = 0.0
+      cx = 0.0
+      do 71 i = 1, Np
+         cold = cold + gp(i)
+         cx = cx + gp(i)*yp(i)
+   71 continue
+      write (*, *) 'pre-remesh, circulation:', cold, '  x-impulse: ', cx
 
 C set cutoff values to throw out particles
 
