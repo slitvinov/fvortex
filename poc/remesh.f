@@ -1,45 +1,106 @@
-call remesh end
+      call remesh
+      end
 
-    subroutine remesh integer nx_max integer ny_max integer nx_min integer
-        ny_min integer ngrid
-        parameter(nx_max = 800) parameter(nx_min = -800) parameter(ny_max = 800)
-            parameter(ny_min = -800)
-                parameter(ngrid = (nx_max - nx_min + 1) * (ny_max - ny_min + 1))
+      subroutine remesh
+      integer nx_max
+      integer ny_max
+      integer nx_min
+      integer ny_min
+      integer ngrid
+      parameter(nx_max=800)
+      parameter(nx_min=-800)
+      parameter(ny_max=800)
+      parameter(ny_min=-800)
+      parameter(ngrid=(nx_max - nx_min + 1)*(ny_max - ny_min + 1))
 
-                    integer nvort parameter(nvort = 5000000)
+      integer nvort
+      parameter(nvort=5000000)
 
-                        real xp(nvort)
-real yp(nvort)
-real gp(nvort) common / vort1 / xp, yp,
-    gp
+      real xp(nvort)
+      real yp(nvort)
+      real gp(nvort)
+      common/vort1/xp, yp, gp
 
-        integer np real s2 real ovrlp common
-        / part / Np,
-    s2,
-    ovrlp
+      integer np
+      real s2
+      real ovrlp
+      common/part/Np, s2, ovrlp
 
-        integer n real time real dt common
-        / params / n,
-    Time,
-    dt
+      integer n
+      real time
+      real dt
+      common/params/n, Time, dt
 
-        real vortlim common
-        / rems /
-        vortlim
+      real vortlim
+      common/rems/vortlim
 
-        integer nx_r integer nx_l integer ny_t integer ny_b integer ig integer
-        ix integer iy integer i integer in integer ifar integer iback integer
-        ix0 integer ix1 integer ix2 integer iy0 integer iy1 integer iy2 integer
-        nmesh integer indx(nx_min : nx_max, ny_min : ny_max) integer k00 integer
-        k10 integer k20 integer k01 integer k11 integer k21 integer k02 integer
-        k12 integer k22 real pi real twopi real twopiinv real dh real circ real
-        xmax real xmin real ymax real ymin real xr real xl real yt real yb real
-        dhhaf real xx real yy real cold real cx real cutoff real cut_far real
-        dhinv real g real x real y real ndist real sdist real u real v real fy0
-        real fy1 real fy2 real fx0 real fx1 real fx2 real ag real cnew real
-        xg(ngrid)
-real yg(ngrid)
-real gg(ngrid)
+      integer nx_r
+      integer nx_l
+      integer ny_t
+      integer ny_b
+      integer ig
+      integer ix
+      integer iy
+      integer i
+      integer in
+      integer ifar
+      integer iback
+      integer ix0
+      integer ix1
+      integer ix2
+      integer iy0
+      integer iy1
+      integer iy2
+      integer nmesh
+      integer indx(nx_min:nx_max,ny_min:ny_max)
+      integer k00
+      integer k10
+      integer k20
+      integer k01
+      integer k11
+      integer k21
+      integer k02
+      integer k12
+      integer k22
+      real pi
+      real twopi
+      real twopiinv
+      real dh
+      real circ
+      real xmax
+      real xmin
+      real ymax
+      real ymin
+      real xr
+      real xl
+      real yt
+      real yb
+      real dhhaf
+      real xx
+      real yy
+      real cold
+      real cx
+      real cutoff
+      real cut_far
+      real dhinv
+      real g
+      real x
+      real y
+      real ndist
+      real sdist
+      real u
+      real v
+      real fy0
+      real fy1
+      real fy2
+      real fx0
+      real fx1
+      real fx2
+      real ag
+      real cnew
+      real xg(ngrid)
+      real yg(ngrid)
+      real gg(ngrid)
       real strength
       real deltax
       real denom
