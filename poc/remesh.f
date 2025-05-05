@@ -110,13 +110,20 @@
       real r_arg
       real rmax
       integer Nmx
-      
+
 
       Rmax = 1.1
       ell_x = 6.0
       ell_y = 1.0
       s2 = 1e-4
       ovrlp = 0.9
+
+      pi = 4.0*atan(1.0)
+      twopi = 2.*pi
+      twopiinv = 1./twopi
+      dh = 2.*ovrlp*sqrt(s2/pi)
+      dhhaf = 0.5*dh
+      dhinv = 1./dh
 
       h2 = s2*ovrlp**2
       deltax = sqrt(h2)
@@ -139,12 +146,6 @@
 
       Np = in
       write (*, *) 'initial number of Particles ', Np
-
-      pi = 4.0*atan(1.0)
-      twopi = 2.*pi
-      twopiinv = 1./twopi
-      dh = 2.*ovrlp*sqrt(s2/pi)
-      dhinv = 1./dh
 
       xmin = xp(1)
       xmax = xp(1)
@@ -170,11 +171,10 @@
 
 C Establish the new grid for the remeshed field
 
-      dhhaf = 0.5*dh
       ig = 0
-      do 110 ix = nx_l, nx_r, 1
+      do 110 ix = nx_l, nx_r
          xx = dhhaf + ix*dh
-         do 111 iy = ny_b, ny_t, 1
+         do 111 iy = ny_b, ny_t
             yy = dhhaf + iy*dh
             ig = ig + 1
             xg(ig) = xx
