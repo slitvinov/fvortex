@@ -32,6 +32,8 @@ for ix in range(Nmx):
         xp.append(x)
         yp.append(y)
         gp.append(denom * h2 * exp(-r_arg * denom))
+print(f" initial number of Particles        {len(xp)}")
+
 xmin = min(xp)
 xmax = max(xp)
 ymin = min(yp)
@@ -59,7 +61,7 @@ for ix in range(nx_l, nx_r + 1):
 cold = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
-print(f"{cold=:.16g} {cx=:.16g} {cy=:.16g}")
+print(f" pre-remesh, circulation:   {cold:.9g}       x-impulse:   {cy:.8e}")
 for g, x, y in zip(gp, xp, yp):
     ix = int(round(x * dhinv - 0.5))
     iy = int(round(y * dhinv - 0.5))
@@ -103,4 +105,4 @@ gp = gg
 cnew = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
-print(f"{cold=:.16g} {cx=:.16g} {cy=:.16g}")
+print(f" post-remesh, circulation:   {cold:.9g}       x-impulse:   {cx:.8e}")

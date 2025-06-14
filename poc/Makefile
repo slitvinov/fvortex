@@ -6,6 +6,7 @@ include ../conf.mk
 M = \
 ppm\
 circle\
+remesh\
 
 all: $M
 .f:; $(FC) $< -o $@ $(FCSTD) $(FCFLAGS)
