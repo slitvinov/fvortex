@@ -107,7 +107,7 @@ C Find the edge of the grid of particles
       nx_r = nint(Xr/dh)
       nx_l = nint(Xl/dh)
       ny_t = nint(Yt/dh)
-      ny_b = nint(Yb/dh) - 1
+      ny_b = nint(Yb/dh)
 
       write (*, *) 'nx_l,nx_r', nx_l, nx_r
       write (*, *) 'ny_t,ny_b', ny_t, ny_b

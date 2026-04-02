@@ -117,6 +117,7 @@
       ell_y = 1.0
       s2 = 1e-4
       ovrlp = 0.9
+      vortlim = 0.0
 
       pi = 4.0*atan(1.0)
       twopi = 2.*pi
@@ -167,7 +168,7 @@
       nx_r = nint(Xr/dh)
       nx_l = nint(Xl/dh)
       ny_t = nint(Yt/dh)
-      ny_b = nint(Yb/dh) - 1
+      ny_b = nint(Yb/dh)
 
 C Establish the new grid for the remeshed field
 

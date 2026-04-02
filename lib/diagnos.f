@@ -34,6 +34,7 @@ C Differentiation of the impulse will give drag and lift.
       xmom = 0.
       ymom = 0.
       ang = 0.
+      circ = 0.
       do 2 i = 1, np
          x = xp(i)
          y = yp(i)

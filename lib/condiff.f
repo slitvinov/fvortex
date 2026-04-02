@@ -89,57 +89,57 @@ C STAGE 0 : Zero all relevant arrays.                        _.
       visc_cutoff = visc_rmax*visc_rmax
       call zeroall
 
-      kp1 = 0.
-      kp2 = 0.
-      kp3 = 0.
-      kp4 = 0.
-      kp5 = 0.
-      kp6 = 0.
-      kp7 = 0.
-      kp8 = 0.
-      kp9 = 0.
+      kp1 = 0
+      kp2 = 0
+      kp3 = 0
+      kp4 = 0
+      kp5 = 0
+      kp6 = 0
+      kp7 = 0
+      kp8 = 0
+      kp9 = 0
 
-      kchildless1 = 0.
-      kchildless2 = 0.
-      kchildless3 = 0.
-      kchildless4 = 0.
-      kchildless5 = 0.
-      kchildless6 = 0.
-      kchildless7 = 0.
-      kchildless8 = 0.
+      kchildless1 = 0
+      kchildless2 = 0
+      kchildless3 = 0
+      kchildless4 = 0
+      kchildless5 = 0
+      kchildless6 = 0
+      kchildless7 = 0
+      kchildless8 = 0
 
-      kparent1 = 0.
-      kparent2 = 0.
-      kparent3 = 0.
-      kparent4 = 0.
-      kparent5 = 0.
-      kparent6 = 0.
-      kparent7 = 0.
-      kparent8 = 0.
+      kparent1 = 0
+      kparent2 = 0
+      kparent3 = 0
+      kparent4 = 0
+      kparent5 = 0
+      kparent6 = 0
+      kparent7 = 0
+      kparent8 = 0
 
       do i = 1, nmax2
-         ich2par1(i) = 0.
+         ich2par1(i) = 0
       enddo
       do i = 1, nmax3
-         ich3par2(i) = 0.
+         ich3par2(i) = 0
       enddo
       do i = 1, nmax4
-         ich4par3(i) = 0.
+         ich4par3(i) = 0
       enddo
       do i = 1, nmax5
-         ich5par4(i) = 0.
+         ich5par4(i) = 0
       enddo
       do i = 1, nmax6
-         ich6par5(i) = 0.
+         ich6par5(i) = 0
       enddo
       do i = 1, nmax7
-         ich7par6(i) = 0.
+         ich7par6(i) = 0
       enddo
       do i = 1, nmax8
-         ich8par7(i) = 0.
+         ich8par7(i) = 0
       enddo
       do i = 1, nmax9
-         ich9par8(i) = 0.
+         ich9par8(i) = 0
       enddo
 
       do i = 0, 7

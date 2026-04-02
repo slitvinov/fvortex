@@ -46,7 +46,7 @@ yb = ymin - 5 * dh
 nx_r = round(xr / dh)
 nx_l = round(xl / dh)
 ny_t = round(yt / dh)
-ny_b = round(yb / dh) - 1
+ny_b = round(yb / dh)
 dhhaf = 0.5 * dh
 indx = {}
 for ix in range(nx_l, nx_r + 1):
@@ -105,4 +105,4 @@ gp = gg
 cnew = sum(gp)
 cx = sum(gp * xp for gp, xp in zip(gp, xp))
 cy = sum(gp * yp for gp, yp in zip(gp, yp))
-print(f" post-remesh, circulation:   {cold:.9g}       x-impulse:   {cx:.8e}")
+print(f" post-remesh, circulation:   {cnew:.9g}       x-impulse:   {cx:.8e}")

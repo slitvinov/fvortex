@@ -1,6 +1,6 @@
 function acc_theta(time)
 
-!  Gives the freestream acceleration in x at time.
+!  Gives the angular acceleration at time.
 
    implicit none
 
@@ -27,7 +27,7 @@ function acc_theta(time)
       last_th, last_w, last_wdot
 !--------------------------------------------------------
 
-   if (xfree == 1) then
+   if (wfree == 1) then
       acc_theta = last_wdot
    else
       acc_theta = w_amp*w_freq*cos(w_freq*Time + w_phase)

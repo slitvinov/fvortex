@@ -80,6 +80,7 @@ C relate the levels.  It mostly parallels the BOX_1 subroutine.
       integer ixy(Nvort)
       integer idummy(Nvort)
       integer BF_marker_temp(Nvort)
+      save ixy, idummy, BF_marker_temp
       real ds2inv
       real xst
       real yst
